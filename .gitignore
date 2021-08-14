@@ -1,0 +1,10 @@
+node_modules/
+dist/
+prisma/migrations/
+.env
+
+yarn.lock
+application.yml
+Lavalink.jar
+logs/
+quarantine/
