@@ -1,7 +1,9 @@
-<h1 align="center">bot-template</h1>
+<h1 align="center">Stereo (v5)</h1>
 
-> Personal discord bot template by DaanGamesDG
+> Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free!
 > Thanks to [this GitHub repo](https://github.com/FrenchDiscord/YliasDiscordBot) for a sort of slash commands plugin for @sapphire/framework (it's not really a plugin, more like a built-in system)
+
+_note: bot is everything except finished, do **not** download it if you don't know what you are doing, I will announce when it's ready._
 
 ## Install
 
