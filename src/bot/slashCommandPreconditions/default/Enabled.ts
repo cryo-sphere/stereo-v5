@@ -4,7 +4,7 @@ import {
 	Identifiers,
 	SlashCommand,
 	SlashCommandPrecondition,
-} from "../../client/structures/slashCommands";
+} from "../../../client/structures/slashCommands";
 
 export class CorePrecondition extends SlashCommandPrecondition {
 	public constructor(context: PieceContext) {

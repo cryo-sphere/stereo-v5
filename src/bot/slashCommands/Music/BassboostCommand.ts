@@ -28,7 +28,7 @@ const bassboosts = [
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "bassboost",
-	preconditions: ["GuildOnly"],
+	preconditions: ["GuildOnly", "DJRole"],
 	description: "Sets the bassboost level for the player",
 	tDescription: "music:bassboost.description",
 	arguments: [

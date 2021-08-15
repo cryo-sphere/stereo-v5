@@ -1,10 +1,10 @@
 import type { CommandInteraction, ApplicationCommandOptionType } from "discord.js";
-import { SlashCommand } from "../../client/structures/slashCommands";
+import { SlashCommand } from "../../../client/structures/slashCommands";
 import {
 	SlashCommandPrecondition,
 	SlashCommandPreconditionContext,
 	SlashCommandPreconditionResult,
-} from "../../client/structures/slashCommands";
+} from "../../../client/structures/slashCommands";
 
 export const SlashCommandArgumentFormats = {
 	URL: /^https?:\/\/.+/gu.test,
@@ -20,7 +20,7 @@ interface SlashCommandArgumentFormatContext extends SlashCommandPreconditionCont
 	formats: SlashCommandArgumentFormatData[];
 }
 
-declare module "../../client/structures/slashCommands" {
+declare module "../../../client/structures/slashCommands" {
 	interface SlashCommandPreconditions {
 		ArgumentFormat: SlashCommandArgumentFormatContext;
 	}

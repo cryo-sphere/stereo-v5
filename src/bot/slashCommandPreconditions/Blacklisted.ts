@@ -9,6 +9,7 @@ export class BlacklistedPrecondition extends SlashCommandPrecondition {
 		)
 			? this.ok()
 			: this.error({
+					identifier: "BotGeneral:blacklisted",
 					message:
 						"You or this server is blacklisted, you can no longer use this bot. If you think that this is a mistake, please DM one of the developers of this bot!",
 			  });

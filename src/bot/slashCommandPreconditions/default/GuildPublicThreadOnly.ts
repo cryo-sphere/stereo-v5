@@ -3,15 +3,15 @@ import {
 	Identifiers,
 	SlashCommandPreconditionResult,
 	SlashCommandPrecondition,
-} from "../../client/structures/slashCommands";
+} from "../../../client/structures/slashCommands";
 
 export class CorePrecondition extends SlashCommandPrecondition {
 	public run(interaction: CommandInteraction): SlashCommandPreconditionResult {
-		return interaction.channel?.isThread() && interaction.channel?.type === "GUILD_PRIVATE_THREAD"
+		return interaction.channel?.isThread() && interaction.channel?.type === "GUILD_PUBLIC_THREAD"
 			? this.ok()
 			: this.error({
-					identifier: Identifiers.PreconditionGuildPrivateThreadOnly,
-					message: "You can only run this command in private server thread channels.",
+					identifier: Identifiers.PreconditionGuildPublicThreadOnly,
+					message: "You can only run this command in public server thread channels.",
 			  });
 	}
 }

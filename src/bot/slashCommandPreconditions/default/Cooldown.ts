@@ -7,7 +7,7 @@ import {
 	SlashCommandPrecondition,
 	SlashCommandPreconditionContext,
 	SlashCommand,
-} from "../../client/structures/slashCommands";
+} from "../../../client/structures/slashCommands";
 
 interface SlashCommandCooldownContext extends SlashCommandPreconditionContext {
 	scope?: BucketScope;

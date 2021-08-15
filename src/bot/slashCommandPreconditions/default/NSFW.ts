@@ -3,7 +3,7 @@ import {
 	Identifiers,
 	SlashCommandPreconditionResult,
 	SlashCommandPrecondition,
-} from "../../client/structures/slashCommands";
+} from "../../../client/structures/slashCommands";
 
 export class CorePrecondition extends SlashCommandPrecondition {
 	public run(interaction: CommandInteraction): SlashCommandPreconditionResult {

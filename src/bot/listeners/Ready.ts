@@ -28,7 +28,8 @@ export default class ReadyListener extends Listener {
 		const configs = await client.prisma.guild.findMany();
 		client.guilds.cache.forEach(async (g) => {
 			const config =
-				configs.find((c) => c.id) || (await client.prisma.guild.create({ data: { id: g.id } }));
+				configs.find((c) => c.id === g.id) ||
+				(await client.prisma.guild.create({ data: { id: g.id } }));
 			client.config.set(g.id, config);
 		});
 	}

@@ -44,7 +44,7 @@ const filters = [
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "filter",
-	preconditions: ["GuildOnly"],
+	preconditions: ["GuildOnly", "DJRole"],
 	description: "Sets the filter for the player",
 	tDescription: "music:filter.description",
 	arguments: [

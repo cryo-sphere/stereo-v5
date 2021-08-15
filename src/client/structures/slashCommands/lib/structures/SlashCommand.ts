@@ -28,13 +28,12 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 	public languageHandler: languageHandler;
 	public client: Client;
 
-	public readonly fullCategory: readonly string[] = [];
+	public readonly fullCategory: readonly string[];
 
 	protected constructor(context: PieceContext, options: SlashCommandOptions = {}) {
 		super(context, {
 			...options,
 			name: (options.name ?? context.name).toLowerCase(),
-			aliases: [],
 		});
 
 		this.arguments = options.arguments ?? [];
@@ -78,22 +77,20 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 	 * The main category for the command
 	 */
 	public get category(): string {
-		return this.fullCategory.length > 0 ? this.fullCategory[0] : "General";
+		return this.fullCategory?.length > 0 ? this.fullCategory[0] : "General";
 	}
 
 	/**
 	 * The sub category for the command
 	 */
 	public get subCategory(): string {
-		return this.fullCategory.length > 1 ? this.fullCategory[1] : "General";
+		return this.fullCategory?.length > 1 ? this.fullCategory[1] : "General";
 	}
 
 	protected parseConstructorPreConditions(options: SlashCommandOptions): void {
 		this.parseConstructorPreConditionsRunIn(options);
 		this.parseConstructorPreConditionsNsfw(options);
 		this.parseConstructorPreConditionsCooldown(options);
-
-		if (this.category.toLocaleLowerCase() === "music") this.preconditions.append("DJRole");
 	}
 
 	protected parseConstructorPreConditionsNsfw(options: SlashCommandOptions): void {
