@@ -13,13 +13,13 @@ import axios from "axios";
 	arguments: [
 		{
 			name: "query",
-			description: "The Search Query (you don't need it when searching via url)",
+			description: "The Search Query",
 			type: "STRING",
 			required: true,
 		},
 		{
 			name: "type",
-			description: "Search type",
+			description: "Search type (you don't need it when searching via url)",
 			type: "STRING",
 			required: false,
 			choices: [
