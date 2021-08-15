@@ -18,8 +18,19 @@ export default class trackStartListener extends LavalinkListener {
 				embeds: [
 					client.utils
 						.embed()
-						.setTitle("new song")
-						.setDescription(`${track.title} - ${Utils.convert(track.duration)}`),
+						.setURL(track.externalUri ?? track.uri)
+						.setThumbnail(track.displayThumbnail())
+						.setTitle(
+							client.languageHandler.translate(player.guild, "MusicGeneral:announce.title", {
+								title: track.title,
+							})
+						)
+						.setDescription(
+							client.languageHandler.translate(player.guild, "MusicGeneral:announce.description", {
+								user: track.requester,
+								duration: Utils.convert(track.duration),
+							})
+						),
 				],
 			})
 			.catch();

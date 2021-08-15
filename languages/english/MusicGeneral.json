@@ -3,5 +3,11 @@
 		"none": ">>> {emoji.error} | You aren't in a Voice channel, you need to join one in order to listen to music.",
 		"wrong": ">>> {emoji.error} | You aren't in the correct voice channel, please join **{voice}**!"
 	},
-	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`"
+	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`",
+	"announce": {
+		"title": "Now playing {title}",
+		"description": "**Requested by <@{user}> – Duration**: `{duration}`"
+	},
+	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
+	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel."
 }

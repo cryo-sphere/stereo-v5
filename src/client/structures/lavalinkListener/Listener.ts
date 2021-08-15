@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Events } from "@sapphire/framework";
 import { Piece, PieceContext, PieceOptions } from "@sapphire/pieces";
-import type { Client } from "discord.js";
+import type { Client as TypeClient } from "discord.js";
 import EventEmitter from "events";
+import Client from "../../Client";
 
 export abstract class LavalinkListener extends Piece {
+	public client: Client;
 	/**
 	 * The emitter, if any.
 	 * @since 2.0.0
@@ -27,6 +29,7 @@ export abstract class LavalinkListener extends Piece {
 	public constructor(context: PieceContext, options: ListenerOptions = {}) {
 		super(context, options);
 
+		this.client = this.container.client as Client;
 		this.emitter = this.container.client.manager;
 		this.event = options.event ?? this.name;
 		this.once = options.once ?? false;
@@ -98,7 +101,7 @@ export abstract class LavalinkListener extends Piece {
 }
 
 export interface ListenerOptions extends PieceOptions {
-	readonly emitter?: keyof Client | EventEmitter;
+	readonly emitter?: keyof TypeClient | EventEmitter | string;
 	readonly event?: string;
 	readonly once?: boolean;
 }
