@@ -19,7 +19,11 @@ export default class queueEmptyListener extends LavalinkListener {
 
 		if (msg) client.announcements.set(player.guild, msg.id);
 
-		const timeout = setTimeout(() => player.destroy(), 12e4);
+		const timeout = setTimeout(() => {
+			player.destroy();
+			msg.edit(client.languageHandler.translate(player.guild, "MusicGeneral:inactive")).catch();
+		}, 12e4);
+
 		client.timeouts.set(player.guild, timeout);
 	}
 }

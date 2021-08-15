@@ -8,6 +8,7 @@ export default class playerDestroyListener extends LavalinkListener {
 	public async run(player: Player): Promise<void> {
 		const { client } = this.container;
 
+		client.announcements.delete(player.guild);
 		const timeout = client.timeouts.get(player.guild);
 		if (timeout) {
 			clearTimeout(timeout);
