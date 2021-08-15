@@ -15,5 +15,10 @@
 	},
 	"filter": {
 		"description": "Sets the filter for the player"
+	},
+	"seek": {
+		"description": "Seeks the current track to the timestamp",
+		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
+		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
 	}
 }
