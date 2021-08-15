@@ -9,7 +9,7 @@ export default class playerCreateListener extends LavalinkListener {
 		const { client } = this.container;
 
 		const config = client.config.get(player.guild);
-		if (config?.afk) {
+		if (!config?.afk) {
 			const timeout = setTimeout(() => player.destroy(), 12e4);
 			client.timeouts.set(player.guild, timeout);
 		}
