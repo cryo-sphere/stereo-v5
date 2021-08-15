@@ -8,6 +8,7 @@ import { Utils } from "@stereo-bot/lavalink";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Seeks the current track to the timestamp",
 	tDescription: "music:seek.description",
+	usage: "<timestamp (ex: 10:30)>",
 	arguments: [
 		{
 			name: "timestamp",

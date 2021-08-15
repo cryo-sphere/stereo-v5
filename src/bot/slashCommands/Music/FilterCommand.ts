@@ -47,6 +47,7 @@ const filters = [
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Sets the filter for the player",
 	tDescription: "music:filter.description",
+	usage: "<filter>",
 	arguments: [
 		{
 			name: "level",
