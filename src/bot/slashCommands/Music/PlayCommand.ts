@@ -2,18 +2,40 @@ import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
 import { CommandInteraction, VoiceChannel } from "discord.js";
 import { Utils } from "@stereo-bot/lavalink";
+import axios from "axios";
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "play",
 	preconditions: ["GuildOnly"],
 	description: "Play a song",
 	tDescription: "music:play.description",
+	usage: "<query> [type (YouTube/SoundCloud/Radio)",
 	arguments: [
 		{
 			name: "query",
-			description: "Search Query",
+			description: "The Search Query (you don't need it when searching via url)",
 			type: "STRING",
 			required: true,
+		},
+		{
+			name: "type",
+			description: "Search type",
+			type: "STRING",
+			required: false,
+			choices: [
+				{
+					name: "YouTube",
+					value: "yt",
+				},
+				{
+					name: "SoundCloud",
+					value: "sc",
+				},
+				{
+					name: "Radio",
+					value: "radio",
+				},
+			],
 		},
 	],
 })
@@ -40,8 +62,22 @@ export default class PingCommand extends SlashCommand {
 			);
 		}
 
-		const query = args.getString("query", true);
-		const res = await player.search(query, interaction.user.id, "yt");
+		let query = args.getString("query", true);
+		let type: string | null = args.getString("type");
+		if (type === "radio") {
+			const api = `https://de1.api.radio-browser.info/json/stations/byname/${query}`;
+			const { data } = await axios.get(api).catch(() => ({ data: null }));
+
+			if (!data)
+				return interaction.followUp(
+					this.languageHandler.translate(interaction.guildId, "music:play.noResults")
+				);
+
+			type = null;
+			query = data[0].url_resolved || data[0].url;
+		}
+
+		const res = await player.search(query, interaction.user.id, type as "yt" | "sc");
 		const config = this.client.config.get(interaction.guildId);
 
 		switch (res.loadType) {
@@ -72,7 +108,7 @@ export default class PingCommand extends SlashCommand {
 
 					await interaction.followUp(
 						this.languageHandler.translate(interaction.guildId, "music:play.trackLoaded", {
-							track: track.title,
+							track: track.title ?? "unknown title",
 							duration: Utils.convert(track.duration ?? 0),
 						})
 					);
