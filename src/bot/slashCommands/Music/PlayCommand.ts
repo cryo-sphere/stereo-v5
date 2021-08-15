@@ -43,6 +43,7 @@ export default class PingCommand extends SlashCommand {
 
 		const query = args.getString("query", true);
 		const res = await player.search(query, interaction.user.id, "yt");
+		const config = this.client.config.get(interaction.guildId);
 
 		switch (res.loadType) {
 			case "LOAD_FAILED":
@@ -84,6 +85,11 @@ export default class PingCommand extends SlashCommand {
 
 		if (player.state === "DISCONNECTED")
 			player.setVoice(state.channelId).setText(interaction.channelId).connect();
-		if (!player.playing && !player.paused) player.play();
+		if (!player.playing && !player.paused) {
+			if (config?.autoshuffle) player.queue.shuffle();
+			if (config?.autorepeat) player.queue.setRepeatQueue(true);
+
+			player.play();
+		}
 	}
 }
