@@ -61,6 +61,7 @@ export default class Client extends SapphireClient {
 	public config = new Collection<string, Guild>();
 
 	public announcements = new Collection<string, string>();
+	public timeouts = new Collection<string, NodeJS.Timeout>();
 
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
 	public loggers: Collection<string, Logger> = new Collection();
@@ -141,7 +142,9 @@ declare module "@sapphire/framework" {
 
 		loggers: Collection<string, Logger>;
 		config: Collection<string, Guild>;
+
 		announcements: Collection<string, string>;
+		timeouts: Collection<string, NodeJS.Timeout>;
 	}
 }
 

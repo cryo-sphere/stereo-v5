@@ -36,5 +36,10 @@ export default class trackStartListener extends LavalinkListener {
 			.catch();
 
 		if (msg) client.announcements.set(channel.id, msg.id);
+		const timeout = client.timeouts.get(player.guild);
+		if (timeout) {
+			clearTimeout(timeout);
+			client.timeouts.delete(player.guild);
+		}
 	}
 }
