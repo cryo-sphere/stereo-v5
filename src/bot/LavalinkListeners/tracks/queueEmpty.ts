@@ -11,7 +11,8 @@ export default class queueEmptyListener extends LavalinkListener {
 		if (!channel || !channel.isText()) return;
 
 		const old = client.announcements.get(player.guild);
-		if (old && client.config.get(player.guild)?.deleteAnnounce) await channel.messages.delete(old);
+		const config = client.config.get(player.guild);
+		if (old && config?.deleteAnnounce) await channel.messages.delete(old);
 
 		const msg = await channel
 			.send(client.languageHandler.translate(player.guild, "MusicGeneral:queueEmpty"))
@@ -24,6 +25,6 @@ export default class queueEmptyListener extends LavalinkListener {
 			msg.edit(client.languageHandler.translate(player.guild, "MusicGeneral:inactive")).catch();
 		}, 12e4);
 
-		client.timeouts.set(player.guild, timeout);
+		if (config?.afk) client.timeouts.set(player.guild, timeout);
 	}
 }
