@@ -9,7 +9,7 @@ export default class trackStartListener extends LavalinkListener {
 		const channel = await this.client.utils.getChannel(player.channels.text ?? "");
 		if (!channel || !channel.isText()) return;
 
-		const old = this.client.announcements.get(channel.id);
+		const old = this.client.announcements.get(player.guild);
 		if (old && this.client.config.get(player.guild)?.deleteAnnounce)
 			await channel.messages.delete(old);
 
