@@ -6,7 +6,6 @@ import { Utils } from "@stereo-bot/lavalink";
 @ApplyOptions<SlashCommand.Options>({
 	name: "play",
 	preconditions: ["GuildOnly"],
-	defaultPermission: true,
 	description: "Play a song",
 	tDescription: "music:play.description",
 	arguments: [
@@ -25,8 +24,8 @@ export default class PingCommand extends SlashCommand {
 
 		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
 		const player =
-			this.client.manager.get(interaction.guild?.id as string) ||
-			this.client.manager.create({ guild: interaction.guild?.id as string });
+			this.client.manager.get(interaction.guildId) ||
+			this.client.manager.create({ guild: interaction.guildId });
 
 		if (!state || !state.channelId)
 			return interaction.followUp(

@@ -4,5 +4,10 @@
 		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
 		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
 		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+	},
+	"nowplaying": {
+		"description": "Shows the information about the current playing song",
+		"title": "Now playing - {title}",
+		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	}
 }
