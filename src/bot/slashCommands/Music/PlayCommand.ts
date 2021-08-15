@@ -1,16 +1,18 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
-import { CommandInteraction } from "discord.js";
+import { CommandInteraction, VoiceChannel } from "discord.js";
+import { Utils } from "@stereo-bot/lavalink";
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "play",
 	preconditions: ["GuildOnly"],
 	defaultPermission: true,
-	description: "play command",
+	description: "Play a song",
+	tDescription: "music:play.description",
 	arguments: [
 		{
 			name: "query",
-			description: "search query",
+			description: "Search Query",
 			type: "STRING",
 			required: true,
 		},
@@ -26,9 +28,18 @@ export default class PingCommand extends SlashCommand {
 			this.client.manager.get(interaction.guild?.id as string) ||
 			this.client.manager.create({ guild: interaction.guild?.id as string });
 
-		if (!state || !state.channelId) return interaction.followUp("Not in a voice channel");
-		if (player.channels.voice && state.channelId !== player.channels.voice)
-			return interaction.followUp("Not in correct voice channel");
+		if (!state || !state.channelId)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.none")
+			);
+		if (player.channels.voice && state.channelId !== player.channels.voice) {
+			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
+					voice: channel.name,
+				})
+			);
+		}
 
 		const query = args.getString("query", true);
 		const res = await player.search(query, interaction.user.id, "yt");
@@ -36,18 +47,36 @@ export default class PingCommand extends SlashCommand {
 		switch (res.loadType) {
 			case "LOAD_FAILED":
 				return interaction.followUp(
-					`Error while searching for your query: ${res.exception?.message}`
+					this.languageHandler.translate(interaction.guildId, "MusicGeneral:error", {
+						error: res.exception?.message ?? "unknown loading error",
+					})
 				);
 			case "NO_MATCHES":
-				return interaction.followUp("Nothing found for your search query");
+				return interaction.followUp(
+					this.languageHandler.translate(interaction.guildId, "music:play.noResults")
+				);
 			case "PLAYLIST_LOADED":
 				player.queue.add(...res.tracks);
-				interaction.followUp(`Successfully loaded playlist: **${res.playlistInfo?.name}**`);
+				await interaction.followUp(
+					this.languageHandler.translate(interaction.guildId, "music:play.playlistLoaded", {
+						playlist: res.playlistInfo?.name,
+						duration: Utils.convert(res.playlistInfo?.duration ?? 0),
+					})
+				);
 				break;
 			case "SEARCH_RESULT":
 			case "TRACK_LOADED":
-				player.queue.add(res.tracks[0]);
-				interaction.followUp(`Successfully loaded track **${res.tracks[0].title}**`);
+				{
+					const track = res.tracks[0];
+					player.queue.add(track);
+
+					await interaction.followUp(
+						this.languageHandler.translate(interaction.guildId, "music:play.trackLoaded", {
+							track: track.title,
+							duration: Utils.convert(track.duration ?? 0),
+						})
+					);
+				}
 				break;
 			default:
 				break;

@@ -76,7 +76,6 @@ export class SlashCommandRegistrar {
 		this.logger.debug("Refreshing commands for test guild...");
 
 		const body = this.slashData.map((data) => ({ ...data, guild_id: guild.id }));
-		await guild.commands.fetch();
 
 		const commands = (await this.rest.put(
 			Routes.applicationGuildCommands(this.client.id as string, guild.id),
@@ -104,7 +103,6 @@ export class SlashCommandRegistrar {
 		this.logger.debug("Refreshing commands for support guild...");
 
 		const body = this.slashData.map((data) => ({ ...data, guild_id: guild.id }));
-		await guild.commands.fetch();
 
 		const commands = (await this.rest.put(
 			Routes.applicationGuildCommands(this.client.id as string, guild.id),

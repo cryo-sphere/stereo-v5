@@ -1,0 +1,7 @@
+{
+	"vc": {
+		"none": ">>> {emoji.error} | You aren't in a Voice channel, you need to join one in order to listen to music.",
+		"wrong": ">>> {emoji.error} | You aren't in the correct voice channel, please join **{voice}**!"
+	},
+	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`"
+}

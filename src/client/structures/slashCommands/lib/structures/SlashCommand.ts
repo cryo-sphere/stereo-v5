@@ -14,13 +14,18 @@ import {
 } from "discord.js";
 import { sep } from "path";
 import Client from "../../../../Client";
+import languageHandler from "../../../languageHandler";
 
 export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends AliasPiece {
 	public description: string;
+	public tDescription: string;
+	public defaultPermission: boolean;
+
 	public preconditions: SlashCommandPreconditionContainerArray;
 	public arguments: ApplicationCommandOptionData[];
-	public defaultPermission: boolean;
 	public permissions: ApplicationCommandPermissionData[];
+
+	public languageHandler: languageHandler;
 	public client: Client;
 
 	public readonly fullCategory: readonly string[] = [];
@@ -31,12 +36,17 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 			name: (options.name ?? context.name).toLowerCase(),
 			aliases: [],
 		});
-		this.description = options.description ?? "";
+
 		this.arguments = options.arguments ?? [];
-		this.defaultPermission = options.defaultPermission ?? true;
 		this.permissions = options.permissions ?? [];
 
+		this.defaultPermission = options.defaultPermission ?? true;
+
+		this.description = options.description ?? "";
+		this.tDescription = options.tDescription ?? "";
+
 		this.client = this.container.client as Client;
+		this.languageHandler = this.container.client.languageHandler;
 
 		this.preconditions = new SlashCommandPreconditionContainerArray(options.preconditions);
 		this.parseConstructorPreConditions(options);
@@ -205,6 +215,7 @@ export const enum SlashCommandPreConditions {
 export interface SlashCommandOptions extends PieceOptions {
 	arguments?: ApplicationCommandOptionData[];
 	description?: string;
+	tDescription?: string;
 	usage?: string;
 	defaultPermission?: boolean;
 	permissions?: ApplicationCommandPermissionData[];

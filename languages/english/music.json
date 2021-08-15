@@ -1,0 +1,8 @@
+{
+	"play": {
+		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
+		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
+		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+	}
+}

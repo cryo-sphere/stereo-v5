@@ -18,9 +18,10 @@ import Logger from "./structures/Logger";
 import Utils from "./Utils";
 import * as constants from "./constants";
 import BlacklistManager from "./structures/BlacklistManager";
-import { PrismaClient } from "@prisma/client";
+import { Guild, PrismaClient } from "@prisma/client";
 import { SlashCommandStore, SlashCommandPreconditionStore } from "./structures/slashCommands";
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
+import languageHandler from "./structures/languageHandler";
 
 export default class Client extends SapphireClient {
 	public owners: string[];
@@ -54,6 +55,9 @@ export default class Client extends SapphireClient {
 			],
 		}
 	);
+
+	public languageHandler = new languageHandler(this);
+	public config = new Collection<string, Guild>();
 
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
 	public loggers: Collection<string, Logger> = new Collection();
@@ -124,13 +128,17 @@ declare module "@sapphire/framework" {
 	class SapphireClient {
 		owners: string[];
 		constants: typeof constants;
-		isOwner(id: string): boolean;
 
+		isOwner(id: string): boolean;
+		utils: Utils;
+
+		languageHandler: languageHandler;
+		blacklistManager: BlacklistManager;
 		manager: Manager;
 		prisma: PrismaClient;
-		blacklistManager: BlacklistManager;
-		utils: Utils;
+
 		loggers: Collection<string, Logger>;
+		config: Collection<string, Guild>;
 	}
 }
 
