@@ -22,6 +22,7 @@ import { Guild, PrismaClient } from "@prisma/client";
 import { SlashCommandStore, SlashCommandPreconditionStore } from "./structures/slashCommands";
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 import languageHandler from "./structures/languageHandler";
+import { LavalinkListenerStore } from "./structures/lavalinkListener";
 
 export default class Client extends SapphireClient {
 	public owners: string[];
@@ -59,6 +60,8 @@ export default class Client extends SapphireClient {
 	public languageHandler = new languageHandler(this);
 	public config = new Collection<string, Guild>();
 
+	public announcements = new Collection<string, string>();
+
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
 	public loggers: Collection<string, Logger> = new Collection();
 	public utils: Utils = new Utils(this);
@@ -84,19 +87,18 @@ export default class Client extends SapphireClient {
 		const DataLogger = new Logger({ name: "DB", webhook: process.env.LOGS });
 		this.loggers.set("db", DataLogger);
 
+		const LavalinkLogger = new Logger({ name: "LAVALINK", webhook: process.env.LOGS });
+		this.loggers.set("lavalink", LavalinkLogger);
+
 		if (options.debug)
 			this.on("debug", (msg) => {
 				botLogger.debug(msg);
 			});
 
-		const slashStore = new SlashCommandStore();
-		const slashPreConditions = new SlashCommandPreconditionStore();
-		this.stores.register(slashStore);
-		this.stores.register(slashPreConditions);
-
-		this.manager.on("socketConnect", (socket) =>
-			botLogger.info(`${socket.options.id} is connected to lavalink`)
-		);
+		this.stores
+			.register(new SlashCommandStore())
+			.register(new SlashCommandPreconditionStore())
+			.register(new LavalinkListenerStore());
 
 		this.ws
 			.on("VOICE_SERVER_UPDATE", (data) => this.manager.voiceServerUpdate(data))
@@ -139,6 +141,7 @@ declare module "@sapphire/framework" {
 
 		loggers: Collection<string, Logger>;
 		config: Collection<string, Guild>;
+		announcements: Collection<string, string>;
 	}
 }
 
@@ -150,5 +153,6 @@ declare module "@sapphire/pieces" {
 		listeners: ListenerStore;
 		preconditions: PreconditionStore;
 		slashCommandPreconditions: SlashCommandPreconditionStore;
+		LavalinkListeners: LavalinkListenerStore;
 	}
 }

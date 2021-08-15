@@ -40,10 +40,6 @@ export default class Utils {
 			: `\`${formattedPerms[0]}\``;
 	}
 
-	public createEmbed(options: MessageEmbedOptions): MessageEmbed[] {
-		return [new MessageEmbed({ color: process.env.COLOUR as `#${string}`, ...options })];
-	}
-
 	public embed(options?: MessageEmbedOptions): MessageEmbed {
 		return new MessageEmbed({ color: process.env.COLOUR as `#${string}`, ...options });
 	}
