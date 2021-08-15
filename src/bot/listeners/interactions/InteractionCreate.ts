@@ -26,10 +26,11 @@ export default class InteractionCreate extends Listener<
 
 		if (!command) {
 			interaction.client.emit(Events.UnknownSlashCommand, { interaction, commandName });
-
 			return;
 		}
 
+		if (interaction.inGuild() && !this.container.client.guilds.cache.has(interaction.guildId))
+			return;
 		const context = { commandName };
 		const payload = {
 			interaction,
