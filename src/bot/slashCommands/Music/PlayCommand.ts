@@ -86,8 +86,6 @@ export default class PingCommand extends SlashCommand {
 			player.setVoice(state.channelId).setText(interaction.channelId).connect();
 		if (!player.playing && !player.paused) {
 			if (config?.autoshuffle) player.queue.shuffle();
-			if (config?.autorepeat) player.queue.setRepeatQueue(true);
-
 			player.play();
 		}
 	}
