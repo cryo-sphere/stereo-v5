@@ -3,22 +3,38 @@ import { ApplyOptions } from "@sapphire/decorators";
 import { CommandInteraction } from "discord.js";
 import { Filter } from "@stereo-bot/lavalink";
 
-const bassboosts = [
+const filters = [
 	{
-		name: "Extreme",
-		value: "bassboostExtreme",
+		name: "Karaoke",
+		value: "karaoke",
 	},
 	{
-		name: "Hard",
-		value: "bassboostHard",
+		name: "Tremolo",
+		value: "tremolo",
 	},
 	{
-		name: "Medium",
-		value: "bassboostMedium",
+		name: "Pop",
+		value: "pop",
 	},
 	{
-		name: "Low",
-		value: "bassboostLow",
+		name: "8D",
+		value: "eightD",
+	},
+	{
+		name: "Slowed",
+		value: "slowed",
+	},
+	{
+		name: "Vaporwave",
+		value: "vaporwave",
+	},
+	{
+		name: "Nightcore",
+		value: "nightcore",
+	},
+	{
+		name: "Soft",
+		value: "soft",
 	},
 	{
 		name: "None",
@@ -27,21 +43,21 @@ const bassboosts = [
 ];
 
 @ApplyOptions<SlashCommand.Options>({
-	name: "bassboost",
+	name: "filter",
 	preconditions: ["GuildOnly"],
-	description: "Sets the bassboost level for the player",
-	tDescription: "music:bassboost.description",
+	description: "Sets the filter for the player",
+	tDescription: "music:filter.description",
 	arguments: [
 		{
 			name: "level",
-			description: "the bassboost level",
+			description: "the filter you want to use",
 			type: "STRING",
 			required: true,
-			choices: bassboosts,
+			choices: filters,
 		},
 	],
 })
-export default class BassboostCommand extends SlashCommand {
+export default class FilterCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 
@@ -61,7 +77,7 @@ export default class BassboostCommand extends SlashCommand {
 
 		await interaction.reply(
 			this.languageHandler.translate(interaction.guildId, "MusicGeneral:filter", {
-				filter: `bassboost - ${bassboosts.find((x) => x.value === filter)?.name}`,
+				filter: filters.find((x) => x.value === filter)?.name,
 			})
 		);
 	}

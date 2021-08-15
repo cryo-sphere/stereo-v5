@@ -12,5 +12,8 @@
 	},
 	"bassboost": {
 		"description": "Sets the bassboost level for the player"
+	},
+	"filter": {
+		"description": "Sets the filter for the player"
 	}
 }
