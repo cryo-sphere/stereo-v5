@@ -7,7 +7,7 @@ export class OwnerOnlyPrecondition extends SlashCommandPrecondition {
 			? this.ok()
 			: this.error({
 					identifier: "BotGeneral:owneronly",
-					message: `Only bot developers of **${this.container.client.user?.tag}** are able to use this command.`,
+					context: { bot: this.container.client.user?.tag },
 			  });
 	}
 }

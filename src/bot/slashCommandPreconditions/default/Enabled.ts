@@ -11,17 +11,12 @@ export class CorePrecondition extends SlashCommandPrecondition {
 		super(context, { position: 10 });
 	}
 
-	public run(
-		_: CommandInteraction,
-		command: SlashCommand,
-		context: SlashCommandPrecondition.Context
-	): SlashCommandPrecondition.Result {
+	public run(_: CommandInteraction, command: SlashCommand): SlashCommandPrecondition.Result {
 		return command.enabled
 			? this.ok()
 			: this.error({
 					identifier: Identifiers.CommandDisabled,
 					message: "This command is disabled.",
-					context,
 			  });
 	}
 }

@@ -103,8 +103,8 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 	}
 
 	protected parseConstructorPreConditionsCooldown(options: SlashCommandOptions): void {
-		const limit = options.cooldownLimit ?? 1;
-		const delay = options.cooldownDelay ?? 0;
+		const limit = options.cooldownLimit ?? 2;
+		const delay = options.cooldownDelay ?? 5e3;
 
 		if (limit && delay)
 			this.preconditions.append({

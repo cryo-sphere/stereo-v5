@@ -2,12 +2,12 @@ import { RateLimitManager } from "@sapphire/ratelimits";
 import type { CommandInteraction } from "discord.js";
 import { BucketScope } from "@sapphire/framework";
 import {
-	Identifiers,
 	SlashCommandPreconditionResult,
 	SlashCommandPrecondition,
 	SlashCommandPreconditionContext,
 	SlashCommand,
 } from "../../../client/structures/slashCommands";
+import ms from "ms";
 
 interface SlashCommandCooldownContext extends SlashCommandPreconditionContext {
 	scope?: BucketScope;
@@ -34,11 +34,8 @@ export class CorePrecondition extends SlashCommandPrecondition {
 			const remaining = ratelimit.remainingTime;
 
 			return this.error({
-				identifier: Identifiers.SlashCommandPreconditionCooldown,
-				message: `You have just used this command. Try again in ${Math.ceil(
-					remaining / 1000
-				)} second${remaining > 1000 ? "s" : ""}.`,
-				context: { remaining },
+				identifier: "BotGeneral:cooldown",
+				context: { remaining: ms(remaining) },
 			});
 		}
 
