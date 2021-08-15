@@ -9,5 +9,8 @@
 		"description": "Shows the information about the current playing song",
 		"title": "Now playing - {title}",
 		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Sets the bassboost level for the player"
 	}
 }
