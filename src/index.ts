@@ -9,8 +9,8 @@ new Client({
 	partials: [],
 	activity: [
 		{
-			type: "LISTENING",
-			name: "DaanGamesDG",
+			type: "PLAYING",
+			name: "/help - stereo-bot.tk",
 		},
 	],
 }).start();
