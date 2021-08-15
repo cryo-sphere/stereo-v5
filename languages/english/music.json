@@ -20,5 +20,10 @@
 		"description": "Seeks the current track to the timestamp",
 		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
 		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+	},
+	"disconnect": {
+		"description": "Disconnects from the voice channel",
+		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
+		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
 	}
 }
