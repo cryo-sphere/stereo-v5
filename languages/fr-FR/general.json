@@ -1,6 +1,0 @@
-{
-	"ping": {
-		"description": "Pong!",
-		"reply": "Heartbeat: `{heartbeat}` ms\nRoundtrip took: `{roundtrip}` ms\nUptime: `{uptime}`"
-	}
-}
