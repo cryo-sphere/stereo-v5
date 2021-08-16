@@ -1,0 +1,35 @@
+{
+	"play": {
+		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
+		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
+		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+	},
+	"nowplaying": {
+		"description": "Shows the information about the current playing song",
+		"title": "Now playing - {title}",
+		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Sets the bassboost level for the player"
+	},
+	"filter": {
+		"description": "Sets the filter for the player"
+	},
+	"seek": {
+		"description": "Seeks the current track to the timestamp",
+		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
+		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+	},
+	"disconnect": {
+		"description": "Disconnects from the voice channel"
+	},
+	"join": {
+		"description": "Get Stereo to join your voice channel"
+	},
+	"volume": {
+		"description": "Changes the volume of the player",
+		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
+		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
+	}
+}
