@@ -11,6 +11,7 @@ export default class ReadyListener extends Listener {
 
 		client.manager.init(client.user?.id);
 		client.languageHandler.loadAll();
+		client.Api.start();
 		this.loadConfig();
 
 		const registrar = new SlashCommandRegistrar();

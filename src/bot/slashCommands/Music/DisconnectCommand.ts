@@ -21,7 +21,7 @@ export default class DisconnectCommand extends SlashCommand {
 		player.destroy();
 
 		const channel = (await this.client.utils.getChannel(
-			player.channels.text ?? ""
+			player.channels.voice ?? ""
 		)) as VoiceChannel;
 		await interaction.reply(
 			this.languageHandler.translate(interaction.guildId, "MusicGeneral:disconnected", {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
 	ArgumentStore,
 	CommandStore,
@@ -23,6 +24,7 @@ import { SlashCommandStore, SlashCommandPreconditionStore } from "./structures/s
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 import languageHandler from "./structures/languageHandler";
 import { LavalinkListenerStore } from "./structures/lavalinkListener";
+import { Api, AuthCookie } from "./structures/Api";
 
 export default class Client extends SapphireClient {
 	public owners: string[];
@@ -57,15 +59,16 @@ export default class Client extends SapphireClient {
 		}
 	);
 
-	public languageHandler = new languageHandler(this);
+	public loggers = new Collection<string, Logger>();
 	public config = new Collection<string, Guild>();
-
 	public announcements = new Collection<string, string>();
 	public timeouts = new Collection<string, NodeJS.Timeout>();
+	public ApiCache = new Collection<string, any>();
 
-	public blacklistManager: BlacklistManager = new BlacklistManager(this);
-	public loggers: Collection<string, Logger> = new Collection();
-	public utils: Utils = new Utils(this);
+	public blacklistManager = new BlacklistManager(this);
+	public languageHandler = new languageHandler(this);
+	public utils = new Utils(this);
+	public Api: Api;
 
 	constructor(options: ClientOptions) {
 		super({
@@ -90,6 +93,11 @@ export default class Client extends SapphireClient {
 
 		const LavalinkLogger = new Logger({ name: "LAVALINK", webhook: process.env.LOGS });
 		this.loggers.set("lavalink", LavalinkLogger);
+
+		const ApiLogger = new Logger({ name: "API", webhook: process.env.LOGS });
+		this.loggers.set("api", ApiLogger);
+
+		this.Api = new Api(this);
 
 		if (options.debug)
 			this.on("debug", (msg) => {
@@ -129,26 +137,26 @@ interface ClientOptions {
 declare module "@sapphire/framework" {
 	// eslint-disable-next-line @typescript-eslint/no-shadow
 	class SapphireClient {
-		owners: string[];
 		constants: typeof constants;
-
+		owners: string[];
 		isOwner(id: string): boolean;
-		utils: Utils;
 
+		utils: Utils;
 		languageHandler: languageHandler;
 		blacklistManager: BlacklistManager;
 		manager: Manager;
 		prisma: PrismaClient;
+		Api: Api;
 
 		loggers: Collection<string, Logger>;
 		config: Collection<string, Guild>;
-
+		ApiCache: Collection<string, any>;
 		announcements: Collection<string, string>;
 		timeouts: Collection<string, NodeJS.Timeout>;
 	}
 }
 
-declare module "@sapphire/pieces" {
+declare module "@sapphire/framework" {
 	interface StoreRegistryEntries {
 		arguments: ArgumentStore;
 		commands: CommandStore;
@@ -157,5 +165,14 @@ declare module "@sapphire/pieces" {
 		preconditions: PreconditionStore;
 		slashCommandPreconditions: SlashCommandPreconditionStore;
 		LavalinkListeners: LavalinkListenerStore;
+	}
+}
+
+declare global {
+	// eslint-disable-next-line @typescript-eslint/no-namespace
+	namespace Express {
+		export interface Request {
+			auth: AuthCookie | null;
+		}
 	}
 }

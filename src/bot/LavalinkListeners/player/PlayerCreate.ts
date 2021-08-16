@@ -14,10 +14,14 @@ export default class playerCreateListener extends LavalinkListener {
 			client.timeouts.set(player.guild, timeout);
 		}
 
-		if (config?.autorepeat) player.queue.setRepeatQueue(true);
-		if (config?.defaultbassboost !== "none")
-			player.filters.apply(config?.defaultbassboost as Filter);
-		if (config?.defaultfilter !== "none") player.filters.apply(config?.defaultfilter as Filter);
+		const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+
+		if (config) {
+			if (config?.autorepeat) player.queue.setRepeatQueue(true);
+			if (config?.defaultbassboost !== "none")
+				player.filters.apply(`bassboost${capitalize(config?.defaultbassboost)}` as Filter);
+			if (config?.defaultfilter !== "none") player.filters.apply(config?.defaultfilter as Filter);
+		}
 
 		player.setVolume(config?.defaultvolume ?? 100);
 	}
