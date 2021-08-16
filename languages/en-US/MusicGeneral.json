@@ -1,0 +1,20 @@
+{
+	"vc": {
+		"none": ">>> {emoji.error} | You aren't in a Voice channel, you need to join one in order to listen to music.",
+		"wrong": ">>> {emoji.error} | You aren't in the correct voice channel, please join **{voice}**!",
+		"alreadyCreated": ">>> {emoji.redcross} | I am already connected to **{voice}**!",
+		"disconnected": ">>> 👋 | Successfully disconnected from `{channel}`.",
+		"connected": ">>> 👋 | Successfully connected to `{channel}`."
+	},
+	"announce": {
+		"title": "Now playing {title}",
+		"description": "**Requested by <@{user}> – Duration**: `{duration}`"
+	},
+	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`",
+	"noPlayer": ">>> {emoji.redcross} | There is no music player in this server.",
+	"noTrack": ">>> {emoji.redcross} | There is nothing playing in this server.",
+	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
+	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel.",
+	"filter": ">>> 🎛 | Successfully applied the filter **{filter}**, it may take a few seconds before this filter is working.",
+	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command."
+}
