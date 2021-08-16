@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from "fs";
 import Client from "../Client";
 import dotprop from "dot-prop";
 import { join } from "path";
+import { languages } from "../constants/settings";
 
 export default class languageHandler {
 	public languages: Record<string, Record<string, string>> = {};
@@ -16,7 +17,7 @@ export default class languageHandler {
 		path: string,
 		vars: Record<string, unknown> = {}
 	): string {
-		const language = this.client.config.get(id ?? "")?.language ?? "english";
+		const language = languages[this.client.config.get(id ?? "")?.language ?? "english"] ?? "en-US";
 		const emojis = Object.keys(this.client.constants.emojis).reduce(
 			(o, key) =>
 				Object.assign(o, {

@@ -2,6 +2,7 @@ import { Logger } from "@daangamesdg/logger";
 import { Guild } from "@prisma/client";
 import { Request, Response, Router } from "express";
 import Client from "../../../Client";
+import { bassboost, defaultConfig, filters } from "../../../constants/settings";
 import Utils from "../utils";
 
 export class ApiRoute {
@@ -56,19 +57,7 @@ export class ApiRoute {
 		const guild = this.client.guilds.cache.get(this.utils.parseQuery(guildId));
 		if (!guild) return res.send(null);
 
-		const config = this.client.config.get(guild.id) ?? {
-			djrole: "",
-			language: "english",
-			defaultvolume: 100,
-			defaultfilter: "none",
-			defaultbassboost: "none",
-			autoshuffle: false,
-			autorepeat: false,
-			announce: true,
-			deleteAnnounce: true,
-			afk: false,
-			partner: false,
-		};
+		const config = this.client.config.get(guild.id) ?? defaultConfig;
 
 		const member = await this.client.utils.fetchMember(req.auth.userId, guild);
 		if (!member || !member.permissions.has("ADMINISTRATOR", true)) return res.send(null);
@@ -125,11 +114,27 @@ export class ApiRoute {
 			const member = await this.client.utils.fetchMember(req.auth.userId, guild);
 			if (!member || !member.permissions.has("ADMINISTRATOR", true)) return res.send(null);
 
+			const { data } = body;
+			// to do: better validation
 			const valid: Guild = {
 				...config,
-				...body.data,
-				afk: config?.partner ? body.data.afk : false,
+				afk: config?.partner ? data.afk : false,
 				partner: config?.partner ?? false,
+				defaultbassboost: bassboost.includes(data.defaultbassboost)
+					? data.defaultbassboost
+					: "none",
+				defaultfilter: filters.includes(data.defaultfilter) ? data.defaultfilter : "none",
+				announce: typeof data.announce === "boolean" ? data.announce : true,
+				deleteAnnounce: typeof data.deleteAnnounce === "boolean" ? data.deleteAnnounce : true,
+				autorepeat: typeof data.autorepeat === "boolean" ? data.autorepeat : true,
+				autoshuffle: typeof data.autoshuffle === "boolean" ? data.autoshuffle : true,
+				id: guild.id,
+				defaultvolume:
+					data.defaultvolume > 200 || data.defaultvolume < 1 ? 100 : data.defaultvolume,
+				language: Object.keys(this.client.languageHandler.languages).includes(data.language)
+					? data.language
+					: "en-US",
+				djrole: typeof data.djrole === "string" ? data.djrole : "",
 			};
 			await this.client.prisma.guild.update({ where: { id: body.guildId }, data: valid });
 			this.client.config.set(body.guildId, valid);
