@@ -3,5 +3,5 @@ api_token_env: CROWDIN_PERSONAL_TOKEN
 commit_message: new translations for %original_file_name% (%language%)
 append_commit_message: false
 files:
-  - source: /languages/english/*.json
+  - source: /languages/en-US/*.json
     translation: /languages/%locale%/%original_file_name%
