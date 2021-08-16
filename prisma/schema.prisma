@@ -17,7 +17,7 @@ model botBlacklist {
 model Guild {
   id               String  @id
   djrole           String?
-  language         String  @default("english")
+  language         String  @default("en-US")
   defaultvolume    Int     @default(100)
   defaultfilter    String  @default("none")
   defaultbassboost String  @default("none")
