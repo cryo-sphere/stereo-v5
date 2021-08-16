@@ -22,8 +22,9 @@
 		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
 	},
 	"disconnect": {
-		"description": "Disconnects from the voice channel",
-		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
-		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+		"description": "Disconnects from the voice channel"
+	},
+	"join": {
+		"description": "Get Stereo to join your voice channel"
 	}
 }

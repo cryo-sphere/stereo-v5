@@ -24,7 +24,7 @@ export default class DisconnectCommand extends SlashCommand {
 			player.channels.voice ?? ""
 		)) as VoiceChannel;
 		await interaction.reply(
-			this.languageHandler.translate(interaction.guildId, "MusicGeneral:disconnected", {
+			this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.disconnected", {
 				channel: channel.name ?? "deleted-channel",
 			})
 		);
