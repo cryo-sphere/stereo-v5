@@ -63,19 +63,17 @@ export default class Utils {
 
 	static async revokeToken(token: string) {
 		try {
-			const data = await axios.post(
-				"https://discord.com/api/v9/oauth2/token/revoke",
-				{
+			const data = await axios("https://discord.com/api/v9/oauth2/token/revoke", {
+				method: "POST",
+				data: stringify({
 					token,
 					client_id: process.env.DISCORD_ID,
 					client_secret: process.env.DISCORD_SECRET,
+				}),
+				headers: {
+					"content-type": "application/x-www-form-urlencoded",
 				},
-				{
-					headers: {
-						"content-type": "application/x-www-form-urlencoded",
-					},
-				}
-			);
+			});
 
 			return data;
 		} catch (e) {

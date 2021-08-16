@@ -42,7 +42,9 @@ export class OauthRoute {
 
 	private login(_: Request, res: Response) {
 		res.redirect(
-			`https://discord.com/api/v9/oauth2/authorize?client_id=711468893457088553&redirect_uri=${encodeURIComponent(
+			`https://discord.com/api/v9/oauth2/authorize?client_id=${
+				this.client.user?.id
+			}&redirect_uri=${encodeURIComponent(
 				process.env.DISCORD_URI as string
 			)}&response_type=code&scope=identify%20guilds`
 		);
