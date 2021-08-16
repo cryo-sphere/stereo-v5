@@ -26,5 +26,10 @@
 	},
 	"join": {
 		"description": "Get Stereo to join your voice channel"
+	},
+	"volume": {
+		"description": "Changes the volume of the player",
+		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
+		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
 	}
 }
