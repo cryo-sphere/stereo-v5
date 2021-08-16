@@ -1,8 +1,7 @@
 project_id: '470762'
-api_token_env: 'CROWDIN_PERSONAL_TOKEN'
-commit_message: 'new translations for %original_file_name% (%language%)'
+api_token_env: CROWDIN_PERSONAL_TOKEN
+commit_message: new translations for %original_file_name% (%language%)
 append_commit_message: false
-
 files:
-  - source: /src/languages/english/*.json
-    translation: /src/languages/%locale%/%original_file_name%
+  - source: /languages/english/*.json
+    translation: /languages/%locale%/%original_file_name%
