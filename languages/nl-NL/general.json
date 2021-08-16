@@ -1,6 +1,6 @@
 {
 	"ping": {
 		"description": "Pong!",
-		"reply": "Hartslag: `{heartbeat}` ms\nRondreis duurde: `{roundtrip}` ms\nUptime: `{uptime}`"
+		"reply": "Heartbeat: `{heartbeat}` ms\nRoundtrip took: `{roundtrip}` ms\nUptime: `{uptime}`"
 	}
 }
