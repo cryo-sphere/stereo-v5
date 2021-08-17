@@ -1,5 +1,7 @@
 {
 	"cooldown": ">>> ⌚ | Tu viens d'utiliser cette commande. Essaie à nouveau dans `{remaining}`.",
-	"owneronly": ">>> {emojis.redcross} | Seuls les développeurs du bot de **${bot}** peuvent utiliser cette commande.",
-	"blacklisted": ">>> {emojis.redcross} | Toi ou ce serveur est sur la liste noire, tu ne peux plus utiliser ce bot. Rejoins notre [serveur de support](https://stereo-bot.tk/discord) si tu souhaites faire appel."
+	"owneronly": ">>> {emoji.redcross} | Only bot developers of **${bot}** are able to use this command.",
+	"blacklisted": ">>> {emoji.redcross} | You or this server is blacklisted, you can no longer use this bot. Please join our [support server](https://stereo-bot.tk/discord) if you want to appeal.",
+	"permissions": ">>> 👮‍♂️ | You need the following permissions to execute this command: {permissions}.",
+	"partner": ">>> {emoji.redcross} | You can only use command this in partnered servers."
 }
