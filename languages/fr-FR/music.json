@@ -1,35 +1,40 @@
 {
 	"play": {
-		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
-		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
-		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
-		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+		"description": "Joue une chanson dans le canal vocal dans lequel tu es (les Stage Channels sont également pris en charge!)",
+		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
+		"playlistLoaded": ">>> {emoji.greentick} | Chargement réussi de la playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Chargement réussi de **{track}** - `{duration}`"
 	},
 	"nowplaying": {
-		"description": "Shows the information about the current playing song",
-		"title": "Now playing - {title}",
-		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+		"description": "Affiche les informations sur la chanson en cours de lecture",
+		"title": "En cours de lecture - {title}",
+		"embedDescription": "Demandeur: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFiltre: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Sets the bassboost level for the player"
+		"description": "Définit le niveau de bassboost pour le lecteur"
 	},
 	"filter": {
-		"description": "Sets the filter for the player"
+		"description": "Définit le filtre pour le lecteur"
 	},
 	"seek": {
-		"description": "Seeks the current track to the timestamp",
-		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
-		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+		"description": "Cherche la piste actuelle jusqu'à l'horodatage",
+		"invalid": ">>> {emoji.redcross} | Horodatage non valide fourni, merci de fournir un horodatage comme: `10:30`",
+		"success": ">>> {emoji.greentick} | Recherche réussie vers `{seek}`!"
 	},
 	"disconnect": {
-		"description": "Disconnects from the voice channel"
+		"description": "Se déconnecte du canal vocal"
 	},
 	"join": {
-		"description": "Get Stereo to join your voice channel"
+		"description": "Fais en sorte que Stereo rejoigne ton canal vocal"
 	},
 	"volume": {
-		"description": "Changes the volume of the player",
-		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
-		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
+		"description": "Change le volume du lecteur",
+		"invalid": ">>> {emoji.redross} | La valeur doit être comprise entre 1 et 200.",
+		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
+	},
+	"247": {
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
 	}
 }

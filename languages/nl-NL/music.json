@@ -1,35 +1,40 @@
 {
 	"play": {
-		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
-		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
-		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
-		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+		"description": "Speel een nummer af in het spraak kanaal waar jij ook in zit (Stage kanalen worden ook ondersteund)",
+		"noResults": ">>> {emoji.redcross} | Sorry, ik heb geen resultaten kunnen vinden.",
+		"playlistLoaded": ">>> {emoji.greentick} | Ik heb de afspeellijst **{playlist}** - `{duration}` geladen",
+		"trackLoaded": ">>> {emoji.greentick} | Ik heb het nummer **{track}** - `{duration}` geladen"
 	},
 	"nowplaying": {
-		"description": "Shows the information about the current playing song",
-		"title": "Now playing - {title}",
-		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+		"description": "Laat informatie over het nummer dat momenteel wordt overspeelt zien",
+		"title": "Nu aan het spelen - {title}",
+		"embedDescription": "Aanvrager: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Sets the bassboost level for the player"
+		"description": "Veranderd de bassboost niveau van de speler"
 	},
 	"filter": {
-		"description": "Sets the filter for the player"
+		"description": "Veranderd de filter van de speler"
 	},
 	"seek": {
-		"description": "Seeks the current track to the timestamp",
-		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
-		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+		"description": "Verplaatst naar de geven timestamp en speelt daarna verder",
+		"invalid": ">>> {emoji.redcross} | De geven timestamp is niet geldig, zo zou het er uit moeten zien: `10:30`",
+		"success": ">>> {emoji.greentick} | Met success verplaatst naar `{seek}`!"
 	},
 	"disconnect": {
-		"description": "Disconnects from the voice channel"
+		"description": "Verlaat het spraak kanaal"
 	},
 	"join": {
-		"description": "Get Stereo to join your voice channel"
+		"description": "Laat Stereo jou spraak kanaal joinen"
 	},
 	"volume": {
-		"description": "Changes the volume of the player",
-		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
-		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
+		"description": "Veranderd de volume van de speler",
+		"invalid": ">>> {emoji.redross} | De volume moet tussen 1 en 200 zijn.",
+		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
+	},
+	"247": {
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
 	}
 }
