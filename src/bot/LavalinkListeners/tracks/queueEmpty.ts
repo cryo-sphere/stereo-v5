@@ -14,12 +14,8 @@ export default class queueEmptyListener extends LavalinkListener {
 		const config = client.config.get(player.guild);
 		if (old && config?.deleteAnnounce) await channel.messages.delete(old);
 
-		const msg = await channel
-			.send(
-				client.languageHandler.translate(player.guild, "MusicGeneral:queueEmpty").split(".")[0] +
-					"."
-			)
-			.catch();
+		const str = client.languageHandler.translate(player.guild, "MusicGeneral:queueEmpty");
+		const msg = await channel.send(config?.afk ? str.split(".")[0] + "." : str).catch();
 
 		if (msg) client.announcements.set(player.guild, msg.id);
 
