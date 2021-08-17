@@ -9,7 +9,7 @@ import { CommandInteraction } from "discord.js";
 	tDescription: "music:247.description",
 	userPermissions: ["MANAGE_GUILD"],
 })
-export default class BassboostCommand extends SlashCommand {
+export default class AfkCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {
 		if (!interaction.inGuild()) return;
 		await interaction.deferReply();
