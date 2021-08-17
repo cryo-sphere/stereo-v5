@@ -76,7 +76,7 @@ export default class PingCommand extends SlashCommand {
 			type = null;
 			query = data[0].url_resolved || data[0].url;
 		} else {
-			type = type ?? "yt";
+			type = type ? (["yt", "sc"].includes(type) ? type : "yt") : "yt";
 		}
 
 		const res = await player.search(query, interaction.user.id, type as "yt" | "sc");
