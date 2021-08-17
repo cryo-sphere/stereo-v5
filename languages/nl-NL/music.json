@@ -31,5 +31,10 @@
 		"description": "Veranderd de volume van de speler",
 		"invalid": ">>> {emoji.redross} | De volume moet tussen 1 en 200 zijn.",
 		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
+	},
+	"247": {
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
 	}
 }
