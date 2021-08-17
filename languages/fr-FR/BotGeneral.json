@@ -1,14 +1,14 @@
 {
 	"cooldown": ">>> ⌚ | Tu viens d'utiliser cette commande. Essaie à nouveau dans `{remaining}`.",
 	"owneronly": ">>> {emoji.redcross} | Seuls les développeurs de **{bot}** peuvent utiliser cette commande.",
-	"blacklisted": ">>> {emoji.redcross} | Toi ou ce serveur est sur la liste noire, tu ne peux plus utiliser ce bot. Merci de rejoindre le [support server](https://stereo-bot.tk/discord) si tu souhaites faire appel.",
+	"blacklisted": ">>> {emoji.redcross} | Toi ou ce serveur est sur la liste noire, tu ne peux plus utiliser ce bot. Merci de rejoindre le [serveur d'assistance](https://stereo-bot.tk/discord) si tu souhaites faire appel.",
 	"permissions": ">>> 👮‍♂️ | Tu as besoin des permissions suivantes pour exécuter cette commande: {permissions}.",
 	"partner": ">>> {emoji.redcross} | Tu peux seulement utiliser cette commande sur les serveurs partenaires.",
-	"error": ">>> {emoji.error} | Oh no, this doesn't look good. Something caused our mail bird to fly back home, please try again later.",
-	"error_raw": ">>> {emoji.error} | {error}\nPlease join our [support server](https://stereo-bot.tk/discord) if this keeps happening.",
+	"error": ">>> {emoji.error} | Oh non, ça n'a pas l'air bon. Quelque chose a fait que notre oiseau de messagerie est rentré chez lui, merci de réessayer plus tard.",
+	"error_raw": ">>> {emoji.error} | {error}\nMerci de rejoindre notre [serveur d'assistance](https://stereo-bot.tk/discord) si cela continue à se produire.",
 	"errors": {
-		"preconditionGuildOnly": ">>> {emoji.redcross} | You can only use this command in a server.",
-		"slashCommandPreconditionDmOnly": ">>> {emoji.redcross} | You can only use this command in DMs.",
-		"commandDisabled": ">>> {emoji.redcross} | This command is disabled."
+		"preconditionGuildOnly": ">>> {emoji.redcross} | Tu ne peux utiliser cette commande que dans un serveur.",
+		"slashCommandPreconditionDmOnly": ">>> {emoji.redcross} | Tu ne peux utiliser cette commande que dans les DM.",
+		"commandDisabled": ">>> {emoji.redcross} | Cette commande est désactivée."
 	}
 }
