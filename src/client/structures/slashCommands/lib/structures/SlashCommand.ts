@@ -24,6 +24,7 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 	public preconditions: SlashCommandPreconditionContainerArray;
 	public arguments: ApplicationCommandOptionData[];
 	public permissions: ApplicationCommandPermissionData[];
+	public userPermissions: PermissionResolvable;
 
 	public languageHandler: languageHandler;
 	public client: Client;
@@ -36,6 +37,7 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 			name: (options.name ?? context.name).toLowerCase(),
 		});
 
+		this.userPermissions = options.userPermissions ?? [];
 		this.arguments = options.arguments ?? [];
 		this.permissions = options.permissions ?? [];
 
@@ -70,6 +72,7 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 			permissions: this.permissions,
 			category: this.category,
 			subCategory: this.subCategory,
+			userPermissions: this.userPermissions,
 		};
 	}
 
@@ -91,6 +94,7 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 		this.parseConstructorPreConditionsRunIn(options);
 		this.parseConstructorPreConditionsNsfw(options);
 		this.parseConstructorPreConditionsCooldown(options);
+		if (options.userPermissions) this.preconditions.append("Permissions");
 	}
 
 	protected parseConstructorPreConditionsNsfw(options: SlashCommandOptions): void {
@@ -222,6 +226,7 @@ export interface SlashCommandOptions extends PieceOptions {
 	cooldownDelay?: number;
 	cooldownScope?: BucketScope;
 	requiredClientPermissions?: PermissionResolvable;
+	userPermissions?: PermissionResolvable;
 	runIn?: CommandOptionsRunType | readonly CommandOptionsRunType[] | null;
 }
 

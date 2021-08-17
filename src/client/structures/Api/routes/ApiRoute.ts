@@ -60,7 +60,7 @@ export class ApiRoute {
 		const config = this.client.config.get(guild.id) ?? defaultConfig;
 
 		const member = await this.client.utils.fetchMember(req.auth.userId, guild);
-		if (!member || !member.permissions.has("ADMINISTRATOR", true)) return res.send(null);
+		if (!member || !member.permissions.has("MANAGE_GUILD", true)) return res.send(null);
 
 		res.send({
 			icon: guild.icon,
@@ -112,7 +112,7 @@ export class ApiRoute {
 
 		try {
 			const member = await this.client.utils.fetchMember(req.auth.userId, guild);
-			if (!member || !member.permissions.has("ADMINISTRATOR", true)) return res.send(null);
+			if (!member || !member.permissions.has("MANAGE_GUILD", true)) return res.send(null);
 
 			const { data } = body;
 			// to do: better validation

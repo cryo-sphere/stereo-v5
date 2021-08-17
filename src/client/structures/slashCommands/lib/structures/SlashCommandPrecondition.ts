@@ -99,6 +99,8 @@ export interface SlashCommandPreconditions {
 	OwnerOnly: never;
 	Blacklisted: never;
 	DJRole: never;
+	PartnerOnly: never;
+	Permissions: never;
 }
 
 export type SlashCommandPreconditionKeys = keyof SlashCommandPreconditions;

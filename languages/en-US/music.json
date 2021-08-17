@@ -31,5 +31,10 @@
 		"description": "Changes the volume of the player",
 		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
 		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
+	},
+	"247": {
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
 	}
 }

@@ -41,8 +41,20 @@ export default class languageHandler {
 		for (const key of Object.keys(vars))
 			data = data.replace(new RegExp(`{${key}}`, "gi"), `${vars[key]}`);
 
+		data = this.permissions(lang, data);
+
 		const res = data ?? `${_path} is not a valid language path`;
 		return res.length > 2e3 ? res.slice(0, 2e3 - 3) + "..." : res;
+	}
+
+	private permissions(lang: Record<string, string>, str: string): string {
+		const perms = this.parse(lang["permissions"]);
+		if (!perms) return str;
+
+		for (const perm of Object.keys(perms))
+			str = str.replace(new RegExp(`{${perm}}`, "gi"), `${perms[perm]}`);
+
+		return str;
 	}
 
 	private parse(file: string) {
