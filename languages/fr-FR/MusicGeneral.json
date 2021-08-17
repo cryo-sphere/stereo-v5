@@ -1,20 +1,20 @@
 {
 	"vc": {
-		"none": ">>> {emoji.error} | You aren't in a Voice channel, you need to join one in order to listen to music.",
-		"wrong": ">>> {emoji.error} | You aren't in the correct voice channel, please join **{voice}**!",
-		"alreadyCreated": ">>> {emoji.redcross} | I am already connected to **{voice}**!",
-		"disconnected": ">>> 👋 | Successfully disconnected from `{channel}`.",
-		"connected": ">>> 👋 | Successfully connected to `{channel}`."
+		"none": ">>> {emoji.error} | Tu n'es pas dans un canal vocal, tu dois en rejoindre un pour pouvoir écouter de la musique.",
+		"wrong": ">>> {emoji.error} | Tu n'es pas dans le bon canal vocal, rejoins **{voice}**!",
+		"alreadyCreated": ">>> {emoji.redcross} | Je suis déjà connecté à **{voice}**!",
+		"disconnected": ">>> 👋 | Déconnexion réussie de `{channel}`.",
+		"connected": ">>> 👋 | Connexion réussie à `{channel}`."
 	},
 	"announce": {
-		"title": "Now playing {title}",
-		"description": "**Requested by <@{user}> – Duration**: `{duration}`"
+		"title": "En cours de lecture de {title}",
+		"description": "**Demandé par <@{user}> - Durée** : `{duration}`"
 	},
-	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`",
-	"noPlayer": ">>> {emoji.redcross} | There is no music player in this server.",
-	"noTrack": ">>> {emoji.redcross} | There is nothing playing in this server.",
-	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
-	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel.",
-	"filter": ">>> 🎛 | Successfully applied the filter **{filter}**, it may take a few seconds before this filter is working.",
-	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command."
+	"error": ">>> {emoji.error} | Uh oh, something went wrong. Please try again later.\nError: `{error}`",
+	"noPlayer": ">>> {emoji.redcross} | Il n'y a pas de lecteur de musique sur ce serveur.",
+	"noTrack": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture sur ce serveur.",
+	"queueEmpty": ">>> 🔇 | La file d'attente est vide. Joue une chanson dans les **2 prochaines minutes** pour reprendre la file d'attente!",
+	"inactive": ">>> 👋 | Je me suis déconnecté pour cause d'inactivité, les partenaires peuvent utiliser /afk pour me garder dans le canal vocal.",
+	"filter": ">>> 🎛 | Application réussie du filtre **{filter}**, cela peut prendre quelques secondes avant que ce filtre ne fonctionne.",
+	"djrole": ">>> 👮♂️ | Le mode DJ est actuellement activé, seuls les utilisateurs ayant le DJRole sont autorisés à utiliser cette commande."
 }
