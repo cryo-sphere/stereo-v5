@@ -1,7 +1,7 @@
 {
 	"vc": {
-		"none": ">>> {emoji.error} | Tu n'es pas dans un canal vocal, tu dois en rejoindre un pour pouvoir écouter de la musique.",
-		"wrong": ">>> {emoji.error} | Tu n'es pas dans le bon canal vocal, rejoins **{voice}**!",
+		"none": ">>> {emoji.error} | Tu n'es pas dans un salon vocal, tu dois en rejoindre un pour pouvoir écouter de la musique.",
+		"wrong": ">>> {emoji.error} | Tu n'es pas dans le bon salon vocal, rejoins **{voice}**!",
 		"alreadyCreated": ">>> {emoji.redcross} | Je suis déjà connecté à **{voice}**!",
 		"disconnected": ">>> 👋 | Déconnexion réussie de `{channel}`.",
 		"connected": ">>> 👋 | Connexion réussie à `{channel}`."
@@ -10,12 +10,12 @@
 		"title": "En cours de lecture de {title}",
 		"description": "**Demandé par <@{user}> - Durée** : `{duration}`"
 	},
-	"error": ">>> {emoji.error} | Uh oh, Quelque chose s'est mal passé. Veuillez réessayer ultérieurement.\nErreur: `{error}`",
+	"error": ">>> {emoji.error} | Uh oh, quelque chose s'est mal passé. Merci de réessayer plus tard.\nErreur: `{error}`",
 	"noPlayer": ">>> {emoji.redcross} | Il n'y a pas de lecteur de musique sur ce serveur.",
 	"noTrack": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture sur ce serveur.",
-	"noQueue": ">>> {emoji.redcross} | Il n'y a pas de musique dans cette queue.",
+	"noQueue": ">>> {emoji.redcross} | Il n'y a pas de chansons/musiques dans la file d'attente.",
 	"queueEmpty": ">>> 🔇 | La file d'attente est vide. Joue une chanson dans les **2 prochaines minutes** pour reprendre la file d'attente!",
-	"inactive": ">>> 👋 | Je me suis déconnecté pour cause d'inactivité, les partenaires peuvent utiliser /afk pour me garder dans le canal vocal.",
+	"inactive": ">>> 👋 | Je me suis déconnecté pour cause d'inactivité, les partenaires peuvent utiliser /afk pour me garder dans le salon vocal.",
 	"filter": ">>> 🎛 | Application réussie du filtre **{filter}**, cela peut prendre quelques secondes avant que ce filtre ne fonctionne.",
 	"djrole": ">>> 👮♂️ | Le mode DJ est actuellement activé, seuls les utilisateurs ayant le DJRole sont autorisés à utiliser cette commande."
 }

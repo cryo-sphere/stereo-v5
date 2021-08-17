@@ -1,6 +1,6 @@
 {
 	"play": {
-		"description": "Joue une chanson dans le canal vocal dans lequel tu es (les Stage Channels sont également pris en charge!)",
+		"description": "Joue une chanson dans le salon vocal dans lequel tu te trouves (les Stage Channels sont également pris en charge!)",
 		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
 		"playlistLoaded": ">>> {emoji.greentick} | Chargement réussi de la playlist **{playlist}** - `{duration}`",
 		"trackLoaded": ">>> {emoji.greentick} | Chargement réussi de **{track}** - `{duration}`"
@@ -22,10 +22,10 @@
 		"success": ">>> {emoji.greentick} | Recherche réussie vers `{seek}`!"
 	},
 	"disconnect": {
-		"description": "Se déconnecte du canal vocal"
+		"description": "Se déconnecte du salon vocal"
 	},
 	"join": {
-		"description": "Fais en sorte que Stereo rejoigne ton canal vocal"
+		"description": "Fais en sorte que Stereo rejoigne ton salon vocal"
 	},
 	"volume": {
 		"description": "Change le volume du lecteur",
@@ -33,12 +33,12 @@
 		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
 	},
 	"247": {
-		"description": "Activer/Désactiver le mode 24/7, uniquement pour les partenaires",
-		"enabled": ">>> {emoji.greentick} | Le mode 24/7 est maintenant **activé**!",
-		"disabled": ">>> {emoji.greentick} | Le mode 24/7 est maintenant **désactivé**!"
+		"description": "Bascule en mode 24/7, uniquement pour les partenaires",
+		"enabled": ">>> {emoji.greentick} | Le mode 24/7 est désormais **activé**!",
+		"disabled": ">>> {emoji.greentick} | Le mode 24/7 est désormais **désactivé**!"
 	},
 	"shuffle": {
-		"description": "Mélanger la queue",
-		"success": ">>> {emoji.greentick} | La queue a été mélangée avec succès."
+		"description": "Mélange la file d'attente",
+		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
 	}
 }
