@@ -1,13 +1,13 @@
 {
 	"play": {
-		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
-		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
-		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
-		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+		"description": "Joue une chanson dans le canal vocal dans lequel tu es (les Stage Channels sont également pris en charge!)",
+		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
+		"playlistLoaded": ">>> {emoji.greentick} | J'ai chargé avec succès la playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Chargement réussi de **{track}** - `{duration}`"
 	},
 	"nowplaying": {
-		"description": "Shows the information about the current playing song",
-		"title": "Now playing - {title}",
+		"description": "Affiche les informations sur la chanson en cours de lecture",
+		"title": "En cours de lecture - {title}",
 		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
