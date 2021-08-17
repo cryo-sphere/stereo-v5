@@ -10,7 +10,7 @@
 		"title": "En cours de lecture de {title}",
 		"description": "**Demandé par <@{user}> - Durée** : `{duration}`"
 	},
-	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`",
+	"error": ">>> {emoji.error} | Uh oh, something went wrong. Please try again later.\nError: `{error}`",
 	"noPlayer": ">>> {emoji.redcross} | Il n'y a pas de lecteur de musique sur ce serveur.",
 	"noTrack": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture sur ce serveur.",
 	"queueEmpty": ">>> 🔇 | La file d'attente est vide. Joue une chanson dans les **2 prochaines minutes** pour reprendre la file d'attente!",
