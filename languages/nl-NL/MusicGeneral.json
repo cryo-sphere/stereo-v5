@@ -10,7 +10,7 @@
 		"title": "Now playing {title}",
 		"description": "**Requested by <@{user}> – Duration**: `{duration}`"
 	},
-	"error": ">>> {emoji.error} | Uh oh, something went wrong. Please try again later.\nError: `{error}`",
+	"error": ">>> {emoji.error} | Uh oh, something wen't wrong. Please try again later.\nError: `{error}`",
 	"noPlayer": ">>> {emoji.redcross} | There is no music player in this server.",
 	"noTrack": ">>> {emoji.redcross} | There is nothing playing in this server.",
 	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
