@@ -9,7 +9,7 @@
 	"DEAFEN_MEMBERS": "Mettre en sourdine des Membres",
 	"EMBED_LINKS": "Liens intégrés",
 	"KICK_MEMBERS": "Expulser des Membres",
-	"MANAGE_CHANNELS": "Gérer les Canaux",
+	"MANAGE_CHANNELS": "Gérer les Salons",
 	"MANAGE_EMOJIS": "Gérer les Émojis",
 	"MANAGE_GUILD": "Gérer le Serveur",
 	"MANAGE_MESSAGES": "Gérer les Messages",
@@ -31,5 +31,5 @@
 	"USE_VAD": "Utiliser la Détection de la Voix",
 	"VIEW_AUDIT_LOG": "Voir les Logs du Serveur",
 	"VIEW_CHANNEL": "Voir les Salons",
-	"VIEW_GUILD_INSIGHTS": "Voir les analyses du serveur"
+	"VIEW_GUILD_INSIGHTS": "Voir les Analyses du Serveur"
 }
