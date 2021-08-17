@@ -110,7 +110,7 @@ export default class PingCommand extends SlashCommand {
 
 					await interaction.followUp(
 						this.languageHandler.translate(interaction.guildId, "music:play.trackLoaded", {
-							track: track.title ?? "unknown title",
+							track: track.title || "unknown title",
 							duration: Utils.convert(track.duration ?? 0),
 						})
 					);
