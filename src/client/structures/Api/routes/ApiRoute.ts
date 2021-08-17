@@ -115,27 +115,8 @@ export class ApiRoute {
 			if (!member || !member.permissions.has("MANAGE_GUILD", true)) return res.send(null);
 
 			const { data } = body;
-			// to do: better validation
-			const valid: Guild = {
-				...config,
-				afk: config?.partner ? data.afk : false,
-				partner: config?.partner ?? false,
-				defaultbassboost: bassboost.includes(data.defaultbassboost)
-					? data.defaultbassboost
-					: "none",
-				defaultfilter: filters.includes(data.defaultfilter) ? data.defaultfilter : "none",
-				announce: typeof data.announce === "boolean" ? data.announce : true,
-				deleteAnnounce: typeof data.deleteAnnounce === "boolean" ? data.deleteAnnounce : true,
-				autorepeat: typeof data.autorepeat === "boolean" ? data.autorepeat : true,
-				autoshuffle: typeof data.autoshuffle === "boolean" ? data.autoshuffle : true,
-				id: guild.id,
-				defaultvolume:
-					data.defaultvolume > 200 || data.defaultvolume < 1 ? 100 : data.defaultvolume,
-				language: Object.keys(this.client.languageHandler.languages).includes(data.language)
-					? data.language
-					: "en-US",
-				djrole: typeof data.djrole === "string" ? data.djrole : "",
-			};
+			const valid: Guild = this.validate(guild.id, config as Guild, data);
+
 			await this.client.prisma.guild.update({ where: { id: body.guildId }, data: valid });
 			this.client.config.set(body.guildId, valid);
 			res.sendStatus(204);
@@ -143,5 +124,40 @@ export class ApiRoute {
 			this.logger.fatal("ApiRoute#updateGuild", e);
 			res.status(500).send("unexpected error occured");
 		}
+	}
+
+	private validate(guild: string, config: Guild, data: Guild): Guild {
+		data.afk = data.afk ?? config.afk ?? false;
+		data.announce = data.announce ?? config.announce ?? true;
+		data.autorepeat = data.autorepeat ?? data.autorepeat ?? false;
+		data.autoshuffle = data.autoshuffle ?? config.autoshuffle ?? false;
+		data.defaultbassboost = data.defaultbassboost || config.defaultbassboost || "none";
+		data.defaultfilter = data.defaultfilter || config.defaultfilter || "none";
+		data.defaultvolume =
+			data.defaultvolume > 201 || data.defaultvolume < 1
+				? config.defaultvolume ?? 100
+				: data.defaultvolume;
+		data.deleteAnnounce = data.deleteAnnounce ?? config.deleteAnnounce ?? true;
+		data.djrole = data.djrole ?? config.djrole ?? "";
+		data.id = guild;
+		data.language = data.language ?? config.djrole ?? "en-US";
+		data.partner = config.partner;
+
+		return {
+			afk: config.partner ? data.afk : false,
+			announce: typeof data.announce === "boolean" ? data.announce : true,
+			autorepeat: typeof data.autorepeat === "boolean" ? data.autorepeat : true,
+			autoshuffle: typeof data.autoshuffle === "boolean" ? data.autoshuffle : true,
+			deleteAnnounce: typeof data.deleteAnnounce === "boolean" ? data.deleteAnnounce : true,
+			defaultbassboost: bassboost.includes(data.defaultbassboost) ? data.defaultbassboost : "none",
+			defaultfilter: filters.includes(data.defaultfilter) ? data.defaultfilter : "none",
+			defaultvolume: typeof data.defaultvolume === "number" ? data.defaultvolume : 100,
+			djrole: typeof data.djrole === "string" ? data.djrole : "",
+			id: data.id,
+			partner: data.partner,
+			language: Object.keys(this.client.languageHandler.languages).includes(data.language)
+				? data.language
+				: "en-US",
+		};
 	}
 }
