@@ -33,12 +33,12 @@
 		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
 	},
 	"247": {
-		"description": "Toggles 24/7 mode, only for partners",
-		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
-		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
+		"description": "Activer/Désactiver le mode 24/7, uniquement pour les partenaires",
+		"enabled": ">>> {emoji.greentick} | Le mode 24/7 est maintenant **activé**!",
+		"disabled": ">>> {emoji.greentick} | Le mode 24/7 est maintenant **désactivé**!"
 	},
 	"shuffle": {
-		"description": "Shuffles the queue",
-		"success": ">>> {emoji.greentick} | Successfully shuffled the queue."
+		"description": "Mélanger la queue",
+		"success": ">>> {emoji.greentick} | La queue a été mélangée avec succès."
 	}
 }
