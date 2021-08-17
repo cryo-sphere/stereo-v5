@@ -1,7 +1,7 @@
 {
 	"cooldown": ">>> ⌚ | Je hebt dit commando net uitgevoerd. Probeer het opnieuw in `{remaining}`.",
 	"owneronly": ">>> {emoji.redcross} | Only bot developers of **{bot}** are able to use this command.",
-	"blacklisted": ">>> {emojis.redcross} | You or this server is blacklisted, you can no longer use this bot. Please join our [support server](https://stereo-bot.tk/discord) if you want to appeal.",
+	"blacklisted": ">>> {emoji.redcross} | You or this server is blacklisted, you can no longer use this bot. Please join our [support server](https://stereo-bot.tk/discord) if you want to appeal.",
 	"permissions": ">>> 👮‍♂️ | You need the following permissions to execute this command: {permissions}.",
 	"partner": ">>> {emoji.redcross} | You can only use command this in partnered servers."
 }
