@@ -2,8 +2,8 @@
 	"play": {
 		"description": "Speel een nummer af in het spraak kanaal waar jij ook in zit (Stage kanalen worden ook ondersteund)",
 		"noResults": ">>> {emoji.redcross} | Sorry, ik heb geen resultaten kunnen vinden.",
-		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
-		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+		"playlistLoaded": ">>> {emoji.greentick} | Ik heb de afspeellijst **{playlist}** - `{duration}` geladen",
+		"trackLoaded": ">>> {emoji.greentick} | Ik heb het nummer **{track}** - `{duration}` geladen"
 	},
 	"nowplaying": {
 		"description": "Laat informatie over het nummer dat momenteel wordt overspeelt zien",
@@ -17,7 +17,7 @@
 		"description": "Veranderd de filter van de speler"
 	},
 	"seek": {
-		"description": "Verplaatst naar de geven tijd en speelt daarna verder",
+		"description": "Verplaatst naar de geven timestamp en speelt daarna verder",
 		"invalid": ">>> {emoji.redcross} | De geven timestamp is niet geldig, zo zou het er uit moeten zien: `10:30`",
 		"success": ">>> {emoji.greentick} | Met success verplaatst naar `{seek}`!"
 	},
@@ -29,7 +29,7 @@
 	},
 	"volume": {
 		"description": "Veranderd de volume van de speler",
-		"invalid": ">>> {emoji.redross} | De volume moet tussen 1 en 200 zitten.",
+		"invalid": ">>> {emoji.redross} | De volume moet tussen 1 en 200 zijn.",
 		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
 	}
 }
