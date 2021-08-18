@@ -1,21 +1,21 @@
 {
 	"vc": {
-		"none": ">>> {emoji.error} | You aren't in a Voice channel, you need to join one in order to listen to music.",
-		"wrong": ">>> {emoji.error} | You aren't in the correct voice channel, please join **{voice}**!",
-		"alreadyCreated": ">>> {emoji.redcross} | I am already connected to **{voice}**!",
-		"disconnected": ">>> 👋 | Successfully disconnected from `{channel}`.",
-		"connected": ">>> 👋 | Successfully connected to `{channel}`."
+		"none": ">>> {emoji.error} | Du befindest dich nicht in einem Sprachkanal. Du musst einem beitreten, um Musik hören zu können.",
+		"wrong": ">>> {emoji.error} | Du befindest dich nicht im richtigen Sprachkanal, bitte trete **{voice}** bei!",
+		"alreadyCreated": ">>> {emoji.redcross} | Ich bin bereits mit **{voice}** verbunden!",
+		"disconnected": ">>> 👋 | Erfolgreich von `{channel}` getrennt.",
+		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden."
 	},
 	"announce": {
-		"title": "Now playing {title}",
-		"description": "**Requested by <@{user}> – Duration**: `{duration}`"
+		"title": "Es wird **{title}** gespielt",
+		"description": "**Angefordert von <@{user}> – Dauer**: `{duration}`"
 	},
-	"error": ">>> {emoji.error} | Uh oh, something went wrong. Please try again later.\nError: `{error}`",
-	"noPlayer": ">>> {emoji.redcross} | There is no music player in this server.",
-	"noTrack": ">>> {emoji.redcross} | There is nothing playing in this server.",
-	"noQueue": ">>> {emoji.redcross} | There are no songs in the queue.",
-	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
-	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel.",
-	"filter": ">>> 🎛 | Successfully applied the filter **{filter}**, it may take a few seconds before this filter is working.",
-	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command."
+	"error": ">>> {emoji.error} | Uh oh, etwas ist schief gelaufen. Bitte versuche es später erneut.\nFehler: `{error}`",
+	"noPlayer": ">>> {emoji.redcross} | Es gibt keinen Musikplayer in diesem Server.",
+	"noTrack": ">>> {emoji.redcross} | Es wird gerade nichts in diesem Server gespielt.",
+	"noQueue": ">>> {emoji.redcross} | Es befinden sich keine Titel in der Warteschlange.",
+	"queueEmpty": ">>> 🔇 | Die Warteschlange ist leer. Spiele ein Lied in den nächsten **2 Minuten** um die Warteschlange fortzusetzen!",
+	"inactive": ">>> 👋 | Ich habe die Verbindung wegen Inaktivität getrennt, Partner können /afk verwenden, um mich im Sprachkanal zu behalten.",
+	"filter": ">>> 🎛 | Erfolgreich den **{filter}**-Filter angewendet, es kann ein paar Sekunden dauern, bevor dieser Filter funktioniert.",
+	"djrole": ">>> 👮‍♂️ | Der DJ-Modus ist derzeit aktiviert, nur Benutzer mit der DJRole dürfen diesen Befehl verwenden."
 }
