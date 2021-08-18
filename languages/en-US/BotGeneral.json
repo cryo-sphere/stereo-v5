@@ -3,7 +3,7 @@
 	"owneronly": ">>> {emoji.redcross} | Only bot developers of **{bot}** are able to use this command.",
 	"blacklisted": ">>> {emoji.redcross} | You or this server is blacklisted, you can no longer use this bot. Please join our [support server](https://stereo-bot.tk/discord) if you want to appeal.",
 	"permissions": ">>> 👮‍♂️ | You need the following permissions to execute this command: {permissions}.",
-	"partner": ">>> {emoji.redcross} | You can only use command this in partnered servers.",
+	"partner": ">>> {emoji.redcross} | You can only use this command in partnered servers.",
 	"error": ">>> {emoji.error} | Oh no, this doesn't look good. Something caused our mail bird to fly back home, please try again later.",
 	"error_raw": ">>> {emoji.error} | {error}\nPlease join our [support server](https://stereo-bot.tk/discord) if this keeps happening.",
 	"errors": {
