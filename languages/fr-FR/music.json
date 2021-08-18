@@ -40,5 +40,13 @@
 	"shuffle": {
 		"description": "Mélange la file d'attente",
 		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
+	},
+	"skip": {
+		"description": "Skips the current song",
+		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"success": "{emoji.greentick}"
+	},
+	"forceskip": {
+		"description": "Forceskips the current song"
 	}
 }
