@@ -38,14 +38,18 @@ export class slashCommandErrorListener extends Listener {
 		// checks if error is DiscordAPIError || HTTPError
 		if (error instanceof DiscordAPIError || error instanceof HTTPError) {
 			if (this.isSilencedError(interaction, error)) return;
-			this.container.client.emit("error", error);
-		} else {
-			logger.warn(
+			return this.container.client.emit("error", error);
+		}
+
+		if (
+			typeof error.constructor.name === "string" &&
+			error.constructor.name.toLowerCase() === "discordjserror"
+		)
+			return logger.warn(
 				`${this.getWarnError(interaction)} (${interaction.user.id}) | ${error.constructor.name} | ${
 					error.message
 				}`
 			);
-		}
 
 		const command = piece;
 		logger.fatal(`[COMMAND] ${command.path}\n${error.stack || error.message}`);

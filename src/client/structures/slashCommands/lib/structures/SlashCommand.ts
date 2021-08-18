@@ -19,7 +19,7 @@ import languageHandler from "../../../languageHandler";
 
 export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends AliasPiece {
 	public description: string;
-	public tDescription: string;
+	public tDescription: string | null;
 	public usage: string;
 
 	public defaultPermission: boolean;
@@ -54,7 +54,7 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 		this.DJRole = options.preconditions?.includes("DJRole") ?? false;
 
 		this.description = options.description ?? "";
-		this.tDescription = options.tDescription ?? "";
+		this.tDescription = options.tDescription ?? null;
 		this.usage = `${(options.name ?? context.name).toLowerCase()} ${options.usage ?? ""}`.trim();
 
 		this.client = this.container.client as Client;

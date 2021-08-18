@@ -34,7 +34,9 @@ export default class InviteCommand extends SlashCommand {
 				this.languageHandler.translate(interaction.guildId, "general:help.embed.description", {
 					name: command.name,
 					category: command.category,
-					description: this.languageHandler.translate(interaction.guildId, command.tDescription),
+					description: command.tDescription
+						? this.languageHandler.translate(interaction.guildId, command.tDescription)
+						: "-",
 					usage: command.usage ? `/${command.usage}` : "-",
 					perms: command.userPermissions
 						? command.userPermissions.map((str) => `\`{${str}}\``).join(", ")
