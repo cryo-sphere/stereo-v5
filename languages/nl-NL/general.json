@@ -4,18 +4,18 @@
 		"reply": "Hartslag: `{heartbeat}` ms\nRondreis duurde: `{roundtrip}` ms\nUptime: `{uptime}`"
 	},
 	"invite": {
-		"description": "Add the Stereo to another server",
-		"message": "Press the button to invite Stereo!"
+		"description": "Voeg Stereo to aan een andere server",
+		"message": "Klik op de knop om Stereo toe te voegen!"
 	},
 	"support": {
-		"description": "Gives the invite to our support server",
-		"message": "Support needed? Join our support server, we are happy to help you!"
+		"description": "Geeft een uitnodiging naar onze support server",
+		"message": "Hulp nodig? Join onze support server, we helpen je graag!"
 	},
 	"help": {
-		"description": "A quick overview of all the commands Stereo has",
+		"description": "Een kort overzicht van alle commandos Stereo heeft",
 		"embed": {
-			"title": "Help Command - {user}",
-			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Category**: {category}\n\n📘**Description**: {desc}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limit**: `{limit}`"
+			"title": "Help Commando - {user}",
+			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {desc}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`"
 		}
 	}
 }
