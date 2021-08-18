@@ -1,0 +1,14 @@
+{
+	"cooldown": ">>> ⌚ | Du hast diesen Befehl erst gerade benutzt. Versuche es in `{remaining}` erneut.",
+	"owneronly": ">>> {emoji.redcross} | Nur Bot-Developer von **{bot}** können diesen Befehl nutzen.",
+	"blacklisted": ">>> {emoji.redcross} | Entweder du oder dieser Server sind auf der schwarzen Liste, du knnst diesen Bot nicht mehr nutzen. Bitte trete unserem [Support-Server](https://stereo-bot.tk/discord) bei, wenn du eine Beschwerde einlegen willst.",
+	"permissions": ">>> 👮‍♂️ | Du benötigst die folgenden Berechtigungen, um diesen Befehl auführen zu können: {permissions}.",
+	"partner": ">>> {emoji.redcross} | Du kannst diesen Befehl nur auf Partner-Servern verwenden.",
+	"error": ">>> {emoji.error} | Oh nein, das sieht nicht gut aus. Etwas hat dazu geführt, dass unsere Brieftaube nach Hause zurückgeflogen ist, bitte versuche es später erneut.",
+	"error_raw": ">>> {emoji.error} | {error}\nBitte trete unserem [Support-Server](https://stereo-bot.tk/discord) bei, falls dies immer wieder passiert.",
+	"errors": {
+		"preconditionGuildOnly": ">>> {emoji.redcross} | Du kannst diesen Befehl nur in Servern benutzen.",
+		"slashCommandPreconditionDmOnly": ">>> {emoji.redcross} | Du kannst diesen Befehl nur in DMs benutzen.",
+		"commandDisabled": ">>> {emoji.redcross} | Dieser Befehl ist deaktiviert."
+	}
+}
