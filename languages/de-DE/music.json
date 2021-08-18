@@ -1,0 +1,44 @@
+{
+	"play": {
+		"description": "Spiele einen Song in dem Sprachkanal, in dem du gerade bist (Stage-Kanäle werden ebenfalls unterstützt!)",
+		"noResults": ">>> {emoji.redcross} | Entschuldigung, ich konnte keine Ergebnisse finden.",
+		"playlistLoaded": ">>> {emoji.greentick} | Erfolgreich Wiedergabeliste **{playlist}** - `{duration}` geladen",
+		"trackLoaded": ">>> {emoji.greentick} | Erfolgreich Song **{track}** - `{duration}` geladen"
+	},
+	"nowplaying": {
+		"description": "Zeigt die Informationen über den aktuellen Song an",
+		"title": "Es wird **{title}** gespielt",
+		"embedDescription": "Anfrage: <@{user}>\nLautstärke: `{volume}%`\nBassboot: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Legt das Bassboost-Level für den Spieler fest"
+	},
+	"filter": {
+		"description": "Legt den Filter für den Spieler fest"
+	},
+	"seek": {
+		"description": "Sucht den aktuellen Track nach dem Zeitstempel ab",
+		"invalid": ">>> {emoji.redcross} | Ungültiger Zeitstempel angegeben, bitte gib einen Zeitstempel wie z.B. `10:30` an",
+		"success": ">>> {emoji.greentick} | Erfolgreich nach `{seek} `gesucht!"
+	},
+	"disconnect": {
+		"description": "Verbindung zum Sprachkanal trennen"
+	},
+	"join": {
+		"description": "Lass Stereo sich mit deinem aktuellen Sprachkanal verbinden"
+	},
+	"volume": {
+		"description": "Ändert die Lautstärke des Bots",
+		"invalid": ">>> {emoji.redross} | Der Wert muss zwischen 1 und 200 liegen.",
+		"success": ">>> {emoji.greentick} | Die Lautstärke wurde erfolgreich auf **{volume} %** geändert!"
+	},
+	"247": {
+		"description": "Schaltet den 24/7-Modus um, nur für Partner",
+		"enabled": ">>> {emoji.greentick} | Der 24/7-Modus ist jetzt **aktiviert**!",
+		"disabled": ">>> {emoji.greentick} | Der 24/7-Modus ist nun **deaktiviert**!"
+	},
+	"shuffle": {
+		"description": "Durchmischt die Warteschlange",
+		"success": ">>> {emoji.greentick} | Die Warteschlange wurde erfolgreich durchgemischt."
+	}
+}

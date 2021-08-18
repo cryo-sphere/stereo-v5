@@ -1,0 +1,21 @@
+{
+	"vc": {
+		"none": ">>> {emoji.error} | Du befindest dich nicht in einem Sprachkanal. Du musst einem beitreten, um Musik hören zu können.",
+		"wrong": ">>> {emoji.error} | Du befindest dich nicht im richtigen Sprachkanal, bitte trete **{voice}** bei!",
+		"alreadyCreated": ">>> {emoji.redcross} | Ich bin bereits mit **{voice}** verbunden!",
+		"disconnected": ">>> 👋 | Erfolgreich von `{channel}` getrennt.",
+		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden."
+	},
+	"announce": {
+		"title": "Es wird **{title}** gespielt",
+		"description": "**Angefordert von <@{user}> – Dauer**: `{duration}`"
+	},
+	"error": ">>> {emoji.error} | Uh oh, etwas ist schief gelaufen. Bitte versuche es später erneut.\nFehler: `{error}`",
+	"noPlayer": ">>> {emoji.redcross} | Es gibt keinen Musikplayer in diesem Server.",
+	"noTrack": ">>> {emoji.redcross} | Es wird gerade nichts in diesem Server gespielt.",
+	"noQueue": ">>> {emoji.redcross} | Es befinden sich keine Titel in der Warteschlange.",
+	"queueEmpty": ">>> 🔇 | Die Warteschlange ist leer. Spiele ein Lied in den nächsten **2 Minuten** um die Warteschlange fortzusetzen!",
+	"inactive": ">>> 👋 | Ich habe die Verbindung wegen Inaktivität getrennt, Partner können /afk verwenden, um mich im Sprachkanal zu behalten.",
+	"filter": ">>> 🎛 | Erfolgreich den **{filter}**-Filter angewendet, es kann ein paar Sekunden dauern, bevor dieser Filter funktioniert.",
+	"djrole": ">>> 👮‍♂️ | Der DJ-Modus ist derzeit aktiviert, nur Benutzer mit der DJRole dürfen diesen Befehl verwenden."
+}
