@@ -1,6 +1,6 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
-import { CommandInteraction, GuildMemberRoleManager } from "discord.js";
+import { CommandInteraction, GuildMemberRoleManager, VoiceChannel } from "discord.js";
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "skip",
@@ -18,11 +18,27 @@ export default class SkipCommand extends SlashCommand {
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noPlayer")
 			);
 
+		if (!player.queue.current)
+			return interaction.reply(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noTrack")
+			);
+
+		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
+		if (state?.channelId !== player.channels.voice) {
+			const channel = (await this.client.utils.getChannel(
+				player.channels.voice as string
+			)) as VoiceChannel;
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
+					voice: channel.name,
+				})
+			);
+		}
+
 		const config = this.client.config.get(interaction.guildId);
 		if (!config) return;
 
-		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-		const voice = interaction.guild!.me?.voice;
+		const voice = interaction.guild?.me?.voice;
 		const required = voice?.channel?.members.filter((m) => !m.user.bot).size ?? 0;
 
 		const skips = this.client.skips.get(player.guild);
@@ -50,7 +66,7 @@ export default class SkipCommand extends SlashCommand {
 		}
 
 		this.client.skips.set(interaction.guildId, [...(skips ?? []), interaction.user.id]);
-		interaction.reply(
+		await interaction.reply(
 			this.languageHandler.translate(interaction.guildId, "music:skip.success", {
 				current: current + 1,
 				required,
