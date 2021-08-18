@@ -50,6 +50,8 @@ export class SlashCommandRegistrar {
 	private slashStore!: SlashCommandStore;
 	private slashData!: APIApplicationCommand[];
 
+	private hidden!: string[];
+
 	constructor() {
 		if (SlashCommandRegistrar.instance) return SlashCommandRegistrar.instance;
 		SlashCommandRegistrar.instance = this;
@@ -63,6 +65,7 @@ export class SlashCommandRegistrar {
 		this.logger.debug("Initializing slash commands data...");
 
 		this.slashStore = client.stores.get("slashCommands");
+		this.hidden = this.slashStore.filter((c) => c.ownerOnly).map((c) => c.name);
 		this.slashData = this.slashStore.map(this.generateSlash.bind(this));
 
 		this.logger.debug(`Slash commands: ${this.slashData.map((command) => command.name)}`);
@@ -128,7 +131,7 @@ export class SlashCommandRegistrar {
 
 		const id = this.client.application?.id ?? this.client.user?.id;
 		await this.rest.put(Routes.applicationCommands(id ?? ""), {
-			body: this.slashData,
+			body: this.slashData.filter((c) => !this.hidden.includes(c.name)),
 		});
 
 		this.logger.debug("Successfully refreshed global slash commands");

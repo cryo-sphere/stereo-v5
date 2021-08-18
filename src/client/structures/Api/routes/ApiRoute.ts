@@ -3,7 +3,7 @@ import { Logger } from "@daangamesdg/logger";
 import { Guild } from "@prisma/client";
 import { Request, Response, Router } from "express";
 import Client from "../../../Client";
-import { bassboost, defaultConfig, filters, languages } from "../../../constants/settings";
+import { bassboost, defaultConfig, filters } from "../../../constants/settings";
 import Utils from "../utils";
 
 export class ApiRoute {
@@ -104,9 +104,9 @@ export class ApiRoute {
 				}))
 				.sort((a, b) => b.position - a.position),
 			config: { ...config, djrole: config.djrole ?? "" },
-			languages: Object.keys(languages).map((lang) => ({
+			languages: Object.keys(this.client.languageHandler.languageKeys).map((lang) => ({
 				key: this.utils.capitalize(lang),
-				value: languages[lang],
+				value: this.client.languageHandler.languageKeys[lang],
 			})),
 			filters: [
 				"none",

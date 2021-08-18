@@ -1,7 +1,5 @@
-import { SlashCommandRegistrar } from "../../client/structures/slashCommands";
 import { Listener, ListenerOptions } from "@sapphire/framework";
 import { ApplyOptions } from "@sapphire/decorators";
-import Client from "../../client/Client";
 
 @ApplyOptions<ListenerOptions>({ once: true, event: "ready" })
 export default class ReadyListener extends Listener {
@@ -13,14 +11,6 @@ export default class ReadyListener extends Listener {
 		client.languageHandler.loadAll();
 		client.Api.start();
 		this.loadConfig();
-
-		const registrar = new SlashCommandRegistrar();
-		registrar.initializeData(client as Client);
-		await registrar.testGuildRegister();
-		await registrar.supportGuildRegister();
-		if (process.env.NODE_ENV === "production") await registrar.globalRegister();
-
-		client.loggers.get("bot")?.info("Slash commands successfully refreshed!");
 	}
 
 	private async loadConfig() {

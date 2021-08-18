@@ -5,10 +5,13 @@ import { join } from "path";
 
 export default class languageHandler {
 	public languages: Record<string, Record<string, string>> = {};
+	public languageKeys: Record<string, string> = {};
+
 	constructor(public client: Client) {}
 
 	public loadAll() {
 		this.languages = this.read(join(process.cwd(), "languages"));
+		this.languageKeys = this.fetch();
 	}
 
 	public translate(
@@ -76,5 +79,10 @@ export default class languageHandler {
 		}
 
 		return data;
+	}
+
+	private fetch() {
+		const data = readFileSync(join(process.cwd(), "languages.json"), { encoding: "utf8" });
+		return JSON.parse(data);
 	}
 }

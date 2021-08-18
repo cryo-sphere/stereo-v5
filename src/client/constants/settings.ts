@@ -24,9 +24,3 @@ export const defaultConfig = {
 	afk: false,
 	partner: false,
 };
-
-export const languages: Record<string, string> = {
-	english: "en-US",
-	french: "fr-FR",
-	dutch: "nl-NL",
-};
