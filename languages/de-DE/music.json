@@ -40,5 +40,13 @@
 	"shuffle": {
 		"description": "Durchmischt die Warteschlange",
 		"success": ">>> {emoji.greentick} | Die Warteschlange wurde erfolgreich durchgemischt."
+	},
+	"skip": {
+		"description": "Skips the current song",
+		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"success": "{emoji.greentick}"
+	},
+	"forceskip": {
+		"description": "Forceskips the current song"
 	}
 }
