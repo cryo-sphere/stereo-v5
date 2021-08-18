@@ -10,6 +10,6 @@ export default class socketDisconnectListener extends LavalinkListener {
 		const { client } = this.container;
 		client.loggers
 			.get("lavalink")
-			?.info(`Socket ${socket.options.id} disconnected. Data: ${event.code} - ${event.reason}`);
+			?.warn(`Socket ${socket.options.id} disconnected. Data: ${event.code} - ${event.reason}`);
 	}
 }

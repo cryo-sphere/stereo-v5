@@ -7,6 +7,8 @@ import { Socket } from "@stereo-bot/lavalink";
 export default class socketErrorListener extends LavalinkListener {
 	public async run({ socket, error }: { socket: Socket; error: unknown }): Promise<void> {
 		const { client } = this.container;
-		client.loggers.get("lavalink")?.info(`Socket ${socket.options.id} encountered an error`, error);
+		client.loggers
+			.get("lavalink")
+			?.error(`Socket ${socket.options.id} encountered an error`, error);
 	}
 }
