@@ -18,6 +18,7 @@ export default class queueEmptyListener extends LavalinkListener {
 		const msg = await channel.send(config?.afk ? str.split(".")[0] + "." : str).catch();
 
 		if (msg) client.announcements.set(player.guild, msg.id);
+		client.skips.set(player.guild, []);
 
 		if (!config?.afk) {
 			const timeout = setTimeout(() => {

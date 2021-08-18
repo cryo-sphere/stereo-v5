@@ -44,6 +44,7 @@ export default class trackStartListener extends LavalinkListener {
 			if (msg) this.client.announcements.set(player.guild, msg.id);
 		}
 
+		this.client.skips.set(player.guild, []);
 		const timeout = this.client.timeouts.get(player.guild);
 		if (timeout) {
 			clearTimeout(timeout);

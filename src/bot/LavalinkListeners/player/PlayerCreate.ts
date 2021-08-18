@@ -24,5 +24,6 @@ export default class playerCreateListener extends LavalinkListener {
 		}
 
 		player.setVolume(config?.defaultvolume ?? 100);
+		client.skips.set(player.guild, []);
 	}
 }

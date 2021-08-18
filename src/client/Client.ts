@@ -59,6 +59,7 @@ export default class Client extends SapphireClient {
 		}
 	);
 
+	public skips = new Collection<string, string[]>();
 	public loggers = new Collection<string, Logger>();
 	public config = new Collection<string, Guild>();
 	public announcements = new Collection<string, string>();
@@ -148,6 +149,7 @@ declare module "@sapphire/framework" {
 		prisma: PrismaClient;
 		Api: Api;
 
+		skips: Collection<string, string[]>;
 		loggers: Collection<string, Logger>;
 		config: Collection<string, Guild>;
 		ApiCache: Collection<string, any>;
