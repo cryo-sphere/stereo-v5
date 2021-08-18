@@ -1,3 +1,4 @@
+/* eslint-disable no-inline-comments */
 import { Logger } from "@daangamesdg/logger";
 import { Guild } from "@prisma/client";
 import { Request, Response, Router } from "express";
@@ -13,14 +14,40 @@ export class ApiRoute {
 		this.utils = new Utils(client);
 		this.router = Router();
 		this.router
-			.get("/user", this.user.bind(this))
-			.get("/guilds", this.guilds.bind(this))
-			.get("/guild", this.guild.bind(this))
-			.post("/guild/update", this.updateGuild.bind(this));
+			.get("/user", this.user.bind(this)) // get user
+			.get("/guilds", this.guilds.bind(this)) // get guilds
+			.get("/guild", this.guild.bind(this)) // get guild with config
+			.post("/guild", this.updateGuild.bind(this)) // update guild
+			.get("/playlists", this.playlists.bind(this)) // get playlists
+			.get("/playlist", this.playlists.bind(this)) // get playlist with songs
+			.put("/playlist", this.playlists.bind(this)) // create playlist
+			.post("/playlist", this.playlists.bind(this)) // update playlist
+			.delete("/playlist", this.playlists.bind(this)); // delete playlist
+	}
+
+	private async playlists(req: Request, res: Response) {
+		if (!req.auth) return res.send(null);
+
+		try {
+			let playlists = this.client.ApiCache.get(`${req.auth.userId}-playlists`);
+			if (!playlists) {
+				const data = await this.client.prisma.playlist.findMany({
+					where: { userId: req.auth.userId },
+				});
+				playlists = data.map((pl) => ({ id: pl.id, name: pl.name }));
+				this.utils.setCache(`${req.auth.userId}-playlists`, playlists);
+			}
+
+			if (!playlists) throw new Error("unable to get playlists");
+
+			res.send(playlists);
+		} catch (e) {
+			res.status(500).json({ message: "internal server error", error: e.message });
+		}
 	}
 
 	private async user(req: Request, res: Response) {
-		if (!req.auth) return res.sendStatus(204);
+		if (!req.auth) return res.send(null);
 
 		try {
 			const user =
@@ -35,7 +62,7 @@ export class ApiRoute {
 	}
 
 	private async guilds(req: Request, res: Response) {
-		if (!req.auth) return res.sendStatus(204);
+		if (!req.auth) return res.send(null);
 
 		try {
 			const guilds =

@@ -33,5 +33,5 @@ model Playlist {
   id     String   @id
   name   String
   songs  String[]
-  userId String?
+  userId String
 }

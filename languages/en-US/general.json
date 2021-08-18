@@ -2,5 +2,13 @@
 	"ping": {
 		"description": "Pong!",
 		"reply": "Heartbeat: `{heartbeat}` ms\nRoundtrip took: `{roundtrip}` ms\nUptime: `{uptime}`"
+	},
+	"invite": {
+		"description": "Add the Stereo to another server",
+		"message": "Press the button to invite Stereo!"
+	},
+	"support": {
+		"description": "Gives the invite to our support server",
+		"message": "Support needed? Join our support server, we are happy to help you!"
 	}
 }
