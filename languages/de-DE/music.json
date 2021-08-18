@@ -1,44 +1,44 @@
 {
 	"play": {
-		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
-		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
-		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
-		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+		"description": "Spiele einen Song in dem Sprachkanal, in dem du gerade bist (Stage-Kanäle werden ebenfalls unterstützt!)",
+		"noResults": ">>> {emoji.redcross} | Entschuldigung, ich konnte keine Ergebnisse finden.",
+		"playlistLoaded": ">>> {emoji.greentick} | Erfolgreich Wiedergabeliste **{playlist}** - `{duration}` geladen",
+		"trackLoaded": ">>> {emoji.greentick} | Erfolgreich Song **{track}** - `{duration}` geladen"
 	},
 	"nowplaying": {
-		"description": "Shows the information about the current playing song",
-		"title": "Now playing - {title}",
-		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+		"description": "Zeigt die Informationen über den aktuellen Song an",
+		"title": "Es wird **{title}** gespielt",
+		"embedDescription": "Anfrage: <@{user}>\nLautstärke: `{volume}%`\nBassboot: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Sets the bassboost level for the player"
+		"description": "Legt das Bassboost-Level für den Spieler fest"
 	},
 	"filter": {
-		"description": "Sets the filter for the player"
+		"description": "Legt den Filter für den Spieler fest"
 	},
 	"seek": {
-		"description": "Seeks the current track to the timestamp",
-		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
-		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+		"description": "Sucht den aktuellen Track nach dem Zeitstempel ab",
+		"invalid": ">>> {emoji.redcross} | Ungültiger Zeitstempel angegeben, bitte gib einen Zeitstempel wie z.B. `10:30` an",
+		"success": ">>> {emoji.greentick} | Erfolgreich nach `{seek} `gesucht!"
 	},
 	"disconnect": {
-		"description": "Disconnects from the voice channel"
+		"description": "Verbindung zum Sprachkanal trennen"
 	},
 	"join": {
-		"description": "Get Stereo to join your voice channel"
+		"description": "Lass Stereo sich mit deinem aktuellen Sprachkanal verbinden"
 	},
 	"volume": {
-		"description": "Changes the volume of the player",
-		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
-		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
+		"description": "Ändert die Lautstärke des Bots",
+		"invalid": ">>> {emoji.redross} | Der Wert muss zwischen 1 und 200 liegen.",
+		"success": ">>> {emoji.greentick} | Die Lautstärke wurde erfolgreich auf **{volume} %** geändert!"
 	},
 	"247": {
-		"description": "Toggles 24/7 mode, only for partners",
-		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
-		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
+		"description": "Schaltet den 24/7-Modus um, nur für Partner",
+		"enabled": ">>> {emoji.greentick} | Der 24/7-Modus ist jetzt **aktiviert**!",
+		"disabled": ">>> {emoji.greentick} | Der 24/7-Modus ist nun **deaktiviert**!"
 	},
 	"shuffle": {
-		"description": "Shuffles the queue",
-		"success": ">>> {emoji.greentick} | Successfully shuffled the queue."
+		"description": "Durchmischt die Warteschlange",
+		"success": ">>> {emoji.greentick} | Die Warteschlange wurde erfolgreich durchgemischt."
 	}
 }
