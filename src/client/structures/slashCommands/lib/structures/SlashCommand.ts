@@ -11,6 +11,7 @@ import {
 	CommandInteractionOptionResolver,
 	ApplicationCommandOptionData,
 	ApplicationCommandPermissionData,
+	PermissionString,
 } from "discord.js";
 import { sep } from "path";
 import Client from "../../../../Client";
@@ -19,15 +20,22 @@ import languageHandler from "../../../languageHandler";
 export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends AliasPiece {
 	public description: string;
 	public tDescription: string;
+	public usage: string;
+
 	public defaultPermission: boolean;
+	public ownerOnly: boolean;
+	public DJRole: boolean;
 
 	public preconditions: SlashCommandPreconditionContainerArray;
 	public arguments: ApplicationCommandOptionData[];
 	public permissions: ApplicationCommandPermissionData[];
-	public userPermissions: PermissionResolvable;
+	public userPermissions: PermissionString[];
 
 	public languageHandler: languageHandler;
 	public client: Client;
+
+	public cooldown: number;
+	public limit: number;
 
 	public readonly fullCategory: readonly string[];
 
@@ -42,12 +50,18 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 		this.permissions = options.permissions ?? [];
 
 		this.defaultPermission = options.defaultPermission ?? true;
+		this.ownerOnly = options.preconditions?.includes("OwnerOnly") ?? false;
+		this.DJRole = options.preconditions?.includes("DJRole") ?? false;
 
 		this.description = options.description ?? "";
 		this.tDescription = options.tDescription ?? "";
+		this.usage = `${(options.name ?? context.name).toLowerCase()} ${options.usage ?? ""}`.trim();
 
 		this.client = this.container.client as Client;
 		this.languageHandler = this.container.client.languageHandler;
+
+		this.cooldown = options.cooldownDelay ?? 5e3;
+		this.limit = options.cooldownLimit ?? 2;
 
 		this.preconditions = new SlashCommandPreconditionContainerArray(options.preconditions);
 		this.parseConstructorPreConditions(options);
@@ -226,7 +240,7 @@ export interface SlashCommandOptions extends PieceOptions {
 	cooldownDelay?: number;
 	cooldownScope?: BucketScope;
 	requiredClientPermissions?: PermissionResolvable;
-	userPermissions?: PermissionResolvable;
+	userPermissions?: PermissionString[];
 	runIn?: CommandOptionsRunType | readonly CommandOptionsRunType[] | null;
 }
 

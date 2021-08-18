@@ -14,7 +14,7 @@ export default class SupportCommand extends SlashCommand {
 			components: [
 				new MessageActionRow().addComponents(
 					new MessageButton()
-						.setLabel("Discord server")
+						.setLabel("Support server")
 						.setStyle("LINK")
 						.setURL("https://discord.gg/46v9tr3Wxp")
 				),

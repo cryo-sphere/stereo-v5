@@ -13,8 +13,6 @@ import {
 	MessageComponentInteraction,
 	MessageEmbed,
 	MessageEmbedOptions,
-	PermissionResolvable,
-	PermissionString,
 	Role,
 	User,
 } from "discord.js";
@@ -22,23 +20,6 @@ import Client from "./Client";
 
 export default class Utils {
 	constructor(public client: Client) {}
-
-	public formatPerms(perms: PermissionString[] | PermissionResolvable): string {
-		if (!Array.isArray(perms) || perms.length === 0) return "`―`";
-
-		const formattedPerms = perms.map(
-			(str) =>
-				`\`${str
-					.replace(/_/g, " ")
-					.replace(/GUILD/g, "SERVER")
-					.toLowerCase()
-					.replace(/\b(\w)/g, (char) => char.toUpperCase())}\``
-		);
-
-		return formattedPerms.length > 1
-			? `\`${formattedPerms.slice(0, -1).join("`, `")}\` and \`${formattedPerms.slice(-1)[0]}\``
-			: `\`${formattedPerms[0]}\``;
-	}
 
 	public embed(options?: MessageEmbedOptions): MessageEmbed {
 		return new MessageEmbed({ color: process.env.COLOUR as `#${string}`, ...options });
