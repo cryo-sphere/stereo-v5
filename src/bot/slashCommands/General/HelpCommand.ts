@@ -81,7 +81,11 @@ export default class InviteCommand extends SlashCommand {
 					new MessageButton()
 						.setLabel("Dashboard")
 						.setStyle("LINK")
-						.setURL("https://stereo-bot.tk/dashboard")
+						.setURL("https://stereo-bot.tk/dashboard"),
+					new MessageButton()
+						.setLabel("Status")
+						.setStyle("LINK")
+						.setURL("https://status.stereo-bot.tk/")
 				),
 			],
 		});
