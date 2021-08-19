@@ -4,7 +4,8 @@
 		"wrong": ">>> {emoji.error} | Du befindest dich nicht im richtigen Sprachkanal, bitte trete **{voice}** bei!",
 		"alreadyCreated": ">>> {emoji.redcross} | Ich bin bereits mit **{voice}** verbunden!",
 		"disconnected": ">>> 👋 | Erfolgreich von `{channel}` getrennt.",
-		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden."
+		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden.",
+		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players."
 	},
 	"announce": {
 		"title": "Es wird **{title}** gespielt",
