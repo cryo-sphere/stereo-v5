@@ -18,5 +18,5 @@
 	"inactive": ">>> 👋 | Je me suis déconnecté pour cause d'inactivité, les partenaires peuvent utiliser /afk pour me garder dans le salon vocal.",
 	"filter": ">>> 🎛 | Application réussie du filtre **{filter}**, cela peut prendre quelques secondes avant que ce filtre ne fonctionne.",
 	"djrole": ">>> 👮♂️ | Le mode DJ est actuellement activé, seuls les utilisateurs ayant le DJRole sont autorisés à utiliser cette commande.",
-	"skip": ">>> {emoji.greentick} | Successfully skipped to the next song!"
+	"skip": ">>> {emoji.greentick} | Passage à la chanson suivante !"
 }
