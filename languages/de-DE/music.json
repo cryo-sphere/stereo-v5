@@ -43,7 +43,7 @@
 	},
 	"skip": {
 		"description": "Überspringt den aktuellen Song",
-		"fail": ">>> 🔢 | Es gibt derzeit `{current}` Abstimmung(en), `{required}` Abstimmung(en) sind erforderlich, um diesen Song zu überspringen.",
+		"fail": ">>> 🔢 | Es gibt derzeit `{current}` Stimme(n), `{required}` Stimme(n) sind erforderlich, um diesen Song zu überspringen.",
 		"success": "{emoji.greentick}"
 	},
 	"forceskip": {
