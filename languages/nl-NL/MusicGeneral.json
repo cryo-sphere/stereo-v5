@@ -4,7 +4,8 @@
 		"wrong": ">>> {emoji.error} | Je zit niet in het goede spraak kanaal, je moet **{voice}** joinen!",
 		"alreadyCreated": ">>> {emoji.redcross} | Ik ben al verbonden met **{voice}**!",
 		"disconnected": ">>> 👋 | Ik heb het spraak kanaal `{channel}` verlaten.",
-		"connected": ">>> 👋 | Ik heb succesvol verbinding gemaakt met `{channel}`."
+		"connected": ">>> 👋 | Ik heb succesvol verbinding gemaakt met `{channel}`.",
+		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players."
 	},
 	"announce": {
 		"title": "Nu aan het spelen {title}",
