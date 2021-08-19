@@ -52,11 +52,11 @@
 	"pause": {
 		"description": "Met en pause le lecteur",
 		"success": ">>> {emoji.greentick} | Mise en pause.",
-		"fail": ">>> {emoji.redcross} | Player is already paused."
+		"fail": ">>> {emoji.redcross} | Le lecteur est déjà en pause."
 	},
 	"resume": {
-		"description": "Resumes the player",
-		"success": ">>> {emoji.greentick} | Resumed the player.",
-		"fail": ">>> {emoji.redcross} | Player is already playing."
+		"description": "Reprend le lecteur",
+		"success": ">>> {emoji.greentick} | Reprise de la lecture.",
+		"fail": ">>> {emoji.redcross} | Le lecteur est déjà entrain de jouer."
 	}
 }
