@@ -50,13 +50,13 @@
 		"description": "Zwangsüberspringt den aktuellen Song"
 	},
 	"pause": {
-		"description": "Pauses the player",
-		"success": ">>> {emoji.greentick} | Paused the player.",
-		"fail": ">>> {emoji.redcross} | Player is already paused."
+		"description": "Pausiert den Spieler",
+		"success": ">>> {emoji.greentick} | Der Spieler wurde pausiert.",
+		"fail": ">>> {emoji.redcross} | Der Spieler ist bereits pausiert."
 	},
 	"resume": {
-		"description": "Resumes the player",
-		"success": ">>> {emoji.greentick} | Resumed the player.",
-		"fail": ">>> {emoji.redcross} | Player is already playing."
+		"description": "Setzt den Spieler fort",
+		"success": ">>> {emoji.greentick} | Der Spieler wurde fortgesetzt.",
+		"fail": ">>> {emoji.redcross} | Der Spieler spielt bereits."
 	}
 }
