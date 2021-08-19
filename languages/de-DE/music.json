@@ -48,5 +48,15 @@
 	},
 	"forceskip": {
 		"description": "Zwangsüberspringt den aktuellen Song"
+	},
+	"pause": {
+		"description": "Pauses the player",
+		"success": ">>> {emoji.greentick} | Paused the player.",
+		"fail": ">>> {emoji.redcross} | Player is already paused."
+	},
+	"resume": {
+		"description": "Resumes the player",
+		"success": ">>> {emoji.greentick} | Resumed the player.",
+		"fail": ">>> {emoji.redcross} | Player is already playing."
 	}
 }
