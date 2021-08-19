@@ -4,7 +4,8 @@
 		"wrong": ">>> {emoji.error} | Tu n'es pas dans le bon salon vocal, rejoins **{voice}**!",
 		"alreadyCreated": ">>> {emoji.redcross} | Je suis déjà connecté à **{voice}**!",
 		"disconnected": ">>> 👋 | Déconnexion réussie de `{channel}`.",
-		"connected": ">>> 👋 | Connexion réussie à `{channel}`."
+		"connected": ">>> 👋 | Connexion réussie à `{channel}`.",
+		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players."
 	},
 	"announce": {
 		"title": "En cours de lecture de {title}",
