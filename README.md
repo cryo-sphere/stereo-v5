@@ -7,8 +7,8 @@
   <a href="https://translate.stereo-bot.tk/project/stereo" target="_blank">
     <img alt="Localized: Crowdin" src="https://badges.crowdin.net/stereo/localized.svg" />
   </a>
-    <a href="https://translate.stereo-bot.tk/project/stereo" target="_blank">
-    <img alt="Localized: Crowdin" src="https://img.shields.io/badge/-Discord-5865F2?logo=discord&logoColor=fff" />
+    <a href="https://stereo-bot.tk/discord" target="_blank">
+    <img alt="Discord" src="https://img.shields.io/badge/-Discord-5865F2?logo=discord&logoColor=fff" />
   </a>
 </p>
 
