@@ -74,5 +74,10 @@
 	"repeat": {
 		"description": "Changes the repeat mode",
 		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
+	},
+	"remove": {
+		"description": "Removes songs from 1 point to another",
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
 	}
 }
