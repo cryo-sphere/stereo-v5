@@ -42,16 +42,16 @@
 		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
 	},
 	"skip": {
-		"description": "Skips the current song",
-		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"description": "Sauter la chanson en cours",
+		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), '{required}' vote(s) sont requis pour sauter cette chanson.",
 		"success": "{emoji.greentick}"
 	},
 	"forceskip": {
-		"description": "Forceskips the current song"
+		"description": "Forcer à sauter la chanson actuelle"
 	},
 	"pause": {
-		"description": "Pauses the player",
-		"success": ">>> {emoji.greentick} | Paused the player.",
+		"description": "Met en pause le lecteur",
+		"success": ">>> {emoji.greentick} | Mise en pause.",
 		"fail": ">>> {emoji.redcross} | Player is already paused."
 	},
 	"resume": {
