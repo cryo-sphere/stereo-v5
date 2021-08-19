@@ -19,22 +19,20 @@ export default class SkipCommand extends SlashCommand {
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noPlayer")
 			);
 
-		if (!player.queue.current)
-			return interaction.reply(
-				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noTrack")
-			);
-
 		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
-		if (state?.channelId !== player.channels.voice) {
-			const channel = (await this.client.utils.getChannel(
-				player.channels.voice as string
-			)) as VoiceChannel;
+		if (player.channels.voice && state?.channelId !== player.channels.voice) {
+			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
 					voice: channel.name,
 				})
 			);
 		}
+
+		if (!player.queue.current)
+			return interaction.reply(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noTrack")
+			);
 
 		player.skip();
 		await interaction.reply(
