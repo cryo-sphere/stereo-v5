@@ -44,7 +44,7 @@
 	"skip": {
 		"description": "Skips the current song",
 		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
-		"success": "{emoji.greentick}"
+		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
 	},
 	"forceskip": {
 		"description": "Forceskips the current song"
@@ -62,5 +62,9 @@
 	"clear": {
 		"description": "Clears the queue (except the current song)",
 		"success": ">>> {emoji.greentick} | I've cleared the queue."
+	},
+	"reset": {
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
 	}
 }
