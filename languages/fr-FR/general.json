@@ -4,18 +4,18 @@
 		"reply": "Battement de cœur: `{heartbeat}` ms\nRoundtrip pris: `{roundtrip}` ms\nUptime: `{uptime}`"
 	},
 	"invite": {
-		"description": "Add the Stereo to another server",
-		"message": "Press the button to invite Stereo!"
+		"description": "Ajouter le stéréo à un autre serveur",
+		"message": "Appuyez sur le bouton pour inviter Stéréo !"
 	},
 	"support": {
-		"description": "Gives the invite to our support server",
-		"message": "Support needed? Join our support server, we are happy to help you!"
+		"description": "Donne l'invitation au serveur d'assistance",
+		"message": "Besoin d'aide ? Rejoignez notre serveur d'aide, nous serons heureux de vous aider !"
 	},
 	"help": {
-		"description": "A quick overview of all the commands Stereo has",
+		"description": "Un aperçu rapide de toutes les commandes de Stéréo",
 		"embed": {
-			"title": "Help Command - {user}",
-			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Category**: {category}\n\n📘**Description**: {desc}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limit**: `{limit}`"
+			"title": "Commande d'aide - {user}",
+			"description": ">>> 🏷 | **Nom**: {name}\n📁 | **Catégorie**: {category}\n\n📘**Description**: {desc}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Temps de recharge**: `{cooldown}`\n🔢 | **Limite**: `{limit}`"
 		}
 	}
 }
