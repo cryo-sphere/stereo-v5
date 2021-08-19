@@ -33,20 +33,20 @@
 		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
 	},
 	"247": {
-		"description": "Toggles 24/7 mode, only for partners",
-		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
-		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
+		"description": "Zet 24/7 mode aan/uit, alleen voor partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is nu **aangezet**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is nu **uitgezet**!"
 	},
 	"shuffle": {
-		"description": "Shuffles the queue",
-		"success": ">>> {emoji.greentick} | Successfully shuffled the queue."
+		"description": "Shuffles de queue",
+		"success": ">> {emoji.greentick} | De queue is succesvol geshuffled."
 	},
 	"skip": {
-		"description": "Skips the current song",
-		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"description": "Skips het huidige nummer",
+		"fail": ">>> 🔢 | Er zijn momenteel `{current}` stem(men), `{required}` stem(men) zijn nodig om dit nummer te skippen.",
 		"success": "{emoji.greentick}"
 	},
 	"forceskip": {
-		"description": "Forceskips the current song"
+		"description": "Forceert de speler om het nummer te skippen"
 	}
 }

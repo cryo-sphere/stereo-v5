@@ -3,7 +3,7 @@
 	"owneronly": ">>> {emoji.redcross} | Alleen bot developers van **{bot}** mogen dit commando gebruiken.",
 	"blacklisted": ">>> {emoji.redcross} | Jij of deze server staat op de zwartelijst, je kunt de bot niet gebruiken. Join onze [support server](https://stereo-bot.tk/discord) om deze actie ongedaan te maken.",
 	"permissions": ">>> 👮‍♂️ | Je hebt de volgende permissies nodig om dit commando uit te voeren: {permissions}.",
-	"partner": ">>> {emoji.redcross} | You can only use this command in partnered servers.",
+	"partner": ">>> {emoji.redcross} | Je kan dit commando alleen gebruiken in partnered servers.",
 	"error": ">>> {emoji.error} | Oh nee, dit ziet er niet goed uit. Iets zorgde ervoor dat onze postduif terug naar huis kwam zonder resultaat, probeer het later opnieuw.",
 	"error_raw": ">>> {emoji.error} | {error}\nJoin onze [support server](https://stereo-bot.tk/discord) als je deze error blijft zien terug komen.",
 	"errors": {

@@ -42,11 +42,11 @@
 		"success": ">>> {emoji.greentick} | Die Warteschlange wurde erfolgreich durchgemischt."
 	},
 	"skip": {
-		"description": "Skips the current song",
-		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"description": "Überspringt den aktuellen Song",
+		"fail": ">>> 🔢 | Es gibt derzeit `{current}` Stimme(n), `{required}` Stimme(n) sind erforderlich, um diesen Song zu überspringen.",
 		"success": "{emoji.greentick}"
 	},
 	"forceskip": {
-		"description": "Forceskips the current song"
+		"description": "Zwangsüberspringt den aktuellen Song"
 	}
 }
