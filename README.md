@@ -1,24 +1,24 @@
 <h1 align="center">Stereo (v5)</h1>
+<p align="center">
+  <img alt="Version" src="https://img.shields.io/badge/version-5.0.0-blue.svg" />
+  <a href="/" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+  <a href="https://translate.stereo-bot.tk/project/stereo" target="_blank">
+    <img alt="Localized: Crowdin" src="https://badges.crowdin.net/stereo/localized.svg" />
+  </a>
+    <a href="https://translate.stereo-bot.tk/project/stereo" target="_blank">
+    <img alt="Localized: Crowdin" src="https://img.shields.io/badge/-Discord-5865F2?logo=discord&logoColor=fff" />
+  </a>
+</p>
 
-> Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free!
-> Big thanks to [this GitHub repo](https://github.com/FrenchDiscord/YliasDiscordBot) for making a slash commands handler for @sapphire/framework
+> Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free! Big thanks to [this GitHub repo](https://github.com/FrenchDiscord/YliasDiscordBot) for making a slash commands handler for @sapphire/framework
 
 _note: bot is everything except finished, do **not** download it if you don't know what you are doing, I will announce when it's ready._
 
 ## Install
 
-```sh
-yarn install
-```
-
-## Usage
-
-_You can also use `npm` instead of `yarn`_
-
-- **yarn run dev** _(starts dev script)_
-- **yarn run build** _(compiles the code and saves it in the dist)_
-- **yarn run start** _(runs the compiled code)_
-- **yarn run lint** _(runs eslint to check your files)_
+soon:tm:
 
 ## Author
 
