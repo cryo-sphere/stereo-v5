@@ -58,5 +58,9 @@
 		"description": "Resumes the player",
 		"success": ">>> {emoji.greentick} | Resumed the player.",
 		"fail": ">>> {emoji.redcross} | Player is already playing."
+	},
+	"clear": {
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | I've cleared the queue."
 	}
 }
