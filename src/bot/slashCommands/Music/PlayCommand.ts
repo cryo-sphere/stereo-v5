@@ -120,7 +120,7 @@ export default class PingCommand extends SlashCommand {
 				break;
 		}
 
-		if (player.state === "DISCONNECTED")
+		if (!player.connected)
 			player.setVoice(state.channelId).setText(interaction.channelId).connect();
 		if (!player.playing && !player.paused) {
 			if (config?.autoshuffle) player.queue.shuffle();
