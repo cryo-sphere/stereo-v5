@@ -44,7 +44,7 @@
 	"skip": {
 		"description": "Sauter la chanson en cours",
 		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), '{required}' vote(s) sont requis pour sauter cette chanson.",
-		"success": "{emoji.greentick}"
+		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
 	},
 	"forceskip": {
 		"description": "Forcer à sauter la chanson actuelle"
@@ -58,5 +58,26 @@
 		"description": "Reprend le lecteur",
 		"success": ">>> {emoji.greentick} | Reprise de la lecture.",
 		"fail": ">>> {emoji.redcross} | Le lecteur est déjà entrain de jouer."
+	},
+	"clear": {
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | I've cleared the queue."
+	},
+	"reset": {
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
+	},
+	"fix": {
+		"description": "Fixes the Discord voice connection",
+		"success": ">>> {emoji.greentick} | Changed the Discord voice sever. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+	},
+	"repeat": {
+		"description": "Changes the repeat mode",
+		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
+	},
+	"remove": {
+		"description": "Removes songs from 1 point to another",
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
 	}
 }
