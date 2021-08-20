@@ -84,5 +84,10 @@
 		"description": "Shows the lyrics for the playing song",
 		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
 		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
+	},
+	"move": {
+		"description": "Moves a song from 1 place to another",
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
 	}
 }
