@@ -1,6 +1,10 @@
 {
 	"play": {
 		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
+		"args": {
+			"query": "The search query",
+			"type": "Search type (you don't need it when searching via url)"
+		},
 		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
 		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
 		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
@@ -11,13 +15,22 @@
 		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Sets the bassboost level for the player"
+		"description": "Sets the bassboost level for the player",
+		"args": {
+			"level": "the bassboost level"
+		}
 	},
 	"filter": {
-		"description": "Sets the filter for the player"
+		"description": "Sets the filter for the player",
+		"args": {
+			"filter": "The filter you want to use"
+		}
 	},
 	"seek": {
 		"description": "Seeks the current track to the timestamp",
+		"args": {
+			"timestamp": "The timestamp (ex: 10:30) to seek to"
+		},
 		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
 		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
 	},
@@ -29,6 +42,9 @@
 	},
 	"volume": {
 		"description": "Changes the volume of the player",
+		"args": {
+			"volume": "The value to set the volume to"
+		},
 		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
 		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
 	},
@@ -73,16 +89,35 @@
 	},
 	"repeat": {
 		"description": "Changes the repeat mode",
+		"args": {
+			"mode": "The repeat mode"
+		},
 		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
 	},
 	"remove": {
 		"description": "Removes songs from 1 point to another",
+		"args": {
+			"start": "The start location",
+			"end": "The end location"
+		},
 		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
 		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
 	},
 	"lyrics": {
 		"description": "Shows the lyrics for the playing song",
+		"args": {
+			"query": "The song title"
+		},
 		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
 		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
+	},
+	"move": {
+		"description": "Moves a song from 1 place to another",
+		"args": {
+			"song": "The song to move",
+			"location": "The location the song has to move to"
+		},
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
 	}
 }

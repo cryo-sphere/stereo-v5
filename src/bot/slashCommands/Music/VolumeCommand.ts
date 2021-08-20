@@ -11,12 +11,13 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 		{
 			name: "volume",
 			description: "The value to set the volume to",
+			tDescription: "music:volume.args.volume",
 			type: "INTEGER",
 			required: true,
 		},
 	],
 })
-export default class DisconnectCommand extends SlashCommand {
+export default class VolumeCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 

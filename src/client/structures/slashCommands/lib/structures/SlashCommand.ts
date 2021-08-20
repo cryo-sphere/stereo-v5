@@ -27,7 +27,7 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 	public DJRole: boolean;
 
 	public preconditions: SlashCommandPreconditionContainerArray;
-	public arguments: ApplicationCommandOptionData[];
+	public arguments: CommandArg;
 	public permissions: ApplicationCommandPermissionData[];
 	public userPermissions: PermissionString[];
 
@@ -228,7 +228,7 @@ export const enum SlashCommandPreConditions {
 }
 
 export interface SlashCommandOptions extends PieceOptions {
-	arguments?: ApplicationCommandOptionData[];
+	arguments?: CommandArg;
 	description?: string;
 	tDescription?: string;
 	usage?: string;
@@ -247,3 +247,5 @@ export interface SlashCommandOptions extends PieceOptions {
 export interface SlashCommandContext extends Record<PropertyKey, unknown> {
 	commandName: string;
 }
+
+export type CommandArg = (ApplicationCommandOptionData & { tDescription: string })[];

@@ -9,17 +9,19 @@ import axios from "axios";
 	preconditions: ["GuildOnly"],
 	description: "Play a song",
 	tDescription: "music:play.description",
-	usage: "<query> [type (YouTube/SoundCloud/Radio)",
+	usage: "<query> [type]",
 	arguments: [
 		{
 			name: "query",
 			description: "The Search Query",
+			tDescription: "music:play.args.query",
 			type: "STRING",
 			required: true,
 		},
 		{
 			name: "type",
 			description: "Search type (you don't need it when searching via url)",
+			tDescription: "music:play.args.type",
 			type: "STRING",
 			required: false,
 			choices: [
@@ -39,7 +41,7 @@ import axios from "axios";
 		},
 	],
 })
-export default class PingCommand extends SlashCommand {
+export default class PlayCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 		await interaction.deferReply();

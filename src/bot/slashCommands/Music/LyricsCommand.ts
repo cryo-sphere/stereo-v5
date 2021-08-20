@@ -10,11 +10,12 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN ?? "");
 	preconditions: ["GuildOnly"],
 	description: "Shows the lyrics for the playing song",
 	tDescription: "music:lyrics.description",
-	usage: "[title]",
+	usage: "<query>",
 	arguments: [
 		{
-			name: "title",
-			description: "Song title",
+			name: "query",
+			description: "The song title",
+			tDescription: "music:lyrics.args.query",
 			type: "STRING",
 			required: false,
 		},
@@ -26,7 +27,9 @@ export default class LyricsCommand extends SlashCommand {
 		await interaction.deferReply();
 
 		const player = this.client.manager.get(interaction.guildId);
-		const title = args.getString("title") ?? player?.queue.current?.title;
+		const title =
+			args.getString("query") ??
+			`${player?.queue.current?.title} - ${player?.queue.current?.author}`;
 		if (!title)
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "music:lyrics.fail")

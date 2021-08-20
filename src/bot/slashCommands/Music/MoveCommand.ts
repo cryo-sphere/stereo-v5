@@ -1,65 +1,31 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
 import { CommandInteraction, VoiceChannel } from "discord.js";
-import { Filter } from "@stereo-bot/lavalink";
-
-const filters = [
-	{
-		name: "Karaoke",
-		value: "karaoke",
-	},
-	{
-		name: "Tremolo",
-		value: "tremolo",
-	},
-	{
-		name: "Pop",
-		value: "pop",
-	},
-	{
-		name: "8D",
-		value: "eightD",
-	},
-	{
-		name: "Slowed",
-		value: "slowed",
-	},
-	{
-		name: "Vaporwave",
-		value: "vaporwave",
-	},
-	{
-		name: "Nightcore",
-		value: "nightcore",
-	},
-	{
-		name: "Soft",
-		value: "soft",
-	},
-	{
-		name: "None",
-		value: "none",
-	},
-];
 
 @ApplyOptions<SlashCommand.Options>({
-	name: "filter",
+	name: "move",
 	preconditions: ["GuildOnly", "DJRole"],
-	description: "Sets the filter for the player",
-	tDescription: "music:filter.description",
-	usage: "<level>",
+	description: "Moves a song from 1 place to another",
+	tDescription: "music:move.description",
+	usage: "<song> <location>",
 	arguments: [
 		{
-			name: "level",
-			description: "The filter you want to use",
-			tDescription: "music:filter.args.level",
-			type: "STRING",
+			name: "song",
+			description: "The song to move",
+			tDescription: "music:move.args.song",
+			type: "INTEGER",
 			required: true,
-			choices: filters,
+		},
+		{
+			name: "location",
+			description: "The location the song has to move to",
+			tDescription: "music:move.args.location",
+			type: "INTEGER",
+			required: true,
 		},
 	],
 })
-export default class FilterCommand extends SlashCommand {
+export default class MoveCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 
@@ -79,17 +45,37 @@ export default class FilterCommand extends SlashCommand {
 			);
 		}
 
+		const song = args.getInteger("song", true);
+		const location = args.getInteger("location", true);
+
+		if (
+			song > player.queue.next.length ||
+			song < 1 ||
+			location > player.queue.next.length ||
+			location < 1
+		)
+			return interaction.reply(
+				this.languageHandler.translate(interaction.guildId, "music:move.fail", {
+					length: player.queue.next.length,
+				})
+			);
+
 		if (!player.queue.current)
 			return interaction.reply(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noTrack")
 			);
 
-		const filter = args.getString("level", true);
-		player.filters.apply(filter === "none" ? null : (filter as Filter));
+		if (!player.queue.next.length)
+			return interaction.reply(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noQueue")
+			);
+
+		player.queue.next.splice(location - 1, 0, player.queue.next.splice(song - 1, 1)[0]);
 
 		await interaction.reply(
-			this.languageHandler.translate(interaction.guildId, "MusicGeneral:filter", {
-				filter: filters.find((x) => x.value === filter)?.name,
+			this.languageHandler.translate(interaction.guildId, "music:move.success", {
+				position: song,
+				location,
 			})
 		);
 	}

@@ -12,31 +12,36 @@ import { inspect } from "util";
 	arguments: [
 		{
 			name: "code",
-			description: "code to execute",
+			description: "Code to execute",
+			tDescription: "",
 			type: "STRING",
 			required: true,
 		},
 		{
 			name: "async",
 			description: "If async should be enabled",
+			tDescription: "",
 			type: "BOOLEAN",
 			required: false,
 		},
 		{
 			name: "depth",
 			description: "The inspect depth",
+			tDescription: "",
 			type: "INTEGER",
 			required: false,
 		},
 		{
 			name: "hidden",
 			description: "Show hidden items",
+			tDescription: "",
 			type: "BOOLEAN",
 			required: false,
 		},
 		{
 			name: "silent",
 			description: "If the response should be silent",
+			tDescription: "",
 			type: "BOOLEAN",
 			required: false,
 		},

@@ -1,0 +1,21 @@
+{
+	"language": {
+		"description": "Shows / Changes the language",
+		"args": {
+			"language": "The language name"
+		},
+		"embed": {
+			"title": "Supported Languages"
+		},
+		"language": ">>> 🔡 | The language for this server is **English**, you can change it using the [dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') or using the `/language` command",
+		"success": ">>> {emoji.greentick} | Language changed to **English**!"
+	},
+	"announce": {
+		"description": "Changes the way Stereo announces new songs",
+		"args": {
+			"enabled": "If announcing should be enabled or not",
+			"delete": "If old announcements should be deleted or not"
+		},
+		"success": ">>> {emoji.greentick} | Song announcements are now **{announce}**, deleting old announcements are now **{deleteAnnounce}**!"
+	}
+}

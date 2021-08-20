@@ -31,11 +31,12 @@ const bassboosts = [
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Sets the bassboost level for the player",
 	tDescription: "music:bassboost.description",
-	usage: "<bassboost level>",
+	usage: "<level>",
 	arguments: [
 		{
 			name: "level",
-			description: "the bassboost level",
+			description: "The bassboost level",
+			tDescription: "music:bassboost.args.level",
 			type: "STRING",
 			required: true,
 			choices: bassboosts,
