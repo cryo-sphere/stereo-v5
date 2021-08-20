@@ -9,6 +9,7 @@
 	"dependencies": {
 		"@daangamesdg/logger": "^1.0.8",
 		"@discordjs/rest": "^0.1.0-canary.0",
+		"@ksoft/api": "^3.1.9",
 		"@prisma/client": "^2.29.1",
 		"@sapphire/decorators": "^2.2.0",
 		"@sapphire/framework": "next",
