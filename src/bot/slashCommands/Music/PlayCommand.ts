@@ -9,7 +9,7 @@ import axios from "axios";
 	preconditions: ["GuildOnly"],
 	description: "Play a song",
 	tDescription: "music:play.description",
-	usage: "<query> [type (YouTube/SoundCloud/Radio)",
+	usage: "<query> [type]",
 	arguments: [
 		{
 			name: "query",
