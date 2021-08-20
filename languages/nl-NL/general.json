@@ -18,7 +18,7 @@
 		},
 		"embed": {
 			"title": "Help Commando - {user}",
-			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {description}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`"
+			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Category**: {category}\n\n📘**Description**: {description}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limit**: `{limit}`"
 		}
 	}
 }
