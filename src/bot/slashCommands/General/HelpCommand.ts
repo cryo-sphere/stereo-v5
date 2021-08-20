@@ -10,7 +10,8 @@ import ms from "ms";
 	arguments: [
 		{
 			type: "STRING",
-			description: "the command name",
+			description: "The command name",
+			tDescription: "general:help.args.command",
 			name: "command",
 			required: false,
 		},
@@ -30,22 +31,29 @@ export default class InviteCommand extends SlashCommand {
 			| undefined;
 
 		if (command) {
-			embed.setDescription(
-				this.languageHandler.translate(interaction.guildId, "general:help.embed.description", {
-					name: command.name,
-					category: command.category,
-					description: command.tDescription
-						? this.languageHandler.translate(interaction.guildId, command.tDescription)
-						: "-",
-					usage: command.usage ? `/${command.usage}` : "-",
-					perms: command.userPermissions
-						? command.userPermissions.map((str) => `\`{${str}}\``).join(", ")
-						: "-",
-					djrole: this.client.constants.emojis[command.DJRole ? "greentick" : "redcross"],
-					cooldown: ms(command.cooldown),
-					limit: command.limit,
-				})
-			);
+			embed
+				.setDescription(
+					this.languageHandler.translate(interaction.guildId, "general:help.embed.description", {
+						name: command.name,
+						category: command.category,
+						description: command.tDescription
+							? this.languageHandler.translate(interaction.guildId, command.tDescription)
+							: "-",
+						usage: command.usage ? `/${command.usage}` : "-",
+						perms: command.userPermissions
+							? command.userPermissions.map((str) => `\`{${str}}\``).join(", ")
+							: "-",
+						djrole: this.client.constants.emojis[command.DJRole ? "greentick" : "redcross"],
+						cooldown: ms(command.cooldown),
+						limit: command.limit,
+					})
+				)
+				.addFields(
+					command.arguments.map((arg) => ({
+						name: `· ${arg.name}`,
+						value: this.languageHandler.translate(interaction.guildId, arg.tDescription),
+					}))
+				);
 		} else {
 			const isOwner = this.container.client.isOwner(interaction.user.id);
 			const commands = [...this.container.stores.get("slashCommands").values()] as SlashCommand[];

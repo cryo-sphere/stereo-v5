@@ -5,7 +5,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 @ApplyOptions<SlashCommand.Options>({
 	name: "forceskip",
 	preconditions: ["GuildOnly"],
-	description: "forceskips the current song",
+	description: "Forceskips the current song",
 	tDescription: "music:forceskip.description",
 	userPermissions: ["MANAGE_CHANNELS"],
 })

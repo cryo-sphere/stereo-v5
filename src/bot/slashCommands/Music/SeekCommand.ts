@@ -12,7 +12,8 @@ import { Utils } from "@stereo-bot/lavalink";
 	arguments: [
 		{
 			name: "timestamp",
-			description: "the timestamp (ex: 10:30) to seek to",
+			description: "The timestamp (ex: 10:30) to seek to",
+			tDescription: "music:seek.args.timestamp",
 			type: "STRING",
 			required: true,
 		},

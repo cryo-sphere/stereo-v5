@@ -12,6 +12,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 		{
 			name: "mode",
 			description: "The repeat mode",
+			tDescription: "music:repeat.args.mode",
 			type: "STRING",
 			required: true,
 			choices: [

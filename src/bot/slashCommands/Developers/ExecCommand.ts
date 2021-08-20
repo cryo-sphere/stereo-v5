@@ -11,13 +11,15 @@ import { exec, ExecException } from "child_process";
 	arguments: [
 		{
 			name: "command",
-			description: "command + args to execute",
+			description: "Command + args to execute",
+			tDescription: "",
 			type: "STRING",
 			required: true,
 		},
 		{
 			name: "silent",
 			description: "If the response should be silent",
+			tDescription: "",
 			type: "BOOLEAN",
 			required: false,
 		},

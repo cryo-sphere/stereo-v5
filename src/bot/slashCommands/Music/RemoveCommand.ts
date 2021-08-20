@@ -7,17 +7,19 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Removes songs from 1 point to another",
 	tDescription: "music:remove.description",
-	usage: "<point 1> [point 2]",
+	usage: "<start> [end]",
 	arguments: [
 		{
 			name: "start",
 			description: "The start location",
+			tDescription: "music:remove.args.start",
 			type: "INTEGER",
 			required: true,
 		},
 		{
 			name: "end",
 			description: "The end location",
+			tDescription: "music:remove.args.end",
 			type: "INTEGER",
 			required: false,
 		},

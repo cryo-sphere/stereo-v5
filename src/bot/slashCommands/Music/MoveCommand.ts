@@ -7,16 +7,19 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Moves a song from 1 place to another",
 	tDescription: "music:move.description",
+	usage: "<song> <location>",
 	arguments: [
 		{
 			name: "song",
-			description: "the song to move",
+			description: "The song to move",
+			tDescription: "music:move.args.song",
 			type: "INTEGER",
 			required: true,
 		},
 		{
 			name: "location",
-			description: "the location the song has to move to",
+			description: "The location the song has to move to",
+			tDescription: "music:move.args.location",
 			type: "INTEGER",
 			required: true,
 		},

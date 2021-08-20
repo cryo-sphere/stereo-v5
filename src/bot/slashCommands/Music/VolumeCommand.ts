@@ -11,6 +11,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 		{
 			name: "volume",
 			description: "The value to set the volume to",
+			tDescription: "music:volume.args.volume",
 			type: "INTEGER",
 			required: true,
 		},

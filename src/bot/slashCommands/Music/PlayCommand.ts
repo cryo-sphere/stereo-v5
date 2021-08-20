@@ -14,12 +14,14 @@ import axios from "axios";
 		{
 			name: "query",
 			description: "The Search Query",
+			tDescription: "music:play.args.query",
 			type: "STRING",
 			required: true,
 		},
 		{
 			name: "type",
 			description: "Search type (you don't need it when searching via url)",
+			tDescription: "music:play.args.type",
 			type: "STRING",
 			required: false,
 			choices: [
