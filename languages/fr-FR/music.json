@@ -42,11 +42,47 @@
 		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
 	},
 	"skip": {
-		"description": "Skips the current song",
-		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
-		"success": "{emoji.greentick}"
+		"description": "Saute la chanson en cours",
+		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson.",
+		"success": ">>> {emoji.greentick} | Vote enregistré. Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson."
 	},
 	"forceskip": {
-		"description": "Forceskips the current song"
+		"description": "Forcer à sauter la chanson actuelle"
+	},
+	"pause": {
+		"description": "Met le lecteur en pause",
+		"success": ">>> {emoji.greentick} | Mise en pause du lecteur.",
+		"fail": ">>> {emoji.redcross} | Le lecteur est déjà en pause."
+	},
+	"resume": {
+		"description": "Reprend le lecteur",
+		"success": ">>> {emoji.greentick} | Reprise du lecteur.",
+		"fail": ">>> {emoji.redcross} | Le lecteur est déjà entrain de jouer."
+	},
+	"clear": {
+		"description": "Efface la file d'attente (sauf la chanson actuelle)",
+		"success": ">>> {emoji.greentick} | J'ai vidé la file d'attente."
+	},
+	"reset": {
+		"description": "Efface la file d'attente (sauf la chanson actuelle)",
+		"success": ">>> {emoji.greentick} | Le lecteur est réinitialisé aux paramètres d'usine."
+	},
+	"fix": {
+		"description": "Corrige la connexion vocale Discord",
+		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+	},
+	"repeat": {
+		"description": "Change le mode de répétition",
+		"success": ">>> {emoji.greentick} | Le mode de répétition est maintenant changé à **{mode}** !"
+	},
+	"remove": {
+		"description": "Déplace des chansons d'un point à un autre",
+		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
+		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
+	},
+	"lyrics": {
+		"description": "Shows the lyrics for the playing song",
+		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
+		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
 	}
 }

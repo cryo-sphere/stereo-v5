@@ -4,7 +4,8 @@
 		"wrong": ">>> {emoji.error} | Tu n'es pas dans le bon salon vocal, rejoins **{voice}**!",
 		"alreadyCreated": ">>> {emoji.redcross} | Je suis déjà connecté à **{voice}**!",
 		"disconnected": ">>> 👋 | Déconnexion réussie de `{channel}`.",
-		"connected": ">>> 👋 | Connexion réussie à `{channel}`."
+		"connected": ">>> 👋 | Connexion réussie à `{channel}`.",
+		"forcedDisconnect": ">>> ❗ | Quelqu'un m'a déconnecté! Ne fais pas ça, utilise plutôt la commande `/disconnect` pour éviter de casser les lecteurs."
 	},
 	"announce": {
 		"title": "En cours de lecture de {title}",
@@ -18,5 +19,5 @@
 	"inactive": ">>> 👋 | Je me suis déconnecté pour cause d'inactivité, les partenaires peuvent utiliser /afk pour me garder dans le salon vocal.",
 	"filter": ">>> 🎛 | Application réussie du filtre **{filter}**, cela peut prendre quelques secondes avant que ce filtre ne fonctionne.",
 	"djrole": ">>> 👮♂️ | Le mode DJ est actuellement activé, seuls les utilisateurs ayant le DJRole sont autorisés à utiliser cette commande.",
-	"skip": ">>> {emoji.greentick} | Successfully skipped to the next song!"
+	"skip": ">>> {emoji.greentick} | Passage réussi à la chanson suivante!"
 }
