@@ -1,6 +1,10 @@
 {
 	"play": {
 		"description": "Joue une chanson dans le salon vocal dans lequel tu te trouves (les Stage Channels sont également pris en charge!)",
+		"args": {
+			"query": "La requête de recherche",
+			"type": "Type de recherche (tu n'en as pas besoin si tu cherches par url)"
+		},
 		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
 		"playlistLoaded": ">>> {emoji.greentick} | Chargement réussi de la playlist **{playlist}** - `{duration}`",
 		"trackLoaded": ">>> {emoji.greentick} | Chargement réussi de **{track}** - `{duration}`"
@@ -11,13 +15,22 @@
 		"embedDescription": "Demandeur: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFiltre: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Définit le niveau de bassboost pour le lecteur"
+		"description": "Définit le niveau de bassboost pour le lecteur",
+		"args": {
+			"level": "le niveau de bassboost"
+		}
 	},
 	"filter": {
-		"description": "Définit le filtre pour le lecteur"
+		"description": "Définit le filtre pour le lecteur",
+		"args": {
+			"filter": "Le filtre que tu souhaites utiliser"
+		}
 	},
 	"seek": {
 		"description": "Cherche la piste actuelle jusqu'à l'horodatage",
+		"args": {
+			"timestamp": "L'horodatage (ex: 10:30) pour chercher à"
+		},
 		"invalid": ">>> {emoji.redcross} | Horodatage non valide fourni, merci de fournir un horodatage comme: `10:30`",
 		"success": ">>> {emoji.greentick} | Recherche réussie vers `{seek}`!"
 	},
@@ -29,6 +42,9 @@
 	},
 	"volume": {
 		"description": "Change le volume du lecteur",
+		"args": {
+			"volume": "La valeur à laquelle régler le volume"
+		},
 		"invalid": ">>> {emoji.redross} | La valeur doit être comprise entre 1 et 200.",
 		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
 	},
@@ -69,20 +85,39 @@
 	},
 	"fix": {
 		"description": "Corrige la connexion vocale Discord",
-		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+		"success": ">>> {emoji.greentick} | J'ai changé le serveur vocal Discord. Tu n'entends rien? Server mute et unmute moi ou exécute à nouveau la commande `/fix`."
 	},
 	"repeat": {
 		"description": "Change le mode de répétition",
+		"args": {
+			"mode": "Le mode répétition"
+		},
 		"success": ">>> {emoji.greentick} | Le mode de répétition est maintenant changé à **{mode}** !"
 	},
 	"remove": {
 		"description": "Déplace des chansons d'un point à un autre",
+		"args": {
+			"start": "La localisation de départ",
+			"end": "La localisation finale"
+		},
 		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
 		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
 	},
 	"lyrics": {
-		"description": "Shows the lyrics for the playing song",
-		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
-		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
+		"description": "Affiche les paroles de la chanson en cours de lecture",
+		"args": {
+			"query": "Le titre de la chanson"
+		},
+		"fail": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture dans le serveur, merci de fournir un titre de chanson.",
+		"noResult": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats."
+	},
+	"move": {
+		"description": "Déplace une chanson d'un endroit à un autre",
+		"args": {
+			"song": "La chanson à déplacer",
+			"location": "L'endroit où la chanson doit se déplacer"
+		},
+		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
+		"success": ">>> {emoji.greentick} | J'ai déplacé la chanson de la position **{position}** à la position **{location}**!"
 	}
 }

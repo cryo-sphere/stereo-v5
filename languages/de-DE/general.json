@@ -13,6 +13,9 @@
 	},
 	"help": {
 		"description": "Eine kurze Übersicht aller Befehle, die Stereo hat",
+		"args": {
+			"command": "The command name"
+		},
 		"embed": {
 			"title": "Hilfebefehl - {user}",
 			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Kategorie**: {category}\n\n📘**Beschreibung**: {description}\n📋 **Verwendung**: {usage}\n\n👮‍♂️ | **Rechte**: {perms}\n🗝 | **DJRolle**: {djrole}\n\n⌚ | **Abklingzeit**: `{cooldown}`\n🔢 | **Limit**: `{limit}`"
