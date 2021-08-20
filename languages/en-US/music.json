@@ -69,7 +69,7 @@
 	},
 	"fix": {
 		"description": "Fixes the Discord voice connection",
-		"success": ">>> {emoji.greentick} | Changed the Discord voice sever. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
 	},
 	"repeat": {
 		"description": "Changes the repeat mode",
