@@ -9,6 +9,8 @@
 	"required": "required",
 	"optional": "optional",
 	"argument": "Argument",
+	"enabled": "enabled",
+	"disabled": "disabled",
 	"errors": {
 		"preconditionGuildOnly": ">>> {emoji.redcross} | You can only use this command in a server.",
 		"slashCommandPreconditionDmOnly": ">>> {emoji.redcross} | You can only use this command in DMs.",

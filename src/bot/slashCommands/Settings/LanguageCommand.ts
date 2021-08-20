@@ -1,6 +1,6 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
-import { CommandInteraction } from "discord.js";
+import { CommandInteraction, Permissions } from "discord.js";
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "language",
@@ -17,7 +17,7 @@ import { CommandInteraction } from "discord.js";
 		},
 	],
 })
-export default class PingCommand extends SlashCommand {
+export default class LanguageCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 
@@ -25,6 +25,18 @@ export default class PingCommand extends SlashCommand {
 		if (!language)
 			return interaction.reply(
 				this.languageHandler.translate(interaction.guildId, "settings:language.language")
+			);
+
+		const permissions =
+			typeof interaction.member.permissions === "string"
+				? new Permissions(BigInt(interaction.member.permissions))
+				: interaction.member.permissions;
+		const missing = permissions.has("MANAGE_GUILD", true);
+		if (missing)
+			return interaction.reply(
+				this.languageHandler.translate(interaction.guildId, "BotGeneral:permissions", {
+					missing: "`{MANAGE_GUILD}`",
+				})
 			);
 
 		const key = this.languageHandler.languageKeys[language.toLowerCase()];

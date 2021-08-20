@@ -13,7 +13,7 @@ export class PermissionsPrecondition extends SlashCommandPrecondition {
 			typeof interaction.member.permissions === "string"
 				? new Permissions(BigInt(interaction.member.permissions))
 				: interaction.member.permissions;
-		const missing = permissions.missing(command.userPermissions);
+		const missing = permissions.missing(command.userPermissions, true);
 		if (!missing.length) return this.ok();
 
 		return this.error({
