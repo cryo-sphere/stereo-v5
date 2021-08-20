@@ -2,8 +2,8 @@
 	"play": {
 		"description": "Joue une chanson dans le salon vocal dans lequel tu te trouves (les Stage Channels sont également pris en charge!)",
 		"args": {
-			"query": "The search query",
-			"type": "Search type (you don't need it when searching via url)"
+			"query": "La requête de recherche",
+			"type": "Type de recherche (tu n'en as pas besoin si tu cherches par url)"
 		},
 		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
 		"playlistLoaded": ">>> {emoji.greentick} | Chargement réussi de la playlist **{playlist}** - `{duration}`",
@@ -17,19 +17,19 @@
 	"bassboost": {
 		"description": "Définit le niveau de bassboost pour le lecteur",
 		"args": {
-			"level": "the bassboost level"
+			"level": "le niveau de bassboost"
 		}
 	},
 	"filter": {
 		"description": "Définit le filtre pour le lecteur",
 		"args": {
-			"filter": "The filter you want to use"
+			"filter": "Le filtre que tu souhaites utiliser"
 		}
 	},
 	"seek": {
 		"description": "Cherche la piste actuelle jusqu'à l'horodatage",
 		"args": {
-			"timestamp": "The timestamp (ex: 10:30) to seek to"
+			"timestamp": "L'horodatage (ex: 10:30) pour chercher à"
 		},
 		"invalid": ">>> {emoji.redcross} | Horodatage non valide fourni, merci de fournir un horodatage comme: `10:30`",
 		"success": ">>> {emoji.greentick} | Recherche réussie vers `{seek}`!"
@@ -43,7 +43,7 @@
 	"volume": {
 		"description": "Change le volume du lecteur",
 		"args": {
-			"volume": "The value to set the volume to"
+			"volume": "La valeur à laquelle régler le volume"
 		},
 		"invalid": ">>> {emoji.redross} | La valeur doit être comprise entre 1 et 200.",
 		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
@@ -90,15 +90,15 @@
 	"repeat": {
 		"description": "Change le mode de répétition",
 		"args": {
-			"mode": "The repeat mode"
+			"mode": "Le mode répétition"
 		},
 		"success": ">>> {emoji.greentick} | Le mode de répétition est maintenant changé à **{mode}** !"
 	},
 	"remove": {
 		"description": "Déplace des chansons d'un point à un autre",
 		"args": {
-			"start": "The start location",
-			"end": "The end location"
+			"start": "La localisation de départ",
+			"end": "La localisation finale"
 		},
 		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
 		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
@@ -106,18 +106,18 @@
 	"lyrics": {
 		"description": "Affiche les paroles de la chanson en cours de lecture",
 		"args": {
-			"query": "The song title"
+			"query": "Le titre de la chanson"
 		},
 		"fail": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture dans le serveur, merci de fournir un titre de chanson.",
 		"noResult": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats."
 	},
 	"move": {
-		"description": "Moves a song from 1 place to another",
+		"description": "Déplace une chanson d'un endroit à un autre",
 		"args": {
-			"song": "The song to move",
-			"location": "The location the song has to move to"
+			"song": "La chanson à déplacer",
+			"location": "L'endroit où la chanson doit se déplacer"
 		},
-		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
-		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
+		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
+		"success": ">>> {emoji.greentick} | J'ai déplacé la chanson de la position **{position}** à la position **{location}**!"
 	}
 }
