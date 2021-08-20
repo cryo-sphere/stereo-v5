@@ -69,7 +69,7 @@
 	},
 	"fix": {
 		"description": "Corrige la connexion vocale Discord",
-		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+		"success": ">>> {emoji.greentick} | J'ai changé le serveur vocal Discord. Tu n'entends rien? Server mute et unmute moi ou exécute à nouveau la commande `/fix`."
 	},
 	"repeat": {
 		"description": "Change le mode de répétition",
@@ -81,8 +81,8 @@
 		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
 	},
 	"lyrics": {
-		"description": "Shows the lyrics for the playing song",
-		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
-		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
+		"description": "Affiche les paroles de la chanson en cours de lecture",
+		"fail": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture dans le serveur, merci de fournir un titre de chanson.",
+		"noResult": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats."
 	}
 }
