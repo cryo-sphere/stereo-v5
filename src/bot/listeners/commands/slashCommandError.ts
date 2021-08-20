@@ -12,15 +12,23 @@ export class slashCommandErrorListener extends Listener {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	public async run(error: any, { interaction, piece }: SlashCommandErrorPayload) {
 		const translate = this.container.client.languageHandler.translate;
-		const reply = interaction.deferred ? interaction.followUp : interaction.reply;
 
 		// If string || UserError, send to user
 		if (typeof error === "string")
-			return reply(translate(interaction.guildId, "BotGeneral:error_raw", { error }));
+			return this.reply(
+				interaction,
+				translate(interaction.guildId, "BotGeneral:error_raw", { error })
+			);
 		if (error instanceof ArgumentError)
-			return reply(translate(interaction.guildId, `BotGeneral:errors.${error.identifier}`));
+			return this.reply(
+				interaction,
+				translate(interaction.guildId, `BotGeneral:errors.${error.identifier}`)
+			);
 		if (error instanceof UserError)
-			return reply(translate(interaction.guildId, `BotGeneral:errors.${error.identifier}`));
+			return this.reply(
+				interaction,
+				translate(interaction.guildId, `BotGeneral:errors.${error.identifier}`)
+			);
 
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		const logger = this.container.client.loggers.get("bot")!;
@@ -32,7 +40,7 @@ export class slashCommandErrorListener extends Listener {
 				}`
 			);
 
-			return reply(translate(interaction.guildId, "BotGeneral:error"));
+			return this.reply(interaction, translate(interaction.guildId, "BotGeneral:error"));
 		}
 
 		// checks if error is DiscordAPIError || HTTPError
@@ -55,12 +63,17 @@ export class slashCommandErrorListener extends Listener {
 		logger.fatal(`[COMMAND] ${command.path}\n${error.stack || error.message}`);
 
 		try {
-			return reply(this.generateUnexpectedErrorMessage(interaction, error));
+			return this.reply(interaction, this.generateUnexpectedErrorMessage(interaction, error));
 		} catch (err) {
 			this.container.client.emit(Events.Error, err);
 		}
 
 		return undefined;
+	}
+
+	private reply(interaction: CommandInteraction, str: string) {
+		if (interaction.deferred || interaction.replied) return interaction.followUp(str);
+		return interaction.reply(str);
 	}
 
 	private isSilencedError(interaction: CommandInteraction, error: DiscordAPIError | HTTPError) {

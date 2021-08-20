@@ -74,7 +74,7 @@ export default class Client extends SapphireClient {
 	constructor(options: ClientOptions) {
 		super({
 			intents: options.intents,
-			allowedMentions: { users: [], repliedUser: false, roles: [] },
+			allowedMentions: { users: [], roles: [], repliedUser: false },
 			baseUserDirectory: join(__dirname, "..", "bot"),
 			partials: options.partials,
 			loadDefaultErrorListeners: false,

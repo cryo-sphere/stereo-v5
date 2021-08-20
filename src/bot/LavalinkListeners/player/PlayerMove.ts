@@ -20,7 +20,7 @@ export default class playerMoveListener extends LavalinkListener {
 					.send(
 						this.client.languageHandler.translate(player.guild, "MusicGeneral:vc.forcedDisconnect")
 					)
-					.catch();
+					.catch(() => void 0);
 
 			player.destroy();
 		}

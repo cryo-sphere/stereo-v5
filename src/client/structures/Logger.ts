@@ -44,7 +44,7 @@ export default class Logger extends defaultLogger {
 
 		if (this.webhook && process.env.NODE_ENV !== "development") {
 			const str = this.formatter.webhook(input, { ...data, name: this.name });
-			this.webhook.send(str.substr(0, 2000)).catch();
+			this.webhook.send(str.substr(0, 2000)).catch(() => void 0);
 		}
 
 		return this;

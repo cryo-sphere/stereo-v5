@@ -39,7 +39,7 @@ export default class trackStartListener extends LavalinkListener {
 							),
 					],
 				})
-				.catch();
+				.catch(() => void 0);
 
 			if (msg) this.client.announcements.set(player.guild, msg.id);
 		}
