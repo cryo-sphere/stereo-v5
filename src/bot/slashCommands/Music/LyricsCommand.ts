@@ -27,7 +27,9 @@ export default class LyricsCommand extends SlashCommand {
 		await interaction.deferReply();
 
 		const player = this.client.manager.get(interaction.guildId);
-		const title = args.getString("query") ?? player?.queue.current?.title;
+		const title =
+			args.getString("query") ??
+			`${player?.queue.current?.title} - ${player?.queue.current?.author}`;
 		if (!title)
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "music:lyrics.fail")
