@@ -25,7 +25,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 		},
 	],
 })
-export default class RepeatCommand extends SlashCommand {
+export default class RemoveCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 

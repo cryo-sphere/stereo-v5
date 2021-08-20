@@ -15,7 +15,7 @@
 		"description": "Een kort overzicht van alle commandos Stereo heeft",
 		"embed": {
 			"title": "Help Commando - {user}",
-			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {desc}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`"
+			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {description}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`"
 		}
 	}
 }

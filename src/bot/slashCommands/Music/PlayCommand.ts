@@ -41,7 +41,7 @@ import axios from "axios";
 		},
 	],
 })
-export default class PingCommand extends SlashCommand {
+export default class PlayCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 		await interaction.deferReply();

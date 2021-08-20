@@ -15,7 +15,7 @@
 		"description": "Un rapide aperçu de toutes les commandes dont dispose Stereo",
 		"embed": {
 			"title": "Commande d'aide - {user}",
-			"description": ">>> 🏷 | **Nom**: {name}\n📁 | **Catégorie**: {category}\n\n📘**Description**: {desc}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Temps de rechargement**: `{cooldown}`\n🔢 | **Limite**: `{limit}`"
+			"description": ">>> 🏷 | **Nom**: {name}\n📁 | **Catégorie**: {category}\n\n📘**Description**: {description}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Temps de rechargement**: `{cooldown}`\n🔢 | **Limite**: `{limit}`"
 		}
 	}
 }

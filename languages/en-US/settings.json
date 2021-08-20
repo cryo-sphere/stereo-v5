@@ -1,0 +1,13 @@
+{
+	"language": {
+		"description": "Shows / Changes the language",
+		"args": {
+			"language": "The language name"
+		},
+		"embed": {
+			"title": "Supported Languages"
+		},
+		"language": ">>> 🔡 | The language for this server is **English**, you can change it using the [dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') or using the `/language` command",
+		"success": ">>> {emoji.greentick} | Language changed to **English**!"
+	}
+}

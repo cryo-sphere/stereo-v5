@@ -17,7 +17,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 		},
 	],
 })
-export default class DisconnectCommand extends SlashCommand {
+export default class VolumeCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 

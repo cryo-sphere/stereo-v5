@@ -25,6 +25,10 @@ export default class Utils {
 		return new MessageEmbed({ color: process.env.COLOUR as `#${string}`, ...options });
 	}
 
+	public capitalize(str: string): string {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
+
 	public async getChannel(id: string): Promise<Channel | null> {
 		return typeof id === "string"
 			? this._resolve(this.client.channels.cache, id) ||

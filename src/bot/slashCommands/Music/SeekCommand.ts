@@ -19,7 +19,7 @@ import { Utils } from "@stereo-bot/lavalink";
 		},
 	],
 })
-export default class seekCommand extends SlashCommand {
+export default class SeekCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
 
