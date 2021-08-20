@@ -42,42 +42,47 @@
 		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
 	},
 	"skip": {
-		"description": "Sauter la chanson en cours",
-		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), '{required}' vote(s) sont requis pour sauter cette chanson.",
-		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
+		"description": "Saute la chanson en cours",
+		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson.",
+		"success": ">>> {emoji.greentick} | Vote enregistré. Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson."
 	},
 	"forceskip": {
 		"description": "Forcer à sauter la chanson actuelle"
 	},
 	"pause": {
-		"description": "Met en pause le lecteur",
-		"success": ">>> {emoji.greentick} | Mise en pause.",
+		"description": "Met le lecteur en pause",
+		"success": ">>> {emoji.greentick} | Mise en pause du lecteur.",
 		"fail": ">>> {emoji.redcross} | Le lecteur est déjà en pause."
 	},
 	"resume": {
 		"description": "Reprend le lecteur",
-		"success": ">>> {emoji.greentick} | Reprise de la lecture.",
+		"success": ">>> {emoji.greentick} | Reprise du lecteur.",
 		"fail": ">>> {emoji.redcross} | Le lecteur est déjà entrain de jouer."
 	},
 	"clear": {
-		"description": "Clears the queue (except the current song)",
-		"success": ">>> {emoji.greentick} | I've cleared the queue."
+		"description": "Efface la file d'attente (sauf la chanson actuelle)",
+		"success": ">>> {emoji.greentick} | J'ai vidé la file d'attente."
 	},
 	"reset": {
-		"description": "Clears the queue (except the current song)",
-		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
+		"description": "Efface la file d'attente (sauf la chanson actuelle)",
+		"success": ">>> {emoji.greentick} | Le lecteur est réinitialisé aux paramètres d'usine."
 	},
 	"fix": {
-		"description": "Fixes the Discord voice connection",
-		"success": ">>> {emoji.greentick} | Changed the Discord voice sever. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+		"description": "Corrige la connexion vocale Discord",
+		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
 	},
 	"repeat": {
-		"description": "Changes the repeat mode",
-		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
+		"description": "Change le mode de répétition",
+		"success": ">>> {emoji.greentick} | Le mode de répétition est maintenant changé à **{mode}** !"
 	},
 	"remove": {
-		"description": "Removes songs from 1 point to another",
-		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
-		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
+		"description": "Déplace des chansons d'un point à un autre",
+		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
+		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
+	},
+	"lyrics": {
+		"description": "Shows the lyrics for the playing song",
+		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
+		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
 	}
 }
