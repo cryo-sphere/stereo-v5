@@ -16,9 +16,28 @@
 
 _note: bot is everything except finished, do **not** download it if you don't know what you are doing, I will announce when it's ready._
 
+## Important information
+
+We expect you to have a basic understanding of JavaScript / TypeScript hosting of things like websites and Discord bots when using one of our repositories. Do **not** ask general questions like "How to install NodeJS?" or "How to update .env" in both our Discord server and the issue tracker.
+
+Please don't open issues or ask for support with the reason "... doesn't work". If something does not work, **explain** as detailed as possible what went wrong, how to reproduce it and what versions you used (NodeJS version, etc)
+
+Hosting your own version is allowed, however, please give **credits**. If you do **not** do this, you're not cool. No but seriously, people will eventually find out about it and if that happens, you wish that you neved made such as big mistake. You're in the end not forced to, but it's extremely recommened.
+
 ## Install
 
-soon:tm:
+**Make sure you have the latest version of NodeJS installed (v16).**
+_Note: the install guide uses yarn to explain what to do, don't forget that you don't need yarn to install packages, you can also use npm or pnpm_
+
+To install all the dependencies, run the following command in your terminal: `yarn install`
+
+After installing the dependencies, run: `yarn run build`. This will create a `dist` folder containing all the compiled TypeScript files.
+
+The last step is to run `yarn start` this will start the bot. (don't forget to update the .env, there is a .env.example to show you all the required values)
+
+Want to add your own features or need to change something (a value or something), use the `yarn run dev` command to start the dev server. It will restart the bot everytime you update something. (It doesn't use ts-node because @sapphire/framework doesn't yet support it)
+
+A more detailed-ish coming soon
 
 ## Author
 
