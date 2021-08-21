@@ -80,7 +80,7 @@
 		"success": ">>> {emoji.greentick} | J'ai vidé la file d'attente."
 	},
 	"reset": {
-		"description": "Efface la file d'attente (sauf la chanson actuelle)",
+		"description": "Resets the player and stops with playing",
 		"success": ">>> {emoji.greentick} | Le lecteur est réinitialisé aux paramètres d'usine."
 	},
 	"fix": {
