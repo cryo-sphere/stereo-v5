@@ -2,8 +2,8 @@
 	"play": {
 		"description": "Speel een nummer af in het spraak kanaal waar jij ook in zit (Stage kanalen worden ook ondersteund)",
 		"args": {
-			"query": "The search query",
-			"type": "Search type (you don't need it when searching via url)"
+			"query": "De zoekopdracht",
+			"type": "Zoek type (hoef je niet te gebruiken wanneer je een link gebruikt)"
 		},
 		"noResults": ">>> {emoji.redcross} | Sorry, ik heb geen resultaten kunnen vinden.",
 		"playlistLoaded": ">>> {emoji.greentick} | Ik heb de afspeellijst **{playlist}** - `{duration}` geladen",
@@ -17,19 +17,19 @@
 	"bassboost": {
 		"description": "Veranderd de bassboost niveau van de speler",
 		"args": {
-			"level": "the bassboost level"
+			"level": "het bassboost niveau"
 		}
 	},
 	"filter": {
 		"description": "Veranderd de filter van de speler",
 		"args": {
-			"filter": "The filter you want to use"
+			"filter": "De filter die jij wil gebruiken"
 		}
 	},
 	"seek": {
 		"description": "Verplaatst naar de geven timestamp en speelt daarna verder",
 		"args": {
-			"timestamp": "The timestamp (ex: 10:30) to seek to"
+			"timestamp": "De timestamp (bijv. 10:30) om naar te verplaatsen"
 		},
 		"invalid": ">>> {emoji.redcross} | De geven timestamp is niet geldig, zo zou het er uit moeten zien: `10:30`",
 		"success": ">>> {emoji.greentick} | Met success verplaatst naar `{seek}`!"
@@ -43,7 +43,7 @@
 	"volume": {
 		"description": "Veranderd de volume van de speler",
 		"args": {
-			"volume": "The value to set the volume to"
+			"volume": "Het niveau waar de volume naar toe moet"
 		},
 		"invalid": ">>> {emoji.redross} | De volume moet tussen 1 en 200 zijn.",
 		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
@@ -60,72 +60,72 @@
 	"skip": {
 		"description": "Skips het huidige nummer",
 		"fail": ">>> 🔢 | Er zijn momenteel `{current}` stem(men), `{required}` stem(men) zijn nodig om dit nummer te skippen.",
-		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
+		"success": ">>> {emoji.greentick} | Stem opgeslagen. Er zijn momenteel `{current}`stem(men), `{required}` stem(men) zijn nodig om het nummer over te slaan."
 	},
 	"forceskip": {
 		"description": "Forceert de speler om het nummer te skippen"
 	},
 	"pause": {
-		"description": "Pauses the player",
-		"success": ">>> {emoji.greentick} | Paused the player.",
-		"fail": ">>> {emoji.redcross} | Player is already paused."
+		"description": "Pauzeert de speler",
+		"success": ">>> {emoji.greentick} | Speler is gepauzeerd.",
+		"fail": ">>> {emoji.redcross} | De speler is al gepauzeerd."
 	},
 	"resume": {
-		"description": "Resumes the player",
-		"success": ">>> {emoji.greentick} | Resumed the player.",
-		"fail": ">>> {emoji.redcross} | Player is already playing."
+		"description": "Hervat de speler",
+		"success": ">>> {emoji.greentick} | Speler is hervat.",
+		"fail": ">>> {emoji.redcross} | Speler is al aan het spelen."
 	},
 	"clear": {
-		"description": "Clears the queue (except the current song)",
-		"success": ">>> {emoji.greentick} | I've cleared the queue."
+		"description": "Maakt de queue schoon (behalve het spelende nummer)",
+		"success": ">>> {emoji.greentick} | Ik heb de queue schoon gemaakt."
 	},
 	"reset": {
-		"description": "Resets the player and stops with playing",
-		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
+		"description": "Reset de speler en stopt met spelen",
+		"success": ">>> {emoji.greentick} | Speler is gereset naar fabrieksinstellingen."
 	},
 	"fix": {
-		"description": "Fixes the Discord voice connection",
-		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+		"description": "Fixes de Discord spraak verbinding",
+		"success": ">>> {emoji.greentick} | De spraak server is geüpdate. Hoor je niets? Server mute en unmute me dan of gebruik de `/fix` command."
 	},
 	"repeat": {
-		"description": "Changes the repeat mode",
+		"description": "Veranderd de herhaal mode",
 		"args": {
-			"mode": "The repeat mode"
+			"mode": "De herhaal mode"
 		},
-		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
+		"success": ">>> {emoji.greentick} | De herhaal mode is veranderd naar **{mode}**!"
 	},
 	"remove": {
-		"description": "Removes songs from 1 point to another",
+		"description": "Verwijderd een nummer van punt 1 naar punt 2",
 		"args": {
-			"start": "The start location",
-			"end": "The end location"
+			"start": "De start positie",
+			"end": "De eind positie"
 		},
-		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
-		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
+		"fail": ">>> {emoji.error} | De meegegeven waarden zijn niet correct.\nElke waarden moet tussen `1` en `{length}` zitten.",
+		"success": ">>> {emoji.greentick} | Ik heb **{amount}** nummers verwijderd."
 	},
 	"lyrics": {
-		"description": "Shows the lyrics for the playing song",
+		"description": "Toont de lyrics voor het nummer dat nu aan het spelen is",
 		"args": {
-			"query": "The song title"
+			"query": "De title van het nummer"
 		},
-		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
-		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
+		"fail": ">>> {emoji.redcross} | Er wordt niets gespeelt in de server, geef alsjeblieft een titel van een nummer.",
+		"noResult": ">>> {emoji.redcross} | Sorry, Ik heb geen resultaten kunnen vinden."
 	},
 	"move": {
-		"description": "Moves a song from 1 place to another",
+		"description": "Verplaatst een nummer van de ene plaats naar een ander",
 		"args": {
-			"song": "The song to move",
-			"location": "The location the song has to move to"
+			"song": "Het nummer dat je wil verplaatsen",
+			"location": "De positie van waar het nummer naar toe zou moeten gaan"
 		},
-		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
-		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
+		"fail": ">>> {emoji.error} | De meegegeven waarden zijn niet correct.\nElke waarden moet tussen `1` en `{length}` zitten.",
+		"success": ">>> {emoji.greentick} | Ik heb het nummer op positie **{position}** naar positie **{location}** verplaatst!"
 	},
 	"queue": {
-		"description": "Shows all the songs in the queue",
+		"description": "Toont alle nummers die in de queue zitten",
 		"embed": {
-			"title": "Queue for {name}",
-			"footer": "Page: {page} / {maxPages}",
-			"current": "Now playing - Requested by {requester}"
+			"title": "Queue voor {name}",
+			"footer": "Pagina: {page} / {maxPages}",
+			"current": "Nu aan het spelen - Aangevraagd door {requester}"
 		}
 	}
 }
