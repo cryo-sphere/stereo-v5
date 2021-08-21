@@ -25,6 +25,9 @@ import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 import languageHandler from "./structures/languageHandler";
 import { LavalinkListenerStore } from "./structures/lavalinkListener";
 import { Api, AuthCookie } from "./structures/Api";
+import { StereoPlaylist } from "./structures/plugins/StereoPlaylist";
+
+import "./structures/plugins/StereoTrack";
 
 export default class Client extends SapphireClient {
 	public owners: string[];
@@ -51,6 +54,7 @@ export default class Client extends SapphireClient {
 			},
 			plugins: [
 				new Deezer(),
+				new StereoPlaylist(),
 				new Spotify({
 					clientId: process.env.CLIENT_ID,
 					clientSecret: process.env.CLIENT_SECRET,

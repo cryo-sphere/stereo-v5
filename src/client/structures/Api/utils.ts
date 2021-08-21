@@ -126,8 +126,8 @@ export default class Utils {
 		}
 	}
 
-	public parseQuery(query: any): string {
-		return Array.isArray(query) ? query[0] : `${query}`;
+	public parseQuery(query: any): string | null {
+		return query ? (Array.isArray(query) ? query[0] : `${query}`) : null;
 	}
 
 	public capitalize(str: string): string {

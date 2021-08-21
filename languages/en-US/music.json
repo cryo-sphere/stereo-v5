@@ -119,5 +119,13 @@
 		},
 		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
 		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
+	},
+	"queue": {
+		"description": "Shows all the songs in the queue",
+		"embed": {
+			"title": "Queue for {name}",
+			"footer": "Page: {page} / {maxPages}",
+			"current": "Now playing - Requested by {requester}"
+		}
 	}
 }

@@ -17,11 +17,12 @@ export class OauthRoute {
 	}
 
 	private async callback(req: Request, res: Response) {
-		if (!req.query.code) return res.status(400).send("bad request");
+		const code = this.utils.parseQuery(req.query.code);
+		if (!code) return res.status(400).send("bad request");
 
 		try {
 			// token
-			const data = await this.utils.getToken(this.utils.parseQuery(req.query.code));
+			const data = await this.utils.getToken(code);
 			if (data.error) throw new Error(data.error);
 
 			const user = await this.utils.getUser(data.access_token, "");

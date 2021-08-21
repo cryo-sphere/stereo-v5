@@ -5,6 +5,7 @@ import { Request, Response, Router } from "express";
 import Client from "../../../Client";
 import { bassboost, defaultConfig, filters } from "../../../constants/settings";
 import Utils from "../utils";
+import { v4 as uuid } from "uuid";
 
 export class ApiRoute {
 	public router: Router;
@@ -19,10 +20,10 @@ export class ApiRoute {
 			.get("/guild", this.guild.bind(this)) // get guild with config
 			.post("/guild", this.updateGuild.bind(this)) // update guild
 			.get("/playlists", this.playlists.bind(this)) // get playlists
-			.get("/playlist", this.playlists.bind(this)) // get playlist with songs
-			.put("/playlist", this.playlists.bind(this)) // create playlist
-			.post("/playlist", this.playlists.bind(this)) // update playlist
-			.delete("/playlist", this.playlists.bind(this)); // delete playlist
+			.get("/playlist", this.playlistGet.bind(this)) // get playlist with songs
+			.put("/playlist", this.playlistPut.bind(this)) // create playlist
+			.post("/playlist", this.playlistPost.bind(this)) // update playlist
+			.delete("/playlist", this.playlistDelete.bind(this)); // delete playlist
 	}
 
 	private async playlists(req: Request, res: Response) {
@@ -31,16 +32,109 @@ export class ApiRoute {
 		try {
 			let playlists = this.client.ApiCache.get(`${req.auth.userId}-playlists`);
 			if (!playlists) {
-				const data = await this.client.prisma.playlist.findMany({
+				playlists = await this.client.prisma.playlist.findMany({
 					where: { userId: req.auth.userId },
+					select: { id: true, name: true },
 				});
-				playlists = data.map((pl) => ({ id: pl.id, name: pl.name }));
 				this.utils.setCache(`${req.auth.userId}-playlists`, playlists);
 			}
 
 			if (!playlists) throw new Error("unable to get playlists");
 
 			res.send(playlists);
+		} catch (e) {
+			res.status(500).json({ message: "internal server error", error: e.message });
+		}
+	}
+
+	private async playlistGet(req: Request, res: Response) {
+		const playlistId = this.utils.parseQuery(req.query.playlistId);
+		if (typeof playlistId !== "string") return res.sendStatus(400);
+
+		try {
+			let playlist = this.client.ApiCache.get(`${playlistId}-playlist`);
+			if (!playlist) {
+				playlist = await this.client.prisma.playlist.findFirst({
+					where: { id: playlistId },
+				});
+				this.utils.setCache(`${playlistId}-playlist`, playlist);
+			}
+
+			res.send(playlist ? { playlist, isOwner: req.auth?.userId === playlist.userId } : null);
+		} catch (e) {
+			res.status(500).json({ message: "internal server error", error: e.message });
+		}
+	}
+
+	private async playlistPost(req: Request, res: Response) {
+		if (!req.auth) return res.sendStatus(401);
+		const { playlistId, songs, name } = req.body;
+		if (typeof playlistId !== "string" || typeof name !== "string" || !Array.isArray(songs))
+			return res.sendStatus(400);
+
+		try {
+			const playlist = await this.client.prisma.playlist.findFirst({ where: { id: playlistId } });
+			if (!playlist) return res.sendStatus(404);
+			if (playlist.userId !== req.auth.userId) return res.sendStatus(401);
+
+			const left = songs.filter(
+				(str: string) => !str.startsWith("https://") && !str.startsWith("http://")
+			);
+
+			if (left.length) return res.sendStatus(400);
+			await this.client.prisma.playlist.update({
+				where: { id: playlistId },
+				data: { songs: songs.slice(0, 100), name },
+			});
+
+			res.sendStatus(204);
+		} catch (e) {
+			res.status(500).json({ message: "internal server error", error: e.message });
+		}
+	}
+
+	private async playlistPut(req: Request, res: Response) {
+		if (!req.auth) return res.sendStatus(401);
+
+		const { name } = req.body;
+		if (!name || typeof name !== "string") return res.sendStatus(400);
+
+		try {
+			const playlists = await this.client.prisma.playlist.findMany({
+				where: { userId: req.auth.userId },
+			});
+			if (playlists.length >= 100) throw new Error("User already has 100 or more playlists");
+
+			const id = uuid();
+			await this.client.prisma.playlist.create({
+				data: { id, name, userId: req.auth.userId, songs: [] },
+			});
+
+			res.status(200).send(id);
+		} catch (e) {
+			res.status(500).json({ message: "internal server error", error: e.message });
+		}
+	}
+
+	private async playlistDelete(req: Request, res: Response) {
+		if (!req.auth) return res.sendStatus(401);
+
+		const id = this.utils.parseQuery(req.query.playlistId);
+		if (!id || typeof id !== "string") return res.sendStatus(400);
+
+		try {
+			const playlist = await this.client.prisma.playlist.findFirst({
+				where: { id },
+			});
+
+			if (!playlist) return res.sendStatus(404);
+			if (playlist.userId !== req.auth.userId) return res.sendStatus(401);
+
+			await this.client.prisma.playlist.delete({
+				where: { id },
+			});
+
+			res.sendStatus(200);
 		} catch (e) {
 			res.status(500).json({ message: "internal server error", error: e.message });
 		}
@@ -78,10 +172,10 @@ export class ApiRoute {
 	}
 
 	private async guild(req: Request, res: Response) {
-		const { guildId } = req.query;
+		const guildId = this.utils.parseQuery(req.query.guildId);
 		if (!guildId || !req.auth) return res.send(null);
 
-		const guild = this.client.guilds.cache.get(this.utils.parseQuery(guildId));
+		const guild = this.client.guilds.cache.get(guildId);
 		if (!guild) return res.send(null);
 
 		const config = this.client.config.get(guild.id) ?? defaultConfig;
