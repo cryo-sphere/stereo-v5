@@ -80,7 +80,7 @@
 		"success": ">>> {emoji.greentick} | I've cleared the queue."
 	},
 	"reset": {
-		"description": "Clears the queue (except the current song)",
+		"description": "Resets the player and stops with playing",
 		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
 	},
 	"fix": {
