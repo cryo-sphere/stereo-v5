@@ -5,7 +5,7 @@
 		"alreadyCreated": ">>> {emoji.redcross} | Ik ben al verbonden met **{voice}**!",
 		"disconnected": ">>> 👋 | Ik heb het spraak kanaal `{channel}` verlaten.",
 		"connected": ">>> 👋 | Ik heb succesvol verbinding gemaakt met `{channel}`.",
-		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players."
+		"forcedDisconnect": ">>> ❗ | Iemand heeft mij uit het spraak kanaal gezet. Doe dat alsjeblieft niet, gebruik `/disconnect` zodat we zeker weten dat er geen kapotte spelers ontstaan."
 	},
 	"announce": {
 		"title": "Nu aan het spelen {title}",
