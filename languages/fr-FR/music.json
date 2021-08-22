@@ -80,7 +80,7 @@
 		"success": ">>> {emoji.greentick} | J'ai vidé la file d'attente."
 	},
 	"reset": {
-		"description": "Resets the player and stops with playing",
+		"description": "Réinitialise le lecteur et arrête de jouer",
 		"success": ">>> {emoji.greentick} | Le lecteur est réinitialisé aux paramètres d'usine."
 	},
 	"fix": {
@@ -121,11 +121,11 @@
 		"success": ">>> {emoji.greentick} | J'ai déplacé la chanson de la position **{position}** à la position **{location}**!"
 	},
 	"queue": {
-		"description": "Shows all the songs in the queue",
+		"description": "Montre toutes les chansons dans la file d'attente",
 		"embed": {
-			"title": "Queue for {name}",
+			"title": "File d'attente pour {name}",
 			"footer": "Page: {page} / {maxPages}",
-			"current": "Now playing - Requested by {requester}"
+			"current": "En cours de lecture - Demandé par {requester}"
 		}
 	}
 }
