@@ -16,7 +16,7 @@ import { bassboost } from "../../../client/constants/settings";
 			tDescription: "settings:defaultbass.args.level",
 			type: "STRING",
 			required: true,
-			choices: bassboost.map((str) => ({ name: str, value: str.toLowerCase() })),
+			choices: bassboost.map((str) => ({ name: str, value: str })),
 		},
 	],
 })
