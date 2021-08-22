@@ -39,6 +39,13 @@
 		"args": {
 			"level": "The level the default bassboost has to change to"
 		},
-		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**!"
+		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**."
+	},
+	"defaultfilter": {
+		"description": "Changes the default filter for this server",
+		"args": {
+			"level": "The name of the filter the default filter has to change to"
+		},
+		"success": ">>> {emoji.greentick} | The default filter changed to **{defaultfilter}**."
 	}
 }
