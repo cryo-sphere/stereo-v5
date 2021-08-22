@@ -194,7 +194,7 @@ export class ApiRoute {
 					name: r.name,
 					colour: r.hexColor,
 					position: r.position,
-					managed: r.managed || (guild.me?.roles.highest.position ?? 0) <= r.position,
+					managed: r.managed,
 				}))
 				.sort((a, b) => b.position - a.position),
 			config: { ...config, djrole: config.djrole ?? "" },
