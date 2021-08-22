@@ -33,5 +33,12 @@
 	"autoshuffle": {
 		"description": "Enables or disables automatic shuffle when a player is created",
 		"success": ">>> {emoji.greentick} | Automatic shuffle is now **{enabled}**!"
+	},
+	"defaultbass": {
+		"description": "Changes the default bassboost level for this server",
+		"args": {
+			"level": "The level the default bassboost has to change to"
+		},
+		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**!"
 	}
 }
