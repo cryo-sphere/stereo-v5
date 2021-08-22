@@ -57,7 +57,7 @@ export default class QueueCommand extends SlashCommand {
 			)
 			.setThumbnail(current.displayThumbnail("mqdefault"))
 			.addField(
-				this.languageHandler.translate(interaction.guildId, "music:queue.current", {
+				this.languageHandler.translate(interaction.guildId, "music:queue.embed.current", {
 					requester: requester?.tag || "user#0000",
 				}),
 				`[${current.title.replace(/\[/g, "").replace(/\]/g, "")}](${
