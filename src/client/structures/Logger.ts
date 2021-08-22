@@ -1,6 +1,7 @@
 import { Logger as defaultLogger, LogData, LoggerOptions, Structure } from "@daangamesdg/logger";
 import { WebhookClient } from "discord.js";
 import moment from "moment";
+import { inspect } from "util";
 
 Structure.extend(
 	"Formatter",
@@ -17,9 +18,40 @@ Structure.extend(
 					str += `\`${dateString}\``;
 				}
 
-				str += ` **${`[${config.level}]`.padEnd(7, " ")} » [${config.name}]:** ${input.toString()}`;
+				str += ` **${`[${config.level}]`.padEnd(7, " ")} » [${
+					config.name
+				}]:** ${input.toString()}`.slice(0, 2000);
 
 				return str;
+			}
+
+			protected _formatWebook(input: unknown[]): string {
+				let str = "";
+
+				for (const data of input) {
+					if (data instanceof Error) {
+						str += ` ${this.formatError(data)}`;
+						continue;
+					}
+
+					if (typeof data === "object") {
+						str += inspect(data, {
+							depth: 0,
+							showHidden: true,
+							colors: true,
+						});
+						continue;
+					}
+
+					if (Array.isArray(data)) {
+						str += ` ${data.join(" ")}`;
+						continue;
+					}
+
+					str += ` ${data}`;
+				}
+
+				return str.trim();
 			}
 		}
 );
