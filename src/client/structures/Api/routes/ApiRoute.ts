@@ -202,19 +202,8 @@ export class ApiRoute {
 				key: this.utils.capitalize(lang),
 				value: this.client.languageHandler.languageKeys[lang],
 			})),
-			filters: [
-				"none",
-				"timescale",
-				"karaoke",
-				"tremolo",
-				"pop",
-				"eightD",
-				"slowed",
-				"vaporwave",
-				"nightcore",
-				"soft",
-			],
-			bassboost: ["none", "low", "medium", "hard", "extreme"],
+			filters,
+			bassboost,
 		});
 	}
 
