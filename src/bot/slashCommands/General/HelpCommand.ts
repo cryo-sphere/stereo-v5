@@ -49,16 +49,18 @@ export default class InviteCommand extends SlashCommand {
 					})
 				)
 				.addFields(
-					command.arguments.map((arg) => ({
-						name: `• ${this.languageHandler.translate(
-							interaction.guildId,
-							"BotGeneral:argument"
-						)} "${arg.name}" (${this.languageHandler.translate(
-							interaction.guildId,
-							`BotGeneral:${arg.required ? "required" : "optional"}`
-						)})`,
-						value: this.languageHandler.translate(interaction.guildId, arg.tDescription),
-					}))
+					command.ownerOnly
+						? []
+						: command.arguments.map((arg) => ({
+								name: `• ${this.languageHandler.translate(
+									interaction.guildId,
+									"BotGeneral:argument"
+								)} "${arg.name}" (${this.languageHandler.translate(
+									interaction.guildId,
+									`BotGeneral:${arg.required ? "required" : "optional"}`
+								)})`,
+								value: this.languageHandler.translate(interaction.guildId, arg.tDescription),
+						  }))
 				);
 		} else {
 			const isOwner = this.container.client.isOwner(interaction.user.id);
