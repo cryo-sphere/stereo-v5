@@ -52,12 +52,17 @@ export class slashCommandErrorListener extends Listener {
 		if (
 			typeof error.constructor.name === "string" &&
 			error.constructor.name.toLowerCase() === "discordjserror"
-		)
+		) {
+			await this.reply(
+				interaction,
+				translate(interaction.guildId, "BotGeneral:error_raw", { error: error.message })
+			);
 			return logger.error(
 				`${this.getWarnError(interaction)} (${interaction.user.id}) | ${error.constructor.name} | ${
 					error.message
 				}`
 			);
+		}
 
 		const command = piece;
 		logger.fatal(`[COMMAND] ${command.path}\n${error.stack || error.message}`);
@@ -72,8 +77,9 @@ export class slashCommandErrorListener extends Listener {
 	}
 
 	private reply(interaction: CommandInteraction, str: string) {
-		if (interaction.deferred || interaction.replied) return interaction.followUp(str);
-		return interaction.reply(str);
+		if (interaction.deferred || interaction.replied)
+			return interaction.followUp(str).catch(() => void 0);
+		return interaction.reply(str).catch(() => void 0);
 	}
 
 	private isSilencedError(interaction: CommandInteraction, error: DiscordAPIError | HTTPError) {
