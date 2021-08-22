@@ -17,5 +17,21 @@
 			"delete": "Si les anciennes annonces doivent être supprimées ou pas"
 		},
 		"success": ">>> {emoji.greentick} | Les annonces de chansons sont maintenant **{announce}**, la suppression des anciennes annonces est maintenant **{deleteAnnounce}**!"
+	},
+	"defaultvol": {
+		"description": "Change le volume par défaut pour ce serveur",
+		"args": {
+			"value": "La valeur à laquelle le volume par défaut doit être changé à"
+		},
+		"fail": ">>> {emoji.redcross} | La valeur fournie doit être comprise entre 1 et 200!",
+		"success": ">>> {emoji.greentick} | Le volume par défaut a été changé à **{defaultvolume}%**!"
+	},
+	"autorepeat": {
+		"description": "Active ou désactive la répétition de la file d'attente lors de la création d'un lecteur",
+		"success": ">>> {emoji.greentick} | La répétition automatique est maintenant **{enabled}**!"
+	},
+	"autoshuffle": {
+		"description": "Active ou désactive le mélange automatique lors de la création d'un lecteur",
+		"success": ">>> {emoji.greentick} | Le mélange automatique est maintenant **{enabled}**!"
 	}
 }
