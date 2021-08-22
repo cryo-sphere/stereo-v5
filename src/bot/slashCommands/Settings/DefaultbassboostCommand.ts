@@ -25,7 +25,7 @@ export default class DefaultbassboostCommand extends SlashCommand {
 		if (!interaction.inGuild()) return;
 		await interaction.deferReply();
 
-		const defaultbassboost = args.getString("value", true);
+		const defaultbassboost = args.getString("level", true);
 		const newConfig = await this.client.prisma.guild.update({
 			where: { id: interaction.guildId },
 			data: { defaultbassboost },
