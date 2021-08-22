@@ -53,7 +53,7 @@ export class slashCommandErrorListener extends Listener {
 			typeof error.constructor.name === "string" &&
 			error.constructor.name.toLowerCase() === "discordjserror"
 		)
-			return logger.warn(
+			return logger.error(
 				`${this.getWarnError(interaction)} (${interaction.user.id}) | ${error.constructor.name} | ${
 					error.message
 				}`
