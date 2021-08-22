@@ -51,9 +51,9 @@ export default class PingCommand extends SlashCommand {
 			.get("bot")
 			?.info(`Executing update - requested by ${interaction.user.tag}`);
 
-		const fetch = args.getBoolean("fetch") ?? true;
-		const restart = args.getBoolean("restart") ?? true;
-		const update = args.getBoolean("update-deps") ?? true;
+		const fetch = args.getBoolean("fetch") ?? false;
+		const restart = args.getBoolean("restart") ?? false;
+		const update = args.getBoolean("update-deps") ?? false;
 		const langs = args.getBoolean("update-langs") ?? false;
 		const slash = args.getBoolean("update-slash") ?? false;
 		await interaction.reply(">>> 🤖 | **Update Command**");
