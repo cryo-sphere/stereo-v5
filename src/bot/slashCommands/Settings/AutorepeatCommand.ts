@@ -12,8 +12,8 @@ import { CommandInteraction } from "discord.js";
 export default class AutoRepeatCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {
 		if (!interaction.inGuild()) return;
-
 		await interaction.deferReply();
+
 		const config = this.client.config.get(interaction.guildId);
 		const newConfig = await this.client.prisma.guild.update({
 			where: { id: interaction.guildId },

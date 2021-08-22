@@ -28,11 +28,11 @@ import { CommandInteraction } from "discord.js";
 export default class AnnounceCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
 		if (!interaction.inGuild()) return;
+		await interaction.deferReply();
 
 		const enabled = args.getBoolean("enabled", true);
 		const deleteAnnounce = args.getBoolean("delete", true);
 
-		await interaction.deferReply();
 		const newConfig = await this.client.prisma.guild.update({
 			where: { id: interaction.guildId },
 			data: { announce: enabled, deleteAnnounce },
