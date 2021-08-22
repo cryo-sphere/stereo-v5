@@ -17,5 +17,13 @@
 			"delete": "If old announcements should be deleted or not"
 		},
 		"success": ">>> {emoji.greentick} | Song announcements are now **{announce}**, deleting old announcements are now **{deleteAnnounce}**!"
+	},
+	"defaultvol": {
+		"description": "Changes the default volume for this server",
+		"args": {
+			"value": "The value the default volume has to change to"
+		},
+		"fail": ">>> {emoji.redcross} | The provided value must be between 1 and 200!",
+		"success": ">>> {emoji.greentick} | The default volume changed to **{defaultvolume}%**!"
 	}
 }
