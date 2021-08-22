@@ -76,7 +76,11 @@ export default class PlayCommand extends SlashCommand {
 				);
 
 			type = null;
-			query = data[0].url_resolved || data[0].url;
+			query = data[0]?.url_resolved || data[0]?.url;
+			if (!query)
+				return interaction.followUp(
+					this.languageHandler.translate(interaction.guildId, "music:play.noResults")
+				);
 		} else {
 			type = type ? (["yt", "sc"].includes(type) ? type : "yt") : "yt";
 		}
