@@ -67,7 +67,9 @@ export default class PlayCommand extends SlashCommand {
 		let query = args.getString("query", true);
 		let type: string | null = args.getString("type");
 		if (type === "radio") {
-			const api = `https://de1.api.radio-browser.info/json/stations/byname/${query}`;
+			const api = `https://de1.api.radio-browser.info/json/stations/byname/${encodeURIComponent(
+				query
+			)}`;
 			const { data } = await axios.get(api).catch(() => ({ data: null }));
 
 			if (!data)
