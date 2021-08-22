@@ -36,6 +36,12 @@ export default class Utils {
 			: null;
 	}
 
+	public async getRole(id: string, guild: Guild) {
+		return typeof id === "string" && guild instanceof Guild
+			? this._resolve(guild.roles.cache, id) || (await guild.roles.fetch(id).catch(() => null))
+			: null;
+	}
+
 	public async fetchMember(id: string, guild: Guild) {
 		return typeof id === "string" && guild instanceof Guild
 			? this._resolve(guild.members.cache, id) || (await guild.members.fetch(id).catch(() => null))
@@ -73,7 +79,9 @@ export default class Utils {
 			return bool;
 		};
 
-		return cache.get(id) ?? cache.find((v) => check(v)) ?? null;
+		return (
+			cache.get(id) ?? cache.find((v) => check(v)) ?? cache.find((v) => v.toString() === id) ?? null
+		);
 	}
 
 	public isDM(channel: Channel): channel is DMChannel {

@@ -47,5 +47,15 @@
 			"level": "The name of the filter the default filter has to change to"
 		},
 		"success": ">>> {emoji.greentick} | The default filter changed to **{defaultfilter}**."
+	},
+	"djrole": {
+		"description": "Changes DJRole of this server",
+		"args": {
+			"role": "The role name/id/mention the DJRole has to change to"
+		},
+		"success": ">>> {emoji.greentick} | The DJRole mode is now **enabled** and changed to **{djrole}**.",
+		"success2": ">>> {emoji.greentick} | The DJRole mode is now **disabled**.",
+		"fail": ">>> {emoji.redcross} | I was unable to find a role with the information: `{role}`.",
+		"managed": ">>> {emoji.error} | The role `{role}` is managed by another intergration! You can't assign this role to someone and therefore I can't use it as DJRole."
 	}
 }
