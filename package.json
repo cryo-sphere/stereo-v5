@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"private": false,
 	"dependencies": {
-		"@daangamesdg/logger": "^1.0.8",
+		"@daangamesdg/logger": "^1.1.0",
 		"@discordjs/rest": "^0.1.0-canary.0",
 		"@ksoft/api": "^3.1.9",
 		"@prisma/client": "^2.29.1",

@@ -25,5 +25,13 @@
 		},
 		"fail": ">>> {emoji.redcross} | The provided value must be between 1 and 200!",
 		"success": ">>> {emoji.greentick} | The default volume changed to **{defaultvolume}%**!"
+	},
+	"autorepeat": {
+		"description": "Enables or disables queue repeat when a player is created",
+		"success": ">>> {emoji.greentick} | Automatic repeat is now **{enabled}**!"
+	},
+	"autoshuffle": {
+		"description": "Enables or disables automatic shuffle when a player is created",
+		"success": ">>> {emoji.greentick} | Automatic shuffle is now **{enabled}**!"
 	}
 }
