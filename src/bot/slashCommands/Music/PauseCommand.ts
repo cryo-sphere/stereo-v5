@@ -40,6 +40,12 @@ export default class PauseCommand extends SlashCommand {
 				this.languageHandler.translate(interaction.guildId, "music:pause.fail")
 			);
 
+		const config = this.client.config.get(player.guild);
+		if (!config?.afk) {
+			const timeout = setTimeout(() => player.destroy(), 12e4);
+			this.client.timeouts.set(player.guild, timeout);
+		}
+
 		player.pause(true);
 		await interaction.reply(
 			this.languageHandler.translate(interaction.guildId, "music:pause.success")
