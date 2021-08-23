@@ -7,6 +7,8 @@ import { CommandInteraction, GuildMemberRoleManager, VoiceChannel } from "discor
 	preconditions: ["GuildOnly"],
 	description: "Skips the current song",
 	tDescription: "music:skip.description",
+	cooldownDelay: 5e3,
+	cooldownLimit: 1,
 })
 export default class SkipCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

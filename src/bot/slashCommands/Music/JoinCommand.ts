@@ -7,6 +7,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly"],
 	description: "Get Stereo to join your channel",
 	tDescription: "music:join.description",
+	cooldownDelay: 1e4,
 })
 export default class PingCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

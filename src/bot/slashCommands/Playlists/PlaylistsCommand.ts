@@ -14,6 +14,7 @@ import { v4 as uuid } from "uuid";
 	name: "playlists",
 	description: "The playlists command, with multiple sub commands",
 	tDescription: "playlists:playlists.description",
+	cooldownDelay: 1e4,
 	arguments: [
 		{
 			name: "show",

@@ -9,6 +9,7 @@ import { bassboost } from "../../../client/constants/settings";
 	preconditions: ["GuildOnly"],
 	tDescription: "settings:defaultbass.description",
 	userPermissions: ["MANAGE_GUILD"],
+	cooldownDelay: 1e4,
 	arguments: [
 		{
 			name: "level",

@@ -6,6 +6,7 @@ import { CommandInteraction, Permissions } from "discord.js";
 	name: "language",
 	description: "Shows / Changes the language",
 	preconditions: ["GuildOnly"],
+	cooldownDelay: 1e4,
 	tDescription: "settings:language.description",
 	arguments: [
 		{

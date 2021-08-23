@@ -7,6 +7,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Changes the volume of the player",
 	tDescription: "music:volume.description",
+	cooldownDelay: 5e3,
 	arguments: [
 		{
 			name: "volume",

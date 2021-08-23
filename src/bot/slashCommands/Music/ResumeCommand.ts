@@ -7,6 +7,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Resumes the player",
 	tDescription: "music:resume.description",
+	cooldownDelay: 1e4,
 })
 export default class ResumeCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

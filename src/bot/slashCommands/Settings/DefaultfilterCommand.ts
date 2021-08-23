@@ -9,6 +9,7 @@ import { filters } from "../../../client/constants/settings";
 	preconditions: ["GuildOnly"],
 	tDescription: "settings:defaultfilter.description",
 	userPermissions: ["MANAGE_GUILD"],
+	cooldownDelay: 1e4,
 	arguments: [
 		{
 			name: "filter",

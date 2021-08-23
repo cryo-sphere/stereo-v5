@@ -10,6 +10,7 @@ import axios from "axios";
 	description: "Play a song",
 	tDescription: "music:play.description",
 	usage: "<query> [type]",
+	cooldownDelay: 1e4,
 	arguments: [
 		{
 			name: "query",

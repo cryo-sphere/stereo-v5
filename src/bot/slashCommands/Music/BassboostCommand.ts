@@ -32,6 +32,8 @@ const bassboosts = [
 	description: "Sets the bassboost level for the player",
 	tDescription: "music:bassboost.description",
 	usage: "<level>",
+	cooldownDelay: 15e3,
+	cooldownLimit: 1,
 	arguments: [
 		{
 			name: "level",

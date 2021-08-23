@@ -8,6 +8,8 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	description: "Forceskips the current song",
 	tDescription: "music:forceskip.description",
 	userPermissions: ["MANAGE_CHANNELS"],
+	cooldownDelay: 5e3,
+	cooldownLimit: 1,
 })
 export default class SkipCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

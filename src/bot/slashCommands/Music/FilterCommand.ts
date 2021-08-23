@@ -48,6 +48,8 @@ const filters = [
 	description: "Sets the filter for the player",
 	tDescription: "music:filter.description",
 	usage: "<level>",
+	cooldownDelay: 15e3,
+	cooldownLimit: 1,
 	arguments: [
 		{
 			name: "level",

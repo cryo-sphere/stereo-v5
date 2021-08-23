@@ -7,6 +7,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Disconnects from the voice channel",
 	tDescription: "music:disconnect.description",
+	cooldownDelay: 1e4,
 })
 export default class DisconnectCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

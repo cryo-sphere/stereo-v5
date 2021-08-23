@@ -8,6 +8,7 @@ import { CommandInteraction } from "discord.js";
 	preconditions: ["GuildOnly"],
 	tDescription: "settings:djrole.description",
 	userPermissions: ["MANAGE_GUILD"],
+	cooldownDelay: 1e4,
 	arguments: [
 		{
 			name: "role",

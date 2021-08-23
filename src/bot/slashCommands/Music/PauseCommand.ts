@@ -7,6 +7,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Pauses the player",
 	tDescription: "music:pause.description",
+	cooldownDelay: 1e4,
 })
 export default class PauseCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

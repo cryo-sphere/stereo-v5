@@ -9,6 +9,8 @@ import { Utils } from "@stereo-bot/lavalink";
 	description: "Seeks the current track to the timestamp",
 	tDescription: "music:seek.description",
 	usage: "<timestamp (ex: 10:30)>",
+	cooldownDelay: 5e3,
+	cooldownLimit: 1,
 	arguments: [
 		{
 			name: "timestamp",

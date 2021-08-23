@@ -8,6 +8,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	description: "Toggles 24/7 mode, only for partners",
 	tDescription: "music:247.description",
 	userPermissions: ["MANAGE_GUILD"],
+	cooldownDelay: 1e4,
 })
 export default class AfkCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

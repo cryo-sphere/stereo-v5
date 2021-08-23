@@ -7,6 +7,7 @@ import { CommandInteraction, VoiceChannel } from "discord.js";
 	preconditions: ["GuildOnly", "DJRole"],
 	description: "Resets the player and stops with playing",
 	tDescription: "music:reset.description",
+	cooldownDelay: 1e4,
 })
 export default class ResetCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {

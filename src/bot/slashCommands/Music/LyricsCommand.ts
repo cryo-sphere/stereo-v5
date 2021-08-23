@@ -11,6 +11,8 @@ const ksoft = new KSoftClient(process.env.KSOFT_TOKEN ?? "");
 	description: "Shows the lyrics for the playing song",
 	tDescription: "music:lyrics.description",
 	usage: "<query>",
+	cooldownDelay: 5e3,
+	cooldownLimit: 1,
 	arguments: [
 		{
 			name: "query",

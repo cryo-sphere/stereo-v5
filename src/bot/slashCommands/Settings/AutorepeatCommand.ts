@@ -8,6 +8,7 @@ import { CommandInteraction } from "discord.js";
 	preconditions: ["GuildOnly"],
 	tDescription: "settings:autorepeat.description",
 	userPermissions: ["MANAGE_GUILD"],
+	cooldownDelay: 1e4,
 })
 export default class AutoRepeatCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction) {
