@@ -40,6 +40,12 @@ export default class ResumeCommand extends SlashCommand {
 				this.languageHandler.translate(interaction.guildId, "music:resume.fail")
 			);
 
+		const timeout = this.client.timeouts.get(interaction.guildId);
+		if (timeout) {
+			clearTimeout(timeout);
+			this.client.timeouts.delete(interaction.guildId);
+		}
+
 		player.pause(false);
 		await interaction.reply(
 			this.languageHandler.translate(interaction.guildId, "music:resume.success")
