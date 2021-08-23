@@ -2,9 +2,10 @@
 	"unknown": "Uh oh, I wasn't able to find the correct command. Please contact our support team if this keeps happening.",
 	"playlists": {
 		"description": "The playlists command, with multiple sub commands",
+		"noResult": ">>> {emoji.redcross} | No playlist found.",
+		"noResults": ">>> {emoji.redcross} | No playlists found.",
 		"show": {
 			"description": "Shows all the playlists someone created",
-			"noResults": ">>> {emoji.redcross} | No playlists found.",
 			"embed": {
 				"title": "{name}'s playlists",
 				"footer": "Page: {page} / {maxPages}"
@@ -17,8 +18,12 @@
 		},
 		"delete": {
 			"description": "Deletes a playlist, requires the playlist id",
-			"noResult": ">>> {emoji.redcross} | No playlist found.",
-			"success": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted."
+			"success": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist has been sent to your DMs, we do this to make sure that you are always able to get your data back if you want to.",
+			"success-file": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist is attached to this message, we do this to make sure that you are always able to get your data back if you want to."
+		},
+		"update": {
+			"description": "Updates a playlist, requires the playlist id and the update type",
+			"success": ">>> {emoji.greentick} | The songs from the queue have been added to **{name}**."
 		}
 	}
 }

@@ -1,6 +1,13 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
-import { CommandInteraction, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
+import {
+	CommandInteraction,
+	MessageActionRow,
+	MessageAttachment,
+	MessageButton,
+	MessageEmbed,
+	VoiceChannel,
+} from "discord.js";
 import { v4 as uuid } from "uuid";
 
 @ApplyOptions<SlashCommand.Options>({
@@ -42,6 +49,36 @@ import { v4 as uuid } from "uuid";
 				},
 			],
 		},
+		{
+			name: "update",
+			type: "SUB_COMMAND",
+			description: "Updates a playlist, requires the playlist id and the update type",
+			tDescription: "playlists:playlists.update.description",
+			options: [
+				{
+					name: "playlist",
+					type: "STRING",
+					description: "The id/url of the playlist",
+					required: true,
+				},
+				{
+					name: "type",
+					type: "STRING",
+					description: "The update type",
+					required: true,
+					choices: [
+						{
+							name: "Add",
+							value: "add",
+						},
+						{
+							name: "Overwrite",
+							value: "overwrite",
+						},
+					],
+				},
+			],
+		},
 	],
 })
 export default class PlaylistsCommand extends SlashCommand {
@@ -52,6 +89,7 @@ export default class PlaylistsCommand extends SlashCommand {
 		show: this.show.bind(this),
 		create: this.create.bind(this),
 		delete: this.delete.bind(this),
+		update: this.update.bind(this),
 	};
 
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
@@ -74,7 +112,7 @@ export default class PlaylistsCommand extends SlashCommand {
 		});
 		if (!playlists)
 			return interaction.followUp(
-				this.languageHandler.translate(interaction.guildId, "playlists:playlists.show.noResults")
+				this.languageHandler.translate(interaction.guildId, "playlists:playlists.noResults")
 			);
 
 		const items: Item[] = playlists.map((data, index) => ({
@@ -168,29 +206,131 @@ export default class PlaylistsCommand extends SlashCommand {
 	}
 
 	private async delete(interaction: CommandInteraction, args: SlashCommand.Args) {
-		// eslint-disable-next-line no-useless-escape
-		const regex = /(?:https:\/\/stereo-bot\.tk\/|stereo:)(playlists)?[\/:]([A-Za-z0-9|\-|_]+)/;
-
-		const raw = args.getString("playlist", true);
-		const [, , id] = raw.match(regex) ?? [];
-
+		const id = this.getId(args.getString("playlist", true));
 		const playlist = await this.client.prisma.playlist.findFirst({
 			where: { userId: interaction.user.id, id },
 		});
 		if (!playlist)
 			return interaction.followUp(
-				this.languageHandler.translate(interaction.guildId, "playlists:playlists.delete.noResult")
+				this.languageHandler.translate(interaction.guildId, "playlists:playlists.noResult")
 			);
 
 		await this.client.prisma.playlist.delete({
 			where: { id: playlist.id },
 		});
 
+		const msg = `${playlist.name}\n--------------------------\n${playlist.songs
+			.map((str, i) => `${i.toString().padStart(3, "0")} - ${str}`)
+			.join("\n")}`;
+		const attachment = new MessageAttachment(
+			Buffer.from(msg, "utf-8"),
+			`${playlist.name}-${playlist.userId}.txt`
+		);
+		let success = true;
+
+		try {
+			const dm = await interaction.user.createDM();
+			await dm.send({ files: [attachment] });
+		} catch (e) {
+			console.log(e);
+			success = false;
+		}
+
+		return interaction.followUp({
+			content: this.languageHandler.translate(
+				interaction.guildId,
+				`playlists:playlists.delete.success${success ? "" : "-file"}`,
+				{
+					name: playlist.name,
+				}
+			),
+			files: success ? [] : [attachment],
+		});
+	}
+
+	private async update(interaction: CommandInteraction, args: SlashCommand.Args) {
+		if (!interaction.inGuild())
+			return interaction.followUp(
+				this.languageHandler.translate(
+					interaction.guildId,
+					"BotGeneral:errors.preconditionGuildOnly"
+				)
+			);
+
+		const id = this.getId(args.getString("playlist", true));
+		const playlist = await this.client.prisma.playlist.findFirst({
+			where: { userId: interaction.user.id, id },
+		});
+		if (!playlist)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "playlists:playlists.noResult")
+			);
+
+		const player = this.client.manager.get(interaction.guildId);
+		if (!player)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noPlayer")
+			);
+
+		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
+		if (player.channels.voice && state?.channelId !== player.channels.voice) {
+			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
+					voice: channel.name,
+				})
+			);
+		}
+
+		if (!player.queue.current)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noTrack")
+			);
+
+		let songs: string[] = [];
+		const type = args.getString("type", true);
+		if (type === "add") {
+			const current = player.queue.current.externalUri || player.queue.current.uri;
+			const next = player.queue.next
+				.map((t) => t.externalUri || t.uri)
+				.filter((str) => !!str) as string[];
+
+			songs = [...playlist.songs, current, ...next];
+		} else {
+			const current = player.queue.current.externalUri || player.queue.current.uri;
+			const next = player.queue.next
+				.map((t) => t.externalUri || t.uri)
+				.filter((str) => !!str) as string[];
+
+			songs = [current, ...next];
+		}
+
+		songs = songs.slice(0, 100);
+		await this.client.prisma.playlist.update({
+			where: { id: playlist.id },
+			data: { songs },
+		});
+
 		return interaction.followUp(
-			this.languageHandler.translate(interaction.guildId, "playlists:playlists.delete.success", {
+			this.languageHandler.translate(interaction.guildId, "playlists:playlists.update.success", {
 				name: playlist.name,
 			})
 		);
+	}
+
+	private getId(str: string): string {
+		// eslint-disable-next-line no-useless-escape
+		const regex = /(?:https:\/\/stereo-bot\.tk\/|stereo:)(playlists)?[\/:]([A-Za-z0-9|\-|_]{36})/;
+		if (
+			str.toLowerCase().startsWith("https://stereo-bot.tk/") ||
+			str.toLowerCase().startsWith("stereo:playlists/")
+		) {
+			const [, , id] = str.match(regex) ?? [];
+			return id;
+		}
+
+		const match = str.match(/([A-Za-z0-9|\-|_]{36})/)?.[0] ?? "";
+		return match;
 	}
 
 	private generateEmbeds(items: Item[], base: MessageEmbed): MessageEmbed[] {
