@@ -13,7 +13,7 @@ import { CommandInteraction } from "discord.js";
 			name: "role",
 			description: "The role name/id/mention the DJRole has to change to",
 			tDescription: "settings:djrole.args.role",
-			type: "STRING",
+			type: "ROLE",
 			required: false,
 		},
 	],
@@ -24,7 +24,7 @@ export default class DJRoleCommand extends SlashCommand {
 		if (!interaction.guild) return;
 		await interaction.deferReply();
 
-		const role = args.getString("role");
+		const role = args.getRole("role");
 		if (!role) {
 			const newConfig = await this.client.prisma.guild.update({
 				where: { id: interaction.guildId },
@@ -37,28 +37,22 @@ export default class DJRoleCommand extends SlashCommand {
 			);
 		}
 
-		const djrole = await this.client.utils.getRole(role, interaction.guild);
-		if (!djrole)
-			return interaction.followUp(
-				this.languageHandler.translate(interaction.guildId, "settings:djrole.fail", { role })
-			);
-
-		if (djrole.managed)
+		if (role.managed)
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "settings:djrole.managed", {
-					role: djrole.name,
+					role: role.name,
 				})
 			);
 
 		const newConfig = await this.client.prisma.guild.update({
 			where: { id: interaction.guildId },
-			data: { djrole: djrole.id },
+			data: { djrole: role.id },
 		});
 		this.client.config.set(interaction.guildId, newConfig);
 
 		await interaction.followUp(
 			this.languageHandler.translate(interaction.guildId, "settings:djrole.success", {
-				djrole: djrole.name,
+				djrole: role.name,
 			})
 		);
 	}
