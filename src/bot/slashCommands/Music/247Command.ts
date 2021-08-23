@@ -37,6 +37,11 @@ export default class AfkCommand extends SlashCommand {
 		await this.client.prisma.guild.update({ where: { id: interaction.guildId }, data: config });
 		this.client.config.set(interaction.guildId, config);
 
+		if (!config?.afk && !player.playing) {
+			const timeout = setTimeout(() => player.destroy(), 12e4);
+			this.client.timeouts.set(player.guild, timeout);
+		}
+
 		await interaction.followUp(
 			this.languageHandler.translate(
 				interaction.guildId,
