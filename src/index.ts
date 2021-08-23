@@ -6,7 +6,6 @@ new Client({
 	owners: process.env.OWNERS?.split(" ") ?? [],
 	intents: ["GUILDS", "GUILD_VOICE_STATES"],
 	debug: !!process.env.DEBUG,
-	partials: [],
 	activity: [
 		{
 			type: "PLAYING",
