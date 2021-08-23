@@ -29,8 +29,8 @@ interface APIApplicationCommand {
 }
 
 const ApplicationCommandOptionTypeMap: { [key: string]: number } = {
-	SUBCOMMAND: 1,
-	SUBCOMMANDGROUP: 2,
+	SUB_COMMAND: 1,
+	SUB_COMMAND_GROUP: 2,
 	STRING: 3,
 	INTEGER: 4,
 	BOOLEAN: 5,
@@ -147,16 +147,36 @@ export class SlashCommandRegistrar {
 			process.exit(1);
 		}
 
+		const options = slashCommand.arguments.map((argument) => ({
+			...argument,
+			type: ApplicationCommandOptionTypeMap[argument.type.toString()],
+			options:
+				argument.type === "SUB_COMMAND"
+					? argument.options?.map((x) => {
+							return {
+								...x,
+								type: ApplicationCommandOptionTypeMap[x.type.toString()],
+							};
+					  }) ?? []
+					: argument.type === "SUB_COMMAND_GROUP"
+					? argument.options?.map((arg) => ({
+							...arg,
+							options: arg.options?.map((arg2) => ({
+								...arg2,
+								type: ApplicationCommandOptionTypeMap[arg2.type.toString()],
+							})),
+							type: ApplicationCommandOptionTypeMap[arg.type.toString()],
+					  })) ?? []
+					: [],
+		}));
+
 		return {
 			application_id: id ?? "",
 			guild_id: undefined,
 			name: slashCommand.name,
 			description: slashCommand.description,
 			default_permission: slashCommand.defaultPermission,
-			options: slashCommand.arguments.map((argument) => ({
-				...argument,
-				type: ApplicationCommandOptionTypeMap[argument.type.toString()],
-			})),
+			options,
 		};
 	}
 }
