@@ -5,20 +5,76 @@ import { v4 as uuid } from "uuid";
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "playlists",
-	preconditions: [],
-	description: "Shows all the playlists you created",
+	description: "The playlists command, with multiple sub commands",
 	tDescription: "playlists:playlists.description",
+	arguments: [
+		{
+			name: "show",
+			type: "SUB_COMMAND",
+			description: "Shows all the playlists someone created",
+			tDescription: "playlists:playlists.show.description",
+		},
+		{
+			name: "create",
+			type: "SUB_COMMAND",
+			description: "Creates a new playlist with the provided name",
+			tDescription: "playlists:playlists.create.description",
+			options: [
+				{
+					name: "name",
+					type: "STRING",
+					description: "The name of the playlist (max: 32 characters)",
+					required: true,
+				},
+			],
+		},
+		{
+			name: "delete",
+			type: "SUB_COMMAND",
+			description: "Deletes a playlist, requires the playlist id",
+			tDescription: "playlists:playlists.delete.description",
+			options: [
+				{
+					name: "playlist",
+					type: "STRING",
+					description: "The id/url of the playlist",
+					required: true,
+				},
+			],
+		},
+	],
 })
 export default class PlaylistsCommand extends SlashCommand {
-	public async run(interaction: CommandInteraction) {
-		if (!interaction.inGuild()) return;
+	private commands: Record<
+		string,
+		(interaction: CommandInteraction, args: SlashCommand.Args) => unknown | Promise<unknown>
+	> = {
+		show: this.show.bind(this),
+		create: this.create.bind(this),
+		delete: this.delete.bind(this),
+	};
 
+	public async run(interaction: CommandInteraction, args: SlashCommand.Args) {
+		const subcommand = args.getSubcommand(true);
+		const command = this.commands[subcommand];
+
+		if (command) {
+			await interaction.deferReply();
+			return command(interaction, args);
+		}
+
+		return interaction.reply(
+			this.languageHandler.translate(interaction.guildId, "playlists:unknown")
+		);
+	}
+
+	private async show(interaction: CommandInteraction) {
 		const playlists = await this.client.prisma.playlist.findMany({
 			where: { userId: interaction.user.id },
 		});
 		if (!playlists)
 			return interaction.followUp(
-				this.languageHandler.translate(interaction.guildId, "playlists:playlists.noResults")
+				this.languageHandler.translate(interaction.guildId, "playlists:playlists.show.noResults")
 			);
 
 		const items: Item[] = playlists.map((data, index) => ({
@@ -28,7 +84,7 @@ export default class PlaylistsCommand extends SlashCommand {
 		}));
 
 		const embed = this.client.utils.embed().setTitle(
-			this.languageHandler.translate(interaction.guildId, "playlists:playlists.embed.title", {
+			this.languageHandler.translate(interaction.guildId, "playlists:playlists.show.embed.title", {
 				name: interaction.user.username,
 			})
 		);
@@ -55,7 +111,7 @@ export default class PlaylistsCommand extends SlashCommand {
 
 		const pages = this.generateEmbeds(items, embed);
 
-		await interaction.reply({
+		await interaction.followUp({
 			components: pages.length <= 1 ? undefined : [new MessageActionRow().addComponents(buttons)],
 			embeds: [
 				embed
@@ -73,7 +129,7 @@ export default class PlaylistsCommand extends SlashCommand {
 					.setFooter(
 						this.languageHandler.translate(
 							interaction.guildId,
-							"playlists:playlists.embed.footer",
+							"playlists:playlists.show.embed.footer",
 							{
 								page,
 								maxPages,
@@ -85,6 +141,56 @@ export default class PlaylistsCommand extends SlashCommand {
 
 		if (pages.length <= 1) return;
 		this.client.utils.pagination(interaction, pages, buttons, 12e4, page);
+	}
+
+	private async create(interaction: CommandInteraction, args: SlashCommand.Args) {
+		const playlists = await this.client.prisma.playlist.findMany({
+			where: { userId: interaction.user.id },
+		});
+		if (playlists.length >= 100)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "playlists:playlists.create.limit")
+			);
+
+		const name = args.getString("name", true).slice(0, 32);
+		const id = uuid();
+
+		await this.client.prisma.playlist.create({
+			data: { userId: interaction.user.id, name, id },
+		});
+
+		return interaction.followUp(
+			this.languageHandler.translate(interaction.guildId, "playlists:playlists.create.success", {
+				url: `https://stereo-bot.tk/playlists/${id}`,
+				left: playlists.length + 1,
+			})
+		);
+	}
+
+	private async delete(interaction: CommandInteraction, args: SlashCommand.Args) {
+		// eslint-disable-next-line no-useless-escape
+		const regex = /(?:https:\/\/stereo-bot\.tk\/|stereo:)(playlists)?[\/:]([A-Za-z0-9|\-|_]+)/;
+
+		const raw = args.getString("playlist", true);
+		const [, , id] = raw.match(regex) ?? [];
+
+		const playlist = await this.client.prisma.playlist.findFirst({
+			where: { userId: interaction.user.id, id },
+		});
+		if (!playlist)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "playlists:playlists.delete.noResult")
+			);
+
+		await this.client.prisma.playlist.delete({
+			where: { id: playlist.id },
+		});
+
+		return interaction.followUp(
+			this.languageHandler.translate(interaction.guildId, "playlists:playlists.delete.success", {
+				name: playlist.name,
+			})
+		);
 	}
 
 	private generateEmbeds(items: Item[], base: MessageEmbed): MessageEmbed[] {
