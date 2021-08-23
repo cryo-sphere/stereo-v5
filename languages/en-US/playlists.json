@@ -1,0 +1,10 @@
+{
+	"playlists": {
+		"description": "Shows all the playlists you created",
+		"noResult": ">>> {emoji.redcross} | No playlists found.",
+		"embed": {
+			"title": "{name}'s playlists",
+			"footer": "Page: {page} / {maxPages}"
+		}
+	}
+}
