@@ -1,13 +1,6 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
-import {
-	ButtonInteraction,
-	CommandInteraction,
-	Interaction,
-	MessageActionRow,
-	MessageButton,
-	MessageEmbed,
-} from "discord.js";
+import { CommandInteraction, MessageActionRow, MessageButton, MessageEmbed } from "discord.js";
 import { Utils } from "@stereo-bot/lavalink";
 import { v4 as uuid } from "uuid";
 
@@ -114,7 +107,7 @@ export default class QueueCommand extends SlashCommand {
 		});
 
 		if (pages.length <= 1) return;
-		this.pagination(interaction, pages, buttons, 12e4, page);
+		this.client.utils.pagination(interaction, pages, buttons, 12e4, page);
 	}
 
 	private generateEmbeds(items: Item[], base: MessageEmbed): MessageEmbed[] {
@@ -137,80 +130,6 @@ export default class QueueCommand extends SlashCommand {
 		}
 
 		return embeds;
-	}
-
-	private pagination(
-		interaction: CommandInteraction,
-		pages: MessageEmbed[],
-		buttons: MessageButton[],
-		timeout = 12e4,
-		pageNumber = 1
-	) {
-		let page = pageNumber;
-		if (!interaction.channel) return;
-
-		const ids = buttons.map((c) => c.customId);
-		const filter = (i: Interaction) =>
-			i.isButton() && i.inGuild() && i.guildId === interaction.guildId && ids.includes(i.customId);
-		const collector = interaction.channel.createMessageComponentCollector({
-			time: timeout,
-			filter,
-		});
-
-		collector.on("collect", async (buttonInteraction: ButtonInteraction) => {
-			switch (buttonInteraction.customId) {
-				case ids[0]:
-					page = page === 1 ? pages.length : page - 1;
-					break;
-				case ids[2]:
-					page = page === pages.length ? 1 : page + 1;
-					break;
-				case ids[1]:
-					await interaction.deleteReply().catch(() => void 0);
-					collector.stop("deleted");
-					break;
-				default:
-					break;
-			}
-
-			await buttonInteraction.deferUpdate().catch(() => void 0);
-			await interaction
-				.editReply({
-					embeds: [
-						pages[page - 1].setFooter(
-							this.languageHandler.translate(interaction.guildId, "music:queue.embed.footer", {
-								page,
-								maxPages: pages.length,
-							})
-						),
-					],
-				})
-				.catch(() => void 0);
-		});
-
-		collector.on("end", (_, reason) => {
-			if (reason === "deleted") return;
-
-			const disabledRow = new MessageActionRow().addComponents(
-				buttons[0].setDisabled(true),
-				buttons[1].setDisabled(true),
-				buttons[2].setDisabled(true)
-			);
-
-			interaction
-				.editReply({
-					embeds: [
-						pages[page - 1].setFooter(
-							this.languageHandler.translate(interaction.guildId, "music:queue.embed.footer", {
-								page,
-								maxPages: pages.length,
-							})
-						),
-					],
-					components: [disabledRow],
-				})
-				.catch(() => void 0);
-		});
 	}
 }
 
