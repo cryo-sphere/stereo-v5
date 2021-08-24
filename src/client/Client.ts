@@ -117,7 +117,7 @@ export default class Client extends SapphireClient {
 		this.ws
 			.on("VOICE_SERVER_UPDATE", (data) => this.manager.voiceServerUpdate(data))
 			.on("VOICE_STATE_UPDATE", (data) => this.manager.voiceStateUpdate(data));
-		
+
 		process.on("unhandledRejection", this.handleRejection.bind(this));
 	}
 
