@@ -35,27 +35,27 @@
 		"success": ">>> {emoji.greentick} | Le mélange automatique est maintenant **{enabled}**!"
 	},
 	"defaultbass": {
-		"description": "Changes the default bassboost level for this server",
+		"description": "Change le niveau de bassboost par défaut pour ce serveur",
 		"args": {
-			"level": "The level the default bassboost has to change to"
+			"level": "Le niveau auquel le bassboost par défaut doit passer à"
 		},
-		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**."
+		"success": ">>> {emoji.greentick} | Le niveau de bassboost par défaut est passé à **{defaultbassboost}**."
 	},
 	"defaultfilter": {
-		"description": "Changes the default filter for this server",
+		"description": "Change le filtre par défaut pour ce serveur",
 		"args": {
-			"level": "The name of the filter the default filter has to change to"
+			"level": "Le nom du filtre que le filtre par défaut doit changer à"
 		},
-		"success": ">>> {emoji.greentick} | The default filter changed to **{defaultfilter}**."
+		"success": ">>> {emoji.greentick} | Le filtre par défaut a été changé à **{defaultfilter}**."
 	},
 	"djrole": {
-		"description": "Changes DJRole of this server",
+		"description": "Change le DJRole de ce serveur",
 		"args": {
-			"role": "The role name/id/mention the DJRole has to change to"
+			"role": "Le nom du rôle/ID/mention DJRole doit changer à"
 		},
-		"success": ">>> {emoji.greentick} | The DJRole mode is now **enabled** and changed to **{djrole}**.",
-		"success2": ">>> {emoji.greentick} | The DJRole mode is now **disabled**.",
-		"fail": ">>> {emoji.redcross} | I was unable to find a role with the information: `{role}`.",
-		"managed": ">>> {emoji.error} | The role `{role}` is managed by another intergration! You can't assign this role to someone and therefore I can't use it as DJRole."
+		"success": ">>> {emoji.greentick} | Le mode DJRole est maintenant **activé** et changé à **{djrole}**.",
+		"success2": ">>> {emoji.greentick} | Le mode DJRole est maintenant **désactivé**.",
+		"fail": ">>> {emoji.redcross} | Je n'ai pas pu trouver un rôle avec les informations: `{role}`.",
+		"managed": ">>> {emoji.error} | Le rôle `{role}` est géré par une autre intégration! Tu ne peux pas attribuer ce rôle à quelqu'un et je ne peux donc pas l'utiliser comme DJRole."
 	}
 }
