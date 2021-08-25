@@ -17,13 +17,13 @@
 			"success": ">>> {emoji.greentick} | Playlist créée! Tu peux visiter et éditer ta playlist [here](<{url}>) ou tu peux utiliser notre commande `/playlist update` pour sauvegarder la file d'attente."
 		},
 		"delete": {
-			"description": "Deletes a playlist, requires the playlist id",
-			"success": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist has been sent to your DMs, we do this to make sure that you are always able to get your data back if you want to.",
-			"success-file": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist is attached to this message, we do this to make sure that you are always able to get your data back if you want to."
+			"description": "Supprime une playlist, nécessite l'ID de la playlist",
+			"success": ">>> {emoji.greentick} | La playlist portant le nom **{name}** a été supprimée.\nTa playlist a été envoyée dans tes DMs, nous faisons cela pour nous assurer que tu puisses toujours récupérer tes données si tu le souhaites.",
+			"success-file": ">>> {emoji.greentick} | La playlist portant le nom **{name}** a été supprimée.\nTa playlist est jointe à ce message, nous faisons cela pour nous assurer que tu puisses toujours récupérer tes données si tu le souhaites."
 		},
 		"update": {
-			"description": "Updates a playlist, requires the playlist id and the update type",
-			"success": ">>> {emoji.greentick} | The songs from the queue have been added to **{name}**."
+			"description": "Met à jour une playlist, nécessite l'ID de la playlist et le type de mise à jour",
+			"success": ">>> {emoji.greentick} | Les chansons de la file d'attente ont été ajoutées à **{name}**."
 		}
 	}
 }
