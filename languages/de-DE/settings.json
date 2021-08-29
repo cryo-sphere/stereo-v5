@@ -8,7 +8,7 @@
 			"title": "Unterstützte Sprachen"
 		},
 		"language": ">>> 🔡 | The language for this server is **English**, you can change it using the [dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') or using the `/language` command",
-		"success": ">>> {emoji.greentick} | Language changed to **Deutsch**!"
+		"success": ">>> {emoji.greentick} | Language changed to **English**!"
 	},
 	"announce": {
 		"description": "Ändert die Art und Weise, wie Stereo neue Songs ankündigt",
