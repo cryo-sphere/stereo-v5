@@ -39,10 +39,13 @@
 		"uuid": "^8.3.2"
 	},
 	"scripts": {
-		"build": "rimraf ./dist/ && tsc --build",
+		"build": "tsc --build",
 		"start:dev": "npm run build && npm run start",
-		"dev": "nodemon --exec \"npm run start:dev\" -e ts",
+		"dev": "nodemon --exec ts-node index.ts",
 		"start": "node .",
 		"lint": "eslint src"
+	},
+	"devDependencies": {
+		"ts-node": "^10.2.1"
 	}
 }
