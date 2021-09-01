@@ -14,6 +14,11 @@ export default class ReadyListener extends Listener {
 		client.Api.start();
 		this.loadConfig();
 
+		if (client.user?.id === "769595543151443970") {
+			const commands = client.stores.get("slashCommands");
+			commands.unload("playlists");
+		}
+
 		if (process.env.UPDATE_SLASH) {
 			const registrar = new SlashCommandRegistrar();
 			registrar.initializeData(client as Client);
