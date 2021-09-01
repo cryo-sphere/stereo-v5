@@ -14,11 +14,11 @@
 	"help": {
 		"description": "Eine kurze Übersicht aller Befehle, die Stereo hat",
 		"args": {
-			"command": "The command name"
+			"command": "Der Name des Befehls"
 		},
 		"embed": {
 			"title": "Hilfebefehl - {user}",
-			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Category**: {category}\n\n📘**Description**: {description}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limit**: `{limit}`"
+			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Kategorie**: {category}\n\n📘**Beschreibung**: {description}\n📋 **Verwendung**: {usage}\n\n👮‍♂️ | **Rechte**: {perms}\n🗝 | **DJRolle**: {djrole}\n\n⌚ | **Abklingzeit**: `{cooldown}`\n🔢 | **Limit**: `{limit}`"
 		}
 	}
 }

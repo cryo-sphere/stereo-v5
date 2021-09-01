@@ -1,29 +1,29 @@
 {
-	"unknown": "Uh oh, I wasn't able to find the correct command. Please contact our support team if this keeps happening.",
+	"unknown": "Uh oh, je n'ai pas réussi à trouver la bonne commande. Merci de contacter notre équipe de support si cela continue à se produire.",
 	"playlists": {
-		"description": "The playlists command, with multiple sub commands",
-		"noResult": ">>> {emoji.redcross} | No playlist found.",
-		"noResults": ">>> {emoji.redcross} | No playlists found.",
+		"description": "La commande des playlists, avec plusieurs sous-commandes",
+		"noResult": ">>> {emoji.redcross} | Aucune playlist trouvée.",
+		"noResults": ">>> {emoji.redcross} | Aucunes playlists trouvées.",
 		"show": {
-			"description": "Shows all the playlists someone created",
+			"description": "Affiche toutes les playlists que quelqu'un a créées",
 			"embed": {
-				"title": "{name}'s playlists",
+				"title": "Playlists de {name}",
 				"footer": "Page: {page} / {maxPages}"
 			}
 		},
 		"create": {
-			"description": "Creates a new playlist with the provided name",
-			"limit": ">>> {emoji.redcross} | It looks like you reached our playlists limit. You can only create up to 100 playlists with 100 songs each.",
-			"success": ">>> {emoji.greentick} | Playlist created! You can visit and edit your playlist [here](<{url}>) or you can use our `/playlist update` command to save the queue."
+			"description": "Crée une nouvelle playlist avec le nom fourni",
+			"limit": ">>> {emoji.redcross} | Il semble que tu aies atteint la limite de nos playlists. Tu ne peux créer que 100 playlists de 100 chansons chacune.",
+			"success": ">>> {emoji.greentick} | Playlist créée! Tu peux visiter et éditer ta playlist [here](<{url}>) ou tu peux utiliser notre commande `/playlist update` pour sauvegarder la file d'attente."
 		},
 		"delete": {
-			"description": "Deletes a playlist, requires the playlist id",
-			"success": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist has been sent to your DMs, we do this to make sure that you are always able to get your data back if you want to.",
-			"success-file": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist is attached to this message, we do this to make sure that you are always able to get your data back if you want to."
+			"description": "Supprime une playlist, nécessite l'ID de la playlist",
+			"success": ">>> {emoji.greentick} | La playlist portant le nom **{name}** a été supprimée.\nTa playlist a été envoyée dans tes DMs, nous faisons cela pour nous assurer que tu puisses toujours récupérer tes données si tu le souhaites.",
+			"success-file": ">>> {emoji.greentick} | La playlist portant le nom **{name}** a été supprimée.\nTa playlist est jointe à ce message, nous faisons cela pour nous assurer que tu puisses toujours récupérer tes données si tu le souhaites."
 		},
 		"update": {
-			"description": "Updates a playlist, requires the playlist id and the update type",
-			"success": ">>> {emoji.greentick} | The songs from the queue have been added to **{name}**."
+			"description": "Met à jour une playlist, nécessite l'ID de la playlist et le type de mise à jour",
+			"success": ">>> {emoji.greentick} | Les chansons de la file d'attente ont été ajoutées à **{name}**."
 		}
 	}
 }

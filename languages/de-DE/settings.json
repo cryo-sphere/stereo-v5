@@ -1,57 +1,57 @@
 {
 	"language": {
-		"description": "Shows / Changes the language",
+		"description": "Zeigt / ändert die Sprache",
 		"args": {
-			"language": "The language name"
+			"language": "Der Name der Sprache"
 		},
 		"embed": {
-			"title": "Supported Languages"
+			"title": "Unterstützte Sprachen"
 		},
 		"language": ">>> 🔡 | The language for this server is **English**, you can change it using the [dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') or using the `/language` command",
 		"success": ">>> {emoji.greentick} | Language changed to **English**!"
 	},
 	"announce": {
-		"description": "Changes the way Stereo announces new songs",
+		"description": "Ändert die Art und Weise, wie Stereo neue Songs ankündigt",
 		"args": {
-			"enabled": "If announcing should be enabled or not",
-			"delete": "If old announcements should be deleted or not"
+			"enabled": "Ob Ankündigungen aktiviert sein sollen oder nicht",
+			"delete": "Ob alte Ankündigungen gelöscht werden sollen oder nicht"
 		},
-		"success": ">>> {emoji.greentick} | Song announcements are now **{announce}**, deleting old announcements are now **{deleteAnnounce}**!"
+		"success": ">>> {emoji.greentick} | Songankündigungen sind jetzt **{announce}**, das Löschen alter Ankündigungen ist jetzt **{deleteAnnounce}**!"
 	},
 	"defaultvol": {
-		"description": "Changes the default volume for this server",
+		"description": "Ändert die Standardlautstärke für diesen Server",
 		"args": {
-			"value": "The value the default volume has to change to"
+			"value": "Der Wert, zu dem die Standardlautstärke geändert werden soll"
 		},
 		"fail": ">>> {emoji.redcross} | The provided value must be between 1 and 200!",
 		"success": ">>> {emoji.greentick} | The default volume changed to **{defaultvolume}%**!"
 	},
 	"autorepeat": {
-		"description": "Enables or disables queue repeat when a player is created",
+		"description": "Aktiviert oder deaktiviert die Warteschlangenwiederholung, wenn ein Spieler erstellt wurde",
 		"success": ">>> {emoji.greentick} | Automatic repeat is now **{enabled}**!"
 	},
 	"autoshuffle": {
-		"description": "Enables or disables automatic shuffle when a player is created",
+		"description": "Aktiviert oder deaktiviert die Durchmischung, wenn ein Spieler erstellt wurde",
 		"success": ">>> {emoji.greentick} | Automatic shuffle is now **{enabled}**!"
 	},
 	"defaultbass": {
-		"description": "Changes the default bassboost level for this server",
+		"description": "Ändert das Standard-Bassboost-Level für diesen Server",
 		"args": {
-			"level": "The level the default bassboost has to change to"
+			"level": "Das Level, zu dem sich das Standard-Bassboost-Level werden soll"
 		},
 		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**."
 	},
 	"defaultfilter": {
-		"description": "Changes the default filter for this server",
+		"description": "Ändert den Standardfilter für diesen Server",
 		"args": {
-			"level": "The name of the filter the default filter has to change to"
+			"level": "Der Name des Filters, zu dem der Standardfilter geändert werden soll"
 		},
 		"success": ">>> {emoji.greentick} | The default filter changed to **{defaultfilter}**."
 	},
 	"djrole": {
-		"description": "Changes DJRole of this server",
+		"description": "Ändert die DJRolle dieses Servers",
 		"args": {
-			"role": "The role name/id/mention the DJRole has to change to"
+			"role": "Der/Die Rollenname/ID/Erwähnung, die DJRolle werden soll"
 		},
 		"success": ">>> {emoji.greentick} | The DJRole mode is now **enabled** and changed to **{djrole}**.",
 		"success2": ">>> {emoji.greentick} | The DJRole mode is now **disabled**.",

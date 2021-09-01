@@ -1,5 +1,5 @@
 {
-	"unknown": "Uh oh, I wasn't able to find the correct command. Please contact our support team if this keeps happening.",
+	"unknown": "Uh oh, Ik kon de juiste commando niet vinden. Neem contact op met ons ondersteuningsteam als dit bijft gebeuren.",
 	"playlists": {
 		"description": "The playlists command, with multiple sub commands",
 		"noResult": ">>> {emoji.redcross} | No playlist found.",

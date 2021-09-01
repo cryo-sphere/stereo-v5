@@ -5,7 +5,7 @@
 		"alreadyCreated": ">>> {emoji.redcross} | Ich bin bereits mit **{voice}** verbunden!",
 		"disconnected": ">>> 👋 | Erfolgreich von `{channel}` getrennt.",
 		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden.",
-		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players."
+		"forcedDisconnect": ">>> ❗ | Jemand hat mich getrennt! Bitte mache das nicht, benutze stattdessen den `/disconnect`Befehl, um defekte Spieler zu verhindern."
 	},
 	"announce": {
 		"title": "Es wird **{title}** gespielt",
