@@ -17,7 +17,7 @@ import ms from "ms";
 		},
 	],
 })
-export default class InviteCommand extends SlashCommand {
+export default class HelpCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args): Promise<void> {
 		const embed = this.client.utils.embed().setTitle(
 			this.languageHandler.translate(interaction.guildId, "general:help.embed.title", {
