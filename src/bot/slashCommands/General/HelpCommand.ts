@@ -19,11 +19,17 @@ import ms from "ms";
 })
 export default class HelpCommand extends SlashCommand {
 	public async run(interaction: CommandInteraction, args: SlashCommand.Args): Promise<void> {
-		const embed = this.client.utils.embed().setTitle(
-			this.languageHandler.translate(interaction.guildId, "general:help.embed.title", {
-				user: interaction.user.tag,
-			})
-		);
+		const embed = this.client.utils
+			.embed()
+			.setTitle(
+				this.languageHandler.translate(interaction.guildId, "general:help.embed.title", {
+					user: interaction.user.tag,
+				})
+			)
+			.setFooter(
+				this.languageHandler.translate(interaction.guildId, "general:help.embed.footer"),
+				"https://cdn.stereo-bot.tk/branding/logo.png"
+			);
 
 		const cmd = args.getString("command", false);
 		const command = this.container.stores.get("slashCommands").get(cmd ?? "") as
