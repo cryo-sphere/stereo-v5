@@ -18,7 +18,8 @@
 		},
 		"embed": {
 			"title": "Commande d'aide - {user}",
-			"description": ">>> 🏷 | **Nom**: {name}\n📁 | **Catégorie**: {category}\n\n📘**Description**: {description}\n📋 **Usage**: {usage}\n\n👮♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limite**: `{limit}`"
+			"description": ">>> 🏷 | **Nom**: {name}\n📁 | **Catégorie**: {category}\n\n📘**Description**: {description}\n📋 **Usage**: {usage}\n\n👮♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limite**: `{limit}`",
+			"footer": "Created by Github: Stereo"
 		}
 	}
 }
