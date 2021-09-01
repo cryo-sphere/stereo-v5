@@ -3,7 +3,7 @@ import { ApplyOptions } from "@sapphire/decorators";
 import { Guild, MessageEmbed, WebhookClient } from "discord.js";
 
 @ApplyOptions<ListenerOptions>({ event: "guildCreate" })
-export default class ReadyListener extends Listener {
+export default class GuildCreateListener extends Listener {
 	public async run(guild: Guild): Promise<void> {
 		const { client } = this.container;
 		const logger = client.loggers.get("bot");
