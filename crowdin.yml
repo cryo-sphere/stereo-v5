@@ -1,7 +1,7 @@
 project_id: "470762"
 api_token_env: CROWDIN_PERSONAL_TOKEN
-commit_message: "Crowdin: new translations for %original_file_name% (%language%)"
-pull_request_title: "Crowdin: new translations"
+commit_message: "Chore(Crowdin): new translations for %original_file_name% (%language%)"
+pull_request_title: "Chore(Crowdin): new translations"
 append_commit_message: false
 files:
   - source: /languages/en-US/*.json
