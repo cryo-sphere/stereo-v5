@@ -31,7 +31,7 @@
 	"scripts": {
 		"build": "tsc --build",
 		"start:dev": "npm run build && npm run start",
-		"dev": "nodemon --exec ts-node index.ts",
+		"dev": "nodemon --exec ts-node src/index.ts",
 		"start": "node .",
 		"lint": "eslint src"
 	},
