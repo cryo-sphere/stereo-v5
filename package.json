@@ -12,7 +12,7 @@
 		"@ksoft/api": "^3.1.9",
 		"@prisma/client": "^2.29.1",
 		"@sapphire/decorators": "^2.2.0",
-		"@sapphire/framework": "^2.0.0-next.21c768d0.0",
+		"@sapphire/framework": "^2.0.0-next.9f81b7bb.0",
 		"@sapphire/type": "^2.0.11",
 		"@stereo-bot/lavalink": "^1.0.9",
 		"axios": "^0.21.1",
@@ -36,7 +36,6 @@
 		"lint": "eslint src"
 	},
 	"devDependencies": {
-		"ts-node": "^10.2.1",
 		"@types/body-parser": "^1.19.1",
 		"@types/cookie-parser": "^1.4.2",
 		"@types/cors": "^2.8.12",
@@ -46,6 +45,7 @@
 		"@types/uuid": "^8.3.1",
 		"@typescript-eslint/eslint-plugin": "^4.28.2",
 		"@typescript-eslint/parser": "^4.28.2",
+		"ts-node": "^10.2.1",
 		"typescript": "^4.4.2"
 	}
 }
