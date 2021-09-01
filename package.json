@@ -12,7 +12,7 @@
 		"@ksoft/api": "^3.1.9",
 		"@prisma/client": "^2.29.1",
 		"@sapphire/decorators": "^2.2.0",
-		"@sapphire/framework": "next",
+		"@sapphire/framework": "^2.0.0-next.21c768d0.0",
 		"@sapphire/plugin-api": "next",
 		"@sapphire/plugin-subcommands": "^1.0.6",
 		"@sapphire/type": "^2.0.11",
@@ -40,7 +40,7 @@
 		"ms": "^2.1.3",
 		"node-fetch": "^2.6.1",
 		"rimraf": "^3.0.2",
-		"typescript": "^4.3.5",
+		"typescript": "^4.4.2",
 		"uuid": "^8.3.2"
 	},
 	"scripts": {
