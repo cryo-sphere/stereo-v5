@@ -19,5 +19,7 @@
 	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
 	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel.",
 	"filter": ">>> 🎛 | Successfully applied the filter **{filter}**, it may take a few seconds before this filter is working.",
-	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command."
+	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command.",
+	"skip": ">>> {emoji.greentick} | Successfully skipped to the next song!",
+	"stuck": ">>> {emoji.error} | I am stuck at the track `{track}`, skipping..."
 }
