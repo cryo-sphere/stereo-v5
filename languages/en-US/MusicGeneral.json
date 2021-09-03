@@ -5,7 +5,8 @@
 		"alreadyCreated": ">>> {emoji.redcross} | I am already connected to **{voice}**!",
 		"disconnected": ">>> 👋 | Successfully disconnected from `{channel}`.",
 		"connected": ">>> 👋 | Successfully connected to `{channel}`.",
-		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players."
+		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players.",
+		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel."
 	},
 	"announce": {
 		"title": "Now playing {title}",
@@ -18,6 +19,5 @@
 	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
 	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel.",
 	"filter": ">>> 🎛 | Successfully applied the filter **{filter}**, it may take a few seconds before this filter is working.",
-	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command.",
-	"skip": ">>> {emoji.greentick} | Successfully skipped to the next song!"
+	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command."
 }
