@@ -42,9 +42,9 @@ export default class Client extends SapphireClient {
 		[
 			{
 				id: "main",
-				host: "localhost",
-				port: 2333,
-				password: "youshallnotpass",
+				host: process.env.LAVALINK_HOST as string,
+				port: Number(process.env.LAVALINK_PORT ?? 0) ?? 2333,
+				password: process.env.LAVALINK_PASSWORD as string,
 			},
 		],
 		{
