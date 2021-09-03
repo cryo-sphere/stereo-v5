@@ -7,8 +7,8 @@
 		"embed": {
 			"title": "Unterstützte Sprachen"
 		},
-		"language": ">>> 🔡 | The language for this server is **English**, you can change it using the [dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') or using the `/language` command",
-		"success": ">>> {emoji.greentick} | Language changed to **English**!"
+		"language": ">>> 🔡 | Die Sprache für diesen Server ist **Deutsch**, du kannst es über das [Dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') oder mit dem `/language`-Befehl ändern",
+		"success": ">>> {emoji.greentick} | Language changed to **Deutsch**!"
 	},
 	"announce": {
 		"description": "Ändert die Art und Weise, wie Stereo neue Songs ankündigt",
@@ -23,39 +23,39 @@
 		"args": {
 			"value": "Der Wert, zu dem die Standardlautstärke geändert werden soll"
 		},
-		"fail": ">>> {emoji.redcross} | The provided value must be between 1 and 200!",
-		"success": ">>> {emoji.greentick} | The default volume changed to **{defaultvolume}%**!"
+		"fail": ">>> {emoji.redcross} | Der angegebene Wert muss zwischen 1 und 200 liegen!",
+		"success": ">>> {emoji.greentick} | Die Standardlautstärke wurde auf **{defaultvolume} %** geändert!"
 	},
 	"autorepeat": {
 		"description": "Aktiviert oder deaktiviert die Warteschlangenwiederholung, wenn ein Spieler erstellt wurde",
-		"success": ">>> {emoji.greentick} | Automatic repeat is now **{enabled}**!"
+		"success": ">>> {emoji.greentick} | Automatische Wiederholung ist jetzt **{enabled}**!"
 	},
 	"autoshuffle": {
 		"description": "Aktiviert oder deaktiviert die Durchmischung, wenn ein Spieler erstellt wurde",
-		"success": ">>> {emoji.greentick} | Automatic shuffle is now **{enabled}**!"
+		"success": ">>> {emoji.greentick} | Automatische Vermischung ist jetzt **{enabled}**!"
 	},
 	"defaultbass": {
 		"description": "Ändert das Standard-Bassboost-Level für diesen Server",
 		"args": {
 			"level": "Das Level, zu dem sich das Standard-Bassboost-Level werden soll"
 		},
-		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**."
+		"success": ">>> {emoji.greentick} | Das Standard-Bassboost-Level wurde auf **{defaultbassboost} %** geändert."
 	},
 	"defaultfilter": {
 		"description": "Ändert den Standardfilter für diesen Server",
 		"args": {
 			"level": "Der Name des Filters, zu dem der Standardfilter geändert werden soll"
 		},
-		"success": ">>> {emoji.greentick} | The default filter changed to **{defaultfilter}**."
+		"success": ">>> {emoji.greentick} | Der Standardfilter wurde auf **{defaultfilter}** geändert."
 	},
 	"djrole": {
 		"description": "Ändert die DJRolle dieses Servers",
 		"args": {
 			"role": "Der/Die Rollenname/ID/Erwähnung, die DJRolle werden soll"
 		},
-		"success": ">>> {emoji.greentick} | The DJRole mode is now **enabled** and changed to **{djrole}**.",
-		"success2": ">>> {emoji.greentick} | The DJRole mode is now **disabled**.",
-		"fail": ">>> {emoji.redcross} | I was unable to find a role with the information: `{role}`.",
-		"managed": ">>> {emoji.error} | The role `{role}` is managed by another intergration! You can't assign this role to someone and therefore I can't use it as DJRole."
+		"success": ">>> {emoji.greentick} | Der DJRollen-Modus ist nun **aktiviert** und wurde zu **{djrole}** geändert.",
+		"success2": ">>> {emoji.greentick} | Der DJRollen-Modus ist nun **deaktiviert**.",
+		"fail": ">>> {emoji.redcross} | Ich konnte keine Rolle mit den Informationen finden: `{role}`.",
+		"managed": ">>> {emoji.error} | Die Rolle `{role}` wird von einer anderen Intergration verwaltet! Diese Rolle kann nichtjemandem zugewiesen werden und deshalb kann ich sie nicht als DJRolle verwenden."
 	}
 }
