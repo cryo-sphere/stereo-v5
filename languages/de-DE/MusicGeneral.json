@@ -6,7 +6,7 @@
 		"disconnected": ">>> 👋 | Erfolgreich von `{channel}` getrennt.",
 		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden.",
 		"forcedDisconnect": ">>> ❗ | Jemand hat mich getrennt! Bitte mache das nicht, benutze stattdessen den `/disconnect`Befehl, um defekte Spieler zu verhindern.",
-		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel."
+		"alone": ">>> 😢 | Ich habe aufgehört Musik zu spielen, weil ich allein im Sprachkanal war."
 	},
 	"announce": {
 		"title": "Es wird **{title}** gespielt",
@@ -21,5 +21,5 @@
 	"filter": ">>> 🎛 | Erfolgreich den **{filter}**-Filter angewendet, es kann ein paar Sekunden dauern, bevor dieser Filter funktioniert.",
 	"djrole": ">>> 👮‍♂️ | Der DJ-Modus ist derzeit aktiviert, nur Benutzer mit der DJRole dürfen diesen Befehl verwenden.",
 	"skip": ">>> {emoji.greentick} | Erfolgreich zum nächsten Song übersprungen!",
-	"stuck": ">>> {emoji.error} | I am stuck at the track `{track}`, skipping..."
+	"stuck": ">>> {emoji.error} | Ich stecke am Song fest `{track}`, skippen..."
 }
