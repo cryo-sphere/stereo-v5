@@ -14,8 +14,6 @@
 
 > Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free! Big thanks to [this GitHub repo](https://github.com/FrenchDiscord/YliasDiscordBot) for making a slash commands handler for @sapphire/framework
 
-_note: bot is everything except finished, do **not** download it if you don't know what you are doing, I will announce when it's ready._
-
 ## Important information
 
 We expect you to have a basic understanding of JavaScript / TypeScript hosting of things like websites and Discord bots when using one of our repositories. Do **not** ask general questions like "How to install NodeJS?" or "How to update .env" in both our Discord server and the issue tracker.
