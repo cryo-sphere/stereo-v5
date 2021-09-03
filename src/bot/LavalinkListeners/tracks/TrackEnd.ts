@@ -11,10 +11,10 @@ export default class trackEndListener extends LavalinkListener {
 
 		const members = guild.me?.voice.channel?.members.filter((m) => !m.user.bot).size;
 		if (members && members < 1) {
+			player.destroy();
 			const channel = await this.client.utils.getChannel(player.channels.text ?? "");
 			if (!channel || !channel.isText()) return;
 
-			player.destroy();
 			await channel
 				.send(this.client.languageHandler.translate(guild.id, "MusicGeneral:vc.alone"))
 				.catch(() => void 0);
