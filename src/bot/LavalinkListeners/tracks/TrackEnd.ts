@@ -12,7 +12,9 @@ export default class trackEndListener extends LavalinkListener {
 		const config = this.client.config.get(guild.id);
 		const members = guild.me?.voice.channel?.members.filter((m) => !m.user.bot).size;
 		if (typeof members === "number" && members < 1 && !config?.afk) {
+			player.queue.reset();
 			player.destroy();
+
 			const channel = await this.client.utils.getChannel(player.channels.text ?? "");
 			if (!channel || !channel.isText()) return;
 

@@ -8,7 +8,7 @@ export default class queueEmptyListener extends LavalinkListener {
 	public async run(player: Player): Promise<void> {
 		const { client } = this.container;
 		const channel = await client.utils.getChannel(player.channels.text ?? "");
-		if (!channel || !channel.isText()) return;
+		if (!channel || !channel.isText() || !player.connected) return;
 
 		const old = client.announcements.get(player.guild);
 		const config = client.config.get(player.guild);
