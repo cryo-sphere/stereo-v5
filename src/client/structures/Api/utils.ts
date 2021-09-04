@@ -39,17 +39,26 @@ export default class Utils {
 		return { invited, guilds: rest };
 	}
 
-	public async getToken(code: string): Promise<any> {
+	public async getToken(code: string, refresh?: boolean): Promise<any> {
 		try {
+			const body = !refresh
+				? stringify({
+						code,
+						grant_type: "authorization_code",
+						client_id: process.env.DISCORD_ID,
+						client_secret: process.env.DISCORD_SECRET,
+						redirect_uri: process.env.DISCORD_URI,
+				  })
+				: stringify({
+						refresh_token: code,
+						grant_type: "refresh_token",
+						client_id: process.env.DISCORD_ID,
+						client_secret: process.env.DISCORD_SECRET,
+				  });
+
 			const { data } = await axios("https://discord.com/api/v9/oauth2/token", {
 				method: "POST",
-				data: stringify({
-					code,
-					grant_type: "authorization_code",
-					client_id: process.env.DISCORD_ID,
-					client_secret: process.env.DISCORD_SECRET,
-					redirect_uri: process.env.DISCORD_URI,
-				}),
+				data: body,
 				headers: {
 					"Content-Type": "application/x-www-form-urlencoded",
 				},
