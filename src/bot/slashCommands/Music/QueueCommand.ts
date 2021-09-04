@@ -37,6 +37,8 @@ export default class QueueCommand extends SlashCommand {
 			index,
 		}));
 
+		await interaction.deferReply();
+
 		let page = 0;
 		const current = player.queue.current;
 		const requester = await this.client.utils.fetchUser(player.queue.current.requester);
@@ -58,7 +60,7 @@ export default class QueueCommand extends SlashCommand {
 				}) - \`${Utils.convert(current.duration ?? 0)}\``
 			);
 
-		if (player.queue.next.length < 0) return interaction.reply({ embeds: [embed] });
+		if (player.queue.next.length < 0) return interaction.followUp({ embeds: [embed] });
 
 		const maxPages = Math.ceil(player.queue.next.length / 10);
 		if ((page > maxPages || page < 1) && maxPages !== 0) page = 1;
@@ -81,7 +83,7 @@ export default class QueueCommand extends SlashCommand {
 
 		const pages = this.generateEmbeds(items, embed);
 
-		await interaction.reply({
+		await interaction.followUp({
 			components: pages.length <= 1 ? undefined : [new MessageActionRow().addComponents(buttons)],
 			embeds: [
 				embed

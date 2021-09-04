@@ -15,7 +15,7 @@ export default class ResumeCommand extends SlashCommand {
 
 		const player = this.client.manager.get(interaction.guildId);
 		if (!player)
-			return interaction.followUp(
+			return interaction.reply(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:noPlayer")
 			);
 
@@ -26,9 +26,11 @@ export default class ResumeCommand extends SlashCommand {
 
 		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
 		if (state?.channelId !== player.channels.voice) {
+			await interaction.deferReply();
 			const channel = (await this.client.utils.getChannel(
 				player.channels.voice as string
 			)) as VoiceChannel;
+
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
 					voice: channel.name,

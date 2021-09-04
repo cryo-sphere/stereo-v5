@@ -31,6 +31,8 @@ export default class VolumeCommand extends SlashCommand {
 		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
 		if (player.channels.voice && state?.channelId !== player.channels.voice) {
 			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
+			await interaction.deferReply();
+
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
 					voice: channel.name,

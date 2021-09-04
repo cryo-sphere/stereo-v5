@@ -58,6 +58,7 @@ export default class PlayCommand extends SlashCommand {
 			);
 		if (player.channels.voice && state.channelId !== player.channels.voice) {
 			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
+
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
 					voice: channel.name,

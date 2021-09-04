@@ -26,6 +26,7 @@ export default class PingCommand extends SlashCommand {
 
 		if (player.channels.voice) {
 			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
+
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.alreadyCreated", {
 					voice: channel.name,

@@ -57,7 +57,9 @@ export default class BassboostCommand extends SlashCommand {
 
 		const state = interaction.guild?.voiceStates.cache.get(interaction.user.id);
 		if (player.channels.voice && state?.channelId !== player.channels.voice) {
+			await interaction.deferReply();
 			const channel = (await this.client.utils.getChannel(player.channels.voice)) as VoiceChannel;
+
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.wrong", {
 					voice: channel.name,
