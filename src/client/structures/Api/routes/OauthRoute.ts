@@ -28,14 +28,17 @@ export class OauthRoute {
 			const user = await this.utils.getUser(data.access_token, "");
 			if (!user) throw new Error("unable to get user");
 
+			const expires = Date.now() + data.expires_in * 1e3;
 			const cookie = this.utils.encrypt({
-				expires: Date.now() + data.expires_in * 1e3,
+				expires,
 				refresh: data.refresh_token,
 				token: data.access_token,
 				userId: user.id,
 			});
 
-			res.cookie("STEREO_AUTH", cookie).redirect(process.env.DASHBOARD ?? "http://localhost:3000");
+			res
+				.cookie("STEREO_AUTH", cookie, { maxAge: expires + data.expires_in * 1e3 })
+				.redirect(process.env.DASHBOARD ?? "http://localhost:3000");
 		} catch (e) {
 			res.status(500).json({ message: "internal server error", error: e.message });
 		}
