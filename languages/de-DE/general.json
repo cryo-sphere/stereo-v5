@@ -19,7 +19,7 @@
 		"embed": {
 			"title": "Hilfebefehl - {user}",
 			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Kategorie**: {category}\n\n📘**Beschreibung**: {description}\n📋 **Verwendung**: {usage}\n\n👮‍♂️ | **Rechte**: {perms}\n🗝 | **DJRolle**: {djrole}\n\n⌚ | **Abklingzeit**: `{cooldown}`\n🔢 | **Limit**: `{limit}`",
-			"footer": "Created by Github: Stereo"
+			"footer": "Von Github erstellt: Stereo"
 		}
 	}
 }
