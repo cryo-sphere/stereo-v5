@@ -15,10 +15,8 @@ export default class trackErrorListener extends LavalinkListener {
 		const guild = this.client.guilds.cache.get(player.guild);
 		if (!guild) return;
 
-		player.skip();
-		this.client.loggers
-			.get("lavalink")
-			?.error(`TrackError (${player.guild}): ${payload.error}`, payload.exception);
+		player.queue.nextSong();
+		this.client.loggers.get("lavalink")?.error(`TrackError (${player.guild}): ${payload.error}`);
 		const channel = await this.client.utils.getChannel(player.channels.text ?? "");
 		if (!channel || !channel.isText()) return;
 
