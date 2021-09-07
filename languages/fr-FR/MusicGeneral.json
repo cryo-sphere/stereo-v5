@@ -6,7 +6,7 @@
 		"disconnected": ">>> 👋 | Déconnexion réussie de `{channel}`.",
 		"connected": ">>> 👋 | Connexion réussie à `{channel}`.",
 		"forcedDisconnect": ">>> ❗ | Quelqu'un m'a déconnecté! Ne fais pas ça, utilise plutôt la commande `/disconnect` pour éviter de casser les lecteurs.",
-		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel."
+		"alone": ">>> 😢 | J'ai arrêté de jouer de la musique parce que j'étais seul dans le salon vocal."
 	},
 	"announce": {
 		"title": "En cours de lecture de {title}",
@@ -21,5 +21,5 @@
 	"filter": ">>> 🎛 | Application réussie du filtre **{filter}**, cela peut prendre quelques secondes avant que ce filtre ne fonctionne.",
 	"djrole": ">>> 👮♂️ | Le mode DJ est actuellement activé, seuls les utilisateurs ayant le DJRole sont autorisés à utiliser cette commande.",
 	"skip": ">>> {emoji.greentick} | Passage réussi à la chanson suivante!",
-	"stuck": ">>> {emoji.error} | I am stuck at the track `{track}`, skipping..."
+	"stuck": ">>> {emoji.error} | Je suis coincé sur la piste `{track}`, je passe à la musique suivante..."
 }
