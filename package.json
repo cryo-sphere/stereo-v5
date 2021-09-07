@@ -14,7 +14,7 @@
 		"@sapphire/decorators": "^2.2.0",
 		"@sapphire/framework": "2.0.0-next.9f81b7bb.0",
 		"@sapphire/type": "^2.0.11",
-		"@stereo-bot/lavalink": "^1.0.9",
+		"@stereo-bot/lavalink": "^1.1.0",
 		"axios": "^0.21.1",
 		"body-parser": "^1.19.0",
 		"cookie-parser": "^1.4.5",
