@@ -45,7 +45,7 @@
 		"args": {
 			"volume": "The value to set the volume to"
 		},
-		"invalid": ">>> {emoji.redross} | The value must be between 1 and 200.",
+		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
 		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
 	},
 	"247": {
