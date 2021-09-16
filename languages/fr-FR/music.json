@@ -45,7 +45,7 @@
 		"args": {
 			"volume": "La valeur à laquelle régler le volume"
 		},
-		"invalid": ">>> {emoji.redross} | La valeur doit être comprise entre 1 et 200.",
+		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
 		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
 	},
 	"247": {
