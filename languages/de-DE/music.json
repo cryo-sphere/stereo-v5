@@ -45,7 +45,7 @@
 		"args": {
 			"volume": "Der Wert auf den die Lautstärke gesetzt werden soll"
 		},
-		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
+		"invalid": ">>> {emoji.redcross} | Der Wert muss zwischen 1 und 200 liegen.",
 		"success": ">>> {emoji.greentick} | Die Lautstärke wurde erfolgreich auf **{volume} %** geändert!"
 	},
 	"247": {
