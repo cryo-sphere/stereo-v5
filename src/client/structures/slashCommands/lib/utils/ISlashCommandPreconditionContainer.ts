@@ -1,4 +1,4 @@
-import type { Awaited } from "@sapphire/utilities";
+import type { Awaitable } from "@sapphire/utilities";
 import type { UserError, Result } from "@sapphire/framework";
 import type { CommandInteraction } from "discord.js";
 import type { SlashCommand } from "../structures/SlashCommand";
@@ -7,7 +7,7 @@ import { SlashCommandPreconditionContext } from "../structures/SlashCommandPreco
 export type SlashCommandPreconditionContainerResult = Result<unknown, UserError>;
 
 export type SlashCommandPreconditionContainerReturn =
-	Awaited<SlashCommandPreconditionContainerResult>;
+	Awaitable<SlashCommandPreconditionContainerResult>;
 
 export type AsyncSlashCommandPreconditionContainerReturn =
 	Promise<SlashCommandPreconditionContainerResult>;

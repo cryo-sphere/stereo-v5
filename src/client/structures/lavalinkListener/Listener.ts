@@ -77,7 +77,7 @@ export abstract class LavalinkListener extends Piece {
 		return super.onUnload();
 	}
 
-	public toJSON(): Record<PropertyKey, unknown> {
+	public toJSON() {
 		return {
 			...super.toJSON(),
 			once: this.once,

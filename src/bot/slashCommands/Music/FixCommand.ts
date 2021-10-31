@@ -30,7 +30,9 @@ export default class ClearCommand extends SlashCommand {
 		const available = await this.client.fetchVoiceRegions();
 
 		player.pause(true);
-		await channel.edit({ rtcRegion: available.filter((r) => !r.vip && !r.deprecated).random().id });
+		await channel.edit({
+			rtcRegion: available.filter((r) => !r.vip && !r.deprecated)?.random()?.id,
+		});
 		await new Promise((res) => setTimeout(res, 2e3));
 		// @ts-ignore
 		const newData = await this.client.api.channels(channel.id).patch({

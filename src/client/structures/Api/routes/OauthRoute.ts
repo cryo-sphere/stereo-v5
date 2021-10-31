@@ -61,7 +61,7 @@ export class OauthRoute {
 			const data = await Utils.revokeToken(req.auth.token);
 			if (!data) throw new Error("unknown error");
 			if (data.status === 503) {
-				const retryAfter = data.headers.get("Retry-After");
+				const retryAfter = data.headers["Retry-After"];
 				const duration = retryAfter === null ? 5e3 : Number(retryAfter) * 1e3;
 				await new Promise((resolve) => setTimeout(resolve, duration));
 

@@ -65,7 +65,7 @@ export class slashCommandErrorListener extends Listener {
 		}
 
 		const command = piece;
-		logger.fatal(`[COMMAND] ${command.path}\n${error.stack || error.message}`);
+		logger.fatal(`[COMMAND] ${command.location.full}\n${error.stack || error.message}`);
 
 		try {
 			return this.reply(interaction, this.generateUnexpectedErrorMessage(interaction, error));

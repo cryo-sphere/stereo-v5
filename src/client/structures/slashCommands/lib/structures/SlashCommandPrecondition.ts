@@ -1,11 +1,11 @@
 import { Piece, PieceContext, PieceOptions } from "@sapphire/pieces";
 import { BucketScope, err, ok, Result, UserError } from "@sapphire/framework";
 import { SlashCommandPreconditionError } from "../errors/SlashCommandPreconditionError";
-import type { Awaited } from "@sapphire/utilities";
+import type { Awaitable } from "@sapphire/utilities";
 import type { CommandInteraction } from "discord.js";
 import type { SlashCommand } from "./SlashCommand";
 
-export type SlashCommandPreconditionResult = Awaited<Result<unknown, UserError>>;
+export type SlashCommandPreconditionResult = Awaitable<Result<unknown, UserError>>;
 export type AsyncSlashCommandPreconditionResult = Promise<Result<unknown, UserError>>;
 
 export abstract class SlashCommandPrecondition extends Piece {

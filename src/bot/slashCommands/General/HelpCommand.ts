@@ -65,7 +65,7 @@ export default class HelpCommand extends SlashCommand {
 										"BotGeneral:argument"
 									)} "${arg.name}" (${this.languageHandler.translate(
 										interaction.guildId,
-										`BotGeneral:${arg.required ? "required" : "optional"}`
+										"BotGeneral:required"
 									)})`,
 									value: this.languageHandler.translate(interaction.guildId, arg.tDescription),
 								}))

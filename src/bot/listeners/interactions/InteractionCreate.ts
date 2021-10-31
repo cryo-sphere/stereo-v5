@@ -25,7 +25,7 @@ export default class InteractionCreate extends Listener<
 		const command = this.container.stores.get("slashCommands").get(commandName);
 
 		if (!command) {
-			interaction.client.emit(Events.UnknownSlashCommand, { interaction, commandName });
+			interaction.client.emit<string>(Events.UnknownSlashCommand, { interaction, commandName });
 			return;
 		}
 
@@ -45,7 +45,7 @@ export default class InteractionCreate extends Listener<
 			.run(interaction, command, context);
 
 		if (!globalResult.success) {
-			interaction.client.emit(Events.SlashCommandDenied, globalResult.error, payload);
+			interaction.client.emit<string>(Events.SlashCommandDenied, globalResult.error, payload);
 
 			return;
 		}
@@ -54,25 +54,28 @@ export default class InteractionCreate extends Listener<
 		const localResult = await command.preconditions.run(interaction, command, context);
 
 		if (!localResult.success) {
-			interaction.client.emit(Events.SlashCommandDenied, localResult.error, payload);
+			interaction.client.emit<string>(Events.SlashCommandDenied, localResult.error, payload);
 
 			return;
 		}
 
 		try {
-			interaction.client.emit(Events.SlashCommandRun, interaction, command, { ...payload, args });
+			interaction.client.emit<string>(Events.SlashCommandRun, interaction, command, {
+				...payload,
+				args,
+			});
 
 			const result = await command.run(interaction, args, context);
 
-			interaction.client.emit(Events.SlashCommandSuccess, { ...payload, args, result });
+			this.container.client.emit<string>(Events.SlashCommandSuccess, { ...payload, args, result });
 		} catch (error) {
-			interaction.client.emit(Events.SlashCommandError, error, {
+			interaction.client.emit<string>(Events.SlashCommandError, error, {
 				...payload,
 				args,
 				piece: command,
 			});
 		} finally {
-			interaction.client.emit(Events.SlashCommandFinish, interaction, command, {
+			interaction.client.emit<string>(Events.SlashCommandFinish, interaction, command, {
 				...payload,
 				args,
 			});

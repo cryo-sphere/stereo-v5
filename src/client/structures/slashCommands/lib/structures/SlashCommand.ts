@@ -1,6 +1,6 @@
 import { CommandOptionsRunType, BucketScope } from "@sapphire/framework";
 import { AliasPiece, PieceContext, PieceOptions } from "@sapphire/pieces";
-import { Awaited, isNullish } from "@sapphire/utilities";
+import { Awaitable, isNullish } from "@sapphire/utilities";
 import {
 	SlashCommandPreconditionContainerArray,
 	SlashCommandPreconditionEntryResolvable,
@@ -12,12 +12,15 @@ import {
 	ApplicationCommandOptionData,
 	ApplicationCommandPermissionData,
 	PermissionString,
+	CacheType,
 } from "discord.js";
 import { sep } from "path";
 import Client from "../../../../Client";
 import languageHandler from "../../../languageHandler";
 
-export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends AliasPiece {
+export abstract class SlashCommand<
+	T = Omit<CommandInteractionOptionResolver<CacheType>, "getMessage" | "getFocused">
+> extends AliasPiece {
 	public description: string;
 	public tDescription: string | null;
 	public usage: string;
@@ -74,10 +77,10 @@ export abstract class SlashCommand<T = CommandInteractionOptionResolver> extends
 		interaction: CommandInteraction,
 		args: T,
 		context: SlashCommandContext
-	): Awaited<unknown>;
+	): Awaitable<unknown>;
 
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	public toJSON(): Record<string, any> {
+	public toJSON() {
 		return {
 			...super.toJSON(),
 			description: this.description,
