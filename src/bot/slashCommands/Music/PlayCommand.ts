@@ -66,6 +66,13 @@ export default class PlayCommand extends SlashCommand {
 			);
 		}
 
+		if (!state.channel?.joinable)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.locked", {
+					channel: state.channel?.name ?? "unknown channel",
+				})
+			);
+
 		let query = args.getString("query", true);
 		let type: string | null = args.getString("type");
 		if (type === "radio") {

@@ -34,6 +34,13 @@ export default class PingCommand extends SlashCommand {
 			);
 		}
 
+		if (!state.channel?.joinable)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.locked", {
+					channel: state.channel?.name ?? "unknown channel",
+				})
+			);
+
 		player.setVoice(state.channelId).setText(interaction.channelId).connect();
 		await interaction.followUp(
 			this.languageHandler.translate(interaction.guildId, "MusicGeneral:vc.connected", {

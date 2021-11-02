@@ -6,7 +6,8 @@
 		"disconnected": ">>> 👋 | Successfully disconnected from `{channel}`.",
 		"connected": ">>> 👋 | Successfully connected to `{channel}`.",
 		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players.",
-		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel."
+		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel.",
+		"locked": ">>> 🔒 | I cannot join **{channel}**, please ask an Admin to update the permissions or move to a different channel."
 	},
 	"announce": {
 		"title": "Now playing {title}",
