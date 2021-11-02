@@ -44,7 +44,7 @@ export default class LanguageCommand extends SlashCommand {
 						),
 				],
 			});
-		
+
 		const permissions =
 			typeof interaction.member.permissions === "string"
 				? new Permissions(BigInt(interaction.member.permissions))
