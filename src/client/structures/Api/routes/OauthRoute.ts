@@ -36,9 +36,11 @@ export class OauthRoute {
 				userId: user.id,
 			});
 
-			res
-				.cookie("STEREO_AUTH", cookie, { maxAge: expires + data.expires_in * 1e3 })
-				.redirect(process.env.DASHBOARD ?? "http://localhost:3000");
+			res.redirect(
+				`${process.env.DASHBOARD ?? "http://localhost:3000"}/callback?cookie=${encodeURIComponent(
+					cookie
+				)}`
+			);
 		} catch (e) {
 			res.status(500).json({ message: "internal server error", error: e.message });
 		}
