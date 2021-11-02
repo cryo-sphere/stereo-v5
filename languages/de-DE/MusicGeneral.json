@@ -6,7 +6,8 @@
 		"disconnected": ">>> 👋 | Erfolgreich von `{channel}` getrennt.",
 		"connected": ">>> 👋 | Erfolgreich mit `{channel}` verbunden.",
 		"forcedDisconnect": ">>> ❗ | Jemand hat mich getrennt! Bitte mache das nicht, benutze stattdessen den `/disconnect`Befehl, um defekte Spieler zu verhindern.",
-		"alone": ">>> 😢 | Ich habe aufgehört Musik zu spielen, weil ich allein im Sprachkanal war."
+		"alone": ">>> 😢 | Ich habe aufgehört Musik zu spielen, weil ich allein im Sprachkanal war.",
+		"locked": ">>> 🔒 | I cannot join **{channel}**, please ask an Admin to update the permissions or move to a different channel."
 	},
 	"announce": {
 		"title": "Es wird **{title}** gespielt",
