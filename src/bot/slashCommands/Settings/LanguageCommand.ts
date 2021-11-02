@@ -28,18 +28,6 @@ export default class LanguageCommand extends SlashCommand {
 				this.languageHandler.translate(interaction.guildId, "settings:language.language")
 			);
 
-		const permissions =
-			typeof interaction.member.permissions === "string"
-				? new Permissions(BigInt(interaction.member.permissions))
-				: interaction.member.permissions;
-		const missing = permissions.has("MANAGE_GUILD", true);
-		if (missing)
-			return interaction.reply(
-				this.languageHandler.translate(interaction.guildId, "BotGeneral:permissions", {
-					missing: "`{MANAGE_GUILD}`",
-				})
-			);
-
 		const key = this.languageHandler.languageKeys[language.toLowerCase()];
 		if (!key)
 			return interaction.reply({
@@ -56,6 +44,18 @@ export default class LanguageCommand extends SlashCommand {
 						),
 				],
 			});
+		
+		const permissions =
+			typeof interaction.member.permissions === "string"
+				? new Permissions(BigInt(interaction.member.permissions))
+				: interaction.member.permissions;
+		const hasPermission = permissions.has("MANAGE_GUILD", true);
+		if (!hasPermission)
+			return interaction.reply(
+				this.languageHandler.translate(interaction.guildId, "BotGeneral:permissions", {
+					missing: "`{MANAGE_GUILD}`",
+				})
+			);
 
 		await interaction.deferReply();
 		const newConfig = await this.client.prisma.guild.update({
