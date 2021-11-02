@@ -6,7 +6,8 @@
 		"disconnected": ">>> 👋 | Déconnexion réussie de `{channel}`.",
 		"connected": ">>> 👋 | Connexion réussie à `{channel}`.",
 		"forcedDisconnect": ">>> ❗ | Quelqu'un m'a déconnecté! Ne fais pas ça, utilise plutôt la commande `/disconnect` pour éviter de casser les lecteurs.",
-		"alone": ">>> 😢 | J'ai arrêté de jouer de la musique parce que j'étais seul dans le salon vocal."
+		"alone": ">>> 😢 | J'ai arrêté de jouer de la musique parce que j'étais seul dans le salon vocal.",
+		"locked": ">>> 🔒 | I cannot join **{channel}**, please ask an Admin to update the permissions or move to a different channel."
 	},
 	"announce": {
 		"title": "En cours de lecture de {title}",
