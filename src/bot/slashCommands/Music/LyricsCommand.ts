@@ -1,9 +1,9 @@
 import { SlashCommand } from "../../../client/structures/slashCommands";
 import { ApplyOptions } from "@sapphire/decorators";
 import { CommandInteraction } from "discord.js";
-import { KSoftClient } from "@ksoft/api";
+import { Client as GeniusClient } from "genius-lyrics";
 
-const ksoft = new KSoftClient(process.env.KSOFT_TOKEN ?? "");
+const genius = new GeniusClient(process.env.GENIUS ?? "");
 
 @ApplyOptions<SlashCommand.Options>({
 	name: "lyrics",
@@ -29,30 +29,32 @@ export default class LyricsCommand extends SlashCommand {
 		await interaction.deferReply();
 
 		const player = this.client.manager.get(interaction.guildId);
-		const title =
-			args.getString("query") ??
-			`${player?.queue.current?.title} - ${player?.queue.current?.author}`;
+		const title = args.getString("query") ?? `${player?.queue.current?.title}`;
 		if (!title)
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "music:lyrics.fail")
 			);
 
-		const lyrics = await ksoft.lyrics
-			.search(title, { limit: 1, textOnly: false })
-			.catch(() => void 0);
+		const query = await genius.songs.search(title);
+		const track = query[0];
+		if (!track)
+			return interaction.followUp(
+				this.languageHandler.translate(interaction.guildId, "music:lyrics.noResult")
+			);
+
+		const lyrics = (await track?.lyrics().catch(() => null)) ?? null;
 		if (!lyrics?.length)
 			return interaction.followUp(
 				this.languageHandler.translate(interaction.guildId, "music:lyrics.noResult")
 			);
 
-		const track = lyrics[0];
 		const embed = this.client.utils
 			.embed()
-			.setTitle(track.name)
-			.setThumbnail(track.artwork)
-			.setDescription(track.lyrics.substr(0, 4096))
-			.setFooter("Api: ksoft.si")
-			.setURL(`https://lyrics.ksoft.si/song/${track.id}/${track.name.replace(/ +/g, "-")}`);
+			.setTitle(track.title)
+			.setThumbnail(track.thumbnail)
+			.setDescription(lyrics.substr(0, 4096))
+			.setFooter("Api: genius.com")
+			.setURL(track.url);
 
 		await interaction.followUp({ embeds: [embed] });
 	}
