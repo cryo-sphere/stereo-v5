@@ -6,7 +6,8 @@
 		"disconnected": ">>> 👋 | Ik heb het spraak kanaal `{channel}` verlaten.",
 		"connected": ">>> 👋 | Ik heb succesvol verbinding gemaakt met `{channel}`.",
 		"forcedDisconnect": ">>> ❗ | Iemand heeft mij uit het spraak kanaal gezet. Doe dat alsjeblieft niet, gebruik `/disconnect` zodat we zeker weten dat er geen kapotte spelers ontstaan.",
-		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel."
+		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel.",
+		"locked": ">>> 🔒 | I cannot join **{channel}**, please ask an Admin to update the permissions or move to a different channel."
 	},
 	"announce": {
 		"title": "Nu aan het spelen {title}",
