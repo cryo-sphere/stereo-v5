@@ -11,7 +11,7 @@ export default class Utils {
 		const [data, iv] = token.split(".");
 		const decipher = createDecipheriv(
 			"aes-256-cbc",
-			process.env.DISCORD_SECRET as string,
+			process.env.COOKIE_SECRET as string,
 			Buffer.from(iv, "base64")
 		);
 
@@ -26,7 +26,7 @@ export default class Utils {
 
 	public encrypt(data: AuthCookie): string {
 		const iv = randomBytes(16);
-		const cipher = createCipheriv("aes-256-cbc", process.env.DISCORD_SECRET as string, iv);
+		const cipher = createCipheriv("aes-256-cbc", process.env.COOKIE_SECRET as string, iv);
 		return `${
 			cipher.update(JSON.stringify(data), "utf8", "base64") + cipher.final("base64")
 		}.${iv.toString("base64")}`;
