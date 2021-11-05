@@ -1,0 +1,11 @@
+{
+	"extends": "@sapphire/ts-config",
+	"compilerOptions": {
+		"outDir": "./dist",
+		"noUnusedParameters": false,
+		"useUnknownInCatchVariables": false,
+		"skipLibCheck": true
+	},
+	"exclude": ["node_modules"],
+	"include": ["src"]
+}

@@ -1,0 +1,9 @@
+import { Listener } from "../../client";
+import { ApplyOptions } from "@sapphire/decorators";
+
+@ApplyOptions<Listener.Options>({ emitter: "ready", once: true })
+export default class extends Listener {
+	public run() {
+		this.logger.info(`${this.client.user!.tag} has logged in!`);
+	}
+}

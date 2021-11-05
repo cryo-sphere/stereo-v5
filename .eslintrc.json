@@ -1,0 +1,8 @@
+{
+	"extends": ["@sapphire"],
+	"rules": {
+		"@typescript-eslint/no-base-to-string": "off",
+		"no-duplicate-imports": "off",
+		"@typescript-eslint/no-duplicate-imports": ["error"]
+	}
+}

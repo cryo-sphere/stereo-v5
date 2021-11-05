@@ -1,0 +1,16 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# env files
+.env
+.env.local
+.env.test
+.env.development
+.env.production
+
+# yarn files
+yarn.lock
+yarn-error.log
