@@ -1,6 +1,6 @@
 {
 	"name": "bot-template",
-	"version": "2.0.0",
+	"version": "1.0.0",
 	"description": "Bot template for Discord bot projects made by DaanGamesDG",
 	"main": "dist/src",
 	"repository": "https://github.com/DaanGamesDG/bot-template",
