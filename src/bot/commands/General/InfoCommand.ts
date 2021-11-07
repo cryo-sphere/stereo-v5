@@ -8,7 +8,7 @@ import ms from "ms";
 
 @ApplyOptions<Command.Options>({
 	name: "info",
-	aliases: ["info", "botinfo"],
+	aliases: ["botinfo"],
 	description: "Information about this bot",
 	requiredClientPermissions: ["EMBED_LINKS"]
 })
@@ -17,13 +17,13 @@ export default class extends Command {
 		const core = cpus()[0];
 		await message.reply({
 			embeds: [
-				this.container.client.utils
+				this.client.utils
 					.embed()
-					.setTitle(`Bot Info: ${this.container.client.user?.tag}`)
+					.setTitle(`Bot Info: ${this.client.user?.tag}`)
 					.setFields([
 						{
 							name: "• Bot Information",
-							value: `\`\`\`Uptime: ${ms(this.container.client.uptime ?? 0, {
+							value: `\`\`\`Uptime: ${ms(this.client.uptime ?? 0, {
 								long: true
 							})}\nVersion: v${version}\`\`\``
 						},
@@ -45,8 +45,8 @@ export default class extends Command {
 						{
 							name: "• Memory Usage",
 							value: `\`\`\`${[
-								`Total Memory: ${this.container.client.utils.formatBytes(totalmem())}`,
-								`Used Memory: ${this.container.client.utils.formatBytes(memoryUsage().heapUsed)}`
+								`Total Memory: ${this.client.utils.formatBytes(totalmem())}`,
+								`Used Memory: ${this.client.utils.formatBytes(memoryUsage().heapUsed)}`
 							].join("\n")}\`\`\``
 						}
 					])

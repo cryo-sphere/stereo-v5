@@ -5,13 +5,14 @@ import ms from "ms";
 
 @ApplyOptions<Command.Options>({
 	name: "help",
-	aliases: ["help", "commands"],
+	aliases: ["commands"],
 	description: "A list of all the commands",
+	requiredClientPermissions: ["EMBED_LINKS"],
 	usage: "[command]"
 })
 export default class extends Command {
 	public async messageRun(message: Message, args: Command.Args, context: Command.Context): Promise<void> {
-		const embed: MessageEmbed = this.container.client.utils
+		const embed: MessageEmbed = this.client.utils
 			.embed()
 			.setTitle(`Help Command - ${message.author.tag}`)
 			.setFooter("Bot created by DaanGamesDG#7621", "https://static.daangamesdg.xyz/discord/pfp.gif");
@@ -20,8 +21,8 @@ export default class extends Command {
 		const command = this.container.stores.get("commands").get(cmd.value ?? "") as Command | undefined;
 
 		if (command) {
-			const userPermissions = this.container.client.utils.formatPerms(command.permissions);
-			const clientPermissions = this.container.client.utils.formatPerms(command.clientPermissions);
+			const userPermissions = this.client.utils.formatPerms(command.permissions);
+			const clientPermissions = this.client.utils.formatPerms(command.clientPermissions);
 
 			embed.setDescription(
 				[
@@ -37,11 +38,11 @@ export default class extends Command {
 				].join("\n")
 			);
 		} else {
-			const isOwner = this.container.client.isOwner(message.author.id);
+			const isOwner = this.client.isOwner(message.author.id);
 			const commands = [...this.container.stores.get("commands").values()] as Command[];
 			let categories = [...new Set(commands.map((c) => c.category ?? "default"))];
 
-			if (!isOwner) categories = categories.filter((c) => c.toLowerCase() !== "dev");
+			if (!isOwner) categories = categories.filter((c) => c.toLowerCase() !== "developers");
 
 			const fields: EmbedFieldData[] = categories.map((category) => {
 				const valid = commands.filter((c) => c.category === category);

@@ -5,7 +5,6 @@ import { emojis } from "../../../client/constants";
 
 @ApplyOptions<Command.Options>({
 	name: "botblacklist",
-	aliases: ["botblacklist"],
 	description: "Botblacklists a user/guild",
 	usage: "<id>",
 	preconditions: ["OwnerOnly"]

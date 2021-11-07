@@ -5,7 +5,7 @@ import ms from "ms";
 
 @ApplyOptions<Command.Options>({
 	name: "ping",
-	aliases: ["ping", "pong"],
+	aliases: ["pong"],
 	description: "Ping! Pong! 🏓"
 })
 export default class extends Command {
@@ -15,14 +15,14 @@ export default class extends Command {
 		await msg.edit({
 			content: null,
 			embeds: [
-				this.container.client.utils
+				this.client.utils
 					.embed()
 					.setTitle("🏓 Pong!")
 					.setDescription(
 						[
-							`API Latency: \`${this.container.client.ws.ping}\` ms`,
+							`API Latency: \`${this.client.ws.ping}\` ms`,
 							`Edit Latency: \`${msg.createdTimestamp - message.createdTimestamp}\` ms`,
-							`Uptime: \`${ms(this.container.client.uptime ?? 0, {
+							`Uptime: \`${ms(this.client.uptime ?? 0, {
 								long: true
 							})}\``
 						].join("\n")

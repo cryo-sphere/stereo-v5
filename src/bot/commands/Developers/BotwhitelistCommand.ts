@@ -4,10 +4,9 @@ import { Message, User } from "discord.js";
 import { emojis } from "../../../client/constants";
 
 @ApplyOptions<Command.Options>({
-	name: "botblacklist",
-	aliases: ["botblacklist"],
-	description: "Botblacklists a user/guild",
-	usage: "<user>",
+	name: "botwhitelist",
+	description: "Botwhitelistss a user/guild",
+	usage: "<id>",
 	preconditions: ["OwnerOnly"]
 })
 export default class extends Command {
