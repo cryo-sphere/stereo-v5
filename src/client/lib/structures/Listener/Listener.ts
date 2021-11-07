@@ -20,5 +20,5 @@ export abstract class Listener extends SapphireListener {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Listener {
 	export type Context = PieceContext;
-	export type Options = Omit<ListenerOptions, "emitter"> & { emitter: string };
+	export type Options = ListenerOptions;
 }
