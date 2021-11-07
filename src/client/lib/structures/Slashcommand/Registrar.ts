@@ -32,15 +32,17 @@ export class SlashCommandRegistrar {
 
 	public async testGuildRegister(full = false): Promise<void> {
 		const guild = this.client.guilds.cache.get(process.env.TEST_GUILD as string);
-		if (!guild) return;
+		if (!guild) {
+			this.logger.warn(`Guild "${process.env.TEST_GUILD}" not found, cannot refresh the slash commands.`);
+			return;
+		}
 
 		const _commands = full ? this.slashStore : this.hidden;
 		const commands = _commands.map<ApplicationCommandData>((slash) => ({
 			description: slash.description,
 			name: slash.name,
 			defaultPermission: slash.defaultPermission,
-			options: slash.arguments,
-			type: "MESSAGE"
+			options: slash.arguments
 		}));
 
 		await guild.commands.set(commands);
@@ -49,15 +51,17 @@ export class SlashCommandRegistrar {
 
 	public async supportGuildRegister(full = false): Promise<void> {
 		const guild = this.client.guilds.cache.get(process.env.SUPPORT_GUILD as string);
-		if (!guild) return;
+		if (!guild) {
+			this.logger.warn(`Guild "${process.env.SUPPORT_GUILD}" not found, cannot refresh the slash commands.`);
+			return;
+		}
 
 		const _commands = full ? this.slashStore : this.hidden;
 		const commands = _commands.map<ApplicationCommandData>((slash) => ({
 			description: slash.description,
 			name: slash.name,
 			defaultPermission: slash.defaultPermission,
-			options: slash.arguments,
-			type: "MESSAGE"
+			options: slash.arguments
 		}));
 
 		await guild.commands.set(commands);
