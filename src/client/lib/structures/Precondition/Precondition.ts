@@ -4,7 +4,7 @@ import { Logger } from "..";
 
 export abstract class Precondition extends SapphirePrecondition {
 	public client: Client;
-	public logger = new Logger({ name: "Preconditions" });
+	public logger = new Logger({ name: "Bot" });
 
 	public constructor(context: Precondition.Context, options: PreconditionOptions) {
 		super(context, options);

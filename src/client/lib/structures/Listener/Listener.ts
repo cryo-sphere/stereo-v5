@@ -4,7 +4,7 @@ import { Logger } from "..";
 
 export abstract class Listener extends SapphireListener {
 	public client: Client;
-	public logger = new Logger({ name: "Listeners" });
+	public logger = new Logger({ name: "Bot" });
 
 	public constructor(context: Listener.Context, options: Listener.Options) {
 		super(context, options as any);

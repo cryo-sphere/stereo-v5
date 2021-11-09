@@ -16,7 +16,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	public readonly clientPermissions: PermissionResolvable;
 
 	public client: Client;
-	public logger = new Logger({ name: "Commands" });
+	public logger = new Logger({ name: "Bot" });
 
 	public constructor(context: PieceContext, options: Command.Options) {
 		super(context, {

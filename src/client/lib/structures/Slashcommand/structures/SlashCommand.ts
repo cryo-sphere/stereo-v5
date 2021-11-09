@@ -29,7 +29,7 @@ export abstract class SlashCommand<T = Omit<CommandInteractionOptionResolver<Cac
 	public userPermissions: PermissionString[];
 
 	public client: Client;
-	public logger = new Logger({ name: "SlashCommands" });
+	public logger = new Logger({ name: "Bot" });
 
 	public cooldown: number;
 	public limit: number;
