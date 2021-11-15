@@ -8,7 +8,7 @@
 	"license": "MIT",
 	"private": false,
 	"devDependencies": {
-		"@sapphire/eslint-config": "^4.0.4",
+		"@sapphire/eslint-config": "^4.0.5",
 		"@sapphire/prettier-config": "^1.2.4",
 		"@sapphire/ts-config": "^3.1.4",
 		"@types/ms": "^0.7.31",
