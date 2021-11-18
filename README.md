@@ -16,14 +16,14 @@ Bot template for Discord bot projects made by DaanGamesDG
 
 👤 **DaanGamesDG**
 
-- Website: https://daangamesdg.wtf/
-- Email: <daan@daangamesdg.wtf>
+- Website: https://daangamesdg.xyz/
+- Email: <daan@daangamesdg.xyz>
 - Twitter: [@DaanGamesDG](https://twitter.com/DaanGamesDG)
 - Github: [@DaanGamesDG](https://github.com/DaanGamesDG)
 
 ## Donate
 
-This will always be open source project, even if I don't receive donations. But there are still people out there that want to donate, so if you do here is the link [PayPal](https://paypal.me/daangamesdg) or to [Ko-Fi](https://daangamesdg.wtf/kofi). Thanks in advance! I really appriciate it <3
+This will always be open source project, even if I don't receive donations. But there are still people out there that want to donate, so if you do here is the link [PayPal](https://paypal.me/daangamesdg) or to [Ko-Fi](https://daangamesdg.xyz/kofi). Thanks in advance! I really appriciate it <3
 
 ## Lisence
 
