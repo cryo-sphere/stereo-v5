@@ -11,7 +11,7 @@
 		"@discordjs/rest": "^0.1.0-canary.0",
 		"@prisma/client": "^3.5.0",
 		"@sapphire/decorators": "^3.1.4",
-		"@sapphire/framework": "2.1.4",
+		"@sapphire/framework": "2.2.0",
 		"@sapphire/type": "^2.1.2",
 		"@stereo-bot/lavalink": "^1.2.0",
 		"axios": "^0.24.0",
