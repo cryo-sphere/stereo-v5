@@ -12,5 +12,8 @@
 .env.production
 
 # yarn files
-yarn.lock
-yarn-error.log
+yarn-debug.log*
+yarn-error.log*
+.yarn/cache
+.yarn/install-state.gz
+.yarn/build-state.yml

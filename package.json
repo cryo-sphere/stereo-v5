@@ -6,7 +6,6 @@
 	"repository": "https://github.com/DaanGamesDG/bot-template",
 	"author": "DaanGamesDG <daan@daangamesdg.xyz>",
 	"license": "MIT",
-	"private": false,
 	"devDependencies": {
 		"@sapphire/eslint-config": "^4.0.5",
 		"@sapphire/prettier-config": "^1.2.4",
@@ -35,5 +34,6 @@
 		"start": "cross-env NODE_ENV=production node .",
 		"lint": "eslint src",
 		"generate-types": "prisma generate"
-	}
+	},
+	"packageManager": "yarn@3.1.0"
 }
