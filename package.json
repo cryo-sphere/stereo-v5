@@ -11,7 +11,7 @@
 		"@sapphire/prettier-config": "^1.2.6",
 		"@sapphire/ts-config": "^3.1.6",
 		"@types/ms": "^0.7.31",
-		"@types/node": "^16.11.10",
+		"@types/node": "^16.11.11",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.3.0",
 		"prisma": "^3.5.0"
