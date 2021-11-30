@@ -14,11 +14,11 @@
 		"@types/node": "^16.11.11",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.3.0",
-		"prisma": "^3.5.0"
+		"prisma": "^3.6.0"
 	},
 	"dependencies": {
 		"@daangamesdg/logger": "^1.1.0",
-		"@prisma/client": "^3.5.0",
+		"@prisma/client": "^3.6.0",
 		"@sapphire/decorators": "^3.1.4",
 		"@sapphire/framework": "^2.2.0",
 		"@sapphire/plugin-subcommands": "^2.1.0",
