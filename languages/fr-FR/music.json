@@ -1,131 +1,131 @@
 {
 	"play": {
-		"description": "Joue une chanson dans le salon vocal dans lequel tu te trouves (les Stage Channels sont également pris en charge!)",
+		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
 		"args": {
-			"query": "La requête de recherche",
-			"type": "Type de recherche (tu n'en as pas besoin si tu cherches par url)"
+			"query": "The search query",
+			"type": "Search type (you don't need it when searching via url)"
 		},
-		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
-		"playlistLoaded": ">>> {emoji.greentick} | Chargement réussi de la playlist **{playlist}** - `{duration}`",
-		"trackLoaded": ">>> {emoji.greentick} | Chargement réussi de **{track}** - `{duration}`"
+		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
+		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
 	},
 	"nowplaying": {
-		"description": "Affiche les informations sur la chanson en cours de lecture",
-		"title": "En cours de lecture - {title}",
-		"embedDescription": "Demandeur: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFiltre: {filter}\nAfk: {afk}\n\n{progress}"
+		"description": "Shows the information about the current playing song",
+		"title": "Now playing - {title}",
+		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Définit le niveau de bassboost pour le lecteur",
+		"description": "Sets the bassboost level for the player",
 		"args": {
-			"level": "le niveau de bassboost"
+			"level": "the bassboost level"
 		}
 	},
 	"filter": {
-		"description": "Définit le filtre pour le lecteur",
+		"description": "Sets the filter for the player",
 		"args": {
-			"filter": "Le filtre que tu souhaites utiliser"
+			"filter": "The filter you want to use"
 		}
 	},
 	"seek": {
-		"description": "Cherche la piste actuelle jusqu'à l'horodatage",
+		"description": "Seeks the current track to the timestamp",
 		"args": {
-			"timestamp": "L'horodatage (ex: 10:30) pour chercher à"
+			"timestamp": "The timestamp (ex: 10:30) to seek to"
 		},
-		"invalid": ">>> {emoji.redcross} | Horodatage non valide fourni, merci de fournir un horodatage comme: `10:30`",
-		"success": ">>> {emoji.greentick} | Recherche réussie vers `{seek}`!"
+		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
+		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
 	},
 	"disconnect": {
-		"description": "Se déconnecte du salon vocal"
+		"description": "Disconnects from the voice channel"
 	},
 	"join": {
-		"description": "Fais en sorte que Stereo rejoigne ton salon vocal"
+		"description": "Get Stereo to join your voice channel"
 	},
 	"volume": {
-		"description": "Change le volume du lecteur",
+		"description": "Changes the volume of the player",
 		"args": {
-			"volume": "La valeur à laquelle régler le volume"
+			"volume": "The value to set the volume to"
 		},
-		"invalid": ">>> {emoji.redcross} | La valeur doit être comprise entre 1 et 200.",
-		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
+		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
+		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
 	},
 	"247": {
-		"description": "Bascule en mode 24/7, uniquement pour les partenaires",
-		"enabled": ">>> {emoji.greentick} | Le mode 24/7 est désormais **activé**!",
-		"disabled": ">>> {emoji.greentick} | Le mode 24/7 est désormais **désactivé**!"
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
 	},
 	"shuffle": {
-		"description": "Mélange la file d'attente",
-		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
+		"description": "Shuffles the queue",
+		"success": ">>> {emoji.greentick} | Successfully shuffled the queue."
 	},
 	"skip": {
-		"description": "Saute la chanson en cours",
-		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson.",
-		"success": ">>> {emoji.greentick} | Vote enregistré. Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson."
+		"description": "Skips the current song",
+		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
 	},
 	"forceskip": {
-		"description": "Forcer à sauter la chanson actuelle"
+		"description": "Forceskips the current song"
 	},
 	"pause": {
-		"description": "Met le lecteur en pause",
-		"success": ">>> {emoji.greentick} | Mise en pause du lecteur.",
-		"fail": ">>> {emoji.redcross} | Le lecteur est déjà en pause."
+		"description": "Pauses the player",
+		"success": ">>> {emoji.greentick} | Paused the player.",
+		"fail": ">>> {emoji.redcross} | Player is already paused."
 	},
 	"resume": {
-		"description": "Reprend le lecteur",
-		"success": ">>> {emoji.greentick} | Reprise du lecteur.",
-		"fail": ">>> {emoji.redcross} | Le lecteur est déjà entrain de jouer."
+		"description": "Resumes the player",
+		"success": ">>> {emoji.greentick} | Resumed the player.",
+		"fail": ">>> {emoji.redcross} | Player is already playing."
 	},
 	"clear": {
-		"description": "Efface la file d'attente (sauf la chanson actuelle)",
-		"success": ">>> {emoji.greentick} | J'ai vidé la file d'attente."
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | I've cleared the queue."
 	},
 	"reset": {
-		"description": "Réinitialise le lecteur et arrête de jouer",
-		"success": ">>> {emoji.greentick} | Le lecteur est réinitialisé aux paramètres d'usine."
+		"description": "Resets the player and stops with playing",
+		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
 	},
 	"fix": {
-		"description": "Corrige la connexion vocale Discord",
-		"success": ">>> {emoji.greentick} | J'ai changé le serveur vocal Discord. Tu n'entends rien? Server mute et unmute moi ou exécute à nouveau la commande `/fix`."
+		"description": "Fixes the Discord voice connection",
+		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
 	},
 	"repeat": {
-		"description": "Change le mode de répétition",
+		"description": "Changes the repeat mode",
 		"args": {
-			"mode": "Le mode répétition"
+			"mode": "The repeat mode"
 		},
-		"success": ">>> {emoji.greentick} | Le mode de répétition est maintenant changé à **{mode}** !"
+		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
 	},
 	"remove": {
-		"description": "Déplace des chansons d'un point à un autre",
+		"description": "Removes songs from 1 point to another",
 		"args": {
-			"start": "La localisation de départ",
-			"end": "La localisation finale"
+			"start": "The start location",
+			"end": "The end location"
 		},
-		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
-		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
 	},
 	"lyrics": {
-		"description": "Affiche les paroles de la chanson en cours de lecture",
+		"description": "Shows the lyrics for the playing song",
 		"args": {
-			"query": "Le titre de la chanson"
+			"query": "The song title"
 		},
-		"fail": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture dans le serveur, merci de fournir un titre de chanson.",
-		"noResult": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats."
+		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
+		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
 	},
 	"move": {
-		"description": "Déplace une chanson d'un endroit à un autre",
+		"description": "Moves a song from 1 place to another",
 		"args": {
-			"song": "La chanson à déplacer",
-			"location": "L'endroit où la chanson doit se déplacer"
+			"song": "The song to move",
+			"location": "The location the song has to move to"
 		},
-		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
-		"success": ">>> {emoji.greentick} | J'ai déplacé la chanson de la position **{position}** à la position **{location}**!"
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
 	},
 	"queue": {
-		"description": "Montre toutes les chansons dans la file d'attente",
+		"description": "Shows all the songs in the queue",
 		"embed": {
-			"title": "File d'attente pour {name}",
+			"title": "Queue for {name}",
 			"footer": "Page: {page} / {maxPages}",
-			"current": "En cours de lecture - Demandé par {requester}"
+			"current": "Now playing - Requested by {requester}"
 		}
 	}
 }
