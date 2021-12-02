@@ -1,24 +1,24 @@
 {
 	"ping": {
 		"description": "Pong!",
-		"reply": "Hartslag: `{heartbeat}` ms\nRondreis duurde: `{roundtrip}` ms\nUptime: `{uptime}`"
+		"reply": "Heartbeat: `{heartbeat}` ms\nRoundtrip took: `{roundtrip}` ms\nUptime: `{uptime}`"
 	},
 	"invite": {
-		"description": "Voeg Stereo to aan een andere server",
-		"message": "Klik op de knop om Stereo toe te voegen!"
+		"description": "Add the Stereo to another server",
+		"message": "Press the button to invite Stereo!"
 	},
 	"support": {
-		"description": "Geeft een uitnodiging naar onze support server",
-		"message": "Hulp nodig? Join onze support server, we helpen je graag!"
+		"description": "Gives the invite to our support server",
+		"message": "Support needed? Join our support server, we are happy to help you!"
 	},
 	"help": {
-		"description": "Een kort overzicht van alle commandos Stereo heeft",
+		"description": "A quick overview of all the commands Stereo has",
 		"args": {
-			"command": "De commando naam"
+			"command": "The command name"
 		},
 		"embed": {
-			"title": "Help Commando - {user}",
-			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {description}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRol**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`",
+			"title": "Help Command - {user}",
+			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Category**: {category}\n\n📘**Description**: {description}\n📋 **Usage**: {usage}\n\n👮‍♂️ | **Permissions**: {perms}\n🗝 | **DJRole**: {djrole}\n\n⌚ | **Cooldown**: `{cooldown}`\n🔢 | **Limit**: `{limit}`",
 			"footer": "Created by Github: Stereo"
 		}
 	}
