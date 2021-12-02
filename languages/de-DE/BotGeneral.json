@@ -1,19 +1,19 @@
 {
-	"cooldown": ">>> ⌚ | Du hast diesen Befehl erst gerade benutzt. Versuche es in `{remaining}` erneut.",
-	"owneronly": ">>> {emoji.redcross} | Nur Bot-Developer von **{bot}** können diesen Befehl nutzen.",
-	"blacklisted": ">>> {emoji.redcross} | Entweder du oder dieser Server sind auf der schwarzen Liste, du knnst diesen Bot nicht mehr nutzen. Bitte trete unserem [Support-Server](https://stereo-bot.tk/discord) bei, wenn du eine Beschwerde einlegen willst.",
-	"permissions": ">>> 👮‍♂️ | Du benötigst die folgenden Berechtigungen, um diesen Befehl auführen zu können: {permissions}.",
-	"partner": ">>> {emoji.redcross} | Du kannst diesen Befehl nur auf Partner-Servern verwenden.",
-	"error": ">>> {emoji.error} | Oh nein, das sieht nicht gut aus. Etwas hat dazu geführt, dass unsere Brieftaube nach Hause zurückgeflogen ist, bitte versuche es später erneut.",
-	"error_raw": ">>> {emoji.error} | {error}\nBitte trete unserem [Support-Server](https://stereo-bot.tk/discord) bei, falls dies immer wieder passiert.",
-	"required": "erforderlich",
+	"cooldown": ">>> ⌚ | You have just used this command. Try again in `{remaining}`.",
+	"owneronly": ">>> {emoji.redcross} | Only bot developers of **{bot}** are able to use this command.",
+	"blacklisted": ">>> {emoji.redcross} | You or this server is blacklisted, you can no longer use this bot. Please join our [support server](https://stereo-bot.tk/discord) if you want to appeal.",
+	"permissions": ">>> 👮‍♂️ | You need the following permissions to execute this command: {permissions}.",
+	"partner": ">>> {emoji.redcross} | You can only use this command in partnered servers.",
+	"error": ">>> {emoji.error} | Oh no, this doesn't look good. Something caused our mail bird to fly back home, please try again later.",
+	"error_raw": ">>> {emoji.error} | {error}\nPlease join our [support server](https://stereo-bot.tk/discord) if this keeps happening.",
+	"required": "required",
 	"optional": "optional",
-	"argument": "Parameter",
-	"enabled": "aktiviert",
-	"disabled": "deaktiviert",
+	"argument": "Argument",
+	"enabled": "enabled",
+	"disabled": "disabled",
 	"errors": {
-		"preconditionGuildOnly": ">>> {emoji.redcross} | Du kannst diesen Befehl nur in Servern benutzen.",
-		"slashCommandPreconditionDmOnly": ">>> {emoji.redcross} | Du kannst diesen Befehl nur in DMs benutzen.",
-		"commandDisabled": ">>> {emoji.redcross} | Dieser Befehl ist deaktiviert."
+		"preconditionGuildOnly": ">>> {emoji.redcross} | You can only use this command in a server.",
+		"slashCommandPreconditionDmOnly": ">>> {emoji.redcross} | You can only use this command in DMs.",
+		"commandDisabled": ">>> {emoji.redcross} | This command is disabled."
 	}
 }
