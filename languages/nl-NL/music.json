@@ -121,11 +121,11 @@
 		"success": ">>> {emoji.greentick} | Ik heb het nummer op positie **{position}** naar positie **{location}** verplaatst!"
 	},
 	"queue": {
-		"description": "Shows all the songs in the queue",
+		"description": "Toont alle nummers die in de queue zitten",
 		"embed": {
-			"title": "Queue for {name}",
-			"footer": "Page: {page} / {maxPages}",
-			"current": "Now playing - Requested by {requester}"
+			"title": "Queue voor {name}",
+			"footer": "Pagina: {page} / {maxPages}",
+			"current": "Nu aan het spelen - Aangevraagd door {requester}"
 		}
 	}
 }
