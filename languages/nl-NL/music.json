@@ -45,7 +45,7 @@
 		"args": {
 			"volume": "Het niveau waar de volume naar toe moet"
 		},
-		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
+		"invalid": ">>> {emoji.redcross} | De volume moet tussen 1 en 200 zijn.",
 		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
 	},
 	"247": {

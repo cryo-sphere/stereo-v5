@@ -6,8 +6,8 @@
 		"disconnected": ">>> 👋 | Ik heb het spraak kanaal `{channel}` verlaten.",
 		"connected": ">>> 👋 | Ik heb succesvol verbinding gemaakt met `{channel}`.",
 		"forcedDisconnect": ">>> ❗ | Iemand heeft mij uit het spraak kanaal gezet. Doe dat alsjeblieft niet, gebruik `/disconnect` zodat we zeker weten dat er geen kapotte spelers ontstaan.",
-		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel.",
-		"locked": ">>> 🔒 | I cannot join **{channel}**, please ask an Admin to update the permissions or move to a different channel."
+		"alone": ">>> 😢| Ik stopte met het afspelen van muziek omdat ik alleen was in het spraakkanaal.",
+		"locked": ">>>> 🔒| Ik kan **{channel}** niet joinen, vraag een beheerder om de permissies bij te werken of verplaats naar een ander spraakkanaal."
 	},
 	"announce": {
 		"title": "Nu aan het spelen {title}",
@@ -22,5 +22,5 @@
 	"filter": ">>> 🎛 | Ik heb de filter **{filter}** aangezet, het enkele seconden duren voordat dit filter werkt.",
 	"djrole": ">>> 👮‍♂️ | DJ mode staat momenteel aan, alleen gebruikers met de DJRole kunnen dit commando gebruiken.",
 	"skip": ">>> {emoji.greentick} | Succesvol overgeslagen naar het volgende nummer!",
-	"stuck": ">>> {emoji.error} | I am stuck at the track `{track}`, skipping..."
+	"stuck": ">>> {emoji.error} | Ik zit vast bij het nummer `{track}`, skippen..."
 }

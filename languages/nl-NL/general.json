@@ -19,7 +19,7 @@
 		"embed": {
 			"title": "Help Commando - {user}",
 			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {description}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRol**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`",
-			"footer": "Created by Github: Stereo"
+			"footer": "Gemaakt door Github: Stereo"
 		}
 	}
 }
