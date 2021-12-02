@@ -1,131 +1,131 @@
 {
 	"play": {
-		"description": "Speel een nummer af in het spraak kanaal waar jij ook in zit (Stage kanalen worden ook ondersteund)",
+		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
 		"args": {
-			"query": "De zoekopdracht",
-			"type": "Zoek type (hoef je niet te gebruiken wanneer je een link gebruikt)"
+			"query": "The search query",
+			"type": "Search type (you don't need it when searching via url)"
 		},
-		"noResults": ">>> {emoji.redcross} | Sorry, ik heb geen resultaten kunnen vinden.",
-		"playlistLoaded": ">>> {emoji.greentick} | Ik heb de afspeellijst **{playlist}** - `{duration}` geladen",
-		"trackLoaded": ">>> {emoji.greentick} | Ik heb het nummer **{track}** - `{duration}` geladen"
+		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
+		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
 	},
 	"nowplaying": {
-		"description": "Laat informatie over het nummer dat momenteel wordt overspeelt zien",
-		"title": "Nu aan het spelen - {title}",
-		"embedDescription": "Aanvrager: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+		"description": "Shows the information about the current playing song",
+		"title": "Now playing - {title}",
+		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
 	},
 	"bassboost": {
-		"description": "Veranderd de bassboost niveau van de speler",
+		"description": "Sets the bassboost level for the player",
 		"args": {
-			"level": "het bassboost niveau"
+			"level": "the bassboost level"
 		}
 	},
 	"filter": {
-		"description": "Veranderd de filter van de speler",
+		"description": "Sets the filter for the player",
 		"args": {
-			"filter": "De filter die jij wil gebruiken"
+			"filter": "The filter you want to use"
 		}
 	},
 	"seek": {
-		"description": "Verplaatst naar de geven timestamp en speelt daarna verder",
+		"description": "Seeks the current track to the timestamp",
 		"args": {
-			"timestamp": "De timestamp (bijv. 10:30) om naar te verplaatsen"
+			"timestamp": "The timestamp (ex: 10:30) to seek to"
 		},
-		"invalid": ">>> {emoji.redcross} | De geven timestamp is niet geldig, zo zou het er uit moeten zien: `10:30`",
-		"success": ">>> {emoji.greentick} | Met success verplaatst naar `{seek}`!"
+		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
+		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
 	},
 	"disconnect": {
-		"description": "Verlaat het spraak kanaal"
+		"description": "Disconnects from the voice channel"
 	},
 	"join": {
-		"description": "Laat Stereo jou spraak kanaal joinen"
+		"description": "Get Stereo to join your voice channel"
 	},
 	"volume": {
-		"description": "Veranderd de volume van de speler",
+		"description": "Changes the volume of the player",
 		"args": {
-			"volume": "Het niveau waar de volume naar toe moet"
+			"volume": "The value to set the volume to"
 		},
 		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
-		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
+		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
 	},
 	"247": {
-		"description": "Zet 24/7 mode aan/uit, alleen voor partners",
-		"enabled": ">>> {emoji.greentick} | 24/7 Mode is nu **aangezet**!",
-		"disabled": ">>> {emoji.greentick} | 24/7 Mode is nu **uitgezet**!"
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
 	},
 	"shuffle": {
-		"description": "Shuffles de queue",
-		"success": ">> {emoji.greentick} | De queue is succesvol geshuffled."
+		"description": "Shuffles the queue",
+		"success": ">>> {emoji.greentick} | Successfully shuffled the queue."
 	},
 	"skip": {
-		"description": "Skips het huidige nummer",
-		"fail": ">>> 🔢 | Er zijn momenteel `{current}` stem(men), `{required}` stem(men) zijn nodig om dit nummer te skippen.",
-		"success": ">>> {emoji.greentick} | Stem opgeslagen. Er zijn momenteel `{current}`stem(men), `{required}` stem(men) zijn nodig om het nummer over te slaan."
+		"description": "Skips the current song",
+		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
 	},
 	"forceskip": {
-		"description": "Forceert de speler om het nummer te skippen"
+		"description": "Forceskips the current song"
 	},
 	"pause": {
-		"description": "Pauzeert de speler",
-		"success": ">>> {emoji.greentick} | Speler is gepauzeerd.",
-		"fail": ">>> {emoji.redcross} | De speler is al gepauzeerd."
+		"description": "Pauses the player",
+		"success": ">>> {emoji.greentick} | Paused the player.",
+		"fail": ">>> {emoji.redcross} | Player is already paused."
 	},
 	"resume": {
-		"description": "Hervat de speler",
-		"success": ">>> {emoji.greentick} | Speler is hervat.",
-		"fail": ">>> {emoji.redcross} | Speler is al aan het spelen."
+		"description": "Resumes the player",
+		"success": ">>> {emoji.greentick} | Resumed the player.",
+		"fail": ">>> {emoji.redcross} | Player is already playing."
 	},
 	"clear": {
-		"description": "Maakt de queue schoon (behalve het spelende nummer)",
-		"success": ">>> {emoji.greentick} | Ik heb de queue schoon gemaakt."
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | I've cleared the queue."
 	},
 	"reset": {
-		"description": "Reset de speler en stopt met spelen",
-		"success": ">>> {emoji.greentick} | Speler is gereset naar fabrieksinstellingen."
+		"description": "Resets the player and stops with playing",
+		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
 	},
 	"fix": {
-		"description": "Fixes de Discord spraak verbinding",
-		"success": ">>> {emoji.greentick} | De spraak server is geüpdate. Hoor je niets? Server mute en unmute me dan of gebruik de `/fix` command."
+		"description": "Fixes the Discord voice connection",
+		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
 	},
 	"repeat": {
-		"description": "Veranderd de herhaal mode",
+		"description": "Changes the repeat mode",
 		"args": {
-			"mode": "De herhaal mode"
+			"mode": "The repeat mode"
 		},
-		"success": ">>> {emoji.greentick} | De herhaal mode is veranderd naar **{mode}**!"
+		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
 	},
 	"remove": {
-		"description": "Verwijderd een nummer van punt 1 naar punt 2",
+		"description": "Removes songs from 1 point to another",
 		"args": {
-			"start": "De start positie",
-			"end": "De eind positie"
+			"start": "The start location",
+			"end": "The end location"
 		},
-		"fail": ">>> {emoji.error} | De meegegeven waarden zijn niet correct.\nElke waarden moet tussen `1` en `{length}` zitten.",
-		"success": ">>> {emoji.greentick} | Ik heb **{amount}** nummers verwijderd."
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
 	},
 	"lyrics": {
-		"description": "Toont de lyrics voor het nummer dat nu aan het spelen is",
+		"description": "Shows the lyrics for the playing song",
 		"args": {
-			"query": "De title van het nummer"
+			"query": "The song title"
 		},
-		"fail": ">>> {emoji.redcross} | Er wordt niets gespeelt in de server, geef alsjeblieft een titel van een nummer.",
-		"noResult": ">>> {emoji.redcross} | Sorry, Ik heb geen resultaten kunnen vinden."
+		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
+		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
 	},
 	"move": {
-		"description": "Verplaatst een nummer van de ene plaats naar een ander",
+		"description": "Moves a song from 1 place to another",
 		"args": {
-			"song": "Het nummer dat je wil verplaatsen",
-			"location": "De positie van waar het nummer naar toe zou moeten gaan"
+			"song": "The song to move",
+			"location": "The location the song has to move to"
 		},
-		"fail": ">>> {emoji.error} | De meegegeven waarden zijn niet correct.\nElke waarden moet tussen `1` en `{length}` zitten.",
-		"success": ">>> {emoji.greentick} | Ik heb het nummer op positie **{position}** naar positie **{location}** verplaatst!"
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
 	},
 	"queue": {
-		"description": "Toont alle nummers die in de queue zitten",
+		"description": "Shows all the songs in the queue",
 		"embed": {
-			"title": "Queue voor {name}",
-			"footer": "Pagina: {page} / {maxPages}",
-			"current": "Nu aan het spelen - Aangevraagd door {requester}"
+			"title": "Queue for {name}",
+			"footer": "Page: {page} / {maxPages}",
+			"current": "Now playing - Requested by {requester}"
 		}
 	}
 }
