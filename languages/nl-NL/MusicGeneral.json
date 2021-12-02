@@ -1,26 +1,26 @@
 {
 	"vc": {
-		"none": ">>> {emoji.error} | You aren't in a Voice channel, you need to join one in order to listen to music.",
-		"wrong": ">>> {emoji.error} | You aren't in the correct voice channel, please join **{voice}**!",
-		"alreadyCreated": ">>> {emoji.redcross} | I am already connected to **{voice}**!",
-		"disconnected": ">>> 👋 | Successfully disconnected from `{channel}`.",
-		"connected": ">>> 👋 | Successfully connected to `{channel}`.",
-		"forcedDisconnect": ">>> ❗ | Someone disconnected me! Please don't do that, use the `/disconnect` command instead to prevent broken players.",
-		"alone": ">>> 😢 | I stopped playing music because I was alone in the voice channel.",
-		"locked": ">>> 🔒 | I cannot join **{channel}**, please ask an Admin to update the permissions or move to a different channel."
+		"none": ">>> {emoji.error} | Je zit niet in een spraak kanaal, je moet er in één zitten om muziek te luisteren.",
+		"wrong": ">>> {emoji.error} | Je zit niet in het goede spraak kanaal, je moet **{voice}** joinen!",
+		"alreadyCreated": ">>> {emoji.redcross} | Ik ben al verbonden met **{voice}**!",
+		"disconnected": ">>> 👋 | Ik heb het spraak kanaal `{channel}` verlaten.",
+		"connected": ">>> 👋 | Ik heb succesvol verbinding gemaakt met `{channel}`.",
+		"forcedDisconnect": ">>> ❗ | Iemand heeft mij uit het spraak kanaal gezet. Doe dat alsjeblieft niet, gebruik `/disconnect` zodat we zeker weten dat er geen kapotte spelers ontstaan.",
+		"alone": ">>> 😢| Ik stopte met het afspelen van muziek omdat ik alleen was in het spraakkanaal.",
+		"locked": ">>>> 🔒| Ik kan **{channel}** niet joinen, vraag een beheerder om de permissies bij te werken of verplaats naar een ander spraakkanaal."
 	},
 	"announce": {
-		"title": "Now playing {title}",
-		"description": "**Requested by <@{user}> – Duration**: `{duration}`"
+		"title": "Nu aan het spelen {title}",
+		"description": "**Aangevraagd door <@{user}> – Duur**: `{duration}`"
 	},
-	"error": ">>> {emoji.error} | Uh oh, something went wrong. Please try again later.\nError: `{error}`",
-	"noPlayer": ">>> {emoji.redcross} | There is no music player in this server.",
-	"noTrack": ">>> {emoji.redcross} | There is nothing playing in this server.",
-	"noQueue": ">>> {emoji.redcross} | There are no songs in the queue.",
-	"queueEmpty": ">>> 🔇 | The queue is empty. Play a song in the next **2 minutes** to resume the queue!",
-	"inactive": ">>> 👋 | I disconnected due to inactivity, partners can use /afk to keep me in the voice channel.",
-	"filter": ">>> 🎛 | Successfully applied the filter **{filter}**, it may take a few seconds before this filter is working.",
-	"djrole": ">>> 👮‍♂️ | DJ mode is currently enabled, only users with the DJRole are allowed to use this command.",
-	"skip": ">>> {emoji.greentick} | Successfully skipped to the next song!",
-	"stuck": ">>> {emoji.error} | I am stuck at the track `{track}`, skipping..."
+	"error": ">>> {emoji.error} | Uh oh, er ging iets mis. Probeer het later opnieuw.\nError: `{error}`",
+	"noPlayer": ">>> {emoji.redcross} | Er is geen muziek speler in deze server.",
+	"noTrack": ">>> {emoji.redcross} | Er wordt niets afgespeeld in deze server.",
+	"noQueue": ">>> {emoji.redcross} | Er zitten geen nummers in de queue.",
+	"queueEmpty": ">>> 🔇 | De queue is leeg. Speel een nummer in de volgende **2 minuten** af om de queue te hervatten!",
+	"inactive": ">>> 👋 | Ik heb het spraak kanaal verlaten omdat ik inactief was, partners kunnen /afk gebruiken om mij in het spraak kanaal te houden.",
+	"filter": ">>> 🎛 | Ik heb de filter **{filter}** aangezet, het enkele seconden duren voordat dit filter werkt.",
+	"djrole": ">>> 👮‍♂️ | DJ mode staat momenteel aan, alleen gebruikers met de DJRole kunnen dit commando gebruiken.",
+	"skip": ">>> {emoji.greentick} | Succesvol overgeslagen naar het volgende nummer!",
+	"stuck": ">>> {emoji.error} | Ik zit vast bij het nummer `{track}`, skippen..."
 }
