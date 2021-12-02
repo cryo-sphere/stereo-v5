@@ -1,29 +1,29 @@
 {
-	"unknown": "Uh oh, ich konnte den korrekten Befehl nicht finden. Bitte kontaktieren Sie unser Support-Team, wenn dies immer wieder geschieht.",
+	"unknown": "Uh oh, I wasn't able to find the correct command. Please contact our support team if this keeps happening.",
 	"playlists": {
-		"description": "Der Playlist-Befehl mit mehreren Unterbefehlen",
-		"noResult": ">>> {emoji.redcross} | Keine Playlist gefunden.",
-		"noResults": ">>> {emoji.redcross} | Keine Wiedergabelisten gefunden.",
+		"description": "The playlists command, with multiple sub commands",
+		"noResult": ">>> {emoji.redcross} | No playlist found.",
+		"noResults": ">>> {emoji.redcross} | No playlists found.",
 		"show": {
-			"description": "Zeigt alle Playlisten, die jemand erstellt hat",
+			"description": "Shows all the playlists someone created",
 			"embed": {
-				"title": "{name}s Wiedergabelisten",
-				"footer": "Seite: {page} / {maxPages}"
+				"title": "{name}'s playlists",
+				"footer": "Page: {page} / {maxPages}"
 			}
 		},
 		"create": {
-			"description": "Erstellt eine neue Wiedergabeliste mit dem angegebenen Namen",
-			"limit": ">>> {emoji.redcross} | Es sieht so aus, als ob du unser Limit für Wiedergabelisten erreicht haben. Du kannst nur bis zu 100 Wiedergabelisten mit jeweils 100 Songs erstellen.",
-			"success": ">>> {emoji.greentick} | Playlist erstellt! Du kannst deine Playlist [hier](<{url}>) besuchen und bearbeiten oder unseren `/playlist update`-Befehl verwenden, um die Warteschlange zu speichern."
+			"description": "Creates a new playlist with the provided name",
+			"limit": ">>> {emoji.redcross} | It looks like you reached our playlists limit. You can only create up to 100 playlists with 100 songs each.",
+			"success": ">>> {emoji.greentick} | Playlist created! You can visit and edit your playlist [here](<{url}>) or you can use our `/playlist update` command to save the queue."
 		},
 		"delete": {
-			"description": "Löscht eine Wiedergabeliste, benötigt die Wiedergabeliste-ID",
-			"success": ">>> {emoji.greentick} | Die Wiedergabeliste mit dem Namen **{name}** wurde gelöscht.\nDeine Wiedergabeliste wurde an deine DMs gesendet, wir tun dies, um sicherzustellen, dass Sie immer in der Lage sind, Ihre Daten zurück zu erhalten, wenn Sie wollen.",
-			"success-file": ">>> {emoji.greentick} | Die Wiedergabeliste mit dem Namen **{name}** wurde gelöscht.\nDeine Playlist ist an diese Nachricht angehängt, wir tun dies, um sicherzustellen, dass Sie immer in der Lage sind, Ihre Daten zurück zu erhalten, wenn Sie wollen."
+			"description": "Deletes a playlist, requires the playlist id",
+			"success": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist has been sent to your DMs, we do this to make sure that you are always able to get your data back if you want to.",
+			"success-file": ">>> {emoji.greentick} | The playlist with the name **{name}** has been deleted.\nYour playlist is attached to this message, we do this to make sure that you are always able to get your data back if you want to."
 		},
 		"update": {
-			"description": "Aktualisiert eine Wiedergabeliste, benötigt die Playlist-ID und den Update-Typ",
-			"success": ">>> {emoji.greentick} | Die Songs aus der Warteschlange wurden zu **{name} ** hinzugefügt."
+			"description": "Updates a playlist, requires the playlist id and the update type",
+			"success": ">>> {emoji.greentick} | The songs from the queue have been added to **{name}**."
 		}
 	}
 }
