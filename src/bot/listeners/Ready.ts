@@ -20,11 +20,8 @@ export default class ReadyListener extends Listener {
 		}
 
 		if (process.env.UPDATE_SLASH) {
-			const registrar = new SlashCommandRegistrar();
-			registrar.initializeData(client as Client);
-			await registrar.testGuildRegister();
-			await registrar.supportGuildRegister();
-			if (process.env.NODE_ENV === "production") await registrar.globalRegister();
+			const registrar = new SlashCommandRegistrar(client as Client);
+			await registrar.refresh();
 
 			client.loggers.get("bot")?.info("Slash commands successfully refreshed!");
 		}

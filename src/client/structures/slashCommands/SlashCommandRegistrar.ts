@@ -1,182 +1,92 @@
-import { REST } from "@discordjs/rest";
-import { Routes } from "discord-api-types/v9";
-import { Snowflake } from "discord-api-types/globals";
-import { APIApplicationCommandOption } from "discord-api-types";
-import { SlashCommand } from "./lib/structures/SlashCommand";
-import { SlashCommandStore } from "./lib/structures/SlashCommandStore";
-import Client from "../../Client";
+import { SlashCommand, SlashCommandStore } from ".";
+import { ApplicationCommandData, Collection } from "discord.js";
 import Logger from "../Logger";
-
-export interface APIGuildApplicationCommand {
-	id: Snowflake;
-	application_id: Snowflake;
-	name: string;
-	description: string;
-	version?: string;
-	default_permission?: boolean;
-	type?: number;
-	guild_id: Snowflake;
-	options?: APIApplicationCommandOption[];
-}
-
-interface APIApplicationCommand {
-	application_id: Snowflake;
-	guild_id?: Snowflake;
-	name: string;
-	description: string;
-	options?: APIApplicationCommandOption[];
-	default_permission?: boolean;
-}
-
-const ApplicationCommandOptionTypeMap: { [key: string]: number } = {
-	SUB_COMMAND: 1,
-	SUB_COMMAND_GROUP: 2,
-	STRING: 3,
-	INTEGER: 4,
-	BOOLEAN: 5,
-	USER: 6,
-	CHANNEL: 7,
-	ROLE: 8,
-	MENTIONABLE: 9,
-	NUMBER: 10,
-};
+import Client from "../../Client";
 
 export class SlashCommandRegistrar {
-	private static instance: SlashCommandRegistrar;
-	private logger!: Logger;
+	private logger = new Logger({ name: "Registrar" });
 
-	private rest!: REST;
-	private client!: Client;
 	private slashStore!: SlashCommandStore;
-	private slashData!: APIApplicationCommand[];
 
-	private hidden!: string[];
+	private hidden!: Collection<string, SlashCommand>;
+	private global!: Collection<string, SlashCommand>;
 
-	constructor() {
-		if (SlashCommandRegistrar.instance) return SlashCommandRegistrar.instance;
-		SlashCommandRegistrar.instance = this;
+	public constructor(private client: Client) {}
+
+	public async refresh(): Promise<void> {
+		this.slashStore = this.client.stores.get("slashCommands");
+
+		const [hidden, global] = this.slashStore.partition((c) => c.ownerOnly);
+		this.hidden = hidden;
+		this.global = global;
+
+		if (process.env.NODE_ENV === "development") {
+			await this.testGuildRegister(true);
+			await this.supportGuildRegister(true);
+		} else {
+			await this.testGuildRegister(false);
+			await this.supportGuildRegister(false);
+			await this.globalRegister();
+		}
 	}
 
-	public initializeData(client: Client): void {
-		this.client = client;
-		this.logger = client.loggers.get("bot") as Logger;
-		this.rest = new REST({ version: "9" }).setToken(process.env.TOKEN as string);
-
-		this.logger.debug("Initializing slash commands data...");
-
-		this.slashStore = client.stores.get("slashCommands");
-		this.hidden = this.slashStore.filter((c) => c.ownerOnly).map((c) => c.name);
-		this.slashData = this.slashStore.map(this.generateSlash.bind(this));
-
-		this.logger.debug(`Slash commands: ${this.slashData.map((command) => command.name)}`);
-		this.logger.debug("Slash commands data initialized");
-	}
-
-	public async testGuildRegister(): Promise<void> {
+	public async testGuildRegister(full = false): Promise<void> {
 		const guild = this.client.guilds.cache.get(process.env.TEST_GUILD as string);
-		if (!guild) return;
+		if (!guild) {
+			this.logger.warn(
+				`Guild "${process.env.TEST_GUILD}" not found, cannot refresh the slash commands.`
+			);
+			return;
+		}
 
-		this.logger.debug("Refreshing commands for test guild...");
-
-		const body = this.slashData.map((data) => ({ ...data, guild_id: guild.id }));
-
-		const commands = (await this.rest.put(
-			Routes.applicationGuildCommands(this.client.id as string, guild.id),
-			{ body }
-		)) as APIGuildApplicationCommand[];
-
-		const withPerms = commands
-			.flat()
-			.filter((command) => (this.slashStore.get(command.name)?.permissions?.length ?? 0) > 0);
-
-		const fullPermissions = withPerms.map((command) => ({
-			permissions: this.slashStore.get(command.name)?.permissions ?? [],
-			id: command.id,
+		const _commands = full ? this.slashStore : this.hidden;
+		const commands = _commands.map<ApplicationCommandData>((slash) => ({
+			description: slash.description,
+			name: slash.name,
+			defaultPermission: slash.defaultPermission,
+			options: slash.arguments,
 		}));
 
-		await guild.commands.permissions.set({ fullPermissions });
-
-		this.logger.debug("Successfully refreshed slash commands for test guild.");
+		await guild.commands.set(commands);
+		this.logger.info("Successfully refreshed slash commands for test guild.");
 	}
 
-	public async supportGuildRegister(): Promise<void> {
+	public async supportGuildRegister(full = false): Promise<void> {
 		const guild = this.client.guilds.cache.get(process.env.SUPPORT_GUILD as string);
-		if (!guild) return;
+		if (!guild) {
+			this.logger.warn(
+				`Guild "${process.env.SUPPORT_GUILD}" not found, cannot refresh the slash commands.`
+			);
+			return;
+		}
 
-		this.logger.debug("Refreshing commands for support guild...");
-
-		const body = this.slashData.map((data) => ({ ...data, guild_id: guild.id }));
-
-		const commands = (await this.rest.put(
-			Routes.applicationGuildCommands(this.client.id as string, guild.id),
-			{ body }
-		)) as APIGuildApplicationCommand[];
-
-		const withPerms = commands
-			.flat()
-			.filter((command) => (this.slashStore.get(command.name)?.permissions?.length ?? 0) > 0);
-
-		const fullPermissions = withPerms.map((command) => ({
-			permissions: this.slashStore.get(command.name)?.permissions ?? [],
-			id: command.id,
+		const _commands = full ? this.slashStore : this.hidden;
+		const commands = _commands.map<ApplicationCommandData>((slash) => ({
+			description: slash.description,
+			name: slash.name,
+			defaultPermission: slash.defaultPermission,
+			options: slash.arguments,
 		}));
 
-		await guild.commands.permissions.set({ fullPermissions });
-
-		this.logger.debug("Successfully refreshed slash commands for support guild.");
+		await guild.commands.set(commands);
+		this.logger.info("Successfully refreshed slash commands for support guild.");
 	}
 
 	public async globalRegister(): Promise<void> {
-		this.logger.debug("Refreshing global slash commands...");
-
-		const id = this.client.application?.id ?? this.client.user?.id;
-		await this.rest.put(Routes.applicationCommands(id ?? ""), {
-			body: this.slashData.filter((c) => !this.hidden.includes(c.name)),
-		});
-
-		this.logger.debug("Successfully refreshed global slash commands");
-	}
-
-	private generateSlash(slashCommand: SlashCommand): APIApplicationCommand {
-		const id = this.client.application?.id ?? this.client.user?.id;
-		if (!id) {
-			this.logger.error(
-				"No applicationId found, terminating...",
-				this.client.application?.toJSON() ?? null
-			);
-			process.exit(1);
-		}
-
-		const options = slashCommand.arguments.map((argument) => ({
-			...argument,
-			type: ApplicationCommandOptionTypeMap[argument.type.toString()],
-			options:
-				argument.type === "SUB_COMMAND"
-					? argument.options?.map((x) => {
-							return {
-								...x,
-								type: ApplicationCommandOptionTypeMap[x.type.toString()],
-							};
-					  }) ?? []
-					: argument.type === "SUB_COMMAND_GROUP"
-					? argument.options?.map((arg) => ({
-							...arg,
-							options: arg.options?.map((arg2) => ({
-								...arg2,
-								type: ApplicationCommandOptionTypeMap[arg2.type.toString()],
-							})),
-							type: ApplicationCommandOptionTypeMap[arg.type.toString()],
-					  })) ?? []
-					: [],
+		const commands = this.global.map<ApplicationCommandData>((slash) => ({
+			description: slash.description,
+			name: slash.name,
+			defaultPermission: slash.defaultPermission,
+			options: slash.arguments,
+			type: "MESSAGE",
 		}));
 
-		return {
-			application_id: id ?? "",
-			guild_id: undefined,
-			name: slashCommand.name,
-			description: slashCommand.description,
-			default_permission: slashCommand.defaultPermission,
-			options,
-		};
+		if (!this.client.application) {
+			this.logger.fatal("No client.application class, unable to refresh global slash commands!");
+			return;
+		}
+
+		await this.client.application.commands.set(commands);
+		this.logger.debug("Successfully refreshed global slash commands.");
 	}
 }
