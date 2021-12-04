@@ -76,11 +76,8 @@ export default class PingCommand extends SlashCommand {
 		if (slash) {
 			await interaction.editReply(">>> 🤖 | **Update Command**\nUpdating the slash commands...");
 
-			const registrar = new SlashCommandRegistrar();
-			registrar.initializeData(this.client);
-			await registrar.testGuildRegister();
-			await registrar.supportGuildRegister();
-			if (process.env.NODE_ENV === "production") await registrar.globalRegister();
+			const registrar = new SlashCommandRegistrar(this.client);
+			await registrar.refresh();
 
 			this.client.loggers.get("bot")?.info("Slash commands successfully refreshed!");
 		}
