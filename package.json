@@ -7,6 +7,7 @@
 	"author": "DaanGamesDG <daan@daangamesdg.xyz>",
 	"license": "MIT",
 	"devDependencies": {
+		"@commitlint/cli": "^15.0.0",
 		"@sapphire/eslint-config": "^4.0.7",
 		"@sapphire/prettier-config": "^1.2.6",
 		"@sapphire/ts-config": "^3.1.6",
@@ -14,6 +15,8 @@
 		"@types/node": "^16.11.11",
 		"cross-env": "^7.0.3",
 		"eslint": "^8.4.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.1.2",
 		"prisma": "^3.6.0"
 	},
 	"dependencies": {
