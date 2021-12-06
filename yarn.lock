@@ -51,6 +51,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/config-angular-type-enum@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "@commitlint/config-angular-type-enum@npm:15.0.0"
+  checksum: dc5b8774c5cff7de00136c22c98aa1a9fc4cd46b384cd37d3164054f99f0fdf5aa9cb97714ed205f0200f1fe2201eff9a8a094fb87962466b63ea012a41b16d0
+  languageName: node
+  linkType: hard
+
+"@commitlint/config-angular@npm:^15.0.0":
+  version: 15.0.0
+  resolution: "@commitlint/config-angular@npm:15.0.0"
+  dependencies:
+    "@commitlint/config-angular-type-enum": ^15.0.0
+  checksum: 001327b11081ac3645ebeb30af5aa48e8558d1c561a3d209ee302818419d12b2a5c544e50c926550db7c0b739bead6935beab261cf33ceb6058b33ca7feb6de9
+  languageName: node
+  linkType: hard
+
 "@commitlint/ensure@npm:^15.0.0":
   version: 15.0.0
   resolution: "@commitlint/ensure@npm:15.0.0"
@@ -439,9 +455,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@sapphire/framework@npm:2.2.1"
+"@sapphire/framework@npm:pr-293":
+  version: 2.3.0-pr-293.f4a0d9e.0
+  resolution: "@sapphire/framework@npm:2.3.0-pr-293.f4a0d9e.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.3.0
     "@sapphire/discord.js-utilities": ^4.1.4
@@ -450,7 +466,7 @@ __metadata:
     "@sapphire/utilities": ^3.1.0
     lexure: ^0.17.0
     tslib: ^2.3.1
-  checksum: 9903a4fd5f627730ed318f0bce31cd54029cd06cbd48f39ee78f9e7a7e7250339b651915f4ee967a65b7778fa2acdeacf2f6dbafb322c7e609b4f9c2a4ab5090
+  checksum: 6da4e1ddb76f5175f27aa5f6ac3019dca4e29171cdea7e19b106e88bb3107ae1eb4a61c9e594733db21a369b29e43bfa75ae2df48593583691667ead6e8f5400
   languageName: node
   linkType: hard
 
@@ -923,11 +939,12 @@ __metadata:
   resolution: "bot-template@workspace:."
   dependencies:
     "@commitlint/cli": ^15.0.0
+    "@commitlint/config-angular": ^15.0.0
     "@daangamesdg/logger": ^1.1.0
     "@prisma/client": ^3.6.0
     "@sapphire/decorators": ^3.1.4
     "@sapphire/eslint-config": ^4.0.7
-    "@sapphire/framework": ^2.2.1
+    "@sapphire/framework": pr-293
     "@sapphire/plugin-subcommands": ^2.1.2
     "@sapphire/prettier-config": ^1.2.6
     "@sapphire/ts-config": ^3.1.6
