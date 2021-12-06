@@ -4,6 +4,9 @@
 # production
 /dist
 
+# temp dirs
+/temp
+
 # env files
 .env
 .env.local
