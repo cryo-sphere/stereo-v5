@@ -2,7 +2,7 @@ import { SapphireClient } from "@sapphire/framework";
 import type { ActivitiesOptions, BitFieldResolvable, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
 import { PrismaClient } from "@prisma/client";
-import { Logger, BlacklistManager, Utils, SlashCommandPreconditionStore, SlashCommandStore } from "./lib";
+import { Logger, BlacklistManager, Utils } from "./lib";
 
 export class Client extends SapphireClient {
 	public owners: string[];
@@ -33,8 +33,6 @@ export class Client extends SapphireClient {
 		});
 
 		this.owners = options.owners;
-
-		this.stores.register(new SlashCommandStore()).register(new SlashCommandPreconditionStore());
 
 		process.on("unhandledRejection", this.handleRejection.bind(this));
 	}
@@ -89,10 +87,5 @@ declare module "@sapphire/framework" {
 	interface Preconditions {
 		OwnerOnly: never;
 		Blacklisted: never;
-	}
-
-	interface StoreRegistryEntries {
-		slashCommands: SlashCommandStore;
-		slashCommandPreconditions: SlashCommandPreconditionStore;
 	}
 }
