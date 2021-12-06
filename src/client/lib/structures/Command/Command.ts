@@ -1,4 +1,12 @@
-import { Args as CommandArgs, CommandContext, PieceContext, UserError } from "@sapphire/framework";
+import {
+	Args as CommandArgs,
+	PieceContext,
+	UserError,
+	MessageCommandContext,
+	ChatInputCommandContext,
+	AutocompleteCommandContext,
+	ContextMenuCommandContext
+} from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
 import type { PermissionResolvable } from "discord.js";
 import { Logger } from "..";
@@ -64,6 +72,9 @@ export namespace Command {
 		permissions?: PermissionResolvable;
 	};
 
-	export type Context = CommandContext;
+	export type MessageContext = MessageCommandContext;
+	export type SlashCommandContext = ChatInputCommandContext;
+	export type AutoCompleteContext = AutocompleteCommandContext;
+	export type MenuContext = ContextMenuCommandContext;
 	export type Args = CommandArgs;
 }
