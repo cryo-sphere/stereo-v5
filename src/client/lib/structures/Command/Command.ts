@@ -5,14 +5,16 @@ import {
 	MessageCommandContext,
 	ChatInputCommandContext,
 	AutocompleteCommandContext,
-	ContextMenuCommandContext
+	ContextMenuCommandContext,
+	ApplicationCommandRegistry
 } from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
-import type { PermissionResolvable } from "discord.js";
+import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
 import { Logger } from "..";
 import type { Client } from "../../../";
 
 export abstract class Command extends SubCommandPluginCommand<CommandArgs, Command> {
+	public declare readonly options: Command.Options;
 	public readonly hidden: boolean;
 	public readonly OwnerOnly: boolean;
 	public readonly usage: string;
@@ -50,6 +52,20 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 		this.client = this.container.client as Client;
 	}
 
+	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
+		if (this.options.chatInputCommand.messageCommand)
+			registery.registerChatInputCommand({
+				name: this.name,
+				description: this.description,
+				options: this.options.chatInputCommand.options
+			});
+		if (this.options.chatInputCommand.contextmenu)
+			registery.registerContextMenuCommand({
+				name: this.name,
+				type: this.options.chatInputCommand.contextmenu
+			});
+	}
+
 	protected error(identifier: string | UserError, context?: unknown): never {
 		throw typeof identifier === "string" ? new UserError({ identifier, context }) : identifier;
 	}
@@ -70,6 +86,11 @@ export namespace Command {
 		hidden?: boolean;
 		usage?: string;
 		permissions?: PermissionResolvable;
+		chatInputCommand: {
+			options?: ApplicationCommandOptionData[];
+			contextmenu?: "MESSAGE" | "USER";
+			messageCommand?: boolean;
+		};
 	};
 
 	export type MessageContext = MessageCommandContext;
