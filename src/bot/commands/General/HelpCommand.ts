@@ -2,6 +2,7 @@ import { Command } from "../../../client/";
 import { ApplyOptions } from "@sapphire/decorators";
 import type { CommandInteraction, EmbedFieldData, Message, MessageEmbed, User } from "discord.js";
 import ms from "ms";
+import type { ApplicationCommandRegistry } from "@sapphire/framework";
 
 @ApplyOptions<Command.Options>({
 	name: "help",
@@ -14,6 +15,21 @@ import ms from "ms";
 	}
 })
 export default class extends Command {
+	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
+		registery.registerChatInputCommand({
+			name: this.name,
+			description: this.description,
+			options: [
+				{
+					name: "command",
+					type: "STRING",
+					description: "The name of the command",
+					required: false
+				}
+			]
+		});
+	}
+
 	public async messageRun(message: Message, args: Command.Args, context: Command.MessageContext): Promise<void> {
 		const cmd = await args.pickResult("string");
 		const command = this.container.stores.get("commands").get(cmd.value ?? "") as Command | undefined;
