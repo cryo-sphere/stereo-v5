@@ -10,6 +10,7 @@ import ms from "ms";
 	requiredClientPermissions: ["EMBED_LINKS"],
 	usage: "[command]",
 	chatInputCommand: {
+		messageCommand: true,
 		register: true,
 		options: [
 			{
