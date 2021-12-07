@@ -53,6 +53,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	}
 
 	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
+		if (!this.options.chatInputCommand) return;
 		if (this.options.chatInputCommand.messageCommand)
 			registery.registerChatInputCommand({
 				name: this.name,
@@ -86,7 +87,7 @@ export namespace Command {
 		hidden?: boolean;
 		usage?: string;
 		permissions?: PermissionResolvable;
-		chatInputCommand: {
+		chatInputCommand?: {
 			options?: ApplicationCommandOptionData[];
 			contextmenu?: "MESSAGE" | "USER";
 			messageCommand?: boolean;
