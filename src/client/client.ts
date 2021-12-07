@@ -26,6 +26,7 @@ export class Client extends SapphireClient {
 			defaultPrefix: process.env.PREFIX,
 			partials: options.partials,
 			loadDefaultErrorListeners: false,
+			loadMessageCommandListeners: true,
 			presence: {
 				activities: options.activity,
 				status: options.status
