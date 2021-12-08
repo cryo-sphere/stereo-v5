@@ -13,7 +13,7 @@ import { emojis } from "../../../client/constants";
 		messageCommand: true,
 		options: [
 			{
-				name: "User or guildId",
+				name: "id",
 				description: "The id of the guild or user you want to blacklist",
 				type: "STRING",
 				required: true
