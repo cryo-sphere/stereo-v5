@@ -99,7 +99,6 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Command {
 	export type Options = SubCommandPluginCommand.Options & {
 		hidden?: boolean;
