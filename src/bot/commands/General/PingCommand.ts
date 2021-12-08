@@ -35,7 +35,7 @@ export default class extends Command {
 		});
 	}
 
-	public async chatInputRun(interaction: CommandInteraction) {
+	public async chatInputRun(interaction: CommandInteraction): Promise<void> {
 		const interactionDate = Date.now();
 		await interaction.reply(">>> 🏓 | Pinging...");
 		const date = Date.now();
