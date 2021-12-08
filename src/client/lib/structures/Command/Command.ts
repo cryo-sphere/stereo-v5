@@ -7,7 +7,8 @@ import {
 	AutocompleteCommandContext,
 	ContextMenuCommandContext,
 	ApplicationCommandRegistry,
-	RegisterBehavior
+	RegisterBehavior,
+	ApplicationCommandRegistryRegisterOptions
 } from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
 import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
@@ -41,12 +42,6 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 		});
 
 		if (!options.name) this.logger.warn(`No name provided for command with aliases "${this.aliases.join('", "')}"`);
-		if (this.options.chatInputCommand) {
-			if (process.env.NODE_ENV === "development")
-				this.options.chatInputCommand.guildIds = [process.env.TEST_GUILD as string, process.env.SUPPORT_GUILD as string].filter(
-					(str) => typeof str === "string"
-				);
-		}
 
 		this.usage = `${options.name} ${options.usage ?? ""}`.trim();
 
@@ -64,8 +59,11 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 
 	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
 		if (!this.options.chatInputCommand || !this.options.enabled) return;
-		const options = {
-			behaviorWhenNotIdentical: RegisterBehavior.Overwrite
+
+		const guildIds = [process.env.TEST_GUILD as string, process.env.SUPPORT_GUILD as string].filter((str) => typeof str === "string");
+		const options: ApplicationCommandRegistryRegisterOptions = {
+			behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
+			guildIds: process.env.NODE_ENV === "development" || this.OwnerOnly ? guildIds : undefined
 		};
 
 		if (this.options.chatInputCommand.messageCommand)
