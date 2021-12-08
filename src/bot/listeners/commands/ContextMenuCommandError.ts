@@ -16,9 +16,9 @@ export default class extends Listener {
 		const errorEmoji = emojis.error;
 
 		// If string || UserError, send to user
-		if (typeof error === "string") return reply(`>>> ${errorEmoji} | ${error}`);
-		if (error instanceof ArgumentError) return reply(`>>> ${errorEmoji} | ${error.message}`);
-		if (error instanceof UserError) return reply(`>>> ${errorEmoji} | ${error.message}`);
+		if (typeof error === "string") return reply({ content: `>>> ${errorEmoji} | ${error}`, ephemeral: true });
+		if (error instanceof ArgumentError) return reply({ content: `>>> ${errorEmoji} | ${error.message}`, ephemeral: true });
+		if (error instanceof UserError) return reply({ content: `>>> ${errorEmoji} | ${error.message}`, ephemeral: true });
 
 		if (error.name === "AbortError" || error.message === "Internal Server Error") {
 			this.logger.warn(
@@ -27,9 +27,10 @@ export default class extends Listener {
 				}`
 			);
 
-			return reply(
-				`>>> ${errorEmoji} | Oh no, this doesn't look very good. Something caused the request to abort their mission, please try again.`
-			);
+			return reply({
+				content: `>>> ${errorEmoji} | Oh no, this doesn't look very good. Something caused the request to abort their mission, please try again.`,
+				ephemeral: true
+			});
 		}
 
 		// checks if error is DiscordAPIError || HTTPError
@@ -47,7 +48,7 @@ export default class extends Listener {
 		this.logger.fatal(`[COMMAND] ${command.location.relative}\n${error.stack || error.message}`);
 
 		try {
-			return reply(this.generateUnexpectedErrorinteraction(author, error));
+			return reply({ content: this.generateUnexpectedErrorinteraction(author, error), ephemeral: true });
 		} catch (err) {
 			this.container.client.emit(Events.Error, err);
 		}

@@ -10,6 +10,7 @@ export default class extends Listener {
 
 		return reply({
 			content,
+			ephemeral: true,
 			allowedMentions: { repliedUser: true }
 		});
 	}
