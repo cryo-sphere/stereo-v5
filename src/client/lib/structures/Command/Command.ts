@@ -35,9 +35,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 			cooldownDelay: 5e3,
 			cooldownLimit: 2,
 			generateDashLessAliases: true,
-			chatInputCommand: options.chatInputCommand
-				? { ...options.chatInputCommand, registerBehavior: RegisterBehavior.Overwrite, register: true }
-				: undefined,
+			chatInputCommand: options.chatInputCommand ? { ...options.chatInputCommand, register: true } : undefined,
 			...options
 		});
 
