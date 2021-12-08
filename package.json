@@ -20,10 +20,11 @@
 		"prisma": "^3.6.0"
 	},
 	"dependencies": {
+		"@commitlint/config-angular": "^15.0.0",
 		"@daangamesdg/logger": "^1.1.0",
 		"@prisma/client": "^3.6.0",
 		"@sapphire/decorators": "^3.1.4",
-		"@sapphire/framework": "^2.2.1",
+		"@sapphire/framework": "pr-293",
 		"@sapphire/plugin-subcommands": "^2.1.2",
 		"@sapphire/type": "^2.1.2",
 		"discord.js": "^13.3.1",

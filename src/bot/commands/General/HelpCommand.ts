@@ -1,6 +1,6 @@
 import { Command } from "../../../client/";
 import { ApplyOptions } from "@sapphire/decorators";
-import type { EmbedFieldData, Message, MessageEmbed } from "discord.js";
+import type { CommandInteraction, EmbedFieldData, Message, MessageEmbed, User } from "discord.js";
 import ms from "ms";
 
 @ApplyOptions<Command.Options>({
@@ -8,17 +8,44 @@ import ms from "ms";
 	aliases: ["commands"],
 	description: "A list of all the commands",
 	requiredClientPermissions: ["EMBED_LINKS"],
-	usage: "[command]"
+	usage: "[command]",
+	chatInputCommand: {
+		messageCommand: true,
+		register: true,
+		options: [
+			{
+				name: "command",
+				type: "STRING",
+				description: "The name of the command",
+				required: false
+			}
+		]
+	}
 })
 export default class extends Command {
-	public async messageRun(message: Message, args: Command.Args, context: Command.Context): Promise<void> {
-		const embed: MessageEmbed = this.client.utils
-			.embed()
-			.setTitle(`Help Command - ${message.author.tag}`)
-			.setFooter("Bot created by DaanGamesDG#7621", "https://static.daangamesdg.xyz/discord/pfp.gif");
-
+	public async messageRun(message: Message, args: Command.Args, context: Command.MessageContext): Promise<void> {
 		const cmd = await args.pickResult("string");
 		const command = this.container.stores.get("commands").get(cmd.value ?? "") as Command | undefined;
+		const embed = this.RunCommand(context, message.author, command);
+
+		await message.reply({ embeds: [embed] });
+	}
+
+	public async chatInputRun(interaction: CommandInteraction, context: Command.SlashCommandContext) {
+		const cmd = interaction.options.getString("command", false);
+		const command = this.container.stores.get("commands").get(cmd ?? "") as Command | undefined;
+		const embed = this.RunCommand(context, interaction.user, command);
+
+		await interaction.reply({
+			embeds: [embed]
+		});
+	}
+
+	private RunCommand(context: Command.MessageContext | Command.SlashCommandContext, user: User, command?: Command): MessageEmbed {
+		const embed = this.client.utils
+			.embed()
+			.setTitle(`Help Command - ${user.tag}`)
+			.setFooter("Bot created by DaanGamesDG#7621", "https://static.daangamesdg.xyz/discord/pfp.gif");
 
 		if (command) {
 			const userPermissions = this.client.utils.formatPerms(command.permissions);
@@ -38,7 +65,7 @@ export default class extends Command {
 				].join("\n")
 			);
 		} else {
-			const isOwner = this.client.isOwner(message.author.id);
+			const isOwner = this.client.isOwner(user.id);
 			const commands = [...this.container.stores.get("commands").values()] as Command[];
 			let categories = [...new Set(commands.map((c) => c.category ?? "default"))];
 
@@ -57,6 +84,6 @@ export default class extends Command {
 			embed.setFields(fields);
 		}
 
-		await message.reply({ embeds: [embed] });
+		return embed;
 	}
 }

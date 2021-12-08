@@ -1,10 +1,22 @@
-import { Args as CommandArgs, CommandContext, PieceContext, UserError } from "@sapphire/framework";
+import {
+	Args as CommandArgs,
+	PieceContext,
+	UserError,
+	MessageCommandContext,
+	ChatInputCommandContext,
+	AutocompleteCommandContext,
+	ContextMenuCommandContext,
+	ApplicationCommandRegistry,
+	RegisterBehavior,
+	ApplicationCommandRegistryRegisterOptions
+} from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
-import type { PermissionResolvable } from "discord.js";
+import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
 import { Logger } from "..";
 import type { Client } from "../../../";
 
 export abstract class Command extends SubCommandPluginCommand<CommandArgs, Command> {
+	public declare readonly options: Command.Options;
 	public readonly hidden: boolean;
 	public readonly OwnerOnly: boolean;
 	public readonly usage: string;
@@ -23,6 +35,9 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 			cooldownDelay: 5e3,
 			cooldownLimit: 2,
 			generateDashLessAliases: true,
+			chatInputCommand: options.chatInputCommand
+				? { ...options.chatInputCommand, registerBehavior: RegisterBehavior.Overwrite, register: true }
+				: undefined,
 			...options
 		});
 
@@ -42,8 +57,36 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 		this.client = this.container.client as Client;
 	}
 
-	protected error(identifier: string | UserError, context?: unknown): never {
-		throw typeof identifier === "string" ? new UserError({ identifier, context }) : identifier;
+	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
+		if (!this.options.chatInputCommand || !this.options.enabled) return;
+
+		const guildIds = [process.env.TEST_GUILD as string, process.env.SUPPORT_GUILD as string].filter((str) => typeof str === "string");
+		const options: ApplicationCommandRegistryRegisterOptions = {
+			behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
+			guildIds: process.env.NODE_ENV === "development" || this.OwnerOnly ? guildIds : undefined
+		};
+
+		if (this.options.chatInputCommand.messageCommand)
+			registery.registerChatInputCommand(
+				{
+					name: this.name,
+					description: this.description,
+					options: this.options.chatInputCommand.options
+				},
+				options
+			);
+		if (this.options.chatInputCommand.contextmenu)
+			registery.registerContextMenuCommand(
+				{
+					name: this.name,
+					type: this.options.chatInputCommand.contextmenu
+				},
+				options
+			);
+	}
+
+	protected error(options: UserError.Options): UserError {
+		return new UserError(options);
 	}
 
 	protected parseConstructorPreConditions(options: Command.Options): void {
@@ -56,14 +99,21 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	}
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Command {
 	export type Options = SubCommandPluginCommand.Options & {
 		hidden?: boolean;
 		usage?: string;
 		permissions?: PermissionResolvable;
+		chatInputCommand?: {
+			options?: ApplicationCommandOptionData[];
+			contextmenu?: "MESSAGE" | "USER";
+			messageCommand?: boolean;
+		};
 	};
 
-	export type Context = CommandContext;
+	export type MessageContext = MessageCommandContext;
+	export type SlashCommandContext = ChatInputCommandContext;
+	export type AutoCompleteContext = AutocompleteCommandContext;
+	export type MenuContext = ContextMenuCommandContext;
 	export type Args = CommandArgs;
 }
