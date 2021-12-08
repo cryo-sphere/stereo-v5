@@ -1,6 +1,9 @@
 # dependencies
 /node_modules
 
+# prisma
+/prisma/migrations
+
 # production
 /dist
 

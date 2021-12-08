@@ -6,7 +6,8 @@ import {
 	ChatInputCommandContext,
 	AutocompleteCommandContext,
 	ContextMenuCommandContext,
-	ApplicationCommandRegistry
+	ApplicationCommandRegistry,
+	RegisterBehavior
 } from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
 import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
@@ -33,10 +34,19 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 			cooldownDelay: 5e3,
 			cooldownLimit: 2,
 			generateDashLessAliases: true,
+			chatInputCommand: options.chatInputCommand
+				? { ...options.chatInputCommand, registerBehavior: RegisterBehavior.Overwrite, register: true }
+				: undefined,
 			...options
 		});
 
 		if (!options.name) this.logger.warn(`No name provided for command with aliases "${this.aliases.join('", "')}"`);
+		if (this.options.chatInputCommand) {
+			if (process.env.NODE_ENV === "development")
+				this.options.chatInputCommand.guildIds = [process.env.TEST_GUILD as string, process.env.SUPPORT_GUILD as string].filter(
+					(str) => typeof str === "string"
+				);
+		}
 
 		this.usage = `${options.name} ${options.usage ?? ""}`.trim();
 
@@ -54,21 +64,31 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 
 	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
 		if (!this.options.chatInputCommand || !this.options.enabled) return;
+		const options = {
+			behaviorWhenNotIdentical: RegisterBehavior.Overwrite
+		};
+
 		if (this.options.chatInputCommand.messageCommand)
-			registery.registerChatInputCommand({
-				name: this.name,
-				description: this.description,
-				options: this.options.chatInputCommand.options
-			});
+			registery.registerChatInputCommand(
+				{
+					name: this.name,
+					description: this.description,
+					options: this.options.chatInputCommand.options
+				},
+				options
+			);
 		if (this.options.chatInputCommand.contextmenu)
-			registery.registerContextMenuCommand({
-				name: this.name,
-				type: this.options.chatInputCommand.contextmenu
-			});
+			registery.registerContextMenuCommand(
+				{
+					name: this.name,
+					type: this.options.chatInputCommand.contextmenu
+				},
+				options
+			);
 	}
 
-	protected error(identifier: string | UserError, context?: unknown): never {
-		throw typeof identifier === "string" ? new UserError({ identifier, context }) : identifier;
+	protected error(options: UserError.Options): UserError {
+		return new UserError(options);
 	}
 
 	protected parseConstructorPreConditions(options: Command.Options): void {
