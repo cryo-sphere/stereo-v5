@@ -1,13 +1,6 @@
-import {
-	ArgumentError,
-	ChatInputCommandErrorPayload,
-	ContextMenuCommandErrorPayload,
-	Events,
-	MessageCommandErrorPayload,
-	UserError
-} from "@sapphire/framework";
+import { ArgumentError, Events, MessageCommandErrorPayload, UserError } from "@sapphire/framework";
 import { DiscordAPIError, HTTPError } from "discord.js";
-import { Listener } from "../../../client/";
+import { Listener } from "../../../client";
 import { RESTJSONErrorCodes } from "discord-api-types/v9";
 import { ApplyOptions } from "@sapphire/decorators";
 import { codeBlock } from "@sapphire/utilities";
@@ -15,45 +8,45 @@ import { emojis } from "../../../client/constants";
 
 const ignoredCodes = [RESTJSONErrorCodes.UnknownChannel, RESTJSONErrorCodes.UnknownMessage];
 
-type ErrorPayload = MessageCommandErrorPayload | ChatInputCommandErrorPayload | ContextMenuCommandErrorPayload;
-
-@ApplyOptions<Listener.Options>({ event: "commandError" })
+@ApplyOptions<Listener.Options>({ event: "messageCommandError" })
 export default class extends Listener {
-	public run(error: Error, payload: ErrorPayload) {
-		const ctx = "message" in payload ? payload.message : payload.interaction;
-		const author = "user" in ctx ? ctx.user.id : ctx.author.id;
+	public run(error: Error, { message, command }: MessageCommandErrorPayload) {
+		const author = message.author.id;
 		const errorEmoji = emojis.error;
 
 		// If string || UserError, send to user
-		if (typeof error === "string") return ctx.reply(`>>> ${errorEmoji} | ${error}`);
-		if (error instanceof ArgumentError) return ctx.reply(`>>> ${errorEmoji} | ${error.message}`);
-		if (error instanceof UserError) return ctx.reply(`>>> ${errorEmoji} | ${error.message}`);
+		if (typeof error === "string") return message.reply(`>>> ${errorEmoji} | ${error}`);
+		if (error instanceof ArgumentError) return message.reply(`>>> ${errorEmoji} | ${error.message}`);
+		if (error instanceof UserError) return message.reply(`>>> ${errorEmoji} | ${error.message}`);
 
 		if (error.name === "AbortError" || error.message === "Internal Server Error") {
 			this.logger.warn(
-				`${this.getWarnError(author, ctx.id, ctx.channelId, ctx.guildId)} (${author}) | ${error.constructor.name} | ${error.message}`
+				`${this.getWarnError(author, message.id, message.channelId, message.guildId)} (${author}) | ${error.constructor.name} | ${
+					error.message
+				}`
 			);
 
-			return ctx.reply(
+			return message.reply(
 				`>>> ${errorEmoji} | Oh no, this doesn't look very good. Something caused the request to abort their mission, please try again.`
 			);
 		}
 
 		// checks if error is DiscordAPIError || HTTPError
 		if (error instanceof DiscordAPIError || error instanceof HTTPError) {
-			if (this.isSilencedError(ctx.channelId, ctx.guildId, error)) return;
+			if (this.isSilencedError(message.channelId, message.guildId, error)) return;
 			this.container.client.emit("error", error);
 		} else {
 			this.logger.warn(
-				`${this.getWarnError(author, ctx.id, ctx.channelId, ctx.guildId)} (${author}) | ${error.constructor.name} | ${error.message}`
+				`${this.getWarnError(author, message.id, message.channelId, message.guildId)} (${author}) | ${error.constructor.name} | ${
+					error.message
+				}`
 			);
 		}
 
-		const { command } = payload;
 		this.logger.fatal(`[COMMAND] ${command.location.relative}\n${error.stack || error.message}`);
 
 		try {
-			return ctx.reply(this.generateUnexpectedErrorMessage(author, error));
+			return message.reply(this.generateUnexpectedErrorMessage(author, error));
 		} catch (err) {
 			this.container.client.emit(Events.Error, err);
 		}
