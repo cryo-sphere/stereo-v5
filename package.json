@@ -15,7 +15,7 @@
 		"@sapphire/type": "^2.1.2",
 		"@stereo-bot/lavalink": "^1.2.1",
 		"axios": "^0.24.0",
-		"body-parser": "^1.19.0",
+		"body-parser": "^1.19.1",
 		"cookie-parser": "^1.4.6",
 		"cors": "^2.8.5",
 		"discord.js": "^13.3.1",
