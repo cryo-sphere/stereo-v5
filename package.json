@@ -22,7 +22,7 @@
 		"dotenv": "^10.0.0",
 		"eslint": "^8.4.1",
 		"express": "^4.17.1",
-		"genius-lyrics": "^4.3.4",
+		"genius-lyrics": "^4.3.5",
 		"moment": "^2.29.1",
 		"ms": "^2.1.3",
 		"uuid": "^8.3.2"
