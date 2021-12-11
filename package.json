@@ -8,6 +8,7 @@
 	"license": "MIT",
 	"devDependencies": {
 		"@commitlint/cli": "^15.0.0",
+		"@commitlint/config-angular": "^15.0.0",
 		"@sapphire/eslint-config": "^4.0.8",
 		"@sapphire/prettier-config": "^1.2.7",
 		"@sapphire/ts-config": "^3.1.6",
@@ -17,8 +18,7 @@
 		"eslint": "^8.4.1",
 		"husky": "^7.0.4",
 		"lint-staged": "^12.1.2",
-		"prisma": "^3.6.0",
-		"@commitlint/config-angular": "^15.0.0"
+		"prisma": "^3.6.0"
 	},
 	"dependencies": {
 		"@daangamesdg/logger": "^1.1.0",
