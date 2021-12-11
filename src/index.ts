@@ -3,7 +3,7 @@ config();
 
 import { Client } from "./client";
 
-void new Client({
+const client = new Client({
 	intents: ["GUILDS", "GUILD_MESSAGES"],
 	partials: ["MESSAGE"],
 	owners: (process.env.OWNERS ?? "").split(","),
@@ -13,4 +13,6 @@ void new Client({
 			name: "DaanGamesDG"
 		}
 	]
-}).start();
+});
+
+void client.start();

@@ -4,6 +4,6 @@ import { ApplyOptions } from "@sapphire/decorators";
 @ApplyOptions<Listener.Options>({ event: "ready", once: true })
 export default class extends Listener {
 	public run() {
-		this.logger.info(`${this.client.user!.tag} has logged in!`);
+		this.container.logger.info(`${this.client.user!.tag} has logged in!`);
 	}
 }

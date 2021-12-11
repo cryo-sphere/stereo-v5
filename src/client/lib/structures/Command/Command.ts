@@ -12,7 +12,6 @@ import {
 } from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
 import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
-import { Logger } from "..";
 import type { Client } from "../../../";
 
 export abstract class Command extends SubCommandPluginCommand<CommandArgs, Command> {
@@ -28,7 +27,6 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	public readonly clientPermissions: PermissionResolvable;
 
 	public client: Client;
-	public logger = new Logger({ name: "Bot" });
 
 	public constructor(context: PieceContext, options: Command.Options) {
 		super(context, {
@@ -39,7 +37,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 			...options
 		});
 
-		if (!options.name) this.logger.warn(`No name provided for command with aliases "${this.aliases.join('", "')}"`);
+		if (!options.name) this.container.logger.warn(`No name provided for command with aliases "${this.aliases.join('", "')}"`);
 
 		this.usage = `${options.name} ${options.usage ?? ""}`.trim();
 

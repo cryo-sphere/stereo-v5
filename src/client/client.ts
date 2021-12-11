@@ -2,7 +2,9 @@ import { SapphireClient } from "@sapphire/framework";
 import type { ActivitiesOptions, BitFieldResolvable, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
 import { PrismaClient } from "@prisma/client";
-import { Logger, BlacklistManager, Utils } from "./lib";
+import { BlacklistManager, Utils } from "./lib";
+
+import "@daangamesdg/sapphire-logger/register";
 
 export class Client extends SapphireClient {
 	public owners: string[];
@@ -13,10 +15,6 @@ export class Client extends SapphireClient {
 
 	// managers
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
-
-	// loggers
-	public dbLogger = new Logger({ name: "Database" });
-	public processLogger = new Logger({ name: "Process" });
 
 	public constructor(options: ClientOptions) {
 		super({
@@ -44,7 +42,7 @@ export class Client extends SapphireClient {
 
 	public async start(): Promise<void> {
 		await this.prisma.$connect();
-		this.dbLogger.info("Successfully connected to postgreSQL Database via Prisma!");
+		this.logger.info("Successfully connected to postgreSQL Database via Prisma!");
 
 		const blacklisted = await this.prisma.botBlacklist.findMany();
 		this.blacklistManager.setBlacklisted(blacklisted.map((b) => b.id));
@@ -53,7 +51,7 @@ export class Client extends SapphireClient {
 	}
 
 	private handleRejection(reason: unknown) {
-		this.processLogger.fatal("Unhandled rejection: ", reason);
+		this.logger.fatal("[Process]: Unhandled rejection: ", reason);
 	}
 }
 
@@ -76,10 +74,6 @@ declare module "@sapphire/framework" {
 
 		// managers
 		public blacklistManager: BlacklistManager;
-
-		// loggers
-		public dbLogger: Logger;
-		public processLogger: Logger;
 
 		// functions
 		public isOwner(id: string): boolean;

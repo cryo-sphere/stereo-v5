@@ -222,6 +222,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@daangamesdg/sapphire-logger@npm:latest":
+  version: 1.0.1
+  resolution: "@daangamesdg/sapphire-logger@npm:1.0.1"
+  dependencies:
+    colorette: ^2.0.16
+    discord.js: ^13.3.1
+    tslib: ^2.3.1
+  checksum: 6575f814c0fb6fb0c4dda496dacc82abe092004f9e16f253d2b3a1535cf0f58417d12b3c150b385df1bd7faf190815c97cf9911ed0ae4a821c396fab297afc62
+  languageName: node
+  linkType: hard
+
 "@discordjs/builders@npm:^0.8.1":
   version: 0.8.2
   resolution: "@discordjs/builders@npm:0.8.2"
@@ -941,6 +952,7 @@ __metadata:
     "@commitlint/cli": ^15.0.0
     "@commitlint/config-angular": ^15.0.0
     "@daangamesdg/logger": ^1.1.0
+    "@daangamesdg/sapphire-logger": latest
     "@prisma/client": ^3.6.0
     "@sapphire/decorators": ^3.1.4
     "@sapphire/eslint-config": ^4.0.8

@@ -20,7 +20,7 @@ export default class extends Listener {
 		if (error instanceof UserError) return message.reply(`>>> ${errorEmoji} | ${error.message}`);
 
 		if (error.name === "AbortError" || error.message === "Internal Server Error") {
-			this.logger.warn(
+			this.container.logger.warn(
 				`${this.getWarnError(author, message.id, message.channelId, message.guildId)} (${author}) | ${error.constructor.name} | ${
 					error.message
 				}`
@@ -36,14 +36,14 @@ export default class extends Listener {
 			if (this.isSilencedError(message.channelId, message.guildId, error)) return;
 			this.container.client.emit("error", error);
 		} else {
-			this.logger.warn(
+			this.container.logger.warn(
 				`${this.getWarnError(author, message.id, message.channelId, message.guildId)} (${author}) | ${error.constructor.name} | ${
 					error.message
 				}`
 			);
 		}
 
-		this.logger.fatal(`[COMMAND] ${command.location.relative}\n${error.stack || error.message}`);
+		this.container.logger.fatal(`[COMMAND] ${command.location.relative}\n${error.stack || error.message}`);
 
 		try {
 			return message.reply(this.generateUnexpectedErrorMessage(author, error));
