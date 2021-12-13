@@ -1,0 +1,61 @@
+{
+	"language": {
+		"description": "Zeigt / ändert die Sprache",
+		"args": {
+			"language": "Der Name der Sprache"
+		},
+		"embed": {
+			"title": "Unterstützte Sprachen"
+		},
+		"language": ">>> 🔡 | Die Sprache für diesen Server ist **Deutsch**, du kannst es über das [Dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') oder mit dem `/language`-Befehl ändern",
+		"success": ">>> {emoji.greentick} | Language changed to **Deutsch**!"
+	},
+	"announce": {
+		"description": "Ändert die Art und Weise, wie Stereo neue Songs ankündigt",
+		"args": {
+			"enabled": "Ob Ankündigungen aktiviert sein sollen oder nicht",
+			"delete": "Ob alte Ankündigungen gelöscht werden sollen oder nicht"
+		},
+		"success": ">>> {emoji.greentick} | Songankündigungen sind jetzt **{announce}**, das Löschen alter Ankündigungen ist jetzt **{deleteAnnounce}**!"
+	},
+	"defaultvol": {
+		"description": "Ändert die Standardlautstärke für diesen Server",
+		"args": {
+			"value": "Der Wert, zu dem die Standardlautstärke geändert werden soll"
+		},
+		"fail": ">>> {emoji.redcross} | Der angegebene Wert muss zwischen 1 und 200 liegen!",
+		"success": ">>> {emoji.greentick} | Die Standardlautstärke wurde auf **{defaultvolume} %** geändert!"
+	},
+	"autorepeat": {
+		"description": "Aktiviert oder deaktiviert die Warteschlangenwiederholung, wenn ein Spieler erstellt wurde",
+		"success": ">>> {emoji.greentick} | Automatische Wiederholung ist jetzt **{enabled}**!"
+	},
+	"autoshuffle": {
+		"description": "Aktiviert oder deaktiviert die Durchmischung, wenn ein Spieler erstellt wurde",
+		"success": ">>> {emoji.greentick} | Automatische Vermischung ist jetzt **{enabled}**!"
+	},
+	"defaultbass": {
+		"description": "Ändert das Standard-Bassboost-Level für diesen Server",
+		"args": {
+			"level": "Das Level, zu dem sich das Standard-Bassboost-Level werden soll"
+		},
+		"success": ">>> {emoji.greentick} | Das Standard-Bassboost-Level wurde auf **{defaultbassboost} %** geändert."
+	},
+	"defaultfilter": {
+		"description": "Ändert den Standardfilter für diesen Server",
+		"args": {
+			"level": "Der Name des Filters, zu dem der Standardfilter geändert werden soll"
+		},
+		"success": ">>> {emoji.greentick} | Der Standardfilter wurde auf **{defaultfilter}** geändert."
+	},
+	"djrole": {
+		"description": "Ändert die DJRolle dieses Servers",
+		"args": {
+			"role": "Der/Die Rollenname/ID/Erwähnung, die DJRolle werden soll"
+		},
+		"success": ">>> {emoji.greentick} | Der DJRollen-Modus ist nun **aktiviert** und wurde zu **{djrole}** geändert.",
+		"success2": ">>> {emoji.greentick} | Der DJRollen-Modus ist nun **deaktiviert**.",
+		"fail": ">>> {emoji.redcross} | Ich konnte keine Rolle mit den Informationen finden: `{role}`.",
+		"managed": ">>> {emoji.error} | Die Rolle `{role}` wird von einer anderen Intergration verwaltet! Diese Rolle kann nichtjemandem zugewiesen werden und deshalb kann ich sie nicht als DJRolle verwenden."
+	}
+}

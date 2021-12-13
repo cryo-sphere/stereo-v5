@@ -1,0 +1,131 @@
+{
+	"play": {
+		"description": "Spiele einen Song in dem Sprachkanal, in dem du gerade bist (Stage-Kanäle werden ebenfalls unterstützt!)",
+		"args": {
+			"query": "Die Suchanfrage",
+			"type": "Such-Typ (Sie brauchen ihn nicht bei der Suche über Url)"
+		},
+		"noResults": ">>> {emoji.redcross} | Entschuldigung, ich konnte keine Ergebnisse finden.",
+		"playlistLoaded": ">>> {emoji.greentick} | Erfolgreich Wiedergabeliste **{playlist}** - `{duration}` geladen",
+		"trackLoaded": ">>> {emoji.greentick} | Erfolgreich Song **{track}** - `{duration}` geladen"
+	},
+	"nowplaying": {
+		"description": "Zeigt die Informationen über den aktuellen Song an",
+		"title": "Es wird **{title}** gespielt",
+		"embedDescription": "Anfrage: <@{user}>\nLautstärke: `{volume}%`\nBassboot: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Legt das Bassboost-Level für den Spieler fest",
+		"args": {
+			"level": "das Bassboost-Level"
+		}
+	},
+	"filter": {
+		"description": "Legt den Filter für den Spieler fest",
+		"args": {
+			"filter": "Der Filter, den Sie verwenden möchten"
+		}
+	},
+	"seek": {
+		"description": "Sucht den aktuellen Track nach dem Zeitstempel ab",
+		"args": {
+			"timestamp": "Der Zeitstempel (z.B. 10:30), nach dem gesucht werden soll"
+		},
+		"invalid": ">>> {emoji.redcross} | Ungültiger Zeitstempel angegeben, bitte gib einen Zeitstempel wie z.B. `10:30` an",
+		"success": ">>> {emoji.greentick} | Erfolgreich nach `{seek} `gesucht!"
+	},
+	"disconnect": {
+		"description": "Verbindung zum Sprachkanal trennen"
+	},
+	"join": {
+		"description": "Lass Stereo sich mit deinem aktuellen Sprachkanal verbinden"
+	},
+	"volume": {
+		"description": "Ändert die Lautstärke des Bots",
+		"args": {
+			"volume": "Der Wert auf den die Lautstärke gesetzt werden soll"
+		},
+		"invalid": ">>> {emoji.redcross} | Der Wert muss zwischen 1 und 200 liegen.",
+		"success": ">>> {emoji.greentick} | Die Lautstärke wurde erfolgreich auf **{volume} %** geändert!"
+	},
+	"247": {
+		"description": "Schaltet den 24/7-Modus um, nur für Partner",
+		"enabled": ">>> {emoji.greentick} | Der 24/7-Modus ist jetzt **aktiviert**!",
+		"disabled": ">>> {emoji.greentick} | Der 24/7-Modus ist nun **deaktiviert**!"
+	},
+	"shuffle": {
+		"description": "Durchmischt die Warteschlange",
+		"success": ">>> {emoji.greentick} | Die Warteschlange wurde erfolgreich durchgemischt."
+	},
+	"skip": {
+		"description": "Überspringt den aktuellen Song",
+		"fail": ">>> 🔢 | Es gibt derzeit `{current}` Stimme(n), `{required}` Stimme(n) sind erforderlich, um diesen Song zu überspringen.",
+		"success": ">>> {emoji.greentick} | Stimme aufgezeichnet. Es gibt derzeit `{current}` Stimme(n), `{required}` Stimme(n) sind benötigt, um den Song zu überspringen."
+	},
+	"forceskip": {
+		"description": "Zwangsüberspringt den aktuellen Song"
+	},
+	"pause": {
+		"description": "Pausiert den Spieler",
+		"success": ">>> {emoji.greentick} | Der Spieler wurde pausiert.",
+		"fail": ">>> {emoji.redcross} | Der Spieler ist bereits pausiert."
+	},
+	"resume": {
+		"description": "Setzt den Spieler fort",
+		"success": ">>> {emoji.greentick} | Der Spieler wurde fortgesetzt.",
+		"fail": ">>> {emoji.redcross} | Der Spieler spielt bereits."
+	},
+	"clear": {
+		"description": "Leert die Warteschlange (mit Ausnahme des aktuellen Liedes)",
+		"success": ">>> {emoji.greentick} | Ich habe die Warteschlange geleert."
+	},
+	"reset": {
+		"description": "Setzt den Spieler zurück und stoppt mit Spielen",
+		"success": ">>> {emoji.greentick} | Spieler wurde auf Werkseinstellungen zurückgesetzt."
+	},
+	"fix": {
+		"description": "Behebt die Discord-Sprachverbindung",
+		"success": ">>> {emoji.greentick} | Discord-Sprachserver geändert. Man hört nichts? Schalte mich serverweit stumm und entmute mich oder führe den `/fix` Befehl erneut aus."
+	},
+	"repeat": {
+		"description": "Ändert den Wiederholungsmodus",
+		"args": {
+			"mode": "Der Wiederholungsmodus"
+		},
+		"success": ">>> {emoji.greentick} | Der Wiederholungsmodus wurde zu **{mode}** geändert!"
+	},
+	"remove": {
+		"description": "Entfernt Lieder von einem zu einem anderen Punkt",
+		"args": {
+			"start": "Startposition",
+			"end": "Endposition"
+		},
+		"fail": ">>> {emoji.error} | Die angegebenen Werte sind ungültig.\nJeder Wert muss zwischen `1` und `{length}` sein.",
+		"success": ">>> {emoji.greentick} | Ich habe die **{amount}** Songs entfernt."
+	},
+	"lyrics": {
+		"description": "Zeigt den Songtext für das abgespielte Lied an",
+		"args": {
+			"query": "Der Titel des Liedes"
+		},
+		"fail": ">>> {emoji.redcross} | Es gibt keine Wiedergabe auf dem Server, bitte gib einen Song-Titel an.",
+		"noResult": ">>> {emoji.redcross} | Entschuldigung, ich konnte keine Ergebnisse finden."
+	},
+	"move": {
+		"description": "Verschiebt Lieder von einem zu einem anderen Punkt",
+		"args": {
+			"song": "Der zu verschiebende Song",
+			"location": "Der Ort, an den das Lied bewegt werden soll"
+		},
+		"fail": ">>> {emoji.error} | Die angegebenen Werte sind ungültig.\nJeder Wert muss zwischen `1` und `{length}` sein.",
+		"success": ">>> {emoji.greentick} | Ich habe das Lied auf Position **{position}** auf Position **{location} ** verschoben!"
+	},
+	"queue": {
+		"description": "Listet alle Lieder in der Wiedergabeliste auf",
+		"embed": {
+			"title": "Warteschlange für {name}",
+			"footer": "Seite: {page} / {maxPages}",
+			"current": "Jetzt abgespielt - angefragt von {requester}"
+		}
+	}
+}

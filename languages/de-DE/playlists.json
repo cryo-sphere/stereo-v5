@@ -1,0 +1,29 @@
+{
+	"unknown": "Uh oh, ich konnte den korrekten Befehl nicht finden. Bitte kontaktieren Sie unser Support-Team, wenn dies immer wieder geschieht.",
+	"playlists": {
+		"description": "Der Playlist-Befehl mit mehreren Unterbefehlen",
+		"noResult": ">>> {emoji.redcross} | Keine Playlist gefunden.",
+		"noResults": ">>> {emoji.redcross} | Keine Wiedergabelisten gefunden.",
+		"show": {
+			"description": "Zeigt alle Playlisten, die jemand erstellt hat",
+			"embed": {
+				"title": "{name}s Wiedergabelisten",
+				"footer": "Seite: {page} / {maxPages}"
+			}
+		},
+		"create": {
+			"description": "Erstellt eine neue Wiedergabeliste mit dem angegebenen Namen",
+			"limit": ">>> {emoji.redcross} | Es sieht so aus, als ob du unser Limit für Wiedergabelisten erreicht haben. Du kannst nur bis zu 100 Wiedergabelisten mit jeweils 100 Songs erstellen.",
+			"success": ">>> {emoji.greentick} | Playlist erstellt! Du kannst deine Playlist [hier](<{url}>) besuchen und bearbeiten oder unseren `/playlist update`-Befehl verwenden, um die Warteschlange zu speichern."
+		},
+		"delete": {
+			"description": "Löscht eine Wiedergabeliste, benötigt die Wiedergabeliste-ID",
+			"success": ">>> {emoji.greentick} | Die Wiedergabeliste mit dem Namen **{name}** wurde gelöscht.\nDeine Wiedergabeliste wurde an deine DMs gesendet, wir tun dies, um sicherzustellen, dass Sie immer in der Lage sind, Ihre Daten zurück zu erhalten, wenn Sie wollen.",
+			"success-file": ">>> {emoji.greentick} | Die Wiedergabeliste mit dem Namen **{name}** wurde gelöscht.\nDeine Playlist ist an diese Nachricht angehängt, wir tun dies, um sicherzustellen, dass Sie immer in der Lage sind, Ihre Daten zurück zu erhalten, wenn Sie wollen."
+		},
+		"update": {
+			"description": "Aktualisiert eine Wiedergabeliste, benötigt die Playlist-ID und den Update-Typ",
+			"success": ">>> {emoji.greentick} | Die Songs aus der Warteschlange wurden zu **{name} ** hinzugefügt."
+		}
+	}
+}

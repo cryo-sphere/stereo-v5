@@ -1,0 +1,131 @@
+{
+	"play": {
+		"description": "Speel een nummer af in het spraak kanaal waar jij ook in zit (Stage kanalen worden ook ondersteund)",
+		"args": {
+			"query": "De zoekopdracht",
+			"type": "Zoek type (hoef je niet te gebruiken wanneer je een link gebruikt)"
+		},
+		"noResults": ">>> {emoji.redcross} | Sorry, ik heb geen resultaten kunnen vinden.",
+		"playlistLoaded": ">>> {emoji.greentick} | Ik heb de afspeellijst **{playlist}** - `{duration}` geladen",
+		"trackLoaded": ">>> {emoji.greentick} | Ik heb het nummer **{track}** - `{duration}` geladen"
+	},
+	"nowplaying": {
+		"description": "Laat informatie over het nummer dat momenteel wordt overspeelt zien",
+		"title": "Nu aan het spelen - {title}",
+		"embedDescription": "Aanvrager: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Veranderd de bassboost niveau van de speler",
+		"args": {
+			"level": "het bassboost niveau"
+		}
+	},
+	"filter": {
+		"description": "Veranderd de filter van de speler",
+		"args": {
+			"filter": "De filter die jij wil gebruiken"
+		}
+	},
+	"seek": {
+		"description": "Verplaatst naar de geven timestamp en speelt daarna verder",
+		"args": {
+			"timestamp": "De timestamp (bijv. 10:30) om naar te verplaatsen"
+		},
+		"invalid": ">>> {emoji.redcross} | De geven timestamp is niet geldig, zo zou het er uit moeten zien: `10:30`",
+		"success": ">>> {emoji.greentick} | Met success verplaatst naar `{seek}`!"
+	},
+	"disconnect": {
+		"description": "Verlaat het spraak kanaal"
+	},
+	"join": {
+		"description": "Laat Stereo jou spraak kanaal joinen"
+	},
+	"volume": {
+		"description": "Veranderd de volume van de speler",
+		"args": {
+			"volume": "Het niveau waar de volume naar toe moet"
+		},
+		"invalid": ">>> {emoji.redcross} | De volume moet tussen 1 en 200 zijn.",
+		"success": ">>> {emoji.greentick} | Ik heb de volume met success veranderd naar **{volume}%**!"
+	},
+	"247": {
+		"description": "Zet 24/7 mode aan/uit, alleen voor partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is nu **aangezet**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is nu **uitgezet**!"
+	},
+	"shuffle": {
+		"description": "Shuffles de queue",
+		"success": ">> {emoji.greentick} | De queue is succesvol geshuffled."
+	},
+	"skip": {
+		"description": "Skips het huidige nummer",
+		"fail": ">>> 🔢 | Er zijn momenteel `{current}` stem(men), `{required}` stem(men) zijn nodig om dit nummer te skippen.",
+		"success": ">>> {emoji.greentick} | Stem opgeslagen. Er zijn momenteel `{current}`stem(men), `{required}` stem(men) zijn nodig om het nummer over te slaan."
+	},
+	"forceskip": {
+		"description": "Forceert de speler om het nummer te skippen"
+	},
+	"pause": {
+		"description": "Pauzeert de speler",
+		"success": ">>> {emoji.greentick} | Speler is gepauzeerd.",
+		"fail": ">>> {emoji.redcross} | De speler is al gepauzeerd."
+	},
+	"resume": {
+		"description": "Hervat de speler",
+		"success": ">>> {emoji.greentick} | Speler is hervat.",
+		"fail": ">>> {emoji.redcross} | Speler is al aan het spelen."
+	},
+	"clear": {
+		"description": "Maakt de queue schoon (behalve het spelende nummer)",
+		"success": ">>> {emoji.greentick} | Ik heb de queue schoon gemaakt."
+	},
+	"reset": {
+		"description": "Reset de speler en stopt met spelen",
+		"success": ">>> {emoji.greentick} | Speler is gereset naar fabrieksinstellingen."
+	},
+	"fix": {
+		"description": "Fixes de Discord spraak verbinding",
+		"success": ">>> {emoji.greentick} | De spraak server is geüpdate. Hoor je niets? Server mute en unmute me dan of gebruik de `/fix` command."
+	},
+	"repeat": {
+		"description": "Veranderd de herhaal mode",
+		"args": {
+			"mode": "De herhaal mode"
+		},
+		"success": ">>> {emoji.greentick} | De herhaal mode is veranderd naar **{mode}**!"
+	},
+	"remove": {
+		"description": "Verwijderd een nummer van punt 1 naar punt 2",
+		"args": {
+			"start": "De start positie",
+			"end": "De eind positie"
+		},
+		"fail": ">>> {emoji.error} | De meegegeven waarden zijn niet correct.\nElke waarden moet tussen `1` en `{length}` zitten.",
+		"success": ">>> {emoji.greentick} | Ik heb **{amount}** nummers verwijderd."
+	},
+	"lyrics": {
+		"description": "Toont de lyrics voor het nummer dat nu aan het spelen is",
+		"args": {
+			"query": "De title van het nummer"
+		},
+		"fail": ">>> {emoji.redcross} | Er wordt niets gespeelt in de server, geef alsjeblieft een titel van een nummer.",
+		"noResult": ">>> {emoji.redcross} | Sorry, Ik heb geen resultaten kunnen vinden."
+	},
+	"move": {
+		"description": "Verplaatst een nummer van de ene plaats naar een ander",
+		"args": {
+			"song": "Het nummer dat je wil verplaatsen",
+			"location": "De positie van waar het nummer naar toe zou moeten gaan"
+		},
+		"fail": ">>> {emoji.error} | De meegegeven waarden zijn niet correct.\nElke waarden moet tussen `1` en `{length}` zitten.",
+		"success": ">>> {emoji.greentick} | Ik heb het nummer op positie **{position}** naar positie **{location}** verplaatst!"
+	},
+	"queue": {
+		"description": "Toont alle nummers die in de queue zitten",
+		"embed": {
+			"title": "Queue voor {name}",
+			"footer": "Pagina: {page} / {maxPages}",
+			"current": "Nu aan het spelen - Aangevraagd door {requester}"
+		}
+	}
+}

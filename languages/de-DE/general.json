@@ -1,0 +1,25 @@
+{
+	"ping": {
+		"description": "Pong!",
+		"reply": "Heartbeat: `{heartbeat}` ms\nRoundtrip took: `{roundtrip}` ms\nBetriebszeit: `{uptime}`"
+	},
+	"invite": {
+		"description": "Stereo zu einem anderen Server hinzufügen",
+		"message": "Drücke den Knopf, um Stereo einzuladen!"
+	},
+	"support": {
+		"description": "Gibt die Einladung zu unseren Support-Server",
+		"message": "Support benötigt? Tritt unserem Support-Server bei, wir helfen dir gerne!"
+	},
+	"help": {
+		"description": "Eine kurze Übersicht aller Befehle, die Stereo hat",
+		"args": {
+			"command": "Der Name des Befehls"
+		},
+		"embed": {
+			"title": "Hilfebefehl - {user}",
+			"description": ">>> 🏷 | **Name**: {name}\n📁 | **Kategorie**: {category}\n\n📘**Beschreibung**: {description}\n📋 **Verwendung**: {usage}\n\n👮‍♂️ | **Rechte**: {perms}\n🗝 | **DJRolle**: {djrole}\n\n⌚ | **Abklingzeit**: `{cooldown}`\n🔢 | **Limit**: `{limit}`",
+			"footer": "Von Github erstellt: Stereo"
+		}
+	}
+}

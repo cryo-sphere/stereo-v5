@@ -1,0 +1,29 @@
+{
+	"unknown": "Uh oh, je n'ai pas réussi à trouver la bonne commande. Merci de contacter notre équipe de support si cela continue à se produire.",
+	"playlists": {
+		"description": "La commande des playlists, avec plusieurs sous-commandes",
+		"noResult": ">>> {emoji.redcross} | Aucune playlist trouvée.",
+		"noResults": ">>> {emoji.redcross} | Aucunes playlists trouvées.",
+		"show": {
+			"description": "Affiche toutes les playlists que quelqu'un a créées",
+			"embed": {
+				"title": "Playlists de {name}",
+				"footer": "Page: {page} / {maxPages}"
+			}
+		},
+		"create": {
+			"description": "Crée une nouvelle playlist avec le nom fourni",
+			"limit": ">>> {emoji.redcross} | Il semble que tu aies atteint la limite de nos playlists. Tu ne peux créer que 100 playlists de 100 chansons chacune.",
+			"success": ">>> {emoji.greentick} | Playlist créée! Tu peux visiter et éditer ta playlist [here](<{url}>) ou tu peux utiliser notre commande `/playlist update` pour sauvegarder la file d'attente."
+		},
+		"delete": {
+			"description": "Supprime une playlist, nécessite l'ID de la playlist",
+			"success": ">>> {emoji.greentick} | La playlist portant le nom **{name}** a été supprimée.\nTa playlist a été envoyée dans tes DMs, nous faisons cela pour nous assurer que tu puisses toujours récupérer tes données si tu le souhaites.",
+			"success-file": ">>> {emoji.greentick} | La playlist portant le nom **{name}** a été supprimée.\nTa playlist est jointe à ce message, nous faisons cela pour nous assurer que tu puisses toujours récupérer tes données si tu le souhaites."
+		},
+		"update": {
+			"description": "Met à jour une playlist, nécessite l'ID de la playlist et le type de mise à jour",
+			"success": ">>> {emoji.greentick} | Les chansons de la file d'attente ont été ajoutées à **{name}**."
+		}
+	}
+}

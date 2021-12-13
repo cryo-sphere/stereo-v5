@@ -1,0 +1,61 @@
+{
+	"language": {
+		"description": "Laat zien / veranderd de taal",
+		"args": {
+			"language": "De taal naam"
+		},
+		"embed": {
+			"title": "De ondersteunde talen"
+		},
+		"language": ">>> 🔡 | De taal voor deze server is **Nederlands**, Je kan het veranderen op het [dashboard](<https://stereo-bot.tk/dashboard> 'Stereo - Dashboard') of via de `/language` commando",
+		"success": ">>> {emoji.greentick} | Taal veranderd naar **Nederlands**!"
+	},
+	"announce": {
+		"description": "Veranderd de mannier waarop Stereo de nummers aankondigt",
+		"args": {
+			"enabled": "Of aankondigingen ingeschakeld moeten zijn of niet",
+			"delete": "Of oude aankondigen verwijderd moeten worden of niet"
+		},
+		"success": ">>> {emoji.greentick} | Aankondigingen van nummers zijn nu **{announce}**, het verwijderen van oude aankondigingen zijn nu **{deleteAnnounce}**!"
+	},
+	"defaultvol": {
+		"description": "Changes the default volume for this server",
+		"args": {
+			"value": "The value the default volume has to change to"
+		},
+		"fail": ">>> {emoji.redcross} | The provided value must be between 1 and 200!",
+		"success": ">>> {emoji.greentick} | The default volume changed to **{defaultvolume}%**!"
+	},
+	"autorepeat": {
+		"description": "Enables or disables queue repeat when a player is created",
+		"success": ">>> {emoji.greentick} | Automatic repeat is now **{enabled}**!"
+	},
+	"autoshuffle": {
+		"description": "Enables or disables automatic shuffle when a player is created",
+		"success": ">>> {emoji.greentick} | Automatic shuffle is now **{enabled}**!"
+	},
+	"defaultbass": {
+		"description": "Changes the default bassboost level for this server",
+		"args": {
+			"level": "The level the default bassboost has to change to"
+		},
+		"success": ">>> {emoji.greentick} | The default bassboost level changed to **{defaultbassboost}**."
+	},
+	"defaultfilter": {
+		"description": "Changes the default filter for this server",
+		"args": {
+			"level": "The name of the filter the default filter has to change to"
+		},
+		"success": ">>> {emoji.greentick} | The default filter changed to **{defaultfilter}**."
+	},
+	"djrole": {
+		"description": "Changes DJRole of this server",
+		"args": {
+			"role": "The role name/id/mention the DJRole has to change to"
+		},
+		"success": ">>> {emoji.greentick} | The DJRole mode is now **enabled** and changed to **{djrole}**.",
+		"success2": ">>> {emoji.greentick} | The DJRole mode is now **disabled**.",
+		"fail": ">>> {emoji.redcross} | I was unable to find a role with the information: `{role}`.",
+		"managed": ">>> {emoji.error} | The role `{role}` is managed by another intergration! You can't assign this role to someone and therefore I can't use it as DJRole."
+	}
+}

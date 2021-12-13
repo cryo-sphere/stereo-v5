@@ -1,0 +1,25 @@
+{
+	"ping": {
+		"description": "Pong!",
+		"reply": "Hartslag: `{heartbeat}` ms\nRondreis duurde: `{roundtrip}` ms\nUptime: `{uptime}`"
+	},
+	"invite": {
+		"description": "Voeg Stereo to aan een andere server",
+		"message": "Klik op de knop om Stereo toe te voegen!"
+	},
+	"support": {
+		"description": "Geeft een uitnodiging naar onze support server",
+		"message": "Hulp nodig? Join onze support server, we helpen je graag!"
+	},
+	"help": {
+		"description": "Een kort overzicht van alle commandos Stereo heeft",
+		"args": {
+			"command": "De commando naam"
+		},
+		"embed": {
+			"title": "Help Commando - {user}",
+			"description": ">>> 🏷 | **Naam**: {name}\n📁 | **Categorie**: {category}\n\n📘**Beschrijving**: {description}\n📋 **Gebruik**: {usage}\n\n👮‍♂️ | **Permissies**: {perms}\n🗝 | **DJRol**: {djrole}\n\n⌚ | **Afkoeltijd**: `{cooldown}`\n🔢 | **Limiet**: `{limit}`",
+			"footer": "Gemaakt door Github: Stereo"
+		}
+	}
+}

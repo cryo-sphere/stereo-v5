@@ -1,0 +1,131 @@
+{
+	"play": {
+		"description": "Joue une chanson dans le salon vocal dans lequel tu te trouves (les Stage Channels sont également pris en charge!)",
+		"args": {
+			"query": "La requête de recherche",
+			"type": "Type de recherche (tu n'en as pas besoin si tu cherches par url)"
+		},
+		"noResults": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats.",
+		"playlistLoaded": ">>> {emoji.greentick} | Chargement réussi de la playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Chargement réussi de **{track}** - `{duration}`"
+	},
+	"nowplaying": {
+		"description": "Affiche les informations sur la chanson en cours de lecture",
+		"title": "En cours de lecture - {title}",
+		"embedDescription": "Demandeur: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFiltre: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Définit le niveau de bassboost pour le lecteur",
+		"args": {
+			"level": "le niveau de bassboost"
+		}
+	},
+	"filter": {
+		"description": "Définit le filtre pour le lecteur",
+		"args": {
+			"filter": "Le filtre que tu souhaites utiliser"
+		}
+	},
+	"seek": {
+		"description": "Cherche la piste actuelle jusqu'à l'horodatage",
+		"args": {
+			"timestamp": "L'horodatage (ex: 10:30) pour chercher à"
+		},
+		"invalid": ">>> {emoji.redcross} | Horodatage non valide fourni, merci de fournir un horodatage comme: `10:30`",
+		"success": ">>> {emoji.greentick} | Recherche réussie vers `{seek}`!"
+	},
+	"disconnect": {
+		"description": "Se déconnecte du salon vocal"
+	},
+	"join": {
+		"description": "Fais en sorte que Stereo rejoigne ton salon vocal"
+	},
+	"volume": {
+		"description": "Change le volume du lecteur",
+		"args": {
+			"volume": "La valeur à laquelle régler le volume"
+		},
+		"invalid": ">>> {emoji.redcross} | La valeur doit être comprise entre 1 et 200.",
+		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
+	},
+	"247": {
+		"description": "Bascule en mode 24/7, uniquement pour les partenaires",
+		"enabled": ">>> {emoji.greentick} | Le mode 24/7 est désormais **activé**!",
+		"disabled": ">>> {emoji.greentick} | Le mode 24/7 est désormais **désactivé**!"
+	},
+	"shuffle": {
+		"description": "Mélange la file d'attente",
+		"success": ">>> {emoji.greentick} | La file d'attente a été mélangée avec succès."
+	},
+	"skip": {
+		"description": "Saute la chanson en cours",
+		"fail": ">>> 🔢 | Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson.",
+		"success": ">>> {emoji.greentick} | Vote enregistré. Il y a actuellement `{current}` vote(s), `{required}` vote(s) sont nécessaires pour sauter cette chanson."
+	},
+	"forceskip": {
+		"description": "Forcer à sauter la chanson actuelle"
+	},
+	"pause": {
+		"description": "Met le lecteur en pause",
+		"success": ">>> {emoji.greentick} | Mise en pause du lecteur.",
+		"fail": ">>> {emoji.redcross} | Le lecteur est déjà en pause."
+	},
+	"resume": {
+		"description": "Reprend le lecteur",
+		"success": ">>> {emoji.greentick} | Reprise du lecteur.",
+		"fail": ">>> {emoji.redcross} | Le lecteur est déjà entrain de jouer."
+	},
+	"clear": {
+		"description": "Efface la file d'attente (sauf la chanson actuelle)",
+		"success": ">>> {emoji.greentick} | J'ai vidé la file d'attente."
+	},
+	"reset": {
+		"description": "Réinitialise le lecteur et arrête de jouer",
+		"success": ">>> {emoji.greentick} | Le lecteur est réinitialisé aux paramètres d'usine."
+	},
+	"fix": {
+		"description": "Corrige la connexion vocale Discord",
+		"success": ">>> {emoji.greentick} | J'ai changé le serveur vocal Discord. Tu n'entends rien? Server mute et unmute moi ou exécute à nouveau la commande `/fix`."
+	},
+	"repeat": {
+		"description": "Change le mode de répétition",
+		"args": {
+			"mode": "Le mode répétition"
+		},
+		"success": ">>> {emoji.greentick} | Le mode de répétition est maintenant changé à **{mode}** !"
+	},
+	"remove": {
+		"description": "Déplace des chansons d'un point à un autre",
+		"args": {
+			"start": "La localisation de départ",
+			"end": "La localisation finale"
+		},
+		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
+		"success": ">>> {emoji.greentick} | J'ai enlevé les **{amount}** chansons."
+	},
+	"lyrics": {
+		"description": "Affiche les paroles de la chanson en cours de lecture",
+		"args": {
+			"query": "Le titre de la chanson"
+		},
+		"fail": ">>> {emoji.redcross} | Il n'y a rien en cours de lecture dans le serveur, merci de fournir un titre de chanson.",
+		"noResult": ">>> {emoji.redcross} | Désolé, je n'ai pas pu trouver de résultats."
+	},
+	"move": {
+		"description": "Déplace une chanson d'un endroit à un autre",
+		"args": {
+			"song": "La chanson à déplacer",
+			"location": "L'endroit où la chanson doit se déplacer"
+		},
+		"fail": ">>> {emoji.error} | Les valeurs fournies ne sont pas valides.\nChaque valeur doit être comprise entre `1` et `{length}`.",
+		"success": ">>> {emoji.greentick} | J'ai déplacé la chanson de la position **{position}** à la position **{location}**!"
+	},
+	"queue": {
+		"description": "Montre toutes les chansons dans la file d'attente",
+		"embed": {
+			"title": "File d'attente pour {name}",
+			"footer": "Page: {page} / {maxPages}",
+			"current": "En cours de lecture - Demandé par {requester}"
+		}
+	}
+}

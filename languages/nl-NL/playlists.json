@@ -1,0 +1,29 @@
+{
+	"unknown": "Uh oh, Ik kon de juiste commando niet vinden. Neem contact op met ons ondersteuningsteam als dit bijft gebeuren.",
+	"playlists": {
+		"description": "De commando playlists, met meerdere subcommandos",
+		"noResult": ">>> {emoji.redcross} | Geen afspeellijst gevonden.",
+		"noResults": ">>> {emoji.redcross} | Geen afspeellijsten gevonden.",
+		"show": {
+			"description": "Laat alle afspeellijsten die iemand heeft aangemaakt zien",
+			"embed": {
+				"title": "Afspeellijsten van {name}",
+				"footer": "Pagina: {page} / {maxPages}"
+			}
+		},
+		"create": {
+			"description": "Maakt een nieuwe afspeellijst met de opgegeven naam",
+			"limit": ">>> {emoji.redcross} Het lijkt erop dat je de afspeellijst limiet hebt bereikt. Je kunt slechts 100 afspeellijsten maken met 100 nummers per afspeellijst.",
+			"success": ">>> {emoji.greentick} | De afspeellijst gemaakt! Je kunt je afspeellijst zien en bewerken [here](<{url}>) of je kunt onze `/playlist update` commando gebruiken om de wachtrij op te slaan."
+		},
+		"delete": {
+			"description": "Verwijdert een afspeellijst, heirbij is de afspeellijst id nodig",
+			"success": ">>> {emoji.greentick} ・De afspeellijst met de naam **{name}** is verwijderd.\nJe afspeellijst is naar je DM's gestuurd, We doen dit om ervoor te zorgen dat je altijd in staat bent om jegegevens terug te krijgen als u dat wilt.",
+			"success-file": ">>> {emoji.greentick} ・De afspeellijst met de naam **{name}** is verwijderd.\nJe afspeellijst is naar je Dms gestuurd, We doen dit om ervoor te zorgen dat je altijd in staat bent om je gegevens terug te krijgen als je dat wilt."
+		},
+		"update": {
+			"description": "Werkt een afspeellijst bij, daarbij is de afspeellijst-id en het update type nodig",
+			"success": ">>> {emoji.greentick} ・De nummers uit de queue zijn toegevoegd aan **{name}**."
+		}
+	}
+}

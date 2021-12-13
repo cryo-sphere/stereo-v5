@@ -1,0 +1,131 @@
+{
+	"play": {
+		"description": "Play a song in the voice channel you are in (Stage channels are supported too!)",
+		"args": {
+			"query": "The search query",
+			"type": "Search type (you don't need it when searching via url)"
+		},
+		"noResults": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results.",
+		"playlistLoaded": ">>> {emoji.greentick} | Successfully loaded playlist **{playlist}** - `{duration}`",
+		"trackLoaded": ">>> {emoji.greentick} | Successfully loaded **{track}** - `{duration}`"
+	},
+	"nowplaying": {
+		"description": "Shows the information about the current playing song",
+		"title": "Now playing - {title}",
+		"embedDescription": "Requester: <@{user}>\nVolume: `{volume}%`\nBassboost: {bassboost}\nFilter: {filter}\nAfk: {afk}\n\n{progress}"
+	},
+	"bassboost": {
+		"description": "Sets the bassboost level for the player",
+		"args": {
+			"level": "the bassboost level"
+		}
+	},
+	"filter": {
+		"description": "Sets the filter for the player",
+		"args": {
+			"filter": "The filter you want to use"
+		}
+	},
+	"seek": {
+		"description": "Seeks the current track to the timestamp",
+		"args": {
+			"timestamp": "The timestamp (ex: 10:30) to seek to"
+		},
+		"invalid": ">>> {emoji.redcross} | Invalid timestamp provided, please provide a timestamp like: `10:30`",
+		"success": ">>> {emoji.greentick} | Successfully seeked to `{seek}`!"
+	},
+	"disconnect": {
+		"description": "Disconnects from the voice channel"
+	},
+	"join": {
+		"description": "Get Stereo to join your voice channel"
+	},
+	"volume": {
+		"description": "Changes the volume of the player",
+		"args": {
+			"volume": "The value to set the volume to"
+		},
+		"invalid": ">>> {emoji.redcross} | The value must be between 1 and 200.",
+		"success": ">>> {emoji.greentick} | Successfully changed the volume to **{volume}%**!"
+	},
+	"247": {
+		"description": "Toggles 24/7 mode, only for partners",
+		"enabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned on**!",
+		"disabled": ">>> {emoji.greentick} | 24/7 Mode is now **turned off**!"
+	},
+	"shuffle": {
+		"description": "Shuffles the queue",
+		"success": ">>> {emoji.greentick} | Successfully shuffled the queue."
+	},
+	"skip": {
+		"description": "Skips the current song",
+		"fail": ">>> 🔢 | There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song.",
+		"success": ">>> {emoji.greentick} | Vote recorded. There are currently `{current}` vote(s), `{required}` vote(s) are required to skip this song."
+	},
+	"forceskip": {
+		"description": "Forceskips the current song"
+	},
+	"pause": {
+		"description": "Pauses the player",
+		"success": ">>> {emoji.greentick} | Paused the player.",
+		"fail": ">>> {emoji.redcross} | Player is already paused."
+	},
+	"resume": {
+		"description": "Resumes the player",
+		"success": ">>> {emoji.greentick} | Resumed the player.",
+		"fail": ">>> {emoji.redcross} | Player is already playing."
+	},
+	"clear": {
+		"description": "Clears the queue (except the current song)",
+		"success": ">>> {emoji.greentick} | I've cleared the queue."
+	},
+	"reset": {
+		"description": "Resets the player and stops with playing",
+		"success": ">>> {emoji.greentick} | Player is reset to factory settings."
+	},
+	"fix": {
+		"description": "Fixes the Discord voice connection",
+		"success": ">>> {emoji.greentick} | Changed the Discord voice server. Not hearing anything? Server mute and unmute me or run the `/fix` command again."
+	},
+	"repeat": {
+		"description": "Changes the repeat mode",
+		"args": {
+			"mode": "The repeat mode"
+		},
+		"success": ">>> {emoji.greentick} | The repeat mode is now changed to **{mode}**!"
+	},
+	"remove": {
+		"description": "Removes songs from 1 point to another",
+		"args": {
+			"start": "The start location",
+			"end": "The end location"
+		},
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've removed the **{amount}** songs."
+	},
+	"lyrics": {
+		"description": "Shows the lyrics for the playing song",
+		"args": {
+			"query": "The song title"
+		},
+		"fail": ">>> {emoji.redcross} | There is nothing playing in the server, please provide a song title.",
+		"noResult": ">>> {emoji.redcross} | Sorry, I wasn't able to find any results."
+	},
+	"move": {
+		"description": "Moves a song from 1 place to another",
+		"args": {
+			"song": "The song to move",
+			"location": "The location the song has to move to"
+		},
+		"fail": ">>> {emoji.error} | The provided values are invalid.\nEvery value must be between `1` and `{length}`.",
+		"success": ">>> {emoji.greentick} | I've moved the song on position **{position}** to position **{location}**!"
+	},
+	"queue": {
+		"description": "Shows all the songs in the queue",
+		"embed": {
+			"title": "Queue for {name}",
+			"footer": "Page: {page} / {maxPages}",
+			"current": "Now playing - Requested by {requester}"
+		}
+	}
+}
