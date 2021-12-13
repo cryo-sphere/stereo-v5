@@ -2,7 +2,7 @@
   <img src="https://cdn.stereo-bot.tk/branding/logo.png" width="100px" />
   <h1 align="center">Stereo v5</h1>
   
-  <p>Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free!</p>
+  <p>Free high quality music everywhere. For all.</p>
   
   <p align="center">
     <img alt="Version" src="https://img.shields.io/badge/version-5.1.0-blue.svg" />
