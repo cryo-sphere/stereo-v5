@@ -5,5 +5,6 @@ import { ApplyOptions } from "@sapphire/decorators";
 export default class extends Listener {
 	public run() {
 		this.container.logger.info(`${this.client.user!.tag} has logged in!`);
+		this.client.manager.init(this.client.user!.id);
 	}
 }
