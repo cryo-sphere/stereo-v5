@@ -1,9 +1,9 @@
 {
-	"name": "bot-template",
-	"version": "1.0.0",
-	"description": "Bot template for Discord bot projects made by DaanGamesDG",
+	"name": "stereo-v5",
+	"version": "5.1.0",
+	"description": "Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free!",
 	"main": "dist/src",
-	"repository": "https://github.com/DaanGamesDG/bot-template",
+	"repository": "https://github.com/stereo-bot/stereo-v5/",
 	"author": "DaanGamesDG <daan@daangamesdg.xyz>",
 	"license": "MIT",
 	"devDependencies": {
