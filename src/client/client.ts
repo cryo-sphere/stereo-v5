@@ -2,9 +2,11 @@ import { SapphireClient } from "@sapphire/framework";
 import type { ActivitiesOptions, BitFieldResolvable, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
 import { PrismaClient } from "@prisma/client";
-import { BlacklistManager, Utils } from "./lib";
+import { BlacklistManager, Utils, StereoPlaylist } from "./lib";
+import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 
 import "@daangamesdg/sapphire-logger/register";
+import "./lib/plugins/StereoTrack";
 
 export class Client extends SapphireClient {
 	public owners: string[];
@@ -15,6 +17,30 @@ export class Client extends SapphireClient {
 
 	// managers
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
+	public musicManager = new Manager(
+		[
+			{
+				id: "main",
+				host: process.env.LAVALINK_HOST as string,
+				port: Number(process.env.LAVALINK_PORT ?? 0) ?? 2333,
+				password: process.env.LAVALINK_PASSWORD as string
+			}
+		],
+		{
+			send: (guildId, payload) => {
+				const guild = this.guilds.cache.get(guildId);
+				if (guild) guild.shard.send(payload);
+			},
+			plugins: [
+				new Deezer(),
+				new StereoPlaylist(),
+				new Spotify({
+					clientId: process.env.CLIENT_ID,
+					clientSecret: process.env.CLIENT_SECRET
+				})
+			]
+		}
+	);
 
 	public constructor(options: ClientOptions) {
 		super({

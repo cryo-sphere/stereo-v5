@@ -339,6 +339,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@lavaclient/types@npm:^2.0.11":
+  version: 2.0.11
+  resolution: "@lavaclient/types@npm:2.0.11"
+  checksum: d262899c6700aef6342f763c7db73d2b12b8deb78f26dfec4e08ec00441bb8d7288a01fc0da271e29237efe5d2f388633aaeb268bdde934de09bb84eba9a598f
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -560,6 +567,17 @@ __metadata:
   version: 4.2.0
   resolution: "@sindresorhus/is@npm:4.2.0"
   checksum: 59040dfb75c2eb6ab76e8c7ac10b7f7f6ba740f0b5ac618a89a8bcdbaf923836a8e998078d59d81f6f13f4b6bbe15bfe1bca962c877edcbe9160d1c100c56fd7
+  languageName: node
+  linkType: hard
+
+"@stereo-bot/lavalink@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@stereo-bot/lavalink@npm:1.2.1"
+  dependencies:
+    "@lavaclient/types": ^2.0.11
+    axios: ^0.24.0
+    ws: ^8.3.0
+  checksum: e71fdd58ea3955c7ecd3c656772abb41c6c021dd6129af94c07e8492abf8e079b5551085d0fea9eced97d78c84c4de04a5ad7bb4340dd399fa9514c5af04eabb
   languageName: node
   linkType: hard
 
@@ -935,6 +953,15 @@ __metadata:
   version: 0.4.0
   resolution: "asynckit@npm:0.4.0"
   checksum: 7b78c451df768adba04e2d02e63e2d0bf3b07adcd6e42b4cf665cb7ce899bedd344c69a1dcbce355b5f972d597b25aaa1c1742b52cffd9caccb22f348114f6be
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.24.0":
+  version: 0.24.0
+  resolution: "axios@npm:0.24.0"
+  dependencies:
+    follow-redirects: ^1.14.4
+  checksum: 468cf496c08a6aadfb7e699bebdac02851e3043d4e7d282350804ea8900e30d368daa6e3cd4ab83b8ddb5a3b1e17a5a21ada13fc9cebd27b74828f47a4236316
   languageName: node
   linkType: hard
 
@@ -1765,6 +1792,16 @@ __metadata:
   version: 3.2.4
   resolution: "flatted@npm:3.2.4"
   checksum: 7d33846428ab337ec81ef9b8b9103894c1c81f5f67feb32bd4ed106fbc47da60d56edb42efd36c9f1f30a010272aeccd34ec1ffacfe9dfdff19673b1d4df481b
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.4":
+  version: 1.14.6
+  resolution: "follow-redirects@npm:1.14.6"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 7fcdb089a733d2aa39041880790e9f772df009fcd0b243fee7e10acf0e14a8dab5208cf79eb1de35b9cc6033d4dde7f95becadfaa360c50d460b4c730b375e80
   languageName: node
   linkType: hard
 
@@ -3482,6 +3519,7 @@ __metadata:
     "@sapphire/prettier-config": ^1.2.7
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/type": ^2.1.2
+    "@stereo-bot/lavalink": ^1.2.1
     "@types/ms": ^0.7.31
     "@types/node": ^16.11.12
     cross-env: ^7.0.3
@@ -3961,7 +3999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ws@npm:^8.2.3":
+"ws@npm:^8.2.3, ws@npm:^8.3.0":
   version: 8.3.0
   resolution: "ws@npm:8.3.0"
   peerDependencies:

@@ -28,6 +28,7 @@
 		"@sapphire/framework": "pr-293",
 		"@sapphire/plugin-subcommands": "^2.1.2",
 		"@sapphire/type": "^2.1.2",
+		"@stereo-bot/lavalink": "^1.2.1",
 		"discord.js": "^13.3.1",
 		"dotenv": "^10.0.0",
 		"ms": "^2.1.3"
