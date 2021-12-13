@@ -51,12 +51,15 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 		this.clientPermissions = options.requiredClientPermissions ?? [];
 
 		this.client = this.container.client as Client;
+		this.options.cooldownFilteredUsers = this.client.owners;
 	}
 
 	public override registerApplicationCommands(registery: ApplicationCommandRegistry) {
 		if (!this.options.chatInputCommand || !this.options.enabled) return;
 
-		const guildIds = [process.env.TEST_GUILD as string, process.env.SUPPORT_GUILD as string].filter((str) => typeof str === "string");
+		const guildIds = [process.env.TEST_GUILD as string, process.env.SUPPORT_GUILD as string].filter(
+			(str) => typeof str === "string" && str.length
+		);
 		const options: ApplicationCommandRegistryRegisterOptions = {
 			behaviorWhenNotIdentical: RegisterBehavior.Overwrite,
 			guildIds: process.env.NODE_ENV === "development" || this.OwnerOnly ? guildIds : undefined
