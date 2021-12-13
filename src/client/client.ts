@@ -2,7 +2,7 @@ import { SapphireClient } from "@sapphire/framework";
 import type { ActivitiesOptions, BitFieldResolvable, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
 import { PrismaClient } from "@prisma/client";
-import { BlacklistManager, Utils, StereoPlaylist } from "./lib";
+import { BlacklistManager, TranslationManager, Utils, StereoPlaylist } from "./lib";
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 
 import "@daangamesdg/sapphire-logger/register";
@@ -17,6 +17,7 @@ export class Client extends SapphireClient {
 
 	// managers
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
+	public translationManager = new TranslationManager(this);
 	public manager = new Manager(
 		[
 			{
@@ -100,6 +101,7 @@ declare module "@sapphire/framework" {
 
 		// managers
 		public blacklistManager: BlacklistManager;
+		public translationManager: TranslationManager;
 		public manager: Manager;
 
 		// functions

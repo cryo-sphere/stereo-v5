@@ -12,6 +12,7 @@ import {
 } from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
 import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
+import type { TranslationManager } from "../..";
 import type { Client } from "../../../";
 
 export abstract class Command extends SubCommandPluginCommand<CommandArgs, Command> {
@@ -27,6 +28,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	public readonly clientPermissions: PermissionResolvable;
 
 	public client: Client;
+	public translate: TranslationManager;
 
 	public constructor(context: PieceContext, options: Command.Options) {
 		super(context, {
@@ -51,6 +53,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 		this.clientPermissions = options.requiredClientPermissions ?? [];
 
 		this.client = this.container.client as Client;
+		this.translate = this.client.translationManager;
 		this.options.cooldownFilteredUsers = this.client.owners;
 	}
 
