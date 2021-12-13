@@ -6,7 +6,8 @@ Below you can find a table of all supported versions, check this table **before*
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
+| < 5.0.x | :x:                |
+| 5.1.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
