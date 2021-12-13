@@ -467,8 +467,8 @@ __metadata:
   linkType: hard
 
 "@sapphire/framework@npm:pr-293":
-  version: 2.3.0-pr-293.501f6a8.0
-  resolution: "@sapphire/framework@npm:2.3.0-pr-293.501f6a8.0"
+  version: 2.3.0-pr-293.1473f55.0
+  resolution: "@sapphire/framework@npm:2.3.0-pr-293.1473f55.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.3.0
     "@sapphire/discord.js-utilities": ^4.1.4
@@ -477,7 +477,7 @@ __metadata:
     "@sapphire/utilities": ^3.1.0
     lexure: ^0.17.0
     tslib: ^2.3.1
-  checksum: b5f245793eeaf8de4ae765d5a91b40d3724f9cef5e5981fbb914e6103d485604b9375890207ad965cb54af36f237dab5b06d98ad8a8ff29a748d9222b7de49e6
+  checksum: 165df8c8f875754ec00a211df0605c0456000da81e996a1f74b25de343d983b91ddb1fbfb5abcd8bdf542a4fca399873ba1aa0d9722e779a817e6c9f67619bb3
   languageName: node
   linkType: hard
 
