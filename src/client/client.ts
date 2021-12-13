@@ -17,7 +17,7 @@ export class Client extends SapphireClient {
 
 	// managers
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
-	public musicManager = new Manager(
+	public manager = new Manager(
 		[
 			{
 				id: "main",
@@ -100,6 +100,7 @@ declare module "@sapphire/framework" {
 
 		// managers
 		public blacklistManager: BlacklistManager;
+		public manager: Manager;
 
 		// functions
 		public isOwner(id: string): boolean;
