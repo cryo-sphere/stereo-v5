@@ -13,3 +13,25 @@ datasource db {
 model botBlacklist {
   id String @id
 }
+
+model Guild {
+  id               String  @id
+  djrole           String? @default("")
+  language         String  @default("en-US")
+  defaultvolume    Int     @default(100)
+  defaultfilter    String  @default("none")
+  defaultbassboost String  @default("none")
+  autoshuffle      Boolean @default(false)
+  autorepeat       Boolean @default(false)
+  announce         Boolean @default(true)
+  deleteAnnounce   Boolean @default(true)
+  partner          Boolean @default(false)
+  afk              Boolean @default(false)
+}
+
+model Playlist {
+  id     String   @id
+  name   String
+  songs  String[]
+  userId String
+}
