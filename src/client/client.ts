@@ -1,7 +1,7 @@
 import { SapphireClient } from "@sapphire/framework";
-import type { ActivitiesOptions, BitFieldResolvable, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
+import { ActivitiesOptions, BitFieldResolvable, Collection, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
-import { PrismaClient } from "@prisma/client";
+import { Guild, PrismaClient } from "@prisma/client";
 import { BlacklistManager, TranslationManager, Utils, StereoPlaylist } from "./lib";
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 
@@ -10,6 +10,9 @@ import "./lib/plugins/StereoTrack";
 
 export class Client extends SapphireClient {
 	public owners: string[];
+
+	// collections
+	public config = new Collection<string, Guild>();
 
 	// Classes
 	public prisma = new PrismaClient();
@@ -61,6 +64,10 @@ export class Client extends SapphireClient {
 		this.owners = options.owners;
 
 		process.on("unhandledRejection", this.handleRejection.bind(this));
+
+		this.ws
+			.on("VOICE_SERVER_UPDATE", (data) => this.manager.voiceServerUpdate(data))
+			.on("VOICE_STATE_UPDATE", (data) => this.manager.voiceStateUpdate(data));
 	}
 
 	public isOwner(id: string): boolean {
@@ -94,6 +101,9 @@ declare module "@sapphire/framework" {
 	class SapphireClient {
 		// Data
 		public owners: string[];
+
+		// collections
+		public config: Collection<string, Guild>;
 
 		// Classes
 		public prisma: PrismaClient;

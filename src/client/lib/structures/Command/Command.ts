@@ -103,11 +103,13 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 
 export namespace Command {
 	export type Options = SubCommandPluginCommand.Options & {
+		tDescription?: string;
+
 		hidden?: boolean;
 		usage?: string;
 		permissions?: PermissionResolvable;
 		chatInputCommand?: {
-			options?: ApplicationCommandOptionData[];
+			options?: (ApplicationCommandOptionData & { tDescription?: string })[];
 			contextmenu?: "MESSAGE" | "USER";
 			messageCommand?: boolean;
 		};

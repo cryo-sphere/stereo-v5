@@ -16,9 +16,7 @@ export class TranslationManager {
 	}
 
 	public translate(id: string | null | undefined, path: string, vars: Record<string, unknown> = {}): string {
-		// TODO: connect back to config
-		// const language = this.client.config.get(id ?? "")?.language ?? "en-US";
-		const language = "en-US";
+		const language = this.client.config.get(id ?? "")?.language ?? "en-US";
 		const emojis = Object.keys(constants.emojis).reduce(
 			(o, key) =>
 				Object.assign(o, {
