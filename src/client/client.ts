@@ -21,7 +21,7 @@ export class Client extends SapphireClient {
 	// managers
 	public blacklistManager: BlacklistManager = new BlacklistManager(this);
 	public translationManager = new TranslationManager(this);
-	public manager = new Manager(
+	public manager: Manager = new Manager(
 		[
 			{
 				id: "main",
