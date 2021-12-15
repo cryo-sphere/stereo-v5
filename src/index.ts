@@ -8,8 +8,8 @@ const client = new Client({
 	owners: (process.env.OWNERS ?? "").split(","),
 	activity: [
 		{
-			type: "LISTENING",
-			name: "DaanGamesDG"
+			type: "PLAYING",
+			name: "/help - stereo-bot.tk"
 		}
 	]
 });
