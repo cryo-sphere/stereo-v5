@@ -1,4 +1,5 @@
 node_modules
 languages
+languages.json
 temp
 dist
