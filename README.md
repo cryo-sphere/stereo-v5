@@ -36,6 +36,20 @@ We will provide a guide on how to host it yourself, please consult the installat
 
 This project is WIP, please come back later for a guide on how to host this bot yourself.
 
+## Features
+
+Stereo is equipped with a lot of cool features, here are some of them:
+
+-   [ ] Custom role permissions
+-   [ ] Web player
+-   [ ] Saved queue (auto restart after reboot)
+-   [x] Filters
+-   [x] Translations
+-   [x] Custom playlists
+-   [x] Spotify Support
+-   [x] Dashboard
+-   [x] Customization (a lot of settings)
+
 ## Author
 
 👤 **DaanGamesDG**
