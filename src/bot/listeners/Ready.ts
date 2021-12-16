@@ -3,21 +3,20 @@ import { ApplyOptions } from "@sapphire/decorators";
 
 @ApplyOptions<Listener.Options>({ event: "ready", once: true })
 export default class extends Listener {
-	public run() {
-		this.container.logger.info(`${this.client.user!.tag} has logged in!`);
-
+	public async run() {
 		this.client.manager.init(this.client.user!.id);
 		this.client.translationManager.loadAll();
-		void this.loadConfig();
+		await this.loadConfig();
+
+		this.container.logger.info(`${this.client.user!.tag} has logged in!`);
 	}
 
 	private async loadConfig() {
-		const { client } = this.container;
-
-		const configs = await client.prisma.guild.findMany();
-		client.guilds.cache.forEach(async (g) => {
-			const config = configs.find((c) => c.id === g.id) || (await client.prisma.guild.create({ data: { id: g.id } }));
-			client.config.set(g.id, config);
+		const configs = await this.client.prisma.guild.findMany({ include: { permissions: true } });
+		this.client.guilds.cache.forEach(async (g) => {
+			const config =
+				configs.find((c) => c.id === g.id) || (await this.client.prisma.guild.create({ data: { id: g.id }, include: { permissions: true } }));
+			this.client.config.set(g.id, config);
 		});
 	}
 }

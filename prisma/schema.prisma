@@ -15,18 +15,26 @@ model botBlacklist {
 }
 
 model Guild {
-  id               String  @id
-  djrole           String? @default("")
-  language         String  @default("en-US")
-  defaultvolume    Int     @default(100)
-  defaultfilter    String  @default("none")
-  defaultbassboost String  @default("none")
-  autoshuffle      Boolean @default(false)
-  autorepeat       Boolean @default(false)
-  announce         Boolean @default(true)
-  deleteAnnounce   Boolean @default(true)
-  partner          Boolean @default(false)
-  afk              Boolean @default(false)
+  id               String       @id
+  permissions      Permission[]
+  permsEnabled     Boolean      @default(false)
+  language         String       @default("en-US")
+  defaultvolume    Int          @default(100)
+  defaultfilter    String       @default("none")
+  defaultbassboost String       @default("none")
+  autoshuffle      Boolean      @default(false)
+  autorepeat       Boolean      @default(false)
+  announce         Boolean      @default(true)
+  deleteAnnounce   Boolean      @default(true)
+  partner          Boolean      @default(false)
+  afk              Boolean      @default(false)
+}
+
+model Permission {
+  id          String @id
+  permissions BigInt
+  Guild       Guild? @relation(fields: [guildId], references: [id])
+  guildId     String
 }
 
 model Playlist {

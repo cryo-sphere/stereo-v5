@@ -1,7 +1,7 @@
 import { SapphireClient } from "@sapphire/framework";
 import { ActivitiesOptions, BitFieldResolvable, Collection, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
-import { Guild, PrismaClient } from "@prisma/client";
+import { Guild, Permission, PrismaClient } from "@prisma/client";
 import { BlacklistManager, TranslationManager, Utils, StereoPlaylist } from "./lib";
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 
@@ -12,7 +12,7 @@ export class Client extends SapphireClient {
 	public owners: string[];
 
 	// collections
-	public config = new Collection<string, Guild>();
+	public config = new Collection<string, Guild & { permissions: Permission[] }>();
 
 	// Classes
 	public prisma = new PrismaClient();
@@ -103,7 +103,7 @@ declare module "@sapphire/framework" {
 		public owners: string[];
 
 		// collections
-		public config: Collection<string, Guild>;
+		public config: Collection<string, Guild & { permissions: Permission[] }>;
 
 		// Classes
 		public prisma: PrismaClient;
