@@ -34,17 +34,17 @@ export default class extends Precondition {
 		const permRole = roles.find((role) => config.permissions.find((perm) => perm.id === role.id));
 		if (!permRole)
 			return this.error({
-				identifier: "permissions:custom",
+				identifier: "permissions:custom.message",
 				message: "Missing music permissions",
-				context: { permissions: context.permissions }
+				context: { permissions: MusicPermissions.resolveToString(context.permissions) }
 			});
 
 		const permissions = new MusicPermissions(config.permissions.find((perm) => perm.id === permRole.id)!.permissions);
 		if (!permissions.has(context.permissions))
 			return this.error({
-				identifier: "permissions:custom",
+				identifier: "permissions:custom.message",
 				message: "Missing music permissions",
-				context: { permissions: context.permissions }
+				context: { permissions: MusicPermissions.resolveToString(context.permissions) }
 			});
 
 		return this.ok();

@@ -26,4 +26,23 @@ export class MusicPermissions {
 
 		return MusicPermissions.FLAGS[permissions] ?? 0n;
 	}
+
+	public static resolveToString(permissions: MusicPermissionResolvable): string[] {
+		let perms: bigint;
+		const permissionArray: string[] = [];
+
+		if (Array.isArray(permissions))
+			perms = permissions.map((permission) => MusicPermissions.resolve(permission)).reduce((prev, next) => prev + next);
+		if (typeof permissions === "bigint") perms = permissions;
+		else perms = MusicPermissions.resolve(permissions);
+
+		const hasBit = (permissions: bigint, bit: bigint) => {
+			return (permissions & bit) === bit;
+		};
+
+		for (const [id, bit] of Object.entries(MusicPermissions.FLAGS) as [keyof MusicPermissionFlags, bigint][])
+			if (hasBit(perms, bit)) permissionArray.push(id);
+
+		return permissionArray;
+	}
 }
