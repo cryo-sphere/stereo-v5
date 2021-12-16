@@ -10,6 +10,7 @@ import { Command } from "../../../client";
 	description: "Play a song",
 	tDescription: "music:play.description",
 	usage: "<query> [type]",
+	musicPermissions: ["PLAY_SONGS"],
 	cooldownDelay: 1e4,
 	chatInputCommand: {
 		register: true,

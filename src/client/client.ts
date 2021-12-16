@@ -2,7 +2,7 @@ import { SapphireClient } from "@sapphire/framework";
 import { ActivitiesOptions, BitFieldResolvable, Collection, IntentsString, PartialTypes, PresenceStatusData } from "discord.js";
 import { join } from "path";
 import { Guild, Permission, PrismaClient } from "@prisma/client";
-import { BlacklistManager, TranslationManager, Utils, StereoPlaylist } from "./lib";
+import { BlacklistManager, TranslationManager, Utils, StereoPlaylist, MusicPermissionResolvable } from "./lib";
 import { Deezer, Manager, Spotify } from "@stereo-bot/lavalink";
 
 import "@daangamesdg/sapphire-logger/register";
@@ -121,5 +121,8 @@ declare module "@sapphire/framework" {
 	interface Preconditions {
 		OwnerOnly: never;
 		Blacklisted: never;
+		MusicPermissions: {
+			permissions: MusicPermissionResolvable;
+		};
 	}
 }

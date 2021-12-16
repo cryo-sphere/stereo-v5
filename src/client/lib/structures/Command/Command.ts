@@ -12,6 +12,7 @@ import {
 } from "@sapphire/framework";
 import { SubCommandPluginCommand } from "@sapphire/plugin-subcommands";
 import type { ApplicationCommandOptionData, PermissionResolvable } from "discord.js";
+import type { MusicPermissionResolvable } from "..";
 import type { TranslationManager } from "../..";
 import type { Client } from "../../../";
 
@@ -98,6 +99,8 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 
 	protected parseExtraPreConditions(): void {
 		this.preconditions.append("Blacklisted");
+		if (this.options.musicPermissions)
+			this.preconditions.append({ name: "MusicPermissions", context: { permissions: this.options.musicPermissions } });
 	}
 }
 
@@ -107,7 +110,8 @@ export namespace Command {
 
 		hidden?: boolean;
 		usage?: string;
-		permissions?: PermissionResolvable;
+		musicPermissions?: MusicPermissionResolvable;
+
 		chatInputCommand?: {
 			options?: (ApplicationCommandOptionData & { tDescription?: string })[];
 			contextmenu?: "MESSAGE" | "USER";
