@@ -21,6 +21,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 	public readonly hidden: boolean;
 	public readonly OwnerOnly: boolean;
 	public readonly usage: string;
+	public tDescription: string | null;
 
 	public readonly cooldown: number;
 	public readonly cooldownLimit: number;
@@ -43,6 +44,7 @@ export abstract class Command extends SubCommandPluginCommand<CommandArgs, Comma
 		if (!options.name) this.container.logger.warn(`No name provided for command with aliases "${this.aliases.join('", "')}"`);
 
 		this.usage = `${options.name} ${options.usage ?? ""}`.trim();
+		this.tDescription = options.tDescription ?? null;
 
 		this.hidden = options.hidden ?? false;
 		this.OwnerOnly = options.preconditions?.includes("OwnerOnly") ?? false;

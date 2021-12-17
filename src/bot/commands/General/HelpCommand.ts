@@ -1,12 +1,14 @@
 import { Command } from "../../../client/";
 import { ApplyOptions } from "@sapphire/decorators";
-import type { CommandInteraction, EmbedFieldData, Message, MessageEmbed, User } from "discord.js";
+import { CommandInteraction, EmbedFieldData, MessageActionRow, MessageButton } from "discord.js";
 import ms from "ms";
+import { emojis } from "../../../client/constants";
 
 @ApplyOptions<Command.Options>({
 	name: "help",
 	aliases: ["commands"],
-	description: "A list of all the commands",
+	description: "A quick overview of all the commands Stereo has",
+	tDescription: "general:help.description",
 	requiredClientPermissions: ["EMBED_LINKS"],
 	usage: "[command]",
 	chatInputCommand: {
@@ -14,66 +16,67 @@ import ms from "ms";
 		register: true,
 		options: [
 			{
-				name: "command",
 				type: "STRING",
-				description: "The name of the command",
+				description: "The command name",
+				tDescription: "general:help.args.command",
+				name: "command",
 				required: false
 			}
 		]
 	}
 })
 export default class extends Command {
-	public async messageRun(message: Message, args: Command.Args, context: Command.MessageContext): Promise<void> {
-		const cmd = await args.pickResult("string");
-		const command = this.container.stores.get("commands").get(cmd.value ?? "") as Command | undefined;
-		const embed = this.RunCommand(context, message.author, command);
-
-		await message.reply({ embeds: [embed] });
-	}
-
 	public async chatInputRun(interaction: CommandInteraction, context: Command.SlashCommandContext) {
-		const cmd = interaction.options.getString("command", false);
-		const command = this.container.stores.get("commands").get(cmd ?? "") as Command | undefined;
-		const embed = this.RunCommand(context, interaction.user, command);
-
-		await interaction.reply({
-			embeds: [embed]
-		});
-	}
-
-	private RunCommand(context: Command.MessageContext | Command.SlashCommandContext, user: User, command?: Command): MessageEmbed {
 		const embed = this.client.utils
 			.embed()
-			.setTitle(`Help Command - ${user.tag}`)
-			.setFooter("Bot created by DaanGamesDG#7621", "https://static.daangamesdg.xyz/discord/pfp.gif");
+			.setTitle(
+				this.translate.translate(interaction.guildId, "general:help.embed.title", {
+					user: interaction.user.tag
+				})
+			)
+			.setFooter(this.translate.translate(interaction.guildId, "general:help.embed.footer"), "https://cdn.stereo-bot.tk/branding/logo.png");
+
+		const cmd = interaction.options.getString("command", false);
+		const command = this.container.stores.get("commands").get(cmd ?? "") as Command | undefined;
 
 		if (command) {
-			const userPermissions = this.client.utils.formatPerms(command.permissions);
-			const clientPermissions = this.client.utils.formatPerms(command.clientPermissions);
-
-			embed.setDescription(
-				[
-					`>>> 🏷 | **Name**: ${command.name}`,
-					`📁 | **Category**: ${command.category}`,
-					`🔖 | **Aliases**: \`${command.aliases.join("`, `") || "-"}\`\n`,
-					`📋 | **Usage**: ${command.usage ? `${context.commandPrefix}${command.usage}` : "-"}`,
-					`📘 | **Description**: ${command.description ?? "-"}\n`,
-					`👮‍♂️ | **User Permissions**: ${userPermissions ?? "-"}`,
-					`🤖 | **Client Permissions**: ${clientPermissions ?? "-"}`,
-					`⌚ | **Cooldown**: \`${ms(command.cooldown, { long: false })}\``,
-					`🔢 | **Cooldown Limit**: \`${command.cooldownLimit}\``
-				].join("\n")
-			);
+			embed
+				.setDescription(
+					this.translate.translate(interaction.guildId, "general:help.embed.description", {
+						name: command.name,
+						category: command.category,
+						description: command.tDescription ? this.translate.translate(interaction.guildId, command.tDescription) : "-",
+						usage: command.usage ? `/${command.usage}` : "-",
+						perms: Array.isArray(command.options.requiredClientPermissions)
+							? command.options.requiredClientPermissions.map((str) => `\`{${str}}\``).join(", ")
+							: "-",
+						djrole: emojis[true ? "greentick" : "redcross"],
+						cooldown: ms(command.cooldown),
+						limit: command.cooldownLimit
+					})
+				)
+				.addFields(
+					command.OwnerOnly || !command.options.chatInputCommand?.options
+						? []
+						: command.options.chatInputCommand.options
+								.filter((c) => !["SUB_COMMAND", "SUB_COMMAND_GROUP"].includes(c.type.toString()))
+								.map((arg) => ({
+									name: `• ${this.translate.translate(interaction.guildId, "BotGeneral:argument")} "${
+										arg.name
+									}" (${this.translate.translate(interaction.guildId, "BotGeneral:required")})`,
+									value: this.translate.translate(interaction.guildId, arg.tDescription ?? "")
+								}))
+				);
 		} else {
-			const isOwner = this.client.isOwner(user.id);
+			const isOwner = this.container.client.isOwner(interaction.user.id);
 			const commands = [...this.container.stores.get("commands").values()] as Command[];
-			let categories = [...new Set(commands.map((c) => c.category ?? "default"))];
+			let categories = [...new Set(commands.map((c) => c.category))];
 
-			if (!isOwner) categories = categories.filter((c) => c.toLowerCase() !== "developers");
+			if (!isOwner) categories = categories.filter((c) => c?.toLowerCase() !== "developers");
 
 			const fields: EmbedFieldData[] = categories.map((category) => {
 				const valid = commands.filter((c) => c.category === category);
-				const filtered = isOwner ? valid : valid.filter((c) => !c.hidden || !c.OwnerOnly);
+				const filtered = isOwner ? valid : valid.filter((c) => !c.OwnerOnly);
 
 				return {
 					name: `• ${category}`,
@@ -84,6 +87,21 @@ export default class extends Command {
 			embed.setFields(fields);
 		}
 
-		return embed;
+		await interaction.reply({
+			embeds: [embed],
+			components: [
+				new MessageActionRow().addComponents(
+					new MessageButton()
+						.setLabel("Invite")
+						.setStyle("LINK")
+						.setURL(
+							`https://discord.com/oauth2/authorize?client_id=${this.client.user?.id}&scope=bot%20applications.commands&permissions=3411200`
+						),
+					new MessageButton().setLabel("Support Server").setStyle("LINK").setURL("https://discord.gg/46v9tr3Wxp"),
+					new MessageButton().setLabel("Dashboard").setStyle("LINK").setURL("https://stereo-bot.tk/dashboard"),
+					new MessageButton().setLabel("Status").setStyle("LINK").setURL("https://status.stereo-bot.tk/")
+				)
+			]
+		});
 	}
 }
