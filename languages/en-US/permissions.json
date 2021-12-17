@@ -36,7 +36,7 @@
 		"message": ">>> 👮‍♂️ | You are missing the following permissions to do this: {permissions}",
 		"PLAY_SONGS": "Play Songs",
 		"EDIT_QUEUE": "Edit Queue",
-		"AUDIO_CONTROLS": "Audio Controls",
+		"PLAYER_CONTROLS": "Audio Controls",
 		"FILTERS": "Filters"
 	}
 }

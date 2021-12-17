@@ -15,7 +15,7 @@ export class MusicPermissions {
 	public static FLAGS: MusicPermissionFlags = {
 		PLAY_SONGS: 1n << 1n,
 		EDIT_QUEUE: 1n << 2n,
-		AUDIO_CONTROLS: 1n << 3n,
+		PLAYER_CONTROLS: 1n << 3n,
 		FILTERS: 1n << 4n
 	};
 

@@ -5,36 +5,13 @@ import { Command } from "../../../client";
 @ApplyOptions<Command.Options>({
 	name: "remove",
 	preconditions: ["GuildOnly"],
-	description: "Changes the repeat mode",
-	tDescription: "music:repeat.description",
-	usage: "<mode>",
+	description: "Resumes the player",
+	tDescription: "music:resume.description",
+	cooldownDelay: 1e4,
 	musicPermissions: ["PLAYER_CONTROLS"],
 	chatInputCommand: {
 		register: true,
-		messageCommand: true,
-		options: [
-			{
-				name: "mode",
-				description: "The repeat mode",
-				tDescription: "music:repeat.args.mode",
-				type: "STRING",
-				required: true,
-				choices: [
-					{
-						name: "None",
-						value: "none"
-					},
-					{
-						name: "Song",
-						value: "song"
-					},
-					{
-						name: "Queue",
-						value: "queue"
-					}
-				]
-			}
-		]
+		messageCommand: true
 	}
 })
 export default class extends Command {
@@ -60,20 +37,23 @@ export default class extends Command {
 			return;
 		}
 
-		const mode = interaction.options.getString("mode", true);
-		if (mode === "queue") {
-			player.queue.setRepeatQueue(true);
-		} else if (mode === "song") {
-			player.queue.setRepeatSong(true);
-		} else {
-			player.queue.setRepeatQueue(false);
-			player.queue.setRepeatSong(false);
+		if (!player.queue.current) {
+			await interaction.reply(this.translate.translate(interaction.guildId, "MusicGeneral:noTrack"));
+			return;
 		}
 
-		await interaction.reply(
-			this.translate.translate(interaction.guildId, "music:repeat.success", {
-				mode
-			})
-		);
+		if (!player.paused) {
+			await interaction.reply(this.translate.translate(interaction.guildId, "music:resume.fail"));
+			return;
+		}
+
+		const timeout = this.client.timeouts.get(interaction.guildId);
+		if (timeout) {
+			clearTimeout(timeout);
+			this.client.timeouts.delete(interaction.guildId);
+		}
+
+		player.pause(false);
+		await interaction.reply(this.translate.translate(interaction.guildId, "music:resume.success"));
 	}
 }

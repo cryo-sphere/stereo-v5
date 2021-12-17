@@ -13,6 +13,7 @@ export class Client extends SapphireClient {
 
 	// collections
 	public config = new Collection<string, Guild & { permissions: Permission[] }>();
+	public timeouts = new Collection<string, NodeJS.Timeout>();
 
 	// Classes
 	public prisma = new PrismaClient();
@@ -104,6 +105,7 @@ declare module "@sapphire/framework" {
 
 		// collections
 		public config: Collection<string, Guild & { permissions: Permission[] }>;
+		public timeouts: Collection<string, NodeJS.Timeout>;
 
 		// Classes
 		public prisma: PrismaClient;
