@@ -40,7 +40,7 @@ This project is WIP, please come back later for a guide on how to host this bot 
 
 Stereo is equipped with a lot of cool features, here are some of them:
 
--   [ ] Custom role permissions
+-   [x] Custom role permissions
 -   [ ] Web player
 -   [ ] Saved queue (auto restart after reboot)
 -   [x] Filters
