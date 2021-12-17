@@ -4,7 +4,7 @@ import type { CommandInteraction, VoiceChannel } from "discord.js";
 import { Command } from "../../../client";
 
 @ApplyOptions<Command.Options>({
-	name: "remove",
+	name: "seek",
 	preconditions: ["GuildOnly"],
 	description: "Seeks the current track to the timestamp",
 	tDescription: "music:seek.description",

@@ -3,7 +3,7 @@ import type { CommandInteraction, VoiceChannel } from "discord.js";
 import { Command } from "../../../client";
 
 @ApplyOptions<Command.Options>({
-	name: "remove",
+	name: "resume",
 	preconditions: ["GuildOnly"],
 	description: "Resumes the player",
 	tDescription: "music:resume.description",

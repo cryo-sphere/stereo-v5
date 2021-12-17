@@ -3,7 +3,7 @@ import type { CommandInteraction, VoiceChannel } from "discord.js";
 import { Command } from "../../../client";
 
 @ApplyOptions<Command.Options>({
-	name: "remove",
+	name: "shuffle",
 	preconditions: ["GuildOnly"],
 	description: "Shuffles the queue",
 	tDescription: "music:shuffle.description",

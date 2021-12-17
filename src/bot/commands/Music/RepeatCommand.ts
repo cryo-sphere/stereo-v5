@@ -3,7 +3,7 @@ import type { CommandInteraction, VoiceChannel } from "discord.js";
 import { Command } from "../../../client";
 
 @ApplyOptions<Command.Options>({
-	name: "remove",
+	name: "repeat",
 	preconditions: ["GuildOnly"],
 	description: "Changes the repeat mode",
 	tDescription: "music:repeat.description",
