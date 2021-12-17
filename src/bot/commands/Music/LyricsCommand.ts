@@ -1,6 +1,7 @@
 import { ApplyOptions } from "@sapphire/decorators";
 import type { CommandInteraction } from "discord.js";
 import { Command } from "../../../client";
+import { Client as GeniusClient } from "genius-lyrics";
 
 const genius = new GeniusClient(process.env.GENIUS ?? "");
 
