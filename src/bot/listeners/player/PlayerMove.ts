@@ -2,7 +2,7 @@ import { Listener } from "../../../client";
 import { ApplyOptions } from "@sapphire/decorators";
 import type { Player } from "@stereo-bot/lavalink";
 
-@ApplyOptions<Listener.Options>((ctx) => ({ event: "playerDestroy", emitter: ctx.store.container.client.manager }))
+@ApplyOptions<Listener.Options>((ctx) => ({ event: "playerMove", emitter: ctx.store.container.client.manager }))
 export default class extends Listener {
 	public async run({ newChannel, player }: { player: Player; newChannel: string; oldChannel: string }): Promise<void> {
 		if (!newChannel) {
