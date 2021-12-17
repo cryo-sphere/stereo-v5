@@ -1,53 +1,46 @@
 import { ArgumentError, Events, ChatInputCommandErrorPayload, UserError } from "@sapphire/framework";
-import { DiscordAPIError, HTTPError } from "discord.js";
+import { CommandInteraction, DiscordAPIError, HTTPError } from "discord.js";
 import { Listener } from "../../../client";
 import { RESTJSONErrorCodes } from "discord-api-types/v9";
 import { ApplyOptions } from "@sapphire/decorators";
 import { codeBlock } from "@sapphire/utilities";
-import { emojis } from "../../../client/constants";
 
 const ignoredCodes = [RESTJSONErrorCodes.UnknownChannel, RESTJSONErrorCodes.UnknownMessage];
 
 @ApplyOptions<Listener.Options>({ event: "chatInputCommandError" })
 export default class extends Listener {
-	public run(error: Error, { interaction, command }: ChatInputCommandErrorPayload) {
-		const author = interaction.user.id;
-		const reply = interaction.replied ? interaction.followUp.bind(interaction) : interaction.reply.bind(interaction);
-		const errorEmoji = emojis.error;
-
+	public async run(error: any, { interaction, command }: ChatInputCommandErrorPayload) {
 		// If string || UserError, send to user
-		if (typeof error === "string") return reply(`>>> ${errorEmoji} | ${error}`);
-		if (error instanceof ArgumentError) return reply(`>>> ${errorEmoji} | ${error.message}`);
-		if (error instanceof UserError) return reply(`>>> ${errorEmoji} | ${error.message}`);
+		if (typeof error === "string")
+			return this.reply(interaction, this.translate.translate(interaction.guildId, "BotGeneral:error_raw", { error }));
+		if (error instanceof ArgumentError)
+			return this.reply(interaction, this.translate.translate(interaction.guildId, `BotGeneral:errors.${error.identifier}`));
+		if (error instanceof UserError)
+			return this.reply(interaction, this.translate.translate(interaction.guildId, `BotGeneral:errors.${error.identifier}`));
 
 		if (error.name === "AbortError" || error.message === "Internal Server Error") {
-			this.container.logger.warn(
-				`${this.getWarnError(author, interaction.id, interaction.channelId, interaction.guildId)} (${author}) | ${error.constructor.name} | ${
-					error.message
-				}`
-			);
+			this.container.logger.warn(`${this.getWarnError(interaction)} (${interaction.user.id}) | ${error.constructor.name} | ${error.message}`);
 
-			return reply(
-				`>>> ${errorEmoji} | Oh no, this doesn't look very good. Something caused the request to abort their mission, please try again.`
-			);
+			return this.reply(interaction, this.translate.translate(interaction.guildId, "BotGeneral:error"));
 		}
 
 		// checks if error is DiscordAPIError || HTTPError
 		if (error instanceof DiscordAPIError || error instanceof HTTPError) {
-			if (this.isSilencedError(interaction.channelId, interaction.guildId, error)) return;
-			this.container.client.emit("error", error);
-		} else {
-			this.container.logger.warn(
-				`${this.getWarnError(author, interaction.id, interaction.channelId, interaction.guildId)} (${author}) | ${error.constructor.name} | ${
-					error.message
-				}`
+			if (this.isSilencedError(interaction, error)) return;
+			return this.container.client.emit("error", error);
+		}
+
+		if (typeof error.constructor.name === "string" && error.constructor.name.toLowerCase() === "discordjserror") {
+			await this.reply(interaction, this.translate.translate(interaction.guildId, "BotGeneral:error_raw", { error: error.message }));
+			return this.container.logger.error(
+				`${this.getWarnError(interaction)} (${interaction.user.id}) | ${error.constructor.name} | ${error.message}`
 			);
 		}
 
-		this.container.logger.fatal(`[COMMAND] ${command.location.relative}\n${error.stack || error.message}`);
+		this.container.logger.fatal(`[COMMAND] ${command.location.full}\n${error.stack || error.message}`);
 
 		try {
-			return reply(this.generateUnexpectedErrorinteraction(author, error));
+			return this.reply(interaction, this.generateUnexpectedErrorMessage(interaction, error));
 		} catch (err) {
 			this.container.client.emit(Events.Error, err);
 		}
@@ -55,23 +48,28 @@ export default class extends Listener {
 		return undefined;
 	}
 
-	private isSilencedError(channelId: string, guild: string | null, error: DiscordAPIError | HTTPError) {
-		return ignoredCodes.includes(error.code) || this.isDirectinteractionReplyAfterBlock(channelId, guild, error);
+	private reply(interaction: CommandInteraction, str: string) {
+		if (interaction.deferred || interaction.replied) return interaction.followUp(str).catch(() => void 0);
+		return interaction.reply(str).catch(() => void 0);
 	}
 
-	private isDirectinteractionReplyAfterBlock(channelId: string, guild: string | null, error: DiscordAPIError | HTTPError) {
+	private isSilencedError(interaction: CommandInteraction, error: DiscordAPIError | HTTPError) {
+		return ignoredCodes.includes(error.code) || this.isDirectMessageReplyAfterBlock(interaction, error);
+	}
+
+	private isDirectMessageReplyAfterBlock(interaction: CommandInteraction, error: DiscordAPIError | HTTPError) {
 		if (error.code !== RESTJSONErrorCodes.CannotSendMessagesToThisUser) return false;
-		if (guild !== null) return false;
-		return error.path === `/channels/${channelId}/messages`;
+		if (interaction.guild !== null) return false;
+		return error.path === `/channels/${interaction.channelId}/messages`;
 	}
 
-	private generateUnexpectedErrorinteraction(authorId: string, error: Error) {
-		if (this.container.client.owners.includes(authorId)) return codeBlock("js", error.stack ?? error.message);
+	private generateUnexpectedErrorMessage(interaction: CommandInteraction, error: Error) {
+		if (this.container.client.owners.includes(interaction.user.id)) return codeBlock("js", error.stack ?? error.message);
 
-		return `>>> ${emojis.error} | Oh no, this doesn't look very good.\n**Error**: \`${error.message}\`\nIf this keeps happening, please DM the developer of this bot.`;
+		return this.translate.translate(interaction.guildId, "BotGeneral:error_raw", { error });
 	}
 
-	private getWarnError(author: string, id: string, channelId?: string, guildId?: string | null) {
-		return `ERROR: /${guildId ? `${guildId}/${channelId}` : `DM/${author}`}/${id}`;
+	private getWarnError(interaction: CommandInteraction) {
+		return `ERROR: /${interaction.guild ? `${interaction.guild.id}/${interaction.channelId}` : `DM/${interaction.user.id}`}/${interaction.id}`;
 	}
 }
