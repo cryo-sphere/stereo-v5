@@ -4,6 +4,7 @@ import {
 	ButtonInteraction,
 	Channel,
 	Collection,
+	CommandInteraction,
 	DMChannel,
 	Guild,
 	GuildMemberRoleManager,
@@ -127,12 +128,13 @@ export class Utils {
 		return ["DM", "GROUP_DM"].includes(channel.type);
 	}
 
-	public pagination(message: Message, pages: MessageEmbed[], buttons: MessageButton[], timeout = 12e4, pageNumber = 1) {
+	public pagination(interaction: CommandInteraction, pages: MessageEmbed[], buttons: MessageButton[], timeout = 12e4, pageNumber = 1) {
 		let page = pageNumber;
-		const ids = buttons.map((c) => c.customId);
+		if (!interaction.channel) return;
 
-		const filter = (i: Interaction) => i.isButton() && i.inGuild() && i.guildId === message.guildId && ids.includes(i.customId);
-		const collector = message.channel.createMessageComponentCollector({
+		const ids = buttons.map((c) => c.customId);
+		const filter = (i: Interaction) => i.isButton() && i.inGuild() && i.guildId === interaction.guildId && ids.includes(i.customId);
+		const collector = interaction.channel.createMessageComponentCollector({
 			time: timeout,
 			filter
 		});
@@ -146,7 +148,7 @@ export class Utils {
 					page = page === pages.length ? 1 : page + 1;
 					break;
 				case ids[1]:
-					await message.delete().catch(() => void 0);
+					await interaction.deleteReply().catch(() => void 0);
 					collector.stop("deleted");
 					break;
 				default:
@@ -154,9 +156,16 @@ export class Utils {
 			}
 
 			await buttonInteraction.deferUpdate().catch(() => void 0);
-			await message
-				.edit({
-					embeds: [pages[page - 1].setFooter(`Page ${page} / ${pages.length}`)]
+			await interaction
+				.editReply({
+					embeds: [
+						pages[page - 1].setFooter(
+							this.client.translationManager.translate(interaction.guildId, "music:queue.embed.footer", {
+								page,
+								maxPages: pages.length
+							})
+						)
+					]
 				})
 				.catch(() => void 0);
 		});
@@ -170,9 +179,16 @@ export class Utils {
 				buttons[2].setDisabled(true)
 			);
 
-			message
-				.edit({
-					embeds: [pages[page - 1].setFooter(`Page ${page} / ${pages.length}`)],
+			interaction
+				.editReply({
+					embeds: [
+						pages[page - 1].setFooter(
+							this.client.translationManager.translate(interaction.guildId, "music:queue.embed.footer", {
+								page,
+								maxPages: pages.length
+							})
+						)
+					],
 					components: [disabledRow]
 				})
 				.catch(() => void 0);
