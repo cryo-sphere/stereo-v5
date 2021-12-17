@@ -56,7 +56,7 @@ export default class extends Command {
 			.embed()
 			.setTitle(track.title)
 			.setThumbnail(track.thumbnail)
-			.setDescription(lyrics.substr(0, 4096))
+			.setDescription(lyrics.substring(0, 4095))
 			.setFooter("Api: genius.com")
 			.setURL(track.url);
 
