@@ -37,6 +37,7 @@
 		"PLAY_SONGS": "Play Songs",
 		"EDIT_QUEUE": "Edit Queue",
 		"PLAYER_CONTROLS": "Audio Controls",
-		"FILTERS": "Filters"
+		"FILTERS": "Filters",
+		"FORCE_SKIP_SONGS": "Forceskip Songs"
 	}
 }
