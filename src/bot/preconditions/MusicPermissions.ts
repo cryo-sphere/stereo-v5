@@ -36,7 +36,7 @@ export default class extends Precondition {
 			return this.error({
 				identifier: "permissions:custom.message",
 				message: "Missing music permissions",
-				context: { permissions: MusicPermissions.resolveToString(context.permissions) }
+				context: { permissions: this.resolveTranslation(interaction, MusicPermissions.resolveToString(context.permissions)) }
 			});
 
 		const permissions = new MusicPermissions(config.permissions.find((perm) => perm.id === permRole.id)!.permissions);
@@ -44,7 +44,7 @@ export default class extends Precondition {
 			return this.error({
 				identifier: "permissions:custom.message",
 				message: "Missing music permissions",
-				context: { permissions: MusicPermissions.resolveToString(context.permissions) }
+				context: { permissions: this.resolveTranslation(interaction, MusicPermissions.resolveToString(context.permissions)) }
 			});
 
 		return this.ok();
@@ -55,5 +55,9 @@ export default class extends Precondition {
 
 		const roles = await Promise.all(interaction.member.roles.map((id) => this.client.utils.getRole(id, interaction.guild!)));
 		return roles.filter((r) => r !== null).sort((a, b) => a!.position - b!.position) as Role[];
+	}
+
+	private resolveTranslation(interaction: Interaction, ids: string[]): string {
+		return ids.map((id) => this.translate.translate(interaction.guildId, `permissions:custom.${id}`)).join(", ");
 	}
 }

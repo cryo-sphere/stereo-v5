@@ -31,5 +31,12 @@
 	"USE_VAD": "Use Vad",
 	"VIEW_AUDIT_LOG": "View Audit Log",
 	"VIEW_CHANNEL": "View Channel",
-	"VIEW_GUILD_INSIGHTS": "View Server Insights"
+	"VIEW_GUILD_INSIGHTS": "View Server Insights",
+	"custom": {
+		"message": ">>> 👮‍♂️ | You are missing the following permissions to do this: {permissions}",
+		"PLAY_SONGS": "Play Songs",
+		"EDIT_QUEUE": "Edit Queue",
+		"AUDIO_CONTROLS": "Audio Controls",
+		"FILTERS": "Filters"
+	}
 }
