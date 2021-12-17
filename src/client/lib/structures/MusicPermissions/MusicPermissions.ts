@@ -16,7 +16,8 @@ export class MusicPermissions {
 		PLAY_SONGS: 1n << 1n,
 		EDIT_QUEUE: 1n << 2n,
 		PLAYER_CONTROLS: 1n << 3n,
-		FILTERS: 1n << 4n
+		FILTERS: 1n << 4n,
+		FORCE_SKIP_SONGS: 1n << 5n
 	};
 
 	public static resolve(permissions: MusicPermissionResolvable): bigint {
