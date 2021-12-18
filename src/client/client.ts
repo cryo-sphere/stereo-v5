@@ -127,6 +127,7 @@ declare module "@sapphire/framework" {
 	interface Preconditions {
 		OwnerOnly: never;
 		Blacklisted: never;
+		PartnerOnly: never;
 		MusicPermissions: {
 			permissions: MusicPermissionResolvable;
 		};
