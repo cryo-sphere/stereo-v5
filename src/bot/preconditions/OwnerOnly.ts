@@ -6,7 +6,8 @@ export default class extends Precondition {
 		return this.client.owners.includes(message.author.id)
 			? this.ok()
 			: this.error({
-					message: `Only bot developers of **${this.client.user!.tag}** are able to use this command.`
+					identifier: "BotGeneral:owneronly",
+					context: { bot: this.container.client.user?.tag }
 			  });
 	}
 
@@ -22,7 +23,8 @@ export default class extends Precondition {
 		return this.client.owners.includes(interaction.user.id)
 			? this.ok()
 			: this.error({
-					message: `Only bot developers of **${this.client.user!.tag}** are able to use this command.`
+					identifier: "BotGeneral:owneronly",
+					context: { bot: this.container.client.user?.tag }
 			  });
 	}
 }
