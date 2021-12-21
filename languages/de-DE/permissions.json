@@ -26,7 +26,7 @@
 	"SEND_TTS_MESSAGES": "TTS-Nachrichten senden",
 	"SPEAK": "Sprechen",
 	"STREAM": "Video",
-	"USE_APPLICATION_COMMANDS": "Use Application Commands",
+	"USE_APPLICATION_COMMANDS": "Anwendungsbefehle verwenden",
 	"USE_EXTERNAL_EMOJIS": "Externe Emojis verwenden",
 	"USE_VAD": "Sprachaktivierung verwenden",
 	"VIEW_AUDIT_LOG": "Audit-Log anzeigen",
