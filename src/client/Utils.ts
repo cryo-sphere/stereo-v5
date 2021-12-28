@@ -1,4 +1,5 @@
 import {
+	AnyChannel,
 	AwaitMessageComponentOptions,
 	AwaitMessagesOptions,
 	ButtonInteraction,
@@ -34,7 +35,7 @@ export default class Utils {
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	}
 
-	public async getChannel(id: string): Promise<Channel | null> {
+	public async getChannel(id: string): Promise<AnyChannel | null> {
 		return typeof id === "string"
 			? this._resolve(this.client.channels.cache, id) ||
 					(await this.client.channels.fetch(id).catch(() => null))
@@ -60,7 +61,7 @@ export default class Utils {
 			: null;
 	}
 
-	protected _resolve<T extends GuildMember | User | Channel | Guild | Emoji | Role>(
+	protected _resolve<T extends GuildMember | User | AnyChannel | Guild | Emoji | Role>(
 		cache: Collection<string, T>,
 		id: string
 	): T | null {
@@ -93,7 +94,7 @@ export default class Utils {
 		return ["DM", "GROUP_DM"].includes(channel.type);
 	}
 
-	protected _regex(item: User | Channel | Emoji | Role | GuildMember): RegExp {
+	protected _regex(item: User | AnyChannel | Emoji | Role | GuildMember): RegExp {
 		return item instanceof Emoji
 			? /<a?:[a-zA-Z0-9_]+:(\d{17,19})>/
 			: item instanceof Channel
