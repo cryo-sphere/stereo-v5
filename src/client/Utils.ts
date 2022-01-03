@@ -142,16 +142,16 @@ export default class Utils {
 			await interaction
 				.editReply({
 					embeds: [
-						pages[page - 1].setFooter(
-							this.client.languageHandler.translate(
+						pages[page - 1].setFooter({
+							text: this.client.languageHandler.translate(
 								interaction.guildId,
 								"music:queue.embed.footer",
 								{
 									page,
 									maxPages: pages.length,
 								}
-							)
-						),
+							),
+						}),
 					],
 				})
 				.catch(() => void 0);
@@ -169,16 +169,16 @@ export default class Utils {
 			interaction
 				.editReply({
 					embeds: [
-						pages[page - 1].setFooter(
-							this.client.languageHandler.translate(
+						pages[page - 1].setFooter({
+							text: this.client.languageHandler.translate(
 								interaction.guildId,
 								"music:queue.embed.footer",
 								{
 									page,
 									maxPages: pages.length,
 								}
-							)
-						),
+							),
+						}),
 					],
 					components: [disabledRow],
 				})

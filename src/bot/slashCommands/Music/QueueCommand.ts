@@ -99,12 +99,12 @@ export default class QueueCommand extends SlashCommand {
 							)
 							.join("\n")
 					)
-					.setFooter(
-						this.languageHandler.translate(interaction.guildId, "music:queue.embed.footer", {
+					.setFooter({
+						text: this.languageHandler.translate(interaction.guildId, "music:queue.embed.footer", {
 							page,
 							maxPages,
-						})
-					),
+						}),
+					}),
 			],
 		});
 

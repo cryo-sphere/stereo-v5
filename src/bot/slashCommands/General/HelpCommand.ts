@@ -26,10 +26,10 @@ export default class HelpCommand extends SlashCommand {
 					user: interaction.user.tag,
 				})
 			)
-			.setFooter(
-				this.languageHandler.translate(interaction.guildId, "general:help.embed.footer"),
-				"https://cdn.stereo-bot.tk/branding/logo.png"
-			);
+			.setFooter({
+				text: this.languageHandler.translate(interaction.guildId, "general:help.embed.footer"),
+				iconURL: "https://cdn.stereo-bot.tk/branding/logo.png",
+			});
 
 		const cmd = args.getString("command", false);
 		const command = this.container.stores.get("slashCommands").get(cmd ?? "") as

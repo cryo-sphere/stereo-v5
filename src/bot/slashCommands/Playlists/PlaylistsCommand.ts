@@ -165,16 +165,16 @@ export default class PlaylistsCommand extends SlashCommand {
 							)
 							.join("\n")
 					)
-					.setFooter(
-						this.languageHandler.translate(
+					.setFooter({
+						text: this.languageHandler.translate(
 							interaction.guildId,
 							"playlists:playlists.show.embed.footer",
 							{
 								page,
 								maxPages,
 							}
-						)
-					),
+						),
+					}),
 			],
 		});
 
