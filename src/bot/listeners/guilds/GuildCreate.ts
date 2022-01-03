@@ -29,7 +29,7 @@ export default class GuildCreateListener extends Listener {
 							guild?.iconURL?.({ dynamic: true, size: 4096 }) ??
 								"https://cdn.daangamesdg.tk/discord/wumpus.png"
 						)
-						.setFooter(`We are now in ${client.guilds.cache.size} guilds`),
+						.setFooter({ text: `We are now in ${client.guilds.cache.size} guilds` }),
 				],
 			})
 			.catch(() => void 0);

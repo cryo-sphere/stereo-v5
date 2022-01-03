@@ -52,8 +52,10 @@ export default class LyricsCommand extends SlashCommand {
 			.embed()
 			.setTitle(track.title)
 			.setThumbnail(track.thumbnail)
-			.setDescription(lyrics.substr(0, 4096))
-			.setFooter("Api: genius.com")
+			.setDescription(lyrics.substring(0, 4095))
+			.setFooter({
+				text: "Api: genius.com",
+			})
 			.setURL(track.url);
 
 		await interaction.followUp({ embeds: [embed] });
