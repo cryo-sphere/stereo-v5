@@ -10,7 +10,7 @@
 		"@daangamesdg/logger": "^1.1.0",
 		"@discordjs/rest": "^0.1.0-canary.0",
 		"@prisma/client": "^3.8.1",
-		"@sapphire/decorators": "^3.1.6",
+		"@sapphire/decorators": "^4.0.2",
 		"@sapphire/framework": "2.3.0",
 		"@sapphire/type": "^2.1.2",
 		"@stereo-bot/lavalink": "^1.2.1",
