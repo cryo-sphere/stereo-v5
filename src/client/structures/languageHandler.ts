@@ -38,7 +38,7 @@ export default class languageHandler {
 		const [_file, path] = _path.split(":");
 		const parsed = this.parse(lang[_file]);
 
-		let data = dotprop.get(parsed, path) as string;
+		let data = dotprop.getProperty(parsed, path) as string;
 		if (typeof data !== "string" || !data.length) return `${_path} is not a valid language path`;
 
 		for (const key of Object.keys(vars))
