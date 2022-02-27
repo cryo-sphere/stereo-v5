@@ -2,12 +2,8 @@
 	"name": "stereo-v5",
 	"version": "5.0.0",
 	"description": "Stereo is the only music bot you will ever need, the best audio quality, filters and more completely free!",
-	"exports": "./dist/index.js",
-	"type": "module",
-	"author": "DaanGamesDG <daan@daangamesdg.xyz>",
-	"engines": {
-		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
-	},
+	"main": "dist/index.js",
+	"author": "DaanGamesDG <daan@daangamesdg.wtf>",
 	"license": "MIT",
 	"private": false,
 	"dependencies": {
