@@ -46,7 +46,7 @@
 			"volume": "La valeur à laquelle régler le volume"
 		},
 		"invalid": ">>> {emoji.redcross} | La valeur doit être comprise entre 1 et 200.",
-		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}§%** !"
+		"success": ">>> {emoji.greentick} | Changement réussi de volume à **{volume}%** !"
 	},
 	"247": {
 		"description": "Bascule en mode 24/7, uniquement pour les partenaires",
